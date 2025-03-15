@@ -94,6 +94,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
     <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
 </head>
 @if (Session::get('theme_color'))

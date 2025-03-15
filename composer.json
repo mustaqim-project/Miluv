@@ -20,6 +20,7 @@
         "paypal/rest-api-sdk-php": "^1.6",
         "php-flasher/flasher-laravel": "^1.7",
         "razorpay/razorpay": "^2.8",
+        "silviolleite/laravelpwa": "^2.0",
         "spatie/image": "^3.8",
         "spatie/image-optimizer": "^1.8",
         "stripe/stripe-php": "^10.11",
