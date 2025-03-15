@@ -1,21 +1,29 @@
 @php 
 $mutualFriendsData = [];
-foreach($friendships as $friendship) {
-    if($friendship->requester == $user_info->id) {
+
+foreach ($friendships as $friendship) {
+    if ($friendship->requester == $user_info->id) {
         $friends_user_data = DB::table('users')->where('id', $friendship->accepter)->first();
     } else {
         $friends_user_data = DB::table('users')->where('id', $friendship->requester)->first();
     }
 
-    // Decode the JSON object as associative arrays and get the keys
-    $number_of_friend_friends = array_keys(json_decode($friends_user_data->friends, true));
-    $number_of_my_friends = array_keys(json_decode($user_info->friends, true));
-
-    // Find the intersection of the two arrays
-    $mutual_friends = array_intersect($number_of_friend_friends, $number_of_my_friends);
-    foreach($mutual_friends as $set){
-        array_push($mutualFriendsData, $set);
+    // Ensure user data exists before accessing properties
+    if (!$friends_user_data || !$user_info) {
+        continue; // Skip this iteration if user data is null
     }
+
+    // Ensure 'friends' column is not null
+    $friend_friends = json_decode($friends_user_data->friends ?? '[]', true);
+    $my_friends = json_decode($user_info->friends ?? '[]', true);
+
+    if (!is_array($friend_friends) || !is_array($my_friends)) {
+        continue; // Skip if decoding failed
+    }
+
+    // Find mutual friends
+    $mutual_friends = array_intersect(array_keys($friend_friends), array_keys($my_friends));
+    $mutualFriendsData = array_merge($mutualFriendsData, $mutual_friends);
 }
 
 
