@@ -20,21 +20,21 @@
     <!-- Preconnect & Prefetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="{{ url('assets/frontend/css/style.css') }}" as="style">
-    <link rel="preload" href="{{ url('assets/frontend/css/fontawesome/all.min.css') }}" as="style">
+    <link rel="preload" href="{{ assets('assets/frontend/css/style.css') }}" as="style">
+    <link rel="preload" href="{{ assets('assets/frontend/css/fontawesome/all.min.css') }}" as="style">
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/fontawesome/all.min.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/fontawesome/all.min.css') }}">
     
     <!-- CSS Library -->
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/venobox.min.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/venobox.min.css') }}">
     
     <!-- Style css -->
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ assets('assets/frontend/css/own.css') }}">
 </head>
 
 

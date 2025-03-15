@@ -1,71 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        
-        @php
-            $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
-            $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
-        @endphp
-        
-        <title>{{ $system_name }}</title>
-        <meta name="keywords" content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
-        <meta name="description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="csrf_token" content="{{ csrf_token() }}" />
-        
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="Miluv - Media Social & Dating App">
-        <meta property="og:description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
-        
-        <!-- Preconnect & Prefetch -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-        <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-        
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
-        <link rel="apple-touch-icon" href="images/favicon.png" />
-        
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fontawesome/all.min.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/plyr/plyr.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/leafletjs/leaflet.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/style.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/gallery/justifiedGallery.min.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/toaster/toaster.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/own.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/pc.style.css') }}">
-        
-        <!-- Paid Content -->
-        <link rel="stylesheet" href="{{ url('assets/frontend/paid-content/css/style.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/addon_layout.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/paid-content/css/new_scss/new_style.css') }}">
-        
-        <!-- Fundraiser CSS -->
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/style_make.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_style.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new-style.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new-responsive.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_new.css') }}">
-        <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_responsive.css') }}">
-        
-        <!-- Job Addon CSS -->
-        @if (addon_status('job') == 1)
-            <link rel="stylesheet" href="{{ url('assets/frontend/css/job/style.css') }}">
-        @endif
-        
-        <!-- JavaScript -->
-        <script src="{{ url('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    @php
+        $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
+        $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
+    @endphp
+    <title>{{ $system_name }}</title>
+
+    <!-- CSRF Token for ajax for submission -->
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
+    <!-- CSS Library -->
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/plyr/plyr.css') }}">
+    <link href="{{ asset('assets/frontend/leafletjs/leaflet.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/css/plyr_cdn_dw.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/tagify.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/uploader/file-uploader.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/jquery-rbox.css') }}" rel="stylesheet">
+
+    <!-- paid content start -->
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/addon_layout.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/new_scss/new_style.css') }}" />
+    <!-- paid content end -->
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/gallery/justifiedGallery.min.css') }}">
+    <link href="{{ asset('assets/frontend/toaster/toaster.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}" />
+
+    {{-- fundraiser --}}
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
+    
+   
+    <!-- New -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
+
+    <link rel="apple-touch-icon" href="{{ asset('assets/frontend/css/fundraiser/images/favicon.png') }}" />
+
+    {{-- end fundraiser --}}
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/daterangepicker.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+
+    {{-- Job Addon Css --}}
+    @if (addon_status('job') == 1)
+     <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
+    @endif
+    {{-- Job Addon Css --}}
+	<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+
+
+</head>
+
+
     @if(Session::get('theme_color'))
         @php
             $theme_color = Session::get('theme_color');
@@ -126,60 +146,60 @@
 
     <!--Javascript
     ========================================================-->
-    <script src="{{ url('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/venobox.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/timepicker.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/jquery.datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/venobox.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/timepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.datepicker.min.js') }}"></script>
 
 
-    <script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/plyr/plyr.js') }}"></script>
-    <script src="{{ url('assets/frontend/jquery-form/jquery.form.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/plyr/plyr.js') }}"></script>
+    <script src="{{ asset('assets/frontend/jquery-form/jquery.form.min.js') }}"></script>
 
-    <script src="{{ url('assets/frontend/leafletjs/leaflet.js') }}"></script>
-    <script src="{{ url('assets/frontend/leafletjs/leaflet-search.js') }}"></script>
-    <script src="{{ url('assets/frontend/toaster/toaster.js') }}"></script>
+    <script src="{{ asset('assets/frontend/leafletjs/leaflet.js') }}"></script>
+    <script src="{{ asset('assets/frontend/leafletjs/leaflet-search.js') }}"></script>
+    <script src="{{ asset('assets/frontend/toaster/toaster.js') }}"></script>
 
-    <script src="{{ url('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
 
-    <script src="{{ url('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/jquery-rbox.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/jquery-rbox.js') }}"></script>
 
 
-    <script src="{{ url('assets/frontend/js/plyr_cdn_dw.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/plyr_cdn_dw.js') }}"></script>
 
-    <script src="{{ url('js/share.js') }}"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
 
-    <script src="{{ url('assets/frontend/uploader/file-uploader.js') }}"></script>
+    <script src="{{ asset('assets/frontend/uploader/file-uploader.js') }}"></script>
 
-    <script src="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
 
 
     {{-- fundraiser start----- --}}
-    {{-- <script src="{{ url('assets/frontend/css/fundraiser/js/custom.js') }}"></script> --}}
-    <script src="{{ url('assets/frontend/css/fundraiser/js/custom_btn.js') }}"></script>
-    <script src="{{ url('assets/frontend/css/fundraiser/js/new-script.js') }}"></script>
-    {{-- <script src="{{ url('assets/frontend/css/fundraiser/js/profile-table.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/frontend/css/fundraiser/js/custom.js') }}"></script> --}}
+    <script src="{{ asset('assets/frontend/css/fundraiser/js/custom_btn.js') }}"></script>
+    <script src="{{ asset('assets/frontend/css/fundraiser/js/new-script.js') }}"></script>
+    {{-- <script src="{{ asset('assets/frontend/css/fundraiser/js/profile-table.js') }}"></script> --}}
     {{-- fundraiser end---- --}}
     
 
     
     {{-- paid content start --}}
-    <script src="{{ url('assets/frontend/paid-content/js/select2.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/paid-content/js/ckeditor.js') }}"></script>
-    <script src="{{ url('assets/frontend/paid-content/js/jquery-tjgallery.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/paid-content/js/custom.js') }}"></script>
-    <script src="{{ url('assets/frontend/paid-content/js/script.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/addon_layout.js') }}"></script>
+    <script src="{{ asset('assets/frontend/paid-content/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/paid-content/js/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/frontend/paid-content/js/jquery-tjgallery.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/paid-content/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/frontend/paid-content/js/script.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/addon_layout.js') }}"></script>
     {{-- paid content end --}}
 
-    <script src="{{ url('assets/frontend/js/moment.min.js') }}"></script>
-    <script src="{{ url('assets/frontend/js/daterangepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/daterangepicker.min.js') }}"></script>
 
-    {{-- <script src="{{ url('assets/frontend/js/custom.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/frontend/js/custom.js') }}"></script> --}}
 
-    <script src="{{ url('assets/frontend/js/initialize.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/initialize.js') }}"></script>
 
 
 
@@ -224,20 +244,12 @@
                 success: function(response) {
                     sessionStorage.setItem('theme_color', themeColor);
                     if (themeColor === 'dark') {
-                        $('#dark').attr('src', '{{ url("assets/frontend/images/white_sun.svg") }}');
+                        $('#dark').attr('src', '{{ asset("assets/frontend/images/white_sun.svg") }}');
                 } else {
                     
-                    $('#dark').attr('src', '{{ url("assets/frontend/images/white_moon.svg") }}');
-                }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error updating theme color:', error);
-                }
-            });
-            return false;
-        }
-    });
-</script>
+                    $('#dark').attr('src', '{{ asset("assets/frontend/images/white_moon.svg") }}');
+;
+pt>
 
 
 <script>
