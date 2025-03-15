@@ -69,5 +69,7 @@ class Kernel extends HttpKernel
         'user'=> \App\Http\Middleware\UserMiddleware::class,
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'fileUploadDisabled' => \App\Http\Middleware\DisableFileUpload::class,
+        'check.local.dns' => \App\Http\Middleware\CheckLocalDNS::class,
+
     ];
 }

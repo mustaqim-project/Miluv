@@ -5,7 +5,7 @@ use App\Http\Controllers\{PaymentHistory};
 
 
 //User controllers group routing
-Route::controller(UserController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(UserController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('user/dashboard', 'dashboard')->name('user.dashboard');
 
 
@@ -23,6 +23,6 @@ Route::controller(UserController::class)->middleware('auth', 'user', 'verified',
 
 });
 
-Route::controller(PaymentHistory::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(PaymentHistory::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('user/payment-histories', 'index')->name('user.payment_histories');
 });

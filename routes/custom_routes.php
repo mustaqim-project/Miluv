@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 // events route
 
-Route::controller(EventController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(EventController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/events', 'allevents')->name('event');
     Route::get('user/event', 'userevent')->name('userevent');
     Route::post('/event/store', 'store')->name('event.store');
@@ -52,7 +52,7 @@ Route::controller(EventController::class)->middleware('auth', 'user', 'verified'
 
 // marketplace route
 
-Route::controller(MarketplaceController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(MarketplaceController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/products', 'allproducts')->name('allproducts');
     Route::get('user/product', 'userproduct')->name('userproduct');
     Route::POST('/product/store', 'store')->name('product.store');
@@ -72,7 +72,7 @@ Route::controller(MarketplaceController::class)->middleware('auth', 'user', 'ver
 });
 
 //  blog
-Route::controller(BlogController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(BlogController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/blogs', 'blogs')->name('blogs');
     Route::get('/create/blog', 'create')->name('create.blog');
     Route::get('my/blog', 'myblog')->name('myblog');
@@ -90,7 +90,7 @@ Route::controller(BlogController::class)->middleware('auth', 'user', 'verified',
 });
 
 //  FrontEnd Jobs Route
-Route::controller(JobController::class)->middleware('auth', 'user', 'verified', 'activity')->group(function () {
+Route::controller(JobController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity')->group(function () {
     Route::get('/jobs', 'jobs')->name('jobs');
     Route::get('/create/job', 'job_create')->name('create.job');
     Route::POST('/job/store', 'job_store')->name('job.store');
@@ -127,7 +127,7 @@ Route::controller(JobController::class)->middleware('auth', 'user', 'verified', 
 
 
 //  page
-Route::controller(PageController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(PageController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/pages', 'pages')->name('pages');
     Route::POST('/page/store', 'store')->name('page.store');
     Route::post('/update/page/{id}', 'update')->name('page.update');
@@ -147,7 +147,7 @@ Route::controller(PageController::class)->middleware('auth', 'user', 'verified',
 });
 
 //  group
-Route::controller(GroupController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(GroupController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/groups', 'groups')->name('groups');
     Route::POST('/group/store', 'store')->name('group.store');
     Route::post('/update/group/{id}', 'update')->name('group.update');
@@ -180,7 +180,7 @@ Route::controller(GroupController::class)->middleware('auth', 'user', 'verified'
 });
 
 //  video
-Route::controller(VideoController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(VideoController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/videos', 'videos')->name('videos');
     Route::POST('/videos/sorts/store', 'store')->name('videos.store');
     Route::get('/video/details/info/{id}', 'videoinfo')->name('video.detail.info');
@@ -198,7 +198,7 @@ Route::controller(VideoController::class)->middleware('auth', 'user', 'verified'
 });
 
 //  video
-Route::controller(ChatController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(ChatController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/chat/inbox/{reciver}/{product?}/', 'chat')->name('chat');
     Route::POST('/chat/save', 'chat_save')->name('chat.save');
     Route::get('chat/own/remove/{id}', 'remove_chat')->name('remove.chat');
@@ -211,13 +211,13 @@ Route::controller(ChatController::class)->middleware('auth', 'user', 'verified',
 });
 
 //  follow
-Route::controller(FollowController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(FollowController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('user/account/follow/{id}', 'follow')->name('user.follow');
     Route::get('user/account/unfollow/{id}', 'unfollow')->name('user.unfollow');
 });
 
 //  whole website ssearch
-Route::controller(SearchController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(SearchController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/search', 'search')->name('search');
     Route::get('/search/people/', 'search_people')->name('search.people');
     Route::get('/search/post/', 'search_post')->name('search.post');
@@ -228,7 +228,7 @@ Route::controller(SearchController::class)->middleware('auth', 'user', 'verified
     Route::get('/search/event/', 'search_event')->name('search.event');
 });
 
-Route::controller(CustomUserController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(CustomUserController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('user/view/profile/{id}', 'view_profile_data')->name('user.profile.view');
     Route::get('/user/load_post_by_scrolling', 'load_post_by_scrolling')->name('user.load_post_by_scrolling');
     Route::get('user/password/change', 'changepass')->name('user.password.change');
@@ -248,34 +248,34 @@ Route::controller(CustomUserController::class)->middleware('auth', 'user', 'veri
 
 //  setting frontend
 Route::controller(SettingController::class)->group(function () {
-    Route::get('about/page/view/', 'about_view')->name('about.view')->middleware('auth', 'user', 'verified', 'prevent-back-history');
-    Route::get('policy/page/view/', 'policy_view')->name('policy.view')->middleware('auth', 'user', 'verified', 'prevent-back-history');
+    Route::get('about/page/view/', 'about_view')->name('about.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'prevent-back-history');
+    Route::get('policy/page/view/', 'policy_view')->name('policy.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'prevent-back-history');
     Route::get('contact/us/view/', 'contact_view')->name('contact.view');
     Route::POST('contact/us/send/', 'contact_send')->name('contact.send');
 
     Route::get('term/condition/view/', 'term_view')->name('term.view');
-    Route::get('settings/page/view/', 'all_settings_view')->name('all_settings.view')->middleware('auth', 'user', 'verified', 'prevent-back-history');
+    Route::get('settings/page/view/', 'all_settings_view')->name('all_settings.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'prevent-back-history');
 
-    Route::get('admin/about/page/data/', 'update_about_page_data')->name('admin.about.page.data.view')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/about/page/data/update/{id}', 'update_about_page_data_update')->name('admin.about.page.data.update')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/about/page/data/', 'update_about_page_data')->name('admin.about.page.data.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/about/page/data/update/{id}', 'update_about_page_data_update')->name('admin.about.page.data.update')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
-    Route::POST('admin/privacy/page/data/update/{id}', 'update_privacy_page_data_update')->name('admin.privacy.page.data.update')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/privacy/page/data/update/{id}', 'update_privacy_page_data_update')->name('admin.privacy.page.data.update')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
-    Route::POST('admin/term/page/data/update/{id}', 'update_term_page_data_update')->name('admin.term.page.data.update')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/term/page/data/update/{id}', 'update_term_page_data_update')->name('admin.term.page.data.update')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/reported/post/', 'reported_post_to_admin')->name('admin.reported.post.view')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/reported/post/delete/{id}', 'reported_post_remove_by_admin')->name('admin.reported.post.delete.by.admin')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/reported/post/', 'reported_post_to_admin')->name('admin.reported.post.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/reported/post/delete/{id}', 'reported_post_remove_by_admin')->name('admin.reported.post.delete.by.admin')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/live-video/setting/view', 'live_video_edit_form')->name('admin.live-video.view')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/live-video/setting/update', 'live_video_update')->name('admin.live-video.update')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/live-video/setting/view', 'live_video_edit_form')->name('admin.live-video.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/live-video/setting/update', 'live_video_update')->name('admin.live-video.update')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/smtp/setting/view/', 'smtp_settings_view')->name('admin.smtp.settings.view')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/smtp/setting/save/{id}', 'smtp_settings_save')->name('admin.smtp.settings.view.save')->middleware('auth', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/smtp/setting/view/', 'smtp_settings_view')->name('admin.smtp.settings.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/smtp/setting/save/{id}', 'smtp_settings_save')->name('admin.smtp.settings.view.save')->middleware('auth', 'check.local.dns', 'user', 'verified', 'admin', 'prevent-back-history');
 
     // system settings
-    Route::get('admin/system/setting/view/', 'system_settings_view')->name('admin.system.settings.view')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/system/setting/save/', 'system_settings_save')->name('admin.system.settings.view.save')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/system/setting/logo/save/', 'system_settings_logo_save')->name('admin.system.settings.logo.view.save')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/system/setting/view/', 'system_settings_view')->name('admin.system.settings.view')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/system/setting/save/', 'system_settings_save')->name('admin.system.settings.view.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/system/setting/logo/save/', 'system_settings_logo_save')->name('admin.system.settings.logo.view.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     Route::get('admin/settings/amazon_s3', 'amazon_s3')->name('admin.settings.amazon_s3');
     Route::post('admin/settings/amazon_s3/update', 'amazon_s3_update')->name('admin.settings.amazon_s3.update');
@@ -283,10 +283,10 @@ Route::controller(SettingController::class)->group(function () {
 
 
     // Admin Color Save
-    Route::get('admin/system/settings/color/save/{themeColor}', 'system_settings_color_save')->name('admin.system.settings.color.save')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/system/settings/color/save/{themeColor}', 'system_settings_color_save')->name('admin.system.settings.color.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     //Zitsi  Settings
-     Route::get('admin/zitsi-video/setting/view', 'zitsi_video_edit_form')->name('admin.zitsi-video.view')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+     Route::get('admin/zitsi-video/setting/view', 'zitsi_video_edit_form')->name('admin.zitsi-video.view')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
      Route::post('admin/jitsi/live/settings/update', 'zitsi_live_video_update')->name('admin.zitsi.live.settings.update');
 
 });
@@ -294,25 +294,25 @@ Route::controller(SettingController::class)->group(function () {
 //  admin all crud
 Route::controller(AdminCrudController::class)->group(function () {
 
-    Route::get('admin/dashboard/', 'admin_dashboard')->name('admin.dashboard')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/dashboard/', 'admin_dashboard')->name('admin.dashboard')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/users/', 'users')->name('admin.users')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/user/add', 'user_add')->name('admin.user.add')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/user/store', 'user_store')->name('admin.user.store')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/user/edit/{id}', 'user_edit')->name('admin.user.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/user/update/{id}', 'user_update')->name('admin.user.update')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/user/delete/{id}', 'user_delete')->name('admin.user.delete')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/user/status/{id}', 'user_status')->name('admin.user.status')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/users/', 'users')->name('admin.users')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/user/add', 'user_add')->name('admin.user.add')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/user/store', 'user_store')->name('admin.user.store')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/user/edit/{id}', 'user_edit')->name('admin.user.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/user/update/{id}', 'user_update')->name('admin.user.update')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/user/delete/{id}', 'user_delete')->name('admin.user.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/user/status/{id}', 'user_status')->name('admin.user.status')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     Route::any('admin/server_side_users_data', 'server_side_users_data')->name('admin.server_side_users_data');
 
-    Route::get('admin/users/account-active-Req', 'accountActiveReq')->name('admin.users.accountActiveReq')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/users/account-active-Req', 'accountActiveReq')->name('admin.users.accountActiveReq')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/users/account-approved', 'acActiveReqApp')->name('admin.users.accActiveReqApp')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/users/account-approved', 'acActiveReqApp')->name('admin.users.accActiveReqApp')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/users/acActiveReqApp/{id}/{user_id}', 'acActiveReqApp')->name('admin.users.acActiveReqApp')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/users/acActiveReqApp/{id}/{user_id}', 'acActiveReqApp')->name('admin.users.acActiveReqApp')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/users/acActiveReDlt/{id}', 'acActiveReDlt')->name('admin.users.acActiveReDlt')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/users/acActiveReDlt/{id}', 'acActiveReDlt')->name('admin.users.acActiveReDlt')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     // Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function() {
     //     Route::get('/users', 'AdminController@user_index')->name('admin.users.index');
@@ -323,30 +323,30 @@ Route::controller(AdminCrudController::class)->group(function () {
     //     Route::delete('/users/{user}', 'AdminController@user_destroy')->name('admin.users.destroy');
     // });
 
-    Route::get('admin/change/password', 'admin_change_password')->name('admin.change.password')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/profile/', 'admin_profile')->name('admin.profile')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/profile/update/', 'admin_profile_update')->name('admin.profile.update')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/change/password', 'admin_change_password')->name('admin.change.password')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/profile/', 'admin_profile')->name('admin.profile')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/profile/update/', 'admin_profile_update')->name('admin.profile.update')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/page', 'pages')->name('admin.page')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/page/create', 'page_create')->name('admin.page.create')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/page/edit/{id}', 'page_edit')->name('admin.page.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/page/created/', 'page_created')->name('admin.page.created')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/page/updated/{id}', 'page_updated')->name('admin.page.updated')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page', 'pages')->name('admin.page')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/create', 'page_create')->name('admin.page.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/edit/{id}', 'page_edit')->name('admin.page.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/page/created/', 'page_created')->name('admin.page.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/page/updated/{id}', 'page_updated')->name('admin.page.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/blog', 'blogs')->name('admin.blog')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/blog/create', 'blog_create')->name('admin.blog.create')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/blog/edit/{id}', 'blog_edit')->name('admin.blog.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/blog/created/', 'blog_created')->name('admin.blog.created')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/blog/updated/{id}', 'blog_updated')->name('admin.blog.updated')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog', 'blogs')->name('admin.blog')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/create', 'blog_create')->name('admin.blog.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/edit/{id}', 'blog_edit')->name('admin.blog.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/blog/created/', 'blog_created')->name('admin.blog.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/blog/updated/{id}', 'blog_updated')->name('admin.blog.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
    //  Admin Manage Group Route 
-   Route::get('admin/group', 'groups')->name('admin.group')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/create', 'group_create')->name('admin.group.create')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-   Route::post('admin/group/created', 'group_created')->name('admin.group.created')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/delete/{id}', 'deleteGroup')->name('admin.group.delete')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/edit/{id}', 'group_edit')->name('admin.group.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-   Route::post('admin/group/updated/{id}', 'group_updated')->name('admin.group.updated')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+   Route::get('admin/group', 'groups')->name('admin.group')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+   Route::get('admin/group/create', 'group_create')->name('admin.group.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+   Route::post('admin/group/created', 'group_created')->name('admin.group.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+   Route::get('admin/group/delete/{id}', 'deleteGroup')->name('admin.group.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+   Route::get('admin/group/edit/{id}', 'group_edit')->name('admin.group.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+   Route::post('admin/group/updated/{id}', 'group_updated')->name('admin.group.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
 
@@ -355,10 +355,10 @@ Route::controller(AdminCrudController::class)->group(function () {
 
 
    // Badge Raoute Here
-   Route::get('admin/badge', 'badge')->name('admin.badge')->middleware('auth', 'verified', 'admin', 'prevent-back-history');  
-   Route::get('admin/badge/delete/{id}', 'delete_badge_history')->name('admin.badge.delete')->middleware('auth', 'verified', 'admin', 'prevent-back-history');  
+   Route::get('admin/badge', 'badge')->name('admin.badge')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');  
+   Route::get('admin/badge/delete/{id}', 'delete_badge_history')->name('admin.badge.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');  
 
-   Route::POST('admin/badge/price/save/', 'badge_settings_save')->name('admin.badge.price.save')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+   Route::POST('admin/badge/price/save/', 'badge_settings_save')->name('admin.badge.price.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
    // Badge Raoute Here
 
@@ -366,33 +366,33 @@ Route::controller(AdminCrudController::class)->group(function () {
 
    // Admin Control Route for job   
  
-   Route::get('admin/job/category/view/', 'view_job_category')->name('admin.view.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/category/create/', 'create_job_category')->name('admin.create.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/job/category/save/', 'save_job_category')->name('admin.save.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/category/edit/{id}', 'edit_job_category')->name('admin.edit.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/job/category/update/{id}', 'update_job_category')->name('admin.update.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/category/delete/{id}', 'delete_job_category')->name('admin.delete.job.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+   Route::get('admin/job/category/view/', 'view_job_category')->name('admin.view.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/category/create/', 'create_job_category')->name('admin.create.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/job/category/save/', 'save_job_category')->name('admin.save.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/category/edit/{id}', 'edit_job_category')->name('admin.edit.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/job/category/update/{id}', 'update_job_category')->name('admin.update.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/category/delete/{id}', 'delete_job_category')->name('admin.delete.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     //
-    Route::get('admin/job', 'jobs')->name('admin.job')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/create', 'job_create')->name('admin.job.create')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job', 'jobs')->name('admin.job')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/create', 'job_create')->name('admin.job.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/job/edit/{id}', 'job_edit')->name('admin.job.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/job/created/', 'job_created')->name('admin.job.created')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/job/updated/{id}', 'job_updated')->name('admin.job.updated')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/delete/{id}', 'delete_job')->name('admin.delete.job')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/pending/', 'pending_job')->name('admin.pending.job')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/apply/all/list', 'AllApplyList')->name('admin.job.apply.all.list')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/job/apply/list-delete/{id}', 'applyListDelete')->name('admin.job.apply.list-delete')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-
-
-    Route::get('admin/job/pdf/download/{id}', 'DownloadPdf')->name('admin.job.pdf.download')->middleware('auth', 'verified', 'admin');
-
-    Route::get('admin/job/payment/history', 'jobPaymentHistory')->name('admin.job.payment.history')->middleware('auth', 'verified', 'admin');
-    Route::get('admin/delete/job/payment/history/{id}', 'jobDeleteHistory')->name('admin.delete.job.payment.history')->middleware('auth', 'verified', 'admin');
+    Route::get('admin/job/edit/{id}', 'job_edit')->name('admin.job.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/job/created/', 'job_created')->name('admin.job.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/job/updated/{id}', 'job_updated')->name('admin.job.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/delete/{id}', 'delete_job')->name('admin.delete.job')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/pending/', 'pending_job')->name('admin.pending.job')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/apply/all/list', 'AllApplyList')->name('admin.job.apply.all.list')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/apply/list-delete/{id}', 'applyListDelete')->name('admin.job.apply.list-delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
-    Route::get('admin/job/price/view/', 'settings_view')->name('admin.job.price.view')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/job/price/save/', 'settings_save')->name('admin.job.price.view.save')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/job/pdf/download/{id}', 'DownloadPdf')->name('admin.job.pdf.download')->middleware('auth', 'check.local.dns', 'verified', 'admin');
+
+    Route::get('admin/job/payment/history', 'jobPaymentHistory')->name('admin.job.payment.history')->middleware('auth', 'check.local.dns', 'verified', 'admin');
+    Route::get('admin/delete/job/payment/history/{id}', 'jobDeleteHistory')->name('admin.delete.job.payment.history')->middleware('auth', 'check.local.dns', 'verified', 'admin');
+
+
+    Route::get('admin/job/price/view/', 'settings_view')->name('admin.job.price.view')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/job/price/save/', 'settings_save')->name('admin.job.price.view.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
 
@@ -401,42 +401,42 @@ Route::controller(AdminCrudController::class)->group(function () {
 
 
 
-    Route::get('admin/page/category/view/', 'view_category')->name('admin.view.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/page/category/create/', 'create_category')->name('admin.create.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/page/category/save/', 'save_category')->name('admin.save.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/page/category/edit/{id}', 'edit_category')->name('admin.edit.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/page/category/update/{id}', 'update_category')->name('admin.update.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/page/category/delete/{id}', 'delete_category')->name('admin.delete.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/category/view/', 'view_category')->name('admin.view.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/category/create/', 'create_category')->name('admin.create.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/page/category/save/', 'save_category')->name('admin.save.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/category/edit/{id}', 'edit_category')->name('admin.edit.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/page/category/update/{id}', 'update_category')->name('admin.update.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/page/category/delete/{id}', 'delete_category')->name('admin.delete.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     // product category
-    Route::get('admin/product/category/view/', 'view_product_category')->name('admin.view.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/category/create/', 'create_product_category')->name('admin.create.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/product/category/save/', 'save_product_category')->name('admin.save.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/category/edit/{id}', 'edit_product_category')->name('admin.edit.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/product/category/update/{id}', 'update_product_category')->name('admin.update.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/category/delete/{id}', 'delete_product_category')->name('admin.delete.product.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/category/view/', 'view_product_category')->name('admin.view.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/category/create/', 'create_product_category')->name('admin.create.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/product/category/save/', 'save_product_category')->name('admin.save.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/category/edit/{id}', 'edit_product_category')->name('admin.edit.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/product/category/update/{id}', 'update_product_category')->name('admin.update.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/category/delete/{id}', 'delete_product_category')->name('admin.delete.product.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     // product brand
-    Route::get('admin/product/brand/view/', 'view_brand_category')->name('admin.view.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/brand/create/', 'create_brand_category')->name('admin.create.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/product/brand/save/', 'save_brand_category')->name('admin.save.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/brand/edit/{id}', 'edit_brand_category')->name('admin.edit.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/product/brand/update/{id}', 'update_brand_category')->name('admin.update.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/product/brand/delete/{id}', 'delete_brand_category')->name('admin.delete.product.brand')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/brand/view/', 'view_brand_category')->name('admin.view.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/brand/create/', 'create_brand_category')->name('admin.create.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/product/brand/save/', 'save_brand_category')->name('admin.save.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/brand/edit/{id}', 'edit_brand_category')->name('admin.edit.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/product/brand/update/{id}', 'update_brand_category')->name('admin.update.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/product/brand/delete/{id}', 'delete_brand_category')->name('admin.delete.product.brand')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     // blog  category
-    Route::get('admin/blog/category/view/', 'view_blog_category')->name('admin.view.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/blog/category/create/', 'create_blog_category')->name('admin.create.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/blog/category/save/', 'save_blog_category')->name('admin.save.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/blog/category/edit/{id}', 'edit_blog_category')->name('admin.edit.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/blog/category/update/{id}', 'update_blog_category')->name('admin.update.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/blog/category/delete/{id}', 'delete_blog_category')->name('admin.delete.blog.category')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/category/view/', 'view_blog_category')->name('admin.view.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/category/create/', 'create_blog_category')->name('admin.create.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/blog/category/save/', 'save_blog_category')->name('admin.save.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/category/edit/{id}', 'edit_blog_category')->name('admin.edit.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/blog/category/update/{id}', 'update_blog_category')->name('admin.update.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/blog/category/delete/{id}', 'delete_blog_category')->name('admin.delete.blog.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-    Route::get('admin/settings/payment', 'payment_settings')->name('admin.settings.payment')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/payment_gateway/edit/{id}', 'payment_gateway_edit')->name('admin.payment_gateway.edit')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::post('admin/payment_gateway/update/{id}', 'payment_gateway_update')->name('admin.payment_gateway.update')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/payment_gateway/status/{id}', 'payment_gateway_status')->name('admin.payment_gateway.status')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/payment_gateway/environment/{id}', 'payment_gateway_environment')->name('admin.payment_gateway.environment')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/settings/payment', 'payment_settings')->name('admin.settings.payment')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/payment_gateway/edit/{id}', 'payment_gateway_edit')->name('admin.payment_gateway.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/payment_gateway/update/{id}', 'payment_gateway_update')->name('admin.payment_gateway.update')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/payment_gateway/status/{id}', 'payment_gateway_status')->name('admin.payment_gateway.status')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/payment_gateway/environment/{id}', 'payment_gateway_environment')->name('admin.payment_gateway.environment')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     //System About routes
     Route::get('admin/settings/about', 'about')->name('admin.about');
@@ -446,17 +446,17 @@ Route::controller(AdminCrudController::class)->group(function () {
 //  setting frontend
 Route::controller(SponsorController::class)->group(function () {
     // Add  category
-    Route::get('admin/sponsor/view/', 'view_sponsor')->name('admin.view.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/sponsor/create/', 'create_sponsor')->name('admin.create.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/sponsor/save/', 'save_sponsor')->name('admin.save.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/sponsor/edit/{id}', 'edit_sponsor')->name('admin.edit.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::POST('admin/sponsor/update/{id}', 'update_sponsor')->name('admin.update.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
-    Route::get('admin/sponsor/delete/{id}', 'delete_sponsor')->name('admin.delete.sponsor')->middleware('auth', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/sponsor/view/', 'view_sponsor')->name('admin.view.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/sponsor/create/', 'create_sponsor')->name('admin.create.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/sponsor/save/', 'save_sponsor')->name('admin.save.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/sponsor/edit/{id}', 'edit_sponsor')->name('admin.edit.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/sponsor/update/{id}', 'update_sponsor')->name('admin.update.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/sponsor/delete/{id}', 'delete_sponsor')->name('admin.delete.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 });
 
 
-Route::controller(NotificationController::class)->middleware('auth', 'verified', 'activity')->group(function () {
+Route::controller(NotificationController::class)->middleware('auth', 'check.local.dns', 'verified', 'activity')->group(function () {
     Route::get('/all/notification', 'notifications')->name('notifications');
     Route::get('/accept/friend/request/notification/{id}', 'accept_friend_notification')->name('accept.friend.request.from.notification');
     Route::get('/decline/friend/request/notification/{id}', 'decline_friend_notification')->name('decline.friend.request.from.notification');
@@ -473,7 +473,7 @@ Route::controller(NotificationController::class)->middleware('auth', 'verified',
     Route::get('/decline/fundraiser/request/notification/{id}/{fundraiser_id}', 'decline_fundraiser_notification')->name('decline.fundraiser.request.from.notification');
 });
 
-Route::controller(LanguageController::class)->middleware('auth', 'verified', 'activity', 'admin')->group(function () {
+Route::controller(LanguageController::class)->middleware('auth', 'check.local.dns', 'verified', 'activity', 'admin')->group(function () {
     Route::get('admin/all/language/settings', 'language')->name('admin.language.settings');
     Route::POST('admin/create/language/', 'language_add')->name('admin.language.create');
     Route::POST('admin/languages/update/{language}', 'language_update')->name('admin.languages.update');
@@ -481,13 +481,13 @@ Route::controller(LanguageController::class)->middleware('auth', 'verified', 'ac
     Route::post('admin/languages/update/phrase/{id}', 'update_phrase')->name('admin.languages.update.phrase');
 });
 
-Route::controller(PaymentHistory::class)->middleware('auth', 'verified', 'activity', 'admin', 'prevent-back-history')->group(function () {
+Route::controller(PaymentHistory::class)->middleware('auth', 'check.local.dns', 'verified', 'activity', 'admin', 'prevent-back-history')->group(function () {
     Route::get('admin/payment-histories', 'index')->name('admin.payment_histories');
 });
 
 
 //  paid content
-Route::controller(PaidContent::class)->middleware('auth', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(PaidContent::class)->middleware('auth', 'check.local.dns', 'verified', 'activity', 'prevent-back-history')->group(function () {
     Route::get('/paid/content', 'paid_content')->name('paid.content');
     Route::get('/paid/content/general/timeline', 'general_timeline')->name('general.timeline');
 

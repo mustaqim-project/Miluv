@@ -53,7 +53,7 @@ Route::get('/users/{user_id}', function ($user_id) {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'check.local.dns'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 
@@ -77,12 +77,12 @@ Route::get('/account-enble-req/{id}', function (Request $request, $id) {
 
 
 //Modal controllers group routing
-Route::controller(ModalController::class)->middleware('auth', 'user', 'verified', 'activity')->group(function () {
+Route::controller(ModalController::class)->middleware('auth', 'user', 'verified', 'activity', 'check.local.dns')->group(function () {
     Route::any('/load_modal_content/{view_path}', 'common_view_function')->name('load_modal_content');
 });
  
 //Home controllers group routing
-Route::controller(MainController::class)->middleware('auth', 'user', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(MainController::class)->middleware('auth', 'user', 'user', 'verified', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('/', 'timeline')->name('timeline');
     Route::post('/create_post', 'create_post')->name('create_post');
     Route::get('/edit_post_form/{id}', 'edit_post_form')->name('edit_post_form');
@@ -147,13 +147,13 @@ Route::controller(MainController::class)->middleware('auth', 'user', 'user', 've
 
 
 // Memories Controller
-Route::controller(MemoriesController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(MemoriesController::class)->middleware('auth', 'user', 'verified', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('/memories', 'memories')->name('memories');
     Route::get('/load/memories', 'load_memories')->name('load.memories');
 });
 
 // Badge  Controller
-Route::controller(BadgeController::class)->middleware('auth', 'user', 'verified', 'activity','prevent-back-history')->group(function () {
+Route::controller(BadgeController::class)->middleware('auth', 'user', 'verified', 'activity','prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('/badge', 'badge')->name('badge');
     Route::get('/badge/info', 'badge_info')->name('badge.info');
     Route::post('badge/payment_configuration/{id}', 'payment_configuration')->name('badge.payment_configuration');
@@ -165,7 +165,7 @@ Route::controller(BadgeController::class)->middleware('auth', 'user', 'verified'
 
 
 //Story controllers group routing
-Route::controller(StoryController::class)->middleware('auth', 'user', 'verified', 'activity')->group(function () {
+Route::controller(StoryController::class)->middleware('auth', 'user', 'verified', 'activity', 'check.local.dns')->group(function () {
     Route::post('/create_story', 'create_story')->name('create_story');
 
     Route::any('/stories/{offset?}/{limit?}', 'stories')->name('stories');
@@ -176,7 +176,7 @@ Route::controller(StoryController::class)->middleware('auth', 'user', 'verified'
 });
 
 //Profile controllers group routing
-Route::controller(Profile::class)->middleware('auth', 'verified', 'user', 'activity', 'prevent-back-history')->group(function () {
+Route::controller(Profile::class)->middleware('auth', 'verified', 'user', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/profile/load_post_by_scrolling', 'load_post_by_scrolling')->name('profile.load_post_by_scrolling');
     Route::get('/profile/friends', 'friends')->name('profile.friends');
@@ -215,7 +215,7 @@ Route::controller(Profile::class)->middleware('auth', 'verified', 'user', 'activ
 });
 
 //Updater routes are here
-Route::controller(Updater::class)->middleware('auth', 'verified', 'activity')->group(function () {
+Route::controller(Updater::class)->middleware('auth', 'verified', 'activity', 'check.local.dns')->group(function () {
 
     Route::post('admin/addon/create', 'update')->name('admin.addon.create');
     Route::post('admin/addon/update', 'update')->name('admin.addon.update');
