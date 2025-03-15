@@ -16,15 +16,15 @@ class CheckLocalDNS
     public function handle(Request $request, Closure $next): Response
     {
         $ip = $request->ip();
-
-        // Menggunakan layanan geolokasi untuk mendeteksi negara berdasarkan IP
-        $geoInfo = @json_decode(file_get_contents("https://ipapi.co/{$ip}/json/"), true);
-
-        // Jika tidak bisa mendapatkan data atau negara bukan Indonesia, blokir akses
+    
+        // Gunakan API ipinfo.io untuk mendapatkan informasi lokasi
+        $geoInfo = @json_decode(file_get_contents("https://ipinfo.io/{$ip}/json"), true);
+    
         if (!isset($geoInfo['country']) || strtolower($geoInfo['country']) !== 'id') {
             abort(404);
         }
-
+    
         return $next($request);
     }
+    
 }
