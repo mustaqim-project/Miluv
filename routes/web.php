@@ -29,6 +29,17 @@ use Illuminate\Support\Facades\Route;
 //     });
 // });
 
+Route::get('/cek-ip', function (Request $request) {
+    $ip = $request->ip();
+    $geoInfo = @json_decode(file_get_contents("https://ipapi.co/{$ip}/json/"), true);
+
+    return response()->json([
+        'ip' => $ip,
+        'geo_info' => $geoInfo,
+    ]);
+});
+
+
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');

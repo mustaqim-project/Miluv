@@ -15,10 +15,13 @@ class CheckLocalDNS
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $host = gethostbyaddr($request->ip());
-        
-        // Cek apakah host mengandung domain lokal Indonesia (.id)
-        if (strpos($host, '.id') === false) {
+        $ip = $request->ip();
+
+        // Menggunakan layanan geolokasi untuk mendeteksi negara berdasarkan IP
+        $geoInfo = @json_decode(file_get_contents("https://ipapi.co/{$ip}/json/"), true);
+
+        // Jika tidak bisa mendapatkan data atau negara bukan Indonesia, blokir akses
+        if (!isset($geoInfo['country']) || strtolower($geoInfo['country']) !== 'id') {
             abort(404);
         }
 
