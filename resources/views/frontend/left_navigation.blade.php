@@ -25,14 +25,6 @@
                                 src="{{ asset('storage/images/man-2.svg') }}"
                                 alt="Profile">{{ get_phrase('Profile') }}</a></li>
                   
-                    
-                  
-                    <li class="@if (Route::currentRouteName() == 'videos' ||
-                            Route::currentRouteName() == 'video.detail.info' ||
-                            Route::currentRouteName() == 'shorts' ||
-                            Route::currentRouteName() == 'save.all.view') active @endif"><a href="{{ route('videos') }}"><img
-                                src="{{ asset('storage/images/video-2.svg') }}"
-                                alt="Video and Shorts">{{ get_phrase('Video and Shorts') }}</a></li>
                   
                     <li class="@if (Route::currentRouteName() == 'blogs' ||
                             Route::currentRouteName() == 'create.blog' ||
