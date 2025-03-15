@@ -55,15 +55,15 @@ class InstallController extends Controller
         return view('install.step2', ['error' => $error]);
     }
 
-    public function validatePurchaseCode(Request $request)
-    {
-        $data = $request->all();
-        $purchase_code = $data['purchase_code'];
-        session(['purchase_code' => $purchase_code]);
-        session(['purchase_code_verified' => 1]);
-        //move to step 3
-        return redirect()->route('step3');
-    }
+    // public function validatePurchaseCode(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $purchase_code = $data['purchase_code'];
+    //     session(['purchase_code' => $purchase_code]);
+    //     session(['purchase_code_verified' => 1]);
+    //     //move to step 3
+    //     return redirect()->route('step3');
+    // }
 
     public function api_request($code = '')
     {
@@ -100,48 +100,48 @@ class InstallController extends Controller
         }
     }
 
-    public function step3(Request $request)
-    {
-        $db_connection = "";
-        $data = $request->all();
+    // public function step3(Request $request)
+    // {
+    //     $db_connection = "";
+    //     $data = $request->all();
 
-        $this->check_purchase_code_verification();
+    //     $this->check_purchase_code_verification();
 
-        if ($data) {
+    //     if ($data) {
 
-            $hostname = $data['hostname'];
-            $username = $data['username'];
-            $password = $data['password'];
-            $dbname   = $data['dbname'];
-            // check db connection using the above credentials
-            $db_connection = $this->check_database_connection($hostname, $username, $password, $dbname);
-            if ($db_connection == 'success') {
-                // proceed to step 4
-                session(['hostname' => $hostname]);
-                session(['username' => $username]);
-                session(['password' => $password]);
-                session(['dbname' => $dbname]);
-                return redirect()->route('step4');
-            } else {
+    //         $hostname = $data['hostname'];
+    //         $username = $data['username'];
+    //         $password = $data['password'];
+    //         $dbname   = $data['dbname'];
+    //         // check db connection using the above credentials
+    //         $db_connection = $this->check_database_connection($hostname, $username, $password, $dbname);
+    //         if ($db_connection == 'success') {
+    //             // proceed to step 4
+    //             session(['hostname' => $hostname]);
+    //             session(['username' => $username]);
+    //             session(['password' => $password]);
+    //             session(['dbname' => $dbname]);
+    //             return redirect()->route('step4');
+    //         } else {
 
-                return view('install.step3', ['db_connection' => $db_connection]);
-            }
-        }
+    //             return view('install.step3', ['db_connection' => $db_connection]);
+    //         }
+    //     }
 
-        return view('install.step3', ['db_connection' => $db_connection]);
-    }
+    //     return view('install.step3', ['db_connection' => $db_connection]);
+    // }
 
-    public function check_purchase_code_verification()
-    {
-        if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
-            //return 'running_locally';
-        } else {
-            if (session('purchase_code_verified'))
-                return redirect()->route('step2');
-            else if (session('purchase_code_verified') == 0)
-                return redirect()->route('step2');
-        }
-    }
+    // public function check_purchase_code_verification()
+    // {
+    //     if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
+    //         //return 'running_locally';
+    //     } else {
+    //         if (session('purchase_code_verified'))
+    //             return redirect()->route('step2');
+    //         else if (session('purchase_code_verified') == 0)
+    //             return redirect()->route('step2');
+    //     }
+    // }
 
     public function check_database_connection($hostname, $username, $password, $dbname)
     {

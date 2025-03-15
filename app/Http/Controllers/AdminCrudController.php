@@ -320,73 +320,73 @@ class AdminCrudController extends Controller
         return redirect()->back();
     }
 
-    public function about()
-    {
+    // public function about()
+    // {
 
-        $purchase_code    = get_settings('purchase_code');
-		$returnable_array = array(
-			'purchase_code_status' => 'valid',
-			'support_expiry_date'  => '10.10.2040',
-			'customer_name'        => 'valid',
-			'product_license'      => 'valid',
-			'license_type'         => 'Regular',
-		);
+    //     $purchase_code    = get_settings('purchase_code');
+	// 	$returnable_array = array(
+	// 		'purchase_code_status' => 'valid',
+	// 		'support_expiry_date'  => '10.10.2040',
+	// 		'customer_name'        => 'valid',
+	// 		'product_license'      => 'valid',
+	// 		'license_type'         => 'Regular',
+	// 	);
 
-        $page_data['application_details'] = $returnable_array;
-        $page_data['view_path'] = 'setting.system_about';
-        return view('backend.index', $page_data);
-    }
+    //     $page_data['application_details'] = $returnable_array;
+    //     $page_data['view_path'] = 'setting.system_about';
+    //     return view('backend.index', $page_data);
+    // }
 
-    public function curl_request($code = '')
-    {
+    // public function curl_request($code = '')
+    // {
 
-        $purchase_code = $code;
+    //     $purchase_code = $code;
 
-        $personal_token = "FkA9UyDiQT0YiKwYLK3ghyFNRVV9SeUn";
-        $url = "https://api.envato.com/v3/market/author/sale?code=" . $purchase_code;
-        $curl = curl_init($url);
+    //     $personal_token = "FkA9UyDiQT0YiKwYLK3ghyFNRVV9SeUn";
+    //     $url = "https://api.envato.com/v3/market/author/sale?code=" . $purchase_code;
+    //     $curl = curl_init($url);
 
-        //setting the header for the rest of the api
-        $bearer = 'bearer ' . $personal_token;
-        $header = array();
-        $header[] = 'Content-length: 0';
-        $header[] = 'Content-type: application/json; charset=utf-8';
-        $header[] = 'Authorization: ' . $bearer;
+    //     //setting the header for the rest of the api
+    //     $bearer = 'bearer ' . $personal_token;
+    //     $header = array();
+    //     $header[] = 'Content-length: 0';
+    //     $header[] = 'Content-type: application/json; charset=utf-8';
+    //     $header[] = 'Authorization: ' . $bearer;
 
-        $verify_url = 'https://api.envato.com/v1/market/private/user/verify-purchase:' . $purchase_code . '.json';
-        $ch_verify = curl_init($verify_url . '?code=' . $purchase_code);
+    //     $verify_url = 'https://api.envato.com/v1/market/private/user/verify-purchase:' . $purchase_code . '.json';
+    //     $ch_verify = curl_init($verify_url . '?code=' . $purchase_code);
 
-        curl_setopt($ch_verify, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch_verify, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch_verify, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch_verify, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch_verify, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+    //     curl_setopt($ch_verify, CURLOPT_HTTPHEADER, $header);
+    //     curl_setopt($ch_verify, CURLOPT_SSL_VERIFYPEER, false);
+    //     curl_setopt($ch_verify, CURLOPT_RETURNTRANSFER, 1);
+    //     curl_setopt($ch_verify, CURLOPT_CONNECTTIMEOUT, 5);
+    //     curl_setopt($ch_verify, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
 
-        $cinit_verify_data = curl_exec($ch_verify);
-        curl_close($ch_verify);
+    //     $cinit_verify_data = curl_exec($ch_verify);
+    //     curl_close($ch_verify);
 
-        $response = json_decode($cinit_verify_data, true);
+    //     $response = json_decode($cinit_verify_data, true);
 
-        if (is_array($response) && count($response['verify-purchase']) > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    //     if (is_array($response) && count($response['verify-purchase']) > 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     //Don't remove this code for security reasons
-    public function save_valid_purchase_code($action_type, Request $request)
-    {
-        if ($action_type == 'update') {
-            $data['description'] = $request->purchase_code;
+    // public function save_valid_purchase_code($action_type, Request $request)
+    // {
+    //     if ($action_type == 'update') {
+    //         $data['description'] = $request->purchase_code;
 
-			Setting::where('type', 'purchase_code')->update($data);
-			session()->flash('success', get_phrase('Purchase code has been updated'));
-			echo 1;
-        } else {
-            return view('admin.setting.save_purchase_code');
-        }
-    }
+	// 		Setting::where('type', 'purchase_code')->update($data);
+	// 		session()->flash('success', get_phrase('Purchase code has been updated'));
+	// 		echo 1;
+    //     } else {
+    //         return view('admin.setting.save_purchase_code');
+    //     }
+    // }
 
     // Groups 
     public function groups(){
