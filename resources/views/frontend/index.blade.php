@@ -13,7 +13,19 @@
     <!-- CSRF Token for ajax for submission -->
     <meta name="csrf_token" content="{{ csrf_token() }}" />
 
-    <meta name="description" content="">
+    <meta name="keywords"
+        content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+    <meta name="description"
+        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Miluv - Media Sosial & Dating App">
+    <meta property="og:description"
+        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
+    <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
@@ -60,8 +72,8 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
-    
-   
+
+
     <!-- New -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
 
@@ -76,35 +88,35 @@
 
     {{-- Job Addon Css --}}
     @if (addon_status('job') == 1)
-     <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
     @endif
     {{-- Job Addon Css --}}
-	<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
     <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 
 
 </head>
-    @if(Session::get('theme_color'))
-        @php
-            $theme_color = Session::get('theme_color');
-            if ($theme_color === 'dark') {
-                $image = asset('assets/frontend/images/white_sun.svg');
-            } else {
-               
-                $image = asset('assets/frontend/images/white_moon.svg');
-            }
-        @endphp
-  @else
-        @php
-            $theme_color = 'default';
+@if (Session::get('theme_color'))
+    @php
+        $theme_color = Session::get('theme_color');
+        if ($theme_color === 'dark') {
+            $image = asset('assets/frontend/images/white_sun.svg');
+        } else {
             $image = asset('assets/frontend/images/white_moon.svg');
-        @endphp
- @endif
+        }
+    @endphp
+@else
+    @php
+        $theme_color = 'default';
+        $image = asset('assets/frontend/images/white_moon.svg');
+    @endphp
+@endif
 
 @php
     $themeColor = App\Models\Setting::where('type', 'theme_color')->value('description');
 @endphp
-<body class="{{$themeColor}} {{$theme_color}}">
+
+<body class="{{ $themeColor }} {{ $theme_color }}">
     @php $user_info = Auth()->user() @endphp
 
     @include('frontend.header')
@@ -180,9 +192,9 @@
     <script src="{{ asset('assets/frontend/css/fundraiser/js/new-script.js') }}"></script>
     {{-- <script src="{{ asset('assets/frontend/css/fundraiser/js/profile-table.js') }}"></script> --}}
     {{-- fundraiser end---- --}}
-    
 
-    
+
+
     {{-- paid content start --}}
     <script src="{{ asset('assets/frontend/paid-content/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/paid-content/js/ckeditor.js') }}"></script>
@@ -215,61 +227,59 @@
                 duplicates: false
             });
         });
-
     </script>
 
-<script>
-    $("document").ready(function(){
-        var dark = document.getElementById('dark');
-        var storedThemeColor = sessionStorage.getItem('theme_color'); 
-        if (storedThemeColor) {
-            document.body.classList.add(storedThemeColor); 
-        }
+    <script>
+        $("document").ready(function() {
+            var dark = document.getElementById('dark');
+            var storedThemeColor = sessionStorage.getItem('theme_color');
+            if (storedThemeColor) {
+                document.body.classList.add(storedThemeColor);
+            }
 
-        dark.onclick = function(){
-            document.body.classList.toggle('dark');
-            var themeColor = document.body.classList.contains('dark') ? 'dark' : 'default';
-            var url = "<?php echo route('update-theme-color') ?>";
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: { 
-                    themeColor: themeColor
-                },
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    sessionStorage.setItem('theme_color', themeColor);
-                    if (themeColor === 'dark') {
-                        $('#dark').attr('src', '{{ asset("assets/frontend/images/white_sun.svg") }}');
-                } else {
-                    
-                    $('#dark').attr('src', '{{ asset("assets/frontend/images/white_moon.svg") }}');
-                }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error updating theme color:', error);
-                }
+            dark.onclick = function() {
+                document.body.classList.toggle('dark');
+                var themeColor = document.body.classList.contains('dark') ? 'dark' : 'default';
+                var url = "<?php echo route('update-theme-color'); ?>";
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        themeColor: themeColor
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        sessionStorage.setItem('theme_color', themeColor);
+                        if (themeColor === 'dark') {
+                            $('#dark').attr('src',
+                                '{{ asset('assets/frontend/images/white_sun.svg') }}');
+                        } else {
+
+                            $('#dark').attr('src',
+                                '{{ asset('assets/frontend/images/white_moon.svg') }}');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating theme color:', error);
+                    }
+                });
+                return false;
+            }
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#dark').click(function() {
+                console.log("Dark button clicked");
+                $('.webgl body').toggleClass('test');
+                console.log("Class 'test' toggled on .webgl elements");
             });
-            return false;
-        }
-    });
-</script>
-
-
-<script>
-$(document).ready(function(){
-    $('#dark').click(function(){
-        console.log("Dark button clicked"); 
-        $('.webgl body').toggleClass('test');
-        console.log("Class 'test' toggled on .webgl elements"); 
-    });
-});
-
-
-
-</script>
+        });
+    </script>
 
 
 </body>
