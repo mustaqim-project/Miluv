@@ -152,6 +152,7 @@
 
     <!-- Common modals -->
     @include('frontend.modal')
+    @include('pwa')
 
 
 
