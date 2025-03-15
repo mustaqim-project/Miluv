@@ -152,7 +152,7 @@
 
     <!-- Common modals -->
     @include('frontend.modal')
-    @include('meta')
+    {{-- @include('meta') --}}
 
 
 
