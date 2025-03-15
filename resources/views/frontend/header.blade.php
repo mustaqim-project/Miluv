@@ -149,11 +149,11 @@ use Carbon\Carbon;
                                             href="{{ route('addons.manager') }}">{{ get_phrase('Addons') }}
                                         </a>
                                     </li> --}}
-                                    <li>
+                                    {{-- <li>
                                         <a class="dropdown-item"
                                             href="{{ route('user.settings') }}">{{ get_phrase('Payment Settings') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     
                                     @if (auth()->user()->status == 1)
                                         <li>
