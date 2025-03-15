@@ -84,8 +84,6 @@
 
 
 </head>
-
-
     @if(Session::get('theme_color'))
         @php
             $theme_color = Session::get('theme_color');
@@ -248,8 +246,16 @@
                 } else {
                     
                     $('#dark').attr('src', '{{ asset("assets/frontend/images/white_moon.svg") }}');
-;
-pt>
+                }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error updating theme color:', error);
+                }
+            });
+            return false;
+        }
+    });
+</script>
 
 
 <script>

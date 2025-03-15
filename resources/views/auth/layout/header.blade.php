@@ -9,34 +9,24 @@
         $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
     @endphp
     <title>{{ $system_name }}</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
-    <meta name="description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
-
-    <meta property="og:title" content="Miluv - Media Social & Dating App">
-    <meta property="og:description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon,'favicon') }}">
 
-    <!-- Preconnect & Prefetch -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="{{ assets('assets/frontend/css/style.css') }}" as="style">
-    <link rel="preload" href="{{ assets('assets/frontend/css/fontawesome/all.min.css') }}" as="style">
-
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/fontawesome/all.min.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
     <!-- CSS Library -->
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/venobox.min.css') }}">
-    
-    <!-- Style css -->
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ assets('assets/frontend/css/own.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/venobox.min.css') }}">
 
+    <!-- Style css -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+
+   
+</head>
 
 <body class="bg-white login">
 
