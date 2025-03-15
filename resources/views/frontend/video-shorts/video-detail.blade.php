@@ -3,7 +3,7 @@
         <div class="row g-0">
             <div class="col-lg-7">
                 <video class="plyr-js video_details_height w-100" onplay="pauseOtherVideos(this)" controls>
-                    <source src="{{ url('storage/videos/'.$video->file) }}" type="video/mp4">
+                    <source src="{{ asset('storage/videos/'.$video->file) }}" type="video/mp4">
                 </video>
             </div>
             <div class="col-lg-5">
@@ -43,9 +43,9 @@
                                         $saved = \App\Models\Saveforlater::where('video_id',$video->id)->where('user_id',auth()->user()->id)->count();
                                     @endphp
                                     @if ($saved>0)
-                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
+                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
                                     @else
-                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
+                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
                                     @endif
                                 </li>
                                 
@@ -92,13 +92,13 @@
                                 </a>
         
                                 <ul class="react-list">
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-like.png')}}" alt="Like"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-like.png')}}" alt="Like"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-love.png')}}" alt="Love"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-love.png')}}" alt="Love"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-cry1.png')}}" alt="Sad"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-cry1.png')}}" alt="Sad"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-angry.png')}}" alt="Angry"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-angry.png')}}" alt="Angry"></a>
                                     </li>
                                     </li>
                                 </ul>
@@ -143,7 +143,7 @@
                                 <a href="{{ route('video.detail.info',$letestvideo->id) }}">
                                     <div class="video-thumb">
                                         <video class="video_details_height2 w-100" onplay="pauseOtherVideos(this)">
-                                            <source src="{{ url('storage/videos/'.$letestvideo->file) }}" type="video/mp4">
+                                            <source src="{{ asset('storage/videos/'.$letestvideo->file) }}" type="video/mp4">
                                         </video>
                                     </div>
                                     <div class="video-txt ms-2">
@@ -161,9 +161,9 @@
                                                             $saved = \App\Models\Saveforlater::where('video_id',$letestvideo->id)->where('user_id',auth()->user()->id)->count();
                                                         @endphp
                                                         @if ($saved>0)
-                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
+                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
                                                         @else
-                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
+                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
                                                         @endif
                                                     </li>
                                                 </ul>

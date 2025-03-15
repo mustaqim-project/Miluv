@@ -51,15 +51,15 @@
                                 </a>
             
                                 <ul class="react-list">
-                                    <li><a href="javascript:void(0)" onclick="myCommentReact('like', 'update', {{$comment->comment_id}})"><img src="{{url('storage/images/like.svg')}}" class="" alt="Like" style="margin-right: 1px;"></a>
+                                    <li><a href="javascript:void(0)" onclick="myCommentReact('like', 'update', {{$comment->comment_id}})"><img src="{{asset('storage/images/like.svg')}}" class="" alt="Like" style="margin-right: 1px;"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myCommentReact('love', 'update', {{$comment->comment_id}})"><img src="{{url('storage/images/love.svg')}}" alt="Love" style="width: 30px; margin-top: 2px;"></a>
+                                    <li><a href="javascript:void(0)" onclick="myCommentReact('love', 'update', {{$comment->comment_id}})"><img src="{{asset('storage/images/love.svg')}}" alt="Love" style="width: 30px; margin-top: 2px;"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myCommentReact('haha', 'update', {{$comment->comment_id}})"><img src="{{url('storage/images/haha.svg')}}" alt="Angry"></a>
+                                    <li><a href="javascript:void(0)" onclick="myCommentReact('haha', 'update', {{$comment->comment_id}})"><img src="{{asset('storage/images/haha.svg')}}" alt="Angry"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myCommentReact('sad', 'update', {{$comment->comment_id}})"><img src="{{url('storage/images/sad.svg')}}" class="mx-1" alt="Sad"></a>
+                                    <li><a href="javascript:void(0)" onclick="myCommentReact('sad', 'update', {{$comment->comment_id}})"><img src="{{asset('storage/images/sad.svg')}}" class="mx-1" alt="Sad"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myCommentReact('angry', 'update', {{$comment->comment_id}})"><img src="{{url('storage/images/angry.svg')}}" alt="Angry"></a>
+                                    <li><a href="javascript:void(0)" onclick="myCommentReact('angry', 'update', {{$comment->comment_id}})"><img src="{{asset('storage/images/angry.svg')}}" alt="Angry"></a>
                                     </li>
                                 </ul>
                             </li>

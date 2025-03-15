@@ -14,7 +14,7 @@
                         <div class="col-md-5 col-lg-5 col-sm-12">
                             <div class="entry-thumb position-relative">
                                 <video class="rounded w-100 saved_video_custom_height"  controls=""
-                                    src="{{ url('storage/videos/'.$video->file ) }}"></video> 
+                                    src="{{ asset('storage/videos/'.$video->file ) }}"></video> 
                             </div>
                         </div>
                         <div class="col-md-7 col-lg-7 col-sm-12">
@@ -43,7 +43,7 @@
                                 @endphp
                                 <div class="entry-footer">
                                     <div class="footer-share pt-3 d-flex justify-content-around w-100">
-                                        <span class="entry-react post-react"><a href="#"><img src="{{ url('assets/frontend/images/l-react.png') }}"
+                                        <span class="entry-react post-react"><a href="#"><img src="{{ asset('assets/frontend/images/l-react.png') }}"
                                                     alt=""> {{ $user_reacts }} </a>
                                         </span>
                                         <span class="entry-react" data-bs-toggle="modal" data-bs-target="#videoChat"><a

@@ -36,16 +36,16 @@
         @if (Route::currentRouteName() == 'timeline' ||Route::currentRouteName() == 'profile' || Route::currentRouteName() == 'single.group')
             <div class="post-options justify-content-center">
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#createPost" onclick="$('#createPost').modal('show');"><img
-                        src="{{ url('storage/images/image.svg') }}"
+                        src="{{ asset('storage/images/image.svg') }}"
                         alt="photo"></button>
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#createPost" onclick="$('#createPost').modal('show');"><img
-                        src="{{ url('storage/images/location.png') }}" alt="photo"
+                        src="{{ asset('storage/images/location.png') }}" alt="photo"
                         alt="photo"></button>
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#createPost" onclick="$('#createPost').modal('show');"><img
-                        src="{{ url('storage/images/camera.svg') }}"
+                        src="{{ asset('storage/images/camera.svg') }}"
                         alt="photo"></button>
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#createPost" onclick="$('#createPost').modal('show');"><img
-                        src="{{ url('storage/images/plus-circle-fill.svg') }}"
+                        src="{{ asset('storage/images/plus-circle-fill.svg') }}"
                         alt="photo"></button>
             </div>
        @endif

@@ -2,7 +2,7 @@
         <div class="video-shorts n_video_short shorts-fixed-hight video-poster card single-item-countable" id="shorts-{{ $short->id }}">
             <div class="position-relative shorts-height">
                 <video class="plyr-js shorts_custom_height w-100" onpause="onPause(this)" onplay="pauseOtherVideos(this)" id="{{ 'shorts_'.$short->id }}">
-                    <source src="{{ url('storage/videos/'.$short->file)  }}" type="">
+                    <source src="{{ asset('storage/videos/'.$short->file)  }}" type="">
                   </video>
                 <div class="video-meta short_v_con w-100 rounded-3" onclick="videoPlaytoggle('{{ '#shorts_'.$short->id }}')">
                     <div class="video-avatar custom-shorts-heading">

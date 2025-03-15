@@ -25,7 +25,7 @@
                             @foreach ($recent_team_member as $recent_team_member)
                             <img src="{{ get_user_image($recent_team_member->getUser->photo,'optimized') }}" alt="">
                             @endforeach
-                             <img src="{{url('assets/frontend/images/album.jpg')}}" alt=""> 
+                             <img src="{{asset('assets/frontend/images/album.jpg')}}" alt=""> 
                         </div> --}}
                        
                         

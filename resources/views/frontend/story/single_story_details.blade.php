@@ -18,11 +18,11 @@
                                 @if($media_file->file_type == 'video')
                                     @if(File::exists('public/storage/story/videos/'.$media_file->file_name))
                                         <video class="plyr-js" width="100%" autoplay controlsList="nodownload">
-                                            <source src="{{url('storage/story/videos/'.$media_file->file_name)}}" type="">
+                                            <source src="{{asset('storage/story/videos/'.$media_file->file_name)}}" type="">
                                         </video>
                                     @endif
                                 @else
-                                    <img class="w-100" src="{{url('storage/story/images/'.$media_file->file_name)}}">
+                                    <img class="w-100" src="{{asset('storage/story/images/'.$media_file->file_name)}}">
                                 @endif
                             @endforeach
                         @endif

@@ -28,7 +28,7 @@
             <form action="{{route('create_story')}}" class="text-form text-story-form" method="POST">
                 @Csrf
                 <textarea name="description" onkeyup="$('.input-prev-text').text($(this).val())" placeholder="What's on your mind John?" spellcheck="false"></textarea>
-                <img class="text-imogi" src="{{url('storage/images/smile.png')}}" alt="">
+                <img class="text-imogi" src="{{asset('storage/images/smile.png')}}" alt="">
 
                 <input type="hidden" value="fafafa" class="bg-color-input-field" name="bg-color">
                 <input type="hidden" value="636363" class="color-input-field" name="color">
@@ -53,10 +53,10 @@
                 <input type="hidden" value="file" name="content_type">
                 <input type="hidden" value="public" class="story_privacy" name="privacy">
 
-                <img class="text-imogi" src="{{url('storage/images/smile.png')}}" alt="">
+                <img class="text-imogi" src="{{asset('storage/images/smile.png')}}" alt="">
                 <div class="input-prev">
                     <a href="javascript:void(0)" onclick="$('#file-story-input').click()" class="d-block body-bg file">
-                        {{-- <img src="{{url('storage/images/file.png')}}" alt=""> --}}
+                        {{-- <img src="{{asset('storage/images/file.png')}}" alt=""> --}}
                         <i class="fa-solid fa-file"></i>
                         {{get_phrase('Create Photo / Video Story')}}</a>
                     <input type="file" id="file-story-input" class="hidden-file-input" name="story_files[]">
@@ -70,13 +70,13 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="#" onclick="storyType(this, 'text-type-story')" class="mt-2 border text-type-story">
-                    {{-- <img src="{{url('storage/images/text-height.png')}}" alt=""> --}}
+                    {{-- <img src="{{asset('storage/images/text-height.png')}}" alt=""> --}}
                     <i class="fa-solid fa-text-height"></i>
                     {{get_phrase('Create a Text Story')}}</a>
             </div>
             <div class="col-md-6">
                 <a href="#" onclick="storyType(this, 'file-type-story')" href="#" class="mt-2 file-type-story">
-                    {{-- <img src="{{url('storage/images/file.png')}}" alt=""> --}}
+                    {{-- <img src="{{asset('storage/images/file.png')}}" alt=""> --}}
                     <i class="fa-solid fa-file"></i>
                     {{get_phrase('Create Photo / Video Story')}}</a>
         </div>

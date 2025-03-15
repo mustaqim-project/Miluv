@@ -62,9 +62,9 @@
                                 $saved = \App\Models\Saveforlater::where('video_id',$video->id)->where('user_id',auth()->user()->id)->count();
                             @endphp
                             @if ($saved>0)
-                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
+                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
                             @else
-                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
+                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
                             @endif
                         </li>
                         @if ($video->user_id==auth()->user()->id)
@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="entry-content pt-2">
-                <video class="plyr-js w-100" onplay="pauseOtherVideos(this)" controls src="{{url('storage/videos/'.$video->file)}}">
+                <video class="plyr-js w-100" onplay="pauseOtherVideos(this)" controls src="{{asset('storage/videos/'.$video->file)}}">
             </div>
            
             <div class="e_comment">
@@ -90,21 +90,21 @@
                             </a>
 
                             <ul class="react-list">
-                                <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{url('storage/images/like.svg')}}" alt="Like" style="margin-right: 1px;"></a>
+                                <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/like.svg')}}" alt="Like" style="margin-right: 1px;"></a>
                                 </li>
-                                <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{url('storage/images/love.svg')}}" alt="Love" style="width: 30px; margin-top: 2px;"></a>
+                                <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/love.svg')}}" alt="Love" style="width: 30px; margin-top: 2px;"></a>
                                 </li>
-                                <li><a href="javascript:void(0)" onclick="myReact('post', 'haha', 'update', {{$post->post_id}})"><img src="{{url('storage/images/haha.svg')}}" alt="Haha"></a>
+                                <li><a href="javascript:void(0)" onclick="myReact('post', 'haha', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/haha.svg')}}" alt="Haha"></a>
                                 </li>
-                                <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{url('storage/images/sad.svg')}}" class="mx-1" alt="Sad"></a>
+                                <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/sad.svg')}}" class="mx-1" alt="Sad"></a>
                                 </li>
-                                <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{url('storage/images/angry.svg')}}" alt="Angry"></a>
+                                <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/angry.svg')}}" alt="Angry"></a>
                                 </li>
                             </ul>
                         </span>
-                        <span class="entry-react"><a href="javascript:void(0)" onclick="$('#user-comments-{{$post->post_id}}').toggle();"><img width="19px" src="{{ url('storage/images/comment2.svg') }}">{{get_phrase('Comments')}}</a></span>
+                        <span class="entry-react"><a href="javascript:void(0)" onclick="$('#user-comments-{{$post->post_id}}').toggle();"><img width="19px" src="{{ asset('storage/images/comment2.svg') }}">{{get_phrase('Comments')}}</a></span>
                         <span class="entry-react" data-bs-toggle="modal" data-bs-target="#exampleModal"><a
-                                href="javascript:void(0)" onclick="showCustomModal('{{route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id] )}}', '{{get_phrase('Share post')}}');"><img width="19px" src="{{ url('storage/images/share2.svg') }}">{{get_phrase('Share')}}</a></span>
+                                href="javascript:void(0)" onclick="showCustomModal('{{route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id] )}}', '{{get_phrase('Share post')}}');"><img width="19px" src="{{ asset('storage/images/share2.svg') }}">{{get_phrase('Share')}}</a></span>
                         <!-- Post share modal -->
                     </div>
                       @php

@@ -36,7 +36,7 @@
         @if (!empty($message->thumbsup)&&empty($message->message))
             <div class="d-flex user-quote position-relative">
                 <img src="{{ get_user_image($user->id,'optimized') }}" alt="" class="avatar-sm me-2">
-                <div class="chat-react"><img src="{{ url('assets/frontend/images/like-lg.png') }}" alt=""></div>
+                <div class="chat-react"><img src="{{ asset('assets/frontend/images/like-lg.png') }}" alt=""></div>
             </div>
         @endif
         @if (!empty($message->file))
@@ -47,12 +47,12 @@
                 @foreach ($files as $file)
                     @if ($file->file_type=="image")
                         <div class="quote-box">
-                            <img src="{{ url('storage/chat/images/'.$file->file_name) }}" alt="" class="quote_image_box_image" >
+                            <img src="{{ asset('storage/chat/images/'.$file->file_name) }}" alt="" class="quote_image_box_image" >
                         </div>
                     @else
                         <div class="quote-box">
                             <video class="w-100 shorts_custom_height" controls>
-                                <source src="{{ url('storage/chat/videos/'.$file->file_name)  }}" type="">
+                                <source src="{{ asset('storage/chat/videos/'.$file->file_name)  }}" type="">
                             </video>
                         </div>
                     @endif
@@ -110,7 +110,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <img class="rounded" src="{{ url('storage/chat/images/'.$file->file_name) }}" class="quote_image_box_image"  alt="">
+                                <img class="rounded" src="{{ asset('storage/chat/images/'.$file->file_name) }}" class="quote_image_box_image"  alt="">
                             </div>
                         @else
                             <div class="quote-box d-flex">
@@ -125,7 +125,7 @@
                                     </ul>
                                 </div>
                                 <video class="w-100 shorts_custom_height"  controls>
-                                    <source src="{{ url('storage/chat/videos/'.$file->file_name)  }}" type="">
+                                    <source src="{{ asset('storage/chat/videos/'.$file->file_name)  }}" type="">
                                   </video>
                             </div>
                         @endif
@@ -145,7 +145,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="chat-react mt-2"><img class="rounded" src="{{ url('assets/frontend/images/like-lg.png') }}" alt=""></div>
+                    <div class="chat-react mt-2"><img class="rounded" src="{{ asset('assets/frontend/images/like-lg.png') }}" alt=""></div>
                 </div>
             </div>
         @endif

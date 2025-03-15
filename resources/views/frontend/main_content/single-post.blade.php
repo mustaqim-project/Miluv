@@ -67,13 +67,13 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#"><img
-                                            src="{{ url('assets/frontend/images/save.png') }}"
+                                            src="{{ asset('assets/frontend/images/save.png') }}"
                                             alt="">{{ get_phrase('Save Video') }}</a></li>
                                 <li><a class="dropdown-item" href="#"><img
-                                            src="{{ url('assets/frontend/images/link.png') }}"
+                                            src="{{ asset('assets/frontend/images/link.png') }}"
                                             alt="">{{ get_phrase('Copy Link') }}</a></li>
                                 <li><a class="dropdown-item" href="#"><img
-                                            src="{{ url('assets/frontend/images/report.png') }}"
+                                            src="{{ asset('assets/frontend/images/report.png') }}"
                                             alt="">{{ get_phrase('Report') }} </a></li>
                             </ul>
                         </div>
@@ -173,13 +173,13 @@
                         value="{{ route('single.post', $post->post_id) }}">
                     <li><a class="dropdown-item" href="javascript:void(0)" value="copy"
                             onclick="copyToClipboard('copy_post_{{ $post->post_id }}')"><img
-                                src="{{ url('storage/images/link.png') }}"
+                                src="{{ asset('storage/images/link.png') }}"
                                 alt="">{{ get_phrase('Copy Link') }}</a></li>
 
                     <li><a class="dropdown-item" href="javascript:void(0)"
                             onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.create_report', 'post_id' => $post->post_id]) }}', '{{ get_phrase('Report Post') }}');"
                             data-bs-toggle="modal" data-bs-target="#createEvent"><img
-                                src="{{ url('storage/images/report.png') }}"
+                                src="{{ asset('storage/images/report.png') }}"
                                 alt="">{{ get_phrase('Report') }}
                         </a></li>
                 </ul>
@@ -259,10 +259,10 @@
 
                 @if (!empty($post->location))
                     <div class="text-center">
-                        <img width="200px" src="{{ url('storage/images/map-pin.jpeg') }}"><br>
+                        <img width="200px" src="{{ asset('storage/images/map-pin.jpeg') }}"><br>
                         <a class="location-post me-auto ms-auto"
                             href="https://www.google.com/maps/place/{{ $post->location }}" target="_blanck">
-                            <img src="{{ url('storage/images/location.png') }}">
+                            <img src="{{ asset('storage/images/location.png') }}">
                             <span>{{ $post->location }}</span>
                             <hr>
                             <small>@php
@@ -281,7 +281,7 @@
                             <i class="fa fa-dot-circle"></i>
                             {{ get_phrase('LIVE') }}
                         </span>
-                        <img class="live-image" src="{{ url('storage/images/live.png') }}">
+                        <img class="live-image" src="{{ asset('storage/images/live.png') }}">
                     </div>
                     <div class="col-12 text-center ">
                         <a class="live-watch-now mt-20" href="{{ route('live', ['post_id' => $post->post_id]) }}"><i
@@ -322,27 +322,27 @@
                         <ul class="react-list">
                             <li><a href="javascript:void(0)"
                                     onclick="myReact('post', 'like', 'update', {{ $post->post_id }})"><img
-                                        src="{{ url('storage/images/r-like.png') }}" alt="Like"></a>
+                                        src="{{ asset('storage/images/r-like.png') }}" alt="Like"></a>
                             </li>
                             <li><a href="javascript:void(0)"
                                     onclick="myReact('post', 'love', 'update', {{ $post->post_id }})"><img
-                                        src="{{ url('storage/images/r-love.png') }}" alt="Love"></a>
+                                        src="{{ asset('storage/images/r-love.png') }}" alt="Love"></a>
                             </li>
                             <li><a href="javascript:void(0)"
                                     onclick="myReact('post', 'sad', 'update', {{ $post->post_id }})"><img
-                                        src="{{ url('storage/images/r-cry1.png') }}" alt="Sad"></a>
+                                        src="{{ asset('storage/images/r-cry1.png') }}" alt="Sad"></a>
                             </li>
                             <li><a href="javascript:void(0)"
                                     onclick="myReact('post', 'angry', 'update', {{ $post->post_id }})"><img
-                                        src="{{ url('storage/images/r-angry.png') }}" alt="Angry"></a>
+                                        src="{{ asset('storage/images/r-angry.png') }}" alt="Angry"></a>
                             </li>
                         </ul>
                     </span>
                     <span class="entry-react"><a href="javascript:void(0)"
-                            onclick="$('#user-comments-{{ $post->post_id }}').toggle();"> <img width="19px" src="{{ url('storage/images/comment2.svg') }}">{{ get_phrase('Comments') }}</a></span>
+                            onclick="$('#user-comments-{{ $post->post_id }}').toggle();"> <img width="19px" src="{{ asset('storage/images/comment2.svg') }}">{{ get_phrase('Comments') }}</a></span>
                     <span class="entry-react" data-bs-toggle="modal" data-bs-target="#exampleModal"><a
                             href="javascript:void(0)"
-                            onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id]) }}', '{{ get_phrase('Share post') }}');"> <img width="19px" src="{{ url('storage/images/share2.svg') }}">{{ get_phrase('Share') }}</a></span>
+                            onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id]) }}', '{{ get_phrase('Share post') }}');"> <img width="19px" src="{{ asset('storage/images/share2.svg') }}">{{ get_phrase('Share') }}</a></span>
                     <!-- Post share modal -->
                 </div>
                 <div class="entry-meta py-4 d-flex border-bottom justify-content-between align-items-center ">
@@ -390,7 +390,7 @@
 
 @include('frontend.main_content.scripts')
 
-<script src="{{ url('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
 @include('frontend.initialize')
 
 

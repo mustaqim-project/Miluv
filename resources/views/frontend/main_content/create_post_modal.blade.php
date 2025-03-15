@@ -198,20 +198,20 @@
                              <p class="mb-0">{{get_phrase('Add to your post')}}</p>
                                 <div>
                                     <button type="button" data-tab="tab-file" class="btn btn-secondary m_btn"><img
-                                        src="{{ url('storage/images/image.svg') }}"
+                                        src="{{ asset('storage/images/image.svg') }}"
                                         alt="photo"></button>
                                     <button type="button" data-tab="tab-ai" class="btn btn-secondary m_btn"><i class="fa-solid fa-robot" style="color:#0950a9e6"></i></button>
                                 <button type="button" data-tab="tab-tag" class="btn btn-secondary m_btn"><img
-                                        src="{{ url('storage/images/peoples.png') }}"
+                                        src="{{ asset('storage/images/peoples.png') }}"
                                         alt="photo"></button>
                                 <button type="button" data-tab="tab-feeling" class="btn btn-secondary m_btn"><img
-                                        src="{{ url('storage/images/forum.svg') }}"
+                                        src="{{ asset('storage/images/forum.svg') }}"
                                         alt="photo"></button>
                                 <button type="button" onclick="loadMaps('map')" data-tab="tab-location"
-                                    class="btn btn-secondary m_btn"><img src="{{ url('storage/images/location.png') }}"
+                                    class="btn btn-secondary m_btn"><img src="{{ asset('storage/images/location.png') }}"
                                         alt="photo"></button>
                                 <button type="button" class="btn btn-secondary m_btn" onclick="confirmLiveStreaming()"><img
-                                        src="{{ url('storage/images/camera.svg') }}"
+                                        src="{{ asset('storage/images/camera.svg') }}"
                                         alt="photo"></button>
                                 </div>
                          </div>
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchImageWithRetry(text, retries = 3, delay = 5000) {
         for (let i = 0; i < retries; i++) {
             try {
-                outputImage.src = "{{url('assets/frontend/images/loader.gif')}}";
+                outputImage.src = "{{asset('assets/frontend/images/loader.gif')}}";
                 outputImage.classList.remove('hidden');
 
                 const response = await fetch(

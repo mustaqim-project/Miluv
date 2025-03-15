@@ -16,14 +16,14 @@
     <!-- all the css files -->
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon,'favicon') }}" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/vendors/bootstrap-5.1.3/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/swiper-bundle.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/custom.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/style.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/vendors/bootstrap-icons-1.8.1/bootstrap-icons.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/own.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/vendors/bootstrap-5.1.3/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/swiper-bundle.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/custom.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/vendors/bootstrap-icons-1.8.1/bootstrap-icons.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/own.css') }}" />
     <!--Main Jquery-->
-    <script src="{{ url('assets/backend/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
   </head>
 
   <body class="pt-5">
@@ -35,11 +35,11 @@
       @include('payment.payment_gateway')
     </div>
     <!--Bootstrap bundle with popper-->
-    <script src="{{ url('assets/backend/vendors/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url('assets/backend/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/vendors/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/swiper-bundle.min.js') }}"></script>
     <!-- Datepicker js -->
-    <script src="{{ url('assets/backend/js/moment.min.js') }}"></script>
-    <script src="{{ url('assets/backend/js/sweetalert2@11.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/sweetalert2@11.js') }}"></script>
 
   </body>
 </html>

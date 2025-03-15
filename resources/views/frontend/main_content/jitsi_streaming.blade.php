@@ -4,8 +4,8 @@
     $jitsis = json_decode(get_settings('zitsi_configuration'), true);
 ?>
 
-<script src="{{ url('assets/frontend/js/jquery-3.6.0.min.js') }}" charset="utf-8"></script>
-{{-- <script src="{{ url('assets/frontend/js/jitsi.js') }}"></script> --}}
+<script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}" charset="utf-8"></script>
+{{-- <script src="{{ asset('assets/frontend/js/jitsi.js') }}"></script> --}}
 
 <script>
     const domain = "8x8.vc";

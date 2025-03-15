@@ -22,7 +22,7 @@
                     <li>
                         <a href="javascript:void(0)" onclick="addFeelingActivity('{{$all_activity->feeling_and_activity_id}}', '{{$all_activity->title}}', '{{$all_activity->icon}}', '{{$icon_ext}}')">
                             @if($icon_ext == 'png' || $icon_ext == 'jpg' || $icon_ext == 'ico')
-                                <img src="{{url('storage/images/'.$all_activity->icon)}}">
+                                <img src="{{asset('storage/images/'.$all_activity->icon)}}">
                             @else
                                 <i class="{{$all_activity->icon}}"></i>
                             @endif
@@ -47,7 +47,7 @@
                     <li class="float-start w-50">
                         <a href="javascript:void(0)" class="px-2 py-1" onclick="addFeelingActivity('{{$all_feeling->feeling_and_activity_id}}', '{{$all_feeling->title}}', '{{$all_feeling->icon}}', '{{$icon_ext}}')">
                             @if($icon_ext == 'png' || $icon_ext == 'jpg' || $icon_ext == 'ico')
-                                <span><img src="{{url('storage/images/'.$all_feeling->icon)}}"></span>
+                                <span><img src="{{asset('storage/images/'.$all_feeling->icon)}}"></span>
                             @else
                                 <i class="{{$all_feeling->icon}}"></i>
                             @endif

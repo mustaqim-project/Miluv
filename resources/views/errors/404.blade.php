@@ -19,10 +19,10 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon,'favicon') }}" />
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{url('assets/frontend/css/fontawesome/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome/all.min.css')}}">
     <!-- CSS Library -->
-    <link rel="stylesheet" href="{{url('assets/frontend/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url('assets/frontend/css/own.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/own.css')}}">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 	            <div class="col-lg-12">
 	                <div class="error-box">
 	                    <div class="error-content">
-	                        <img src="{{url('storage/images/404-image.png')}}" alt="image">
+	                        <img src="{{asset('storage/images/404-image.png')}}" alt="image">
 	                         <h1>{{get_phrase('404 page not found')}}</h1>
 	                        <p>{{get_phrase('This page is not available, please provide a valid URL')}}</p>
 
@@ -48,7 +48,7 @@
 	<!-- 404 Area End -->
     
     <!--Javascript-->
-    <script src="{{url('assets/frontend/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/frontend/js/bootstrap.bundle.min.js')}}"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
 
 <div class="page-wrap">
     <div class="d-flex pagetab-head  align-items-center justify-content-between mb-3 p-20 radius-8 bg-white">
-        <h3 class="h5 pt-0 mb-0"><span><img width="12" src="{{ url('assets/frontend/images/stickies-fill.png') }}" alt=""></span> {{ get_phrase('Edit Blog') }}</h3>
+        <h3 class="h5 pt-0 mb-0"><span><img width="12" src="{{ asset('assets/frontend/images/stickies-fill.png') }}" alt=""></span> {{ get_phrase('Edit Blog') }}</h3>
         <a href="{{ url()->previous() }}" class="btn common_btn"><i class="fa-solid fa-left-long"></i>{{get_phrase('Back')}}</a>
        
     </div>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
 @php
     $page = \App\Models\Page::find($page_id);
 @endphp
@@ -33,7 +33,7 @@
     <button type="submit" class="mt-12 w-100 btn common_btn">{{ get_phrase('Edit Page') }}</button>
 </form>
 @include('frontend.initialize')
-<script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
 <script>
     $('document').ready(function(){
         $(".select").niceSelect();

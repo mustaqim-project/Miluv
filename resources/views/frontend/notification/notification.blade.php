@@ -46,7 +46,7 @@
                                                 src="{{ get_user_image($newNotification->getUserData->id, 'optimized') }}"
                                                 alt="">
                                             <span class="notify-type"><img
-                                                    src="{{ url('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
+                                                    src="{{ asset('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
                                                     alt="Fundraiser"></span>
                                         </div>
                                         <div class="noti-details">
@@ -298,7 +298,7 @@
                                         <div class="noti-avata me-3"><img width="48" class="rounded-circle h-39"
                                                 src="{{ get_user_image($newNotification->getUserData->id, 'optimized') }}"alt="">
                                             <span class="notify-type"><img
-                                                    src="{{ url('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
+                                                    src="{{ asset('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
                                                     alt="Fundraiser"></span>
                                         </div>
                                         <div class="noti-details">

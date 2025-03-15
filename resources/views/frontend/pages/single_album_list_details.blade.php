@@ -23,7 +23,7 @@
             <div class="col-lg-3 col-md-4 col-6 mb-2">
                 <div class="card sugg-card p-0 box_shadow border-none al_details  suggest_p radius-8">
                     <div>
-                        <img class="thumbnail-110-106 w-100" onclick="$(location).prop('href', '{{ route('single.post', ['id' => $image_post->post_id]) }}')" src="{{ url('storage/album/images/'.$image->image) }}" alt="">
+                        <img class="thumbnail-110-106 w-100" onclick="$(location).prop('href', '{{ route('single.post', ['id' => $image_post->post_id]) }}')" src="{{ asset('storage/album/images/'.$image->image) }}" alt="">
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@
   <div class="carousel-inner">
     @foreach ($images as $image )
       <div class="carousel-item {{ $loop->index=="0" ? "active":"" }}">
-          <img src="{{ url('storage/album/images/'.$image->image) }}" class="d-block w-100" alt="...">
+          <img src="{{ asset('storage/album/images/'.$image->image) }}" class="d-block w-100" alt="...">
       </div>
     @endforeach
   </div>
