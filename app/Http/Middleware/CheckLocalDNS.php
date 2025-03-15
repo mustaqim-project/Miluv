@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckLocalDNS
@@ -17,17 +18,24 @@ class CheckLocalDNS
     public function handle(Request $request, Closure $next): Response
     {
         $ip = $request->ip();
-
-        // Batasi request per IP dalam 60 detik
         $key = 'rate_limit_' . $ip;
-        if (RateLimiter::tooManyAttempts($key, 5)) {
+
+        // 🔹 Batasi 60 request per 1 menit per IP
+        if (RateLimiter::tooManyAttempts($key, 60)) {
             return response()->view('errors.429', [], 429);
         }
         RateLimiter::hit($key, 60);
 
-        // Gunakan API ip-api.com untuk mengecek lokasi IP
-        $geoInfo = @json_decode(file_get_contents("http://ip-api.com/json/{$ip}"), true);
+        // 🔹 Cek lokasi IP dengan API eksternal (pakai cURL)
+        $response = Http::timeout(3)->get("http://ip-api.com/json/{$ip}");
 
+        if ($response->failed()) {
+            return response()->json(['message' => 'Gagal mengambil informasi lokasi IP.'], 500);
+        }
+
+        $geoInfo = $response->json();
+
+        // 🔹 Pastikan IP berasal dari Indonesia
         if (!isset($geoInfo['countryCode']) || strtolower($geoInfo['countryCode']) !== 'id') {
             abort(404);
         }
