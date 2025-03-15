@@ -97,13 +97,13 @@
                 @endphp
 
                 @if ($current_hour >= 5 && $current_hour < 12)
-                    <img class="img-fluid" src="{{ asset('assets/frontend/images/sun.svg') }}" height="30px"
+                    <img class="img-fluid" src="{{ url('assets/frontend/images/sun.svg') }}" height="30px"
                         width="30px" alt="">
                 @elseif($current_hour >= 12 && $current_hour < 17)
-                    <img class="img-fluid" src="{{ asset('storage/images/cloud-sun.png') }}" alt="">
+                    <img class="img-fluid" src="{{ url('storage/images/cloud-sun.png') }}" alt="">
                     
                 @else
-                  <img class="img-fluid" src="{{ asset('assets/frontend/images/moon2.png') }}" height="30px"
+                  <img class="img-fluid" src="{{ url('assets/frontend/images/moon2.png') }}" height="30px"
                 width="30px" alt="">
                 @endif
                 <h3 class="h6 ms-2">{{ get_phrase('Hi') }}, {{ Auth()->user()->name }}
@@ -507,7 +507,7 @@
 
                     <h4 class="widget-title pt-30 pb-20">{{ get_phrase('Membership') }}</h4>
                     <div class="member-img">
-                        <img src="{{ asset('assets/frontend/paid-content/images/new/Notification-icon.png') }}"
+                        <img src="{{ url('assets/frontend/paid-content/images/new/Notification-icon.png') }}"
                             alt="" />
                     </div>
                     {{-- <h4 class="widget-title pt-20">

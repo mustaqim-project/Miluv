@@ -38,7 +38,7 @@
                 
                     <td>{{ $key + 1 }}</td>
                     <td>
-                      <img src="{{ asset('storage/userimage/' . (!empty($request_user->user->photo) ? $request_user->user->photo : 'default.png')) }}" 
+                      <img src="{{ url('storage/userimage/' . (!empty($request_user->user->photo) ? $request_user->user->photo : 'default.png')) }}" 
                            alt="" height="50" width="50" class="img-fluid rounded-circle img-thumbnail">
                   </td>
                   

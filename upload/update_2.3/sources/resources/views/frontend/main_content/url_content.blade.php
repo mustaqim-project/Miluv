@@ -45,7 +45,7 @@
             <div class="row g-0 align-items-center">
                 <div class="col-md-4">
                     <div class="url-content">
-                        <img src="@if ($meta['image'] != '') {{ $meta['image'] }} @else {{ asset('storage/post/images/default.jpg') }} @endif"
+                        <img src="@if ($meta['image'] != '') {{ $meta['image'] }} @else {{ url('storage/post/images/default.jpg') }} @endif"
                             class="img-fluid rounded-start" alt="">
                     </div>
                 </div>

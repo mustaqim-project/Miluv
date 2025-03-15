@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Creativeitem Software Installation" />
 	<meta name="author" content="Creativeitem" />
-	<title>{{ __('Installation').' | '.__('Sociopro') }}</title>
+	<title>{{ __('Installation').' | '.__('miluv') }}</title>
 	
 	<!-- CSRF Token for ajax for submission -->
     <meta name="csrf_token" content="{{ csrf_token() }}" />
@@ -33,7 +33,7 @@
     <link href="{{asset('assets/frontend/uploader/jquery.uploader.css')}}" rel="stylesheet">
     <link href="{{asset('assets/frontend/css/jquery-rbox.css')}}" rel="stylesheet">
 
-   <link rel="stylesheet" href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}">
+   <link rel="stylesheet" href="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}">
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
@@ -57,7 +57,7 @@
 				<!-- logo -->
 				<div class="navbar-brand">
 					<a href="#">
-						<img width="130px" src="{{ asset('storage') }}/logo/light/logo.png" alt="">
+						<img width="130px" src="{{ url('storage') }}/logo/light/logo.png" alt="">
 					</a>
 					<span class="logo_name ms-4">{{ __('Installation') }}</span>
 				</div>
@@ -94,11 +94,11 @@
 
     <script src="{{asset('assets/frontend/js/plyr_cdn_dw.js')}}"></script>
 
-    <script src="{{ asset('js/share.js') }}"></script>
+    <script src="{{ url('js/share.js') }}"></script>
 
     <script src="{{asset('assets/frontend/uploader/jquery.uploader.min.js')}}"></script>
 
-    <script src="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
 
 
 </body>

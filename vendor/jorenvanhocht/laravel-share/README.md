@@ -68,7 +68,7 @@ Load jquery.min.js & share.js by adding the following lines to your template fil
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/share.js') }}"></script>
+<script src="{{ url('js/share.js') }}"></script>
 ```
 
 ## Usage

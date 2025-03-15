@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-lg-6 col-sm-12">
                     <div class="entry-thumb">
                         <video class="rounded  w-100 plyr-js" controls="" onplay="pauseOtherVideos(this)"
-                            src="{{ asset('storage/videos/'.$video->getVideo->file ) }}"></video> 
+                            src="{{ url('storage/videos/'.$video->getVideo->file ) }}"></video> 
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12">
@@ -47,9 +47,9 @@
                                             $saved = \App\Models\Saveforlater::where('video_id',$video->video_id)->where('user_id',auth()->user()->id)->count();
                                         @endphp
                                         @if ($saved>0)
-                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->video_id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
+                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->video_id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
                                         @else
-                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->video_id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
+                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->video_id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
                                         @endif
                                     </li>
                                 </ul>
@@ -75,7 +75,7 @@
                         @endphp
                         <div class="entry-footer">
                             <div class="footer-share pt-3 d-flex justify-content-between w-100">
-                                <span class="entry-react post-react"><img src="{{ asset('assets/frontend/images/l-react.png') }}"
+                                <span class="entry-react post-react"><img src="{{ url('assets/frontend/images/l-react.png') }}"
                                             alt=""> {{ $user_reacts }}
                                 </span>
                                 <span class="entry-react">{{ $comment }} {{ get_phrase('Comments') }}</span>

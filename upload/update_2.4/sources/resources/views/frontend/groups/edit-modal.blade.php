@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
 @php
     $group = \App\Models\Group::find($group_id);
 @endphp
@@ -51,7 +51,7 @@
     <button type="submit" class="w-100 mt-12 btn common_btn">{{ get_phrase('Update Group') }}</button>
 </form>
 
-<script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
 @include('frontend.initialize')
 <script>
     $('document').ready(function(){

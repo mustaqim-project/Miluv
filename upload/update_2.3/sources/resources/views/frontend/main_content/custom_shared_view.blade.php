@@ -34,8 +34,8 @@
 
     <link href="{{asset('assets/frontend/uploader/jquery.uploader.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new-style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/gallery/justifiedGallery.min.css')}}">
 
     <script src="{{asset('assets/frontend/js/jquery-3.6.0.min.js')}}"></script>

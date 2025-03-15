@@ -62,9 +62,9 @@
                                 $saved = \App\Models\Saveforlater::where('video_id',$video->id)->where('user_id',auth()->user()->id)->count();
                             @endphp
                             @if ($saved>0)
-                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
+                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('unsave.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Unsave Video')}}</a>
                             @else
-                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ asset('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
+                            <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('save.video.later',$video->id); ?>')" class="dropdown-item btn btn-primary btn-sm"> <img src="{{ url('assets/frontend/images/save.png') }}" alt=""> {{get_phrase('Save Video')}}</a>
                             @endif
                         </li>
                         @if ($video->user_id==auth()->user()->id)
@@ -102,9 +102,9 @@
                                 </li>
                             </ul>
                         </span>
-                        <span class="entry-react"><a href="javascript:void(0)" onclick="$('#user-comments-{{$post->post_id}}').toggle();"><img width="19px" src="{{ asset('storage/images/comment2.svg') }}">{{get_phrase('Comments')}}</a></span>
+                        <span class="entry-react"><a href="javascript:void(0)" onclick="$('#user-comments-{{$post->post_id}}').toggle();"><img width="19px" src="{{ url('storage/images/comment2.svg') }}">{{get_phrase('Comments')}}</a></span>
                         <span class="entry-react" data-bs-toggle="modal" data-bs-target="#exampleModal"><a
-                                href="javascript:void(0)" onclick="showCustomModal('{{route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id] )}}', '{{get_phrase('Share post')}}');"><img width="19px" src="{{ asset('storage/images/share2.svg') }}">{{get_phrase('Share')}}</a></span>
+                                href="javascript:void(0)" onclick="showCustomModal('{{route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id] )}}', '{{get_phrase('Share post')}}');"><img width="19px" src="{{ url('storage/images/share2.svg') }}">{{get_phrase('Share')}}</a></span>
                         <!-- Post share modal -->
                     </div>
                       @php

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
 <form class="ajaxForm  ng_form_entry" action="{{ route('page.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -29,7 +29,7 @@
 
 
 @include('frontend.initialize')
-<script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
 <script>
     $('document').ready(function(){
         $(".select").niceSelect();

@@ -25,31 +25,31 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/backend/vendors/bootstrap-5.1.3/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
+        href="{{ url('assets/backend/vendors/bootstrap-5.1.3/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fontawesome/all.min.css') }}">
     <!--Custom css-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/swiper-bundle.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/custom.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/swiper-bundle.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/custom.css') }}" />
     <!-- Datepicker css -->
-    <link rel="stylesheet" href="{{ asset('assets/backend/css/daterangepicker.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/backend/css/daterangepicker.css') }}" />
 
-    <link href="{{ asset('assets/frontend/css/tagify.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/frontend/css/tagify.css') }}" rel="stylesheet">
 
 
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
+        href="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
     <!-- Select2 css -->
-    <link rel="stylesheet" href="{{ asset('assets/backend/css/select2.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/backend/css/jquery.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/backend/css/select2.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/backend/css/jquery.dataTables.min.css') }}" />
 
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/backend/vendors/bootstrap-icons-1.8.1/bootstrap-icons.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/own.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/fixing.css') }}" />
+        href="{{ url('assets/backend/vendors/bootstrap-icons-1.8.1/bootstrap-icons.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/own.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/backend/css/fixing.css') }}" />
 
     <!--Main Jquery-->
-    <script src="{{ asset('assets/backend/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url('assets/backend/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
 </head>
 
 <body>
@@ -63,25 +63,25 @@
         </div>
     </section>
     <!--Bootstrap bundle with popper-->
-    <script src="{{ asset('assets/backend/vendors/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/backend/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url('assets/backend/vendors/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/swiper-bundle.min.js') }}"></script>
     <!-- Datepicker js -->
-    <script src="{{ asset('assets/backend/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/backend/js/daterangepicker.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/moment.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/daterangepicker.min.js') }}"></script>
     <!-- Select2 js -->
-    <script src="{{ asset('assets/backend/js/select2.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/select2.min.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
 
 
-    <script src="{{ asset('assets/backend/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/backend/js/sweetalert2@11.js') }}"></script>
+    <script src="{{ url('assets/backend/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/sweetalert2@11.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
 
     <!--Custom Script-->
-    <script src="{{ asset('assets/backend/js/chart.min.js') }}"></script>
-    <script src="{{ asset('assets/backend/js/script.js') }}"></script>
+    <script src="{{ url('assets/backend/js/chart.min.js') }}"></script>
+    <script src="{{ url('assets/backend/js/script.js') }}"></script>
 
 
     <script>

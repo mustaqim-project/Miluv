@@ -153,19 +153,19 @@
                              <p class="mb-0">{{get_phrase('Add to your post')}}</p>
                                 <div>
                                     <button type="button" data-tab="tab-file" class="btn btn-secondary m_btn"><img
-                                        src="{{ asset('storage/images/image.svg') }}"
+                                        src="{{ url('storage/images/image.svg') }}"
                                         alt="photo"></button>
                                 <button type="button" data-tab="tab-tag" class="btn btn-secondary m_btn"><img
-                                        src="{{ asset('storage/images/peoples.png') }}"
+                                        src="{{ url('storage/images/peoples.png') }}"
                                         alt="photo"></button>
                                 <button type="button" data-tab="tab-feeling" class="btn btn-secondary m_btn"><img
-                                        src="{{ asset('storage/images/forum.svg') }}"
+                                        src="{{ url('storage/images/forum.svg') }}"
                                         alt="photo"></button>
                                 <button type="button" onclick="loadMaps('map')" data-tab="tab-location"
-                                    class="btn btn-secondary m_btn"><img src="{{ asset('storage/images/location.png') }}"
+                                    class="btn btn-secondary m_btn"><img src="{{ url('storage/images/location.png') }}"
                                         alt="photo"></button>
                                 <button type="button" class="btn btn-secondary m_btn" onclick="confirmLiveStreaming()"><img
-                                        src="{{ asset('storage/images/camera.svg') }}"
+                                        src="{{ url('storage/images/camera.svg') }}"
                                         alt="photo"></button>
                                 </div>
                          </div>

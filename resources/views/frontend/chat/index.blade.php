@@ -33,8 +33,8 @@
     <link href="{{asset('assets/frontend/uploader/jquery.uploader.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/own.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/emojionearea.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/emojionearea.css') }}" />
 
     <script src="{{asset('assets/frontend/js/jquery-3.6.0.min.js')}}"></script>
     
@@ -104,7 +104,7 @@
 
     <script src="{{asset('assets/frontend/emojionarea/emojionearea.min.js')}}"></script>
 
-    <script src="{{ asset('js/share.js') }}"></script>
+    <script src="{{ url('js/share.js') }}"></script>
 
     <script src="{{asset('assets/frontend/uploader/jquery.uploader.min.js')}}"></script>
 
@@ -149,10 +149,10 @@
                     success: function(response) {
                         sessionStorage.setItem('theme_color', themeColor);
                         if (themeColor === 'dark') {
-                            $('#dark').attr('src', '{{ asset("assets/frontend/images/white_sun.svg") }}');
+                            $('#dark').attr('src', '{{ url("assets/frontend/images/white_sun.svg") }}');
                     } else {
                         
-                        $('#dark').attr('src', '{{ asset("assets/frontend/images/white_moon.svg") }}');
+                        $('#dark').attr('src', '{{ url("assets/frontend/images/white_moon.svg") }}');
                     }
                     },
                     error: function(xhr, status, error) {

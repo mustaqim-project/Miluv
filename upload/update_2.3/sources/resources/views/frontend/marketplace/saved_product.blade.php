@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-5 col-lg-4 col-sm-12">
                     <div class="entry-thumb ">
-                        <img width="100%" src="{{ asset('storage/marketplace/thumbnail/'.$saved_product->productData->image) }}" alt="">
+                        <img width="100%" src="{{ url('storage/marketplace/thumbnail/'.$saved_product->productData->image) }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-8 col-sm-12">

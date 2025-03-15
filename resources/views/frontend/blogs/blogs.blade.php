@@ -1,5 +1,5 @@
 <div class="page-wrap">
-    {{-- style="background-image: url('{{ asset('assets/frontend/images/blog-bg.png') }}')" --}}
+    {{-- style="background-image: url('{{ url('assets/frontend/images/blog-bg.png') }}')" --}}
     <div class="blog-header nblog_header p-20 radius-8 mb-3" >
             <h1 class="h3">{{get_phrase('Blogs')}}</h1>
         

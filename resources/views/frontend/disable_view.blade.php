@@ -19,68 +19,68 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fontawesome/all.min.css') }}">
     <!-- CSS Library -->
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/owl.carousel.min.css') }}">
 
     <!-- Style css -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/plyr/plyr.css') }}">
-    <link href="{{ asset('assets/frontend/leafletjs/leaflet.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/plyr/plyr.css') }}">
+    <link href="{{ url('assets/frontend/leafletjs/leaflet.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('assets/frontend/css/plyr_cdn_dw.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/frontend/css/tagify.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/frontend/css/plyr_cdn_dw.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/frontend/css/tagify.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('assets/frontend/uploader/file-uploader.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/frontend/css/jquery-rbox.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/frontend/uploader/file-uploader.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/frontend/css/jquery-rbox.css') }}" rel="stylesheet">
 
     <!-- paid content start -->
     <link rel="apple-touch-icon" href="images/favicon.png" />
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/addon_layout.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/new_scss/new_style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/paid-content/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/addon_layout.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/paid-content/css/new_scss/new_style.css') }}" />
     <!-- paid content end -->
 
 
 
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/gallery/justifiedGallery.min.css') }}">
-    <link href="{{ asset('assets/frontend/toaster/toaster.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/gallery/justifiedGallery.min.css') }}">
+    <link href="{{ url('assets/frontend/toaster/toaster.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}" />
+        href="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/pc.style.css') }}" />
 
     {{-- fundraiser --}}
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/style_make.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new-style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
     
    
     <!-- New -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
 
-    <link rel="apple-touch-icon" href="{{ asset('assets/frontend/css/fundraiser/images/favicon.png') }}" />
+    <link rel="apple-touch-icon" href="{{ url('assets/frontend/css/fundraiser/images/favicon.png') }}" />
 
     {{-- end fundraiser --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/daterangepicker.css') }}">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
 
     {{-- Job Addon Css --}}
     @if (addon_status('job') == 1)
-     <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
+     <link rel="stylesheet" href="{{ url('assets/frontend/css/job/style.css') }}" />
     @endif
     {{-- Job Addon Css --}}
-	<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
-    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+	<link rel="stylesheet" href="{{ url('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
+    <script src="{{ url('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 
 
 </head>
@@ -338,60 +338,60 @@
 
     <!--Javascript
     ========================================================-->
-    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/venobox.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/timepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/jquery.datepicker.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/venobox.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/timepicker.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/jquery.datepicker.min.js') }}"></script>
 
 
-    <script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/plyr/plyr.js') }}"></script>
-    <script src="{{ asset('assets/frontend/jquery-form/jquery.form.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/plyr/plyr.js') }}"></script>
+    <script src="{{ url('assets/frontend/jquery-form/jquery.form.min.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/leafletjs/leaflet.js') }}"></script>
-    <script src="{{ asset('assets/frontend/leafletjs/leaflet-search.js') }}"></script>
-    <script src="{{ asset('assets/frontend/toaster/toaster.js') }}"></script>
+    <script src="{{ url('assets/frontend/leafletjs/leaflet.js') }}"></script>
+    <script src="{{ url('assets/frontend/leafletjs/leaflet-search.js') }}"></script>
+    <script src="{{ url('assets/frontend/toaster/toaster.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/gallery/jquery.justifiedGallery.min.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/jquery-rbox.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/jQuery.tagify.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/jquery-rbox.js') }}"></script>
 
 
-    <script src="{{ asset('assets/frontend/js/plyr_cdn_dw.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/plyr_cdn_dw.js') }}"></script>
 
-    <script src="{{ asset('js/share.js') }}"></script>
+    <script src="{{ url('js/share.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/uploader/file-uploader.js') }}"></script>
+    <script src="{{ url('assets/frontend/uploader/file-uploader.js') }}"></script>
 
-    <script src="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
 
 
     {{-- fundraiser start----- --}}
-    {{-- <script src="{{ asset('assets/frontend/css/fundraiser/js/custom.js') }}"></script> --}}
-    <script src="{{ asset('assets/frontend/css/fundraiser/js/custom_btn.js') }}"></script>
-    <script src="{{ asset('assets/frontend/css/fundraiser/js/new-script.js') }}"></script>
-    {{-- <script src="{{ asset('assets/frontend/css/fundraiser/js/profile-table.js') }}"></script> --}}
+    {{-- <script src="{{ url('assets/frontend/css/fundraiser/js/custom.js') }}"></script> --}}
+    <script src="{{ url('assets/frontend/css/fundraiser/js/custom_btn.js') }}"></script>
+    <script src="{{ url('assets/frontend/css/fundraiser/js/new-script.js') }}"></script>
+    {{-- <script src="{{ url('assets/frontend/css/fundraiser/js/profile-table.js') }}"></script> --}}
     {{-- fundraiser end---- --}}
     
 
     
     {{-- paid content start --}}
-    <script src="{{ asset('assets/frontend/paid-content/js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/paid-content/js/ckeditor.js') }}"></script>
-    <script src="{{ asset('assets/frontend/paid-content/js/jquery-tjgallery.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/paid-content/js/custom.js') }}"></script>
-    <script src="{{ asset('assets/frontend/paid-content/js/script.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/addon_layout.js') }}"></script>
+    <script src="{{ url('assets/frontend/paid-content/js/select2.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/paid-content/js/ckeditor.js') }}"></script>
+    <script src="{{ url('assets/frontend/paid-content/js/jquery-tjgallery.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/paid-content/js/custom.js') }}"></script>
+    <script src="{{ url('assets/frontend/paid-content/js/script.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/addon_layout.js') }}"></script>
     {{-- paid content end --}}
 
-    <script src="{{ asset('assets/frontend/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/daterangepicker.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/moment.min.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/daterangepicker.min.js') }}"></script>
 
-    {{-- <script src="{{ asset('assets/frontend/js/custom.js') }}"></script> --}}
+    {{-- <script src="{{ url('assets/frontend/js/custom.js') }}"></script> --}}
 
-    <script src="{{ asset('assets/frontend/js/initialize.js') }}"></script>
+    <script src="{{ url('assets/frontend/js/initialize.js') }}"></script>
 
 
 
@@ -436,10 +436,10 @@
                 success: function(response) {
                     sessionStorage.setItem('theme_color', themeColor);
                     if (themeColor === 'dark') {
-                        $('#dark').attr('src', '{{ asset("assets/frontend/images/white_sun.svg") }}');
+                        $('#dark').attr('src', '{{ url("assets/frontend/images/white_sun.svg") }}');
                 } else {
                     
-                    $('#dark').attr('src', '{{ asset("assets/frontend/images/white_moon.svg") }}');
+                    $('#dark').attr('src', '{{ url("assets/frontend/images/white_moon.svg") }}');
                 }
                 },
                 error: function(xhr, status, error) {

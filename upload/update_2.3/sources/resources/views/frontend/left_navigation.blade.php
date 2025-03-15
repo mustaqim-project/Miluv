@@ -2,7 +2,7 @@
     <div class="offcanvas-header res_logo d-lg-none py-4">
         <div class="logo">
             <img class="max-width-200" width="80%"
-                src="{{ asset('storage/logo/dark/' . get_settings('system_dark_logo')) }}" alt="">
+                src="{{ url('storage/logo/dark/' . get_settings('system_dark_logo')) }}" alt="">
         </div>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">x</button>
     </div>
@@ -11,33 +11,33 @@
             <nav class="menu-wrap">
                 <ul>
                     <li class="@if (Route::currentRouteName() == 'timeline' || Route::currentRouteName() == 'single.post') active @endif"><a href="{{ route('timeline') }}"><img
-                                src="{{ asset('storage/images/timeline-2.svg') }}"
+                                src="{{ url('storage/images/timeline-2.svg') }}"
                                 alt="Timeline">{{ get_phrase('Timeline') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'memories') active @endif"><a href="{{ route('memories') }}"><img
-                                src="{{ asset('storage/images/memories.svg') }}"
+                                src="{{ url('storage/images/memories.svg') }}"
                                 alt="memories">{{ get_phrase('Memories') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'badge') active @endif"><a href="{{ route('badge') }}"><img
-                                src="{{ asset('storage/images/badge.svg') }}"
+                                src="{{ url('storage/images/badge.svg') }}"
                                 alt="Badge">{{ get_phrase('Badge') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'profile' ||
                             Route::currentRouteName() == 'profile.friends' ||
                             Route::currentRouteName() == 'profile.photos' ||
                             Route::currentRouteName() == 'profile.album' ||
                             Route::currentRouteName() == 'profile.videos') active @endif"><a href="{{ route('profile') }}"><img
-                                src="{{ asset('storage/images/man-2.svg') }}"
+                                src="{{ url('storage/images/man-2.svg') }}"
                                 alt="Profile">{{ get_phrase('Profile') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'groups' ||
                             Route::currentRouteName() == 'single.group' ||
                             Route::currentRouteName() == 'group.people.info' ||
                             Route::currentRouteName() == 'group.event.view' ||
                             Route::currentRouteName() == 'single.group.photos') active @endif"><a href="{{ route('groups') }}"><img
-                                src="{{ asset('storage/images/group-2.svg') }}"
+                                src="{{ url('storage/images/group-2.svg') }}"
                                 alt="Group">{{ get_phrase('Group') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'pages' ||
                             Route::currentRouteName() == 'single.page' ||
                             Route::currentRouteName() == 'single.page.photos' ||
                             Route::currentRouteName() == 'page.videos') active @endif"><a href="{{ route('pages') }}"><img
-                                src="{{ asset('storage/images/page-2.svg') }}"
+                                src="{{ url('storage/images/page-2.svg') }}"
                                 alt="Page">{{ get_phrase('Page') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'allproducts' ||
                             Route::currentRouteName() == 'userproduct' ||
@@ -45,19 +45,19 @@
                             Route::currentRouteName() == 'filter.product' ||
                             Route::currentRouteName() == 'product.saved') active @endif"><a
                             href="{{ route('allproducts') }}"><img
-                                src="{{ asset('storage/images/marketplace-2.svg') }}"
+                                src="{{ url('storage/images/marketplace-2.svg') }}"
                                 alt="Marketplace">{{ get_phrase('Marketplace') }}</a>
                     </li>
                     <li class="@if (Route::currentRouteName() == 'videos' ||
                             Route::currentRouteName() == 'video.detail.info' ||
                             Route::currentRouteName() == 'shorts' ||
                             Route::currentRouteName() == 'save.all.view') active @endif"><a href="{{ route('videos') }}"><img
-                                src="{{ asset('storage/images/video-2.svg') }}"
+                                src="{{ url('storage/images/video-2.svg') }}"
                                 alt="Video and Shorts">{{ get_phrase('Video and Shorts') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'event' ||
                             Route::currentRouteName() == 'userevent' ||
                             Route::currentRouteName() == 'single.event') active @endif"><a href="{{ route('event') }}"><img
-                                src="{{ asset('storage/images/events-2.svg') }}"
+                                src="{{ url('storage/images/events-2.svg') }}"
                                 alt="Event">{{ get_phrase('Event') }}</a></li>
                     <li class="@if (Route::currentRouteName() == 'blogs' ||
                             Route::currentRouteName() == 'create.blog' ||
@@ -65,12 +65,12 @@
                             Route::currentRouteName() == 'blog.edit' ||
                             Route::currentRouteName() == 'single.blog' ||
                             Route::currentRouteName() == 'category.blog') active @endif"><a href="{{ route('blogs') }}"><img
-                                src="{{ asset('storage/images/blogging-2.svg') }}"
+                                src="{{ url('storage/images/blogging-2.svg') }}"
                                 alt="Blog">{{ get_phrase('Blog') }}</a></li>
                        {{-- Job Addon  --}}
                      @if (addon_status('job') == 1)          
                         <li class="@if (Route::currentRouteName() == 'jobs') active @endif"><a href="{{ route('jobs') }}"><img
-                            src="{{ asset('storage/images/jobs.svg') }}"
+                            src="{{ url('storage/images/jobs.svg') }}"
                             alt="Jobs">{{ get_phrase('Jobs') }}</a>
                         </li>
                     @endif
@@ -78,7 +78,7 @@
                     @if (addon_status('fundraiser') == 1)
                         <li class="@if (Route::currentRouteName() == 'fundraiser.index') active @endif"><a
                                 href="{{ route('fundraiser.index') }}"><img
-                                    src="{{ asset('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
+                                    src="{{ url('assets/frontend/css/fundraiser/images/fundraiser/explore.svg') }}"
                                     alt="Fundraiser">{{ get_phrase('Fundraiser') }}</a></li>
                     @endif
 

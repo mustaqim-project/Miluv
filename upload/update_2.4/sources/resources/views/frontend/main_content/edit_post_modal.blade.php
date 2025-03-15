@@ -151,14 +151,14 @@
         <!-- Location Tab End -->
         <div class="edit-modal-footer text-center p-3">
             <button type="button" data-tab="tab-file{{ $post->post_id }}"
-                class="btn btn-secondary status-type-btn"><img src="{{ asset('storage/images/image.svg') }}"
+                class="btn btn-secondary status-type-btn"><img src="{{ url('storage/images/image.svg') }}"
                     alt="photo">{{ get_phrase('Photo') }}/{{ get_phrase('Video') }}</button>
 
             <button type="button" data-tab="tab-tag{{ $post->post_id }}"
-                class="btn btn-secondary status-type-btn"><img src="{{ asset('storage/images/peoples.png') }}"
+                class="btn btn-secondary status-type-btn"><img src="{{ url('storage/images/peoples.png') }}"
                     alt="photo">{{ get_phrase('Tag People') }}</button>
             <button type="button" data-tab="tab-feeling{{ $post->post_id }}"
-                class="btn btn-secondary status-type-btn"><img src="{{ asset('storage/images/forum.svg') }}"
+                class="btn btn-secondary status-type-btn"><img src="{{ url('storage/images/forum.svg') }}"
                     alt="photo">{{ get_phrase('Feelings') }} / {{ get_phrase('Activity') }}</button>
             <button type="submit"
                 class="btn btn-primary mt-3 rounded w-100 btn-lg">{{ get_phrase('Update') }}</button>
@@ -185,5 +185,5 @@
     });
 </script>
 
-<!-- <script src="{{ asset('assets/frontend/uploader/file-uploader.js') }}"></script> -->
+<!-- <script src="{{ url('assets/frontend/uploader/file-uploader.js') }}"></script> -->
 @include('frontend.initialize')

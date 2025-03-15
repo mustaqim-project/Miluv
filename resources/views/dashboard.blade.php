@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="login-img">
-                        <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }}" alt="">
+                        <img class="img-fluid" src="{{ url('assets/frontend/images/login.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">

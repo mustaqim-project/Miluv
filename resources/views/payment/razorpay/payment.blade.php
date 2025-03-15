@@ -14,7 +14,7 @@
     <input type="submit" id="payment_done">
 </form>
 
-<script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ url('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
     var color = "{{ $color }}";

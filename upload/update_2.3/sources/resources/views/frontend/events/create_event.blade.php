@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ url('assets/frontend/css/nice-select.css') }}">
     <form class="ajaxForm event-form form_sel" action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
         @if (isset($group_id))
@@ -56,7 +56,7 @@
     </form>  
 
 @include('frontend.initialize')
-<script src="{{ asset('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ url('assets/frontend/js/jquery.nice-select.min.js') }}"></script>
 <script>
     $('document').ready(function(){
         $(".select").niceSelect();

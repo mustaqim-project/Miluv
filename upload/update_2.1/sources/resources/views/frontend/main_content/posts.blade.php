@@ -110,13 +110,13 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#"><img
-                                                src="{{ asset('assets/frontend/images/save.png') }}" alt="">
+                                                src="{{ url('assets/frontend/images/save.png') }}" alt="">
                                             {{ get_phrase('Save Video') }}</a></li>
                                     <li><a class="dropdown-item" href="#"><img
-                                                src="{{ asset('assets/frontend/images/link.png') }}"
+                                                src="{{ url('assets/frontend/images/link.png') }}"
                                                 alt="">{{ get_phrase('Copy Link') }}</a></li>
                                     <li><a class="dropdown-item" href="#"><img
-                                                src="{{ asset('assets/frontend/images/report.png') }}"
+                                                src="{{ url('assets/frontend/images/report.png') }}"
                                                 alt="">{{ get_phrase('Report') }} </a></li>
                                 </ul>
                             </div>
@@ -267,7 +267,7 @@
                             value="{{ route('single.post', $post->post_id) }}">
                         <li><a class="dropdown-item" href="javascript:void(0)" value="copy"
                                 onclick="copyToClipboard('copy_post_{{ $post->post_id }}')"><img
-                                    src="{{ asset('storage/images/link.png') }}"
+                                    src="{{ url('storage/images/link.png') }}"
                                     alt="">{{ get_phrase('Copy Link') }}</a></li>
                         @if ($post->user_id == auth()->user()->id)
                             @if ($post->post_type != 'live_streaming' && $post->location == '')
@@ -286,7 +286,7 @@
                         <li><a class="dropdown-item" href="javascript:void(0)"
                                 onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.create_report', 'post_id' => $post->post_id]) }}', '{{ get_phrase('Report Post') }}');"
                                 data-bs-toggle="modal" data-bs-target="#createEvent"><img
-                                    src="{{ asset('storage/images/report.png') }}"
+                                    src="{{ url('storage/images/report.png') }}"
                                     alt="">{{ get_phrase('Report') }}
                             </a></li>
                     </ul>
@@ -395,7 +395,7 @@
                         <div class="text-quote image">
                               @if(isset($fundShare->cover_photo))
                               <a class="ellipsis-line-1 ellipsis-line-2" href="{{ route('fundraiser.profile', $fundShare->id) }}">
-                                   <img src="{{ asset('assets/frontend/images/campaign/' . $fundShare->cover_photo) }}"
+                                   <img src="{{ url('assets/frontend/images/campaign/' . $fundShare->cover_photo) }}"
                                             class="card-img-top" alt="blog">
                                           <div class="fundraiser-text">
                                             <img src="{{ get_user_image($user_info->id, 'optimized') }}"
@@ -407,7 +407,7 @@
                                           </div>
                                         </a>
                                      @else
-                                      <img src="{{ asset('storage/blog/coverphoto/default/default.jpg') }}" class="card-img-top" alt="blog">
+                                      <img src="{{ url('storage/blog/coverphoto/default/default.jpg') }}" class="card-img-top" alt="blog">
                             @endif
                         </div>
                     </div>
@@ -434,33 +434,33 @@
                             <ul class="react-list">
                                 <li><a href="javascript:void(0)"
                                         onclick="myReact('post', 'like', 'update', {{ $post->post_id }})"><img
-                                            src="{{ asset('storage/images/like.svg') }}" alt="Like"
+                                            src="{{ url('storage/images/like.svg') }}" alt="Like"
                                             style="margin-right: 1px;"></a>
                                 </li>
                                 <li><a href="javascript:void(0)"
                                         onclick="myReact('post', 'love', 'update', {{ $post->post_id }})"><img
-                                            src="{{ asset('storage/images/love.svg') }}" alt="Love"
+                                            src="{{ url('storage/images/love.svg') }}" alt="Love"
                                             style="width: 30px; margin-top: 2px;"></a>
                                 </li>
                                 <li><a href="javascript:void(0)"
                                         onclick="myReact('post', 'haha', 'update', {{ $post->post_id }})"><img
-                                            src="{{ asset('storage/images/haha.svg') }}" alt="Haha"></a>
+                                            src="{{ url('storage/images/haha.svg') }}" alt="Haha"></a>
                                 </li>
                                 <li><a href="javascript:void(0)"
                                         onclick="myReact('post', 'sad', 'update', {{ $post->post_id }})"><img
-                                            src="{{ asset('storage/images/sad.svg') }}" class="mx-1"
+                                            src="{{ url('storage/images/sad.svg') }}" class="mx-1"
                                             alt="Sad"></a>
                                 </li>
                                 <li><a href="javascript:void(0)"
                                         onclick="myReact('post', 'angry', 'update', {{ $post->post_id }})"><img
-                                            src="{{ asset('storage/images/angry.svg') }}" alt="Angry"></a>
+                                            src="{{ url('storage/images/angry.svg') }}" alt="Angry"></a>
                                 </li>
                             </ul>
                         </span>
                         <span class="entry-react">
                             <a href="javascript:void(0)"
                                 onclick="$('#user-comments-{{ $post->post_id }}').toggle();">
-                                <img width="19px" src="{{ asset('storage/images/comment2.svg') }}">
+                                <img width="19px" src="{{ url('storage/images/comment2.svg') }}">
                                 {{ get_phrase('Comments') }}
                             </a>
                         </span>
@@ -468,7 +468,7 @@
                             <span class="entry-react" data-bs-toggle="modal" data-bs-target="">
                                 <a href="javascript:void(0)"
                                     onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id]) }}', '{{ get_phrase('Share post') }}');">
-                                    <img width="19px" src="{{ asset('storage/images/share2.svg') }}">
+                                    <img width="19px" src="{{ url('storage/images/share2.svg') }}">
                                     {{ get_phrase('Share') }}
                                 </a>
                             </span>
@@ -508,7 +508,7 @@
                         <a href="javascript:void(0)"
                             class="live-watch-now w-100 d-flex justify-content-center mt-3 gap-2"
                             onclick="showCustomModal('{{ route('load_modal_content', ['view_path' => 'frontend.main_content.share_post_modal', 'post_id' => $post->post_id, 'is_memory' => $post->post_id]) }}', '{{ get_phrase('Share post') }}');">
-                            <img width="19px" src="{{ asset('storage/images/share2.svg') }}">
+                            <img width="19px" src="{{ url('storage/images/share2.svg') }}">
                             {{ get_phrase('Share') }}
                         </a>
                     </span>
