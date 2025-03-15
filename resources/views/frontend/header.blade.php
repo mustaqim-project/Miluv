@@ -61,9 +61,6 @@ use Carbon\Carbon;
                     <div class="header-controls">
                         <div class="align-items-center d-flex justify-content-end g-12">
 
-                            <div class="group-control">
-                                <a href="{{ route('ai_image.image_generator') }}" class="notification-button" title="AI image generator"><i class="fa-solid fa-robot"></i></a>
-                            </div>
 
                             <div class="group-control">
                                 <a href="javascript:;" class="notification-button"><img id="dark" src="{{$image}}" alt=""></a>
