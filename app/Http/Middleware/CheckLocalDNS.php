@@ -37,7 +37,9 @@ class CheckLocalDNS
 
         // 🔹 Pastikan IP berasal dari Indonesia
         if (!isset($geoInfo['countryCode']) || strtolower($geoInfo['countryCode']) !== 'id') {
-            abort(404);
+            return response()->json([
+                'message' => 'Akses ditolak! Anda harus berada di Indonesia untuk mengakses halaman ini.'
+            ], 403);
         }
 
         return $next($request);
