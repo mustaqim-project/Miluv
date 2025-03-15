@@ -232,22 +232,22 @@ Route::controller(Updater::class)->middleware('auth', 'verified', 'activity')->g
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-}); 
+// Route::get('/', function () {
+//     return view('welcome');
+// }); 
 //Installation routes
-// Route::controller(InstallController::class)->group(function () {
+Route::controller(InstallController::class)->group(function () {
 
-//     Route::get('/', 'index');
-//     Route::get('install/step0', 'step0')->name('step0');
-//     Route::get('install/step1', 'step1')->name('step1');
-//     Route::get('install/step2', 'step2')->name('step2');
-//     Route::any('install/step3', 'step3')->name('step3');
-//     Route::get('install/step4', 'step4')->name('step4');
-//     Route::get('install/step4/{confirm_import}', 'confirmImport')->name('step4.confirm_import');
-//     Route::get('install/install', 'confirmInstall')->name('confirm_install');
-//     Route::post('install/validate', 'validatePurchaseCode')->name('install.validate');
-//     Route::any('install/finalizing_setup', 'finalizingSetup')->name('finalizing_setup');
-//     Route::get('install/success', 'success')->name('success');
-// });
+    Route::get('/', 'index');
+    // Route::get('install/step0', 'step0')->name('step0');
+    // Route::get('install/step1', 'step1')->name('step1');
+    // Route::get('install/step2', 'step2')->name('step2');
+    // Route::any('install/step3', 'step3')->name('step3');
+    // Route::get('install/step4', 'step4')->name('step4');
+    // Route::get('install/step4/{confirm_import}', 'confirmImport')->name('step4.confirm_import');
+    // Route::get('install/install', 'confirmInstall')->name('confirm_install');
+    // Route::post('install/validate', 'validatePurchaseCode')->name('install.validate');
+    // Route::any('install/finalizing_setup', 'finalizingSetup')->name('finalizing_setup');
+    // Route::get('install/success', 'success')->name('success');
+});
 //Installation routes

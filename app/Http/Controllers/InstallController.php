@@ -27,9 +27,9 @@ class InstallController extends Controller
     public  function index()
     {
         if (DB::connection()->getDatabaseName() != 'db_name') {
-            return view('welcome');
+            // return view('welcome');
 
-            //    return redirect('/login');
+               return redirect('/login');
         } else {
             return redirect()->route('step0');
         }
