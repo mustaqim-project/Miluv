@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchImageWithRetry(text, retries = 3, delay = 5000) {
         for (let i = 0; i < retries; i++) {
             try {
-                outputImage.src = "{{asset('assets/frontend/images/loader.gif')}}";
+                outputImage.src = "{{url('assets/frontend/images/loader.gif')}}";
                 outputImage.classList.remove('hidden');
 
                 const response = await fetch(

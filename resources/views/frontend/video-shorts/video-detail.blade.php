@@ -92,13 +92,13 @@
                                 </a>
         
                                 <ul class="react-list">
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-like.png')}}" alt="Like"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'like', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-like.png')}}" alt="Like"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-love.png')}}" alt="Love"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'love', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-love.png')}}" alt="Love"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-cry1.png')}}" alt="Sad"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'sad', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-cry1.png')}}" alt="Sad"></a>
                                     </li>
-                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{asset('storage/images/r-angry.png')}}" alt="Angry"></a>
+                                    <li><a href="javascript:void(0)" onclick="myReact('post', 'angry', 'update', {{$post->post_id}})"><img src="{{url('storage/images/r-angry.png')}}" alt="Angry"></a>
                                     </li>
                                     </li>
                                 </ul>

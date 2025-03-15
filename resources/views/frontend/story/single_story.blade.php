@@ -17,11 +17,11 @@
                 @if($media_file->file_type == 'video')
                     @if(File::exists('storage/story/videos/'.$media_file->file_name))
                         <video muted controlsList="nodownload" class="plyr-js initialized">
-                            <source src="{{asset('storage/story/videos/'.$media_file->file_name)}}" type="">
+                            <source src="{{url('storage/story/videos/'.$media_file->file_name)}}" type="">
                         </video>
                     @endif
                 @else
-                    <figure class="avatar-img rounded" style="background-image: url({{asset('storage/story/images/'.$media_file->file_name)}})"></figure>
+                    <figure class="avatar-img rounded" style="background-image: url({{url('storage/story/images/'.$media_file->file_name)}})"></figure>
                 @endif
             @endforeach
         @endif
