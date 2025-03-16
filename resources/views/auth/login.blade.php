@@ -24,9 +24,10 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                    
+            
+                       
                         <div class="form-group form-email">
-                            <label for="email">{{ get_phrase('Email') }}</label>
+                            <label for="#">{{ get_phrase('Email') }}</label>
                             <input type="email" name="email" id="email" 
                                    class="form-control @error('email') is-invalid @enderror" 
                                    value="{{ old('email') }}" 
@@ -36,9 +37,9 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                    
-                        <div class="form-group form-pass" style="position: relative;">
-                            <label for="password">{{ get_phrase('Password') }}</label>
+
+                        <div class="form-group form-pass">
+                            <label for="#">{{get_phrase('Password')}}</label>
                             <div class="input-group">
                                 <input type="password" name="password" id="password" 
                                        class="form-control @error('password') is-invalid @enderror"
@@ -53,8 +54,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                    
-                        <!-- Remember Me -->
+            
                         <div class="form-check mb-3">
                             <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
                             <label class="form-check-label" for="remember_me">{{ get_phrase('Remember me') }}</label>
@@ -84,7 +84,8 @@
                             }
                         });
                     </script>
-                    
+            
+                    </form>
 
                 </div>
             </div>
