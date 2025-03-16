@@ -27,7 +27,7 @@ class CheckLocalDNS
         RateLimiter::hit($key, 60);
 
         // 🔹 Cek lokasi IP dengan API eksternal (pakai cURL)
-        $response = Http::timeout(3)->get("http://ip-api.com/json/{$ip}");
+        $response = Http::timeout(10)->get("http://ip-api.com/json/{$ip}");
 
         if ($response->failed()) {
             return response()->json(['message' => 'Gagal mengambil informasi lokasi IP.'], 500);
@@ -37,11 +37,13 @@ class CheckLocalDNS
 
         // 🔹 Pastikan IP berasal dari Indonesia
         if (!isset($geoInfo['countryCode']) || strtolower($geoInfo['countryCode']) !== 'id') {
+            $country = $geoInfo['country'] ?? 'Tidak Diketahui';
+            
             return response()->json([
-                'message' => 'Akses ditolak! Anda harus berada di Indonesia untuk mengakses halaman ini.'
+                'message' => "Akses ditolak! Anda terdeteksi dari negara {$country}. Anda harus berada di Indonesia untuk mengakses halaman ini."
             ], 403);
         }
-
+        
         return $next($request);
     }
 }
