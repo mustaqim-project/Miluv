@@ -21,16 +21,40 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
     <!-- Dynamic Meta Tags -->
-    @hasSection('meta')
-        @stack('meta')
+    <!-- Dynamic Meta Tags -->
+    @if (isset($blog) && $blog)
+        <!-- Jika halaman blog -->
+        <title>{{ $blog->meta_title ?? $blog->title }}</title>
+        <meta name="description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+
+        <!-- Open Graph Meta Tags for Blog -->
+        <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+        <meta property="og:description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="article">
+
+        <!-- Twitter Card Meta Tags for Blog -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+        <meta name="twitter:description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
     @else
+        <!-- Jika halaman umum -->
         <title>{{ $system_name }}</title>
-        <meta name="keywords" content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
-        <meta name="description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+        <meta name="keywords"
+            content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+        <meta name="description"
+            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
 
         <!-- Open Graph Meta Tags for Social Media -->
         <meta property="og:title" content="Miluv - Media Sosial & Dating App">
-        <meta property="og:description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+        <meta property="og:description"
+            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
@@ -41,25 +65,6 @@
         <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
         <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
     @endif
-
-    <!-- Blog-Specific Meta Tags -->
-    <title>{{ $blog->meta_title ?? $blog->title }}</title>
-    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
-
-    <!-- Open Graph Meta Tags for Blog -->
-    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
-    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="article">
-
-    <!-- Twitter Card Meta Tags for Blog -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
-    <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
@@ -179,48 +184,50 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}" />
 
     {{-- fundraiser --}}
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
 
 
-    <!-- New -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
+<!-- New -->
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
 
-    <link rel="apple-touch-icon" href="{{ asset('assets/frontend/css/fundraiser/images/favicon.png') }}" />
+<link rel="apple-touch-icon" href="{{ asset('assets/frontend/css/fundraiser/images/favicon.png') }}" />
 
-    {{-- end fundraiser --}}
+{{-- end fundraiser --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/daterangepicker.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/daterangepicker.css') }}">
 
 
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
 
-    {{-- Job Addon Css --}}
-    @if (addon_status('job') == 1)
-        <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
-    @endif
-    {{-- Job Addon Css --}}
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
-    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+{{-- Job Addon Css --}}
+@if (addon_status('job') == 1)
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
+@endif
+{{-- Job Addon Css --}}
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
+<script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 
-    <title>{{ $blog->meta_title ?? $blog->title }}</title>
-    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+<title>{{ $blog->meta_title ?? $blog->title }}</title>
+<meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+<meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
-    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="article">
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+<meta property="og:description"
+    content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+<meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:type" content="article">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
-    <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+<meta name="twitter:description"
+    content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+<meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
 
 </head> --}}
 
