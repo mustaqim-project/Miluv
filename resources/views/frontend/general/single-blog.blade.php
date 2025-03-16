@@ -114,13 +114,9 @@
 </head>
 
 
-
 @php
-    // Ambil theme dari session atau database
-    $theme_color = Session::get(
-        'theme_color',
-        App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'default',
-    );
+    // Ambil tema dari database
+    $theme_color = App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'light'; // Default ke 'light' jika kosong
 
     // Tentukan gambar berdasarkan tema
     $image =
@@ -168,6 +164,8 @@
             </div>
         </nav>
     </header>
+
+
 
     
     <main class="main my-4 mt-12">
