@@ -113,21 +113,20 @@
     <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
 </head>
 
-
 @php
-    // Ambil tema dari database
-    $theme_color = App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'light'; // Default ke 'light' jika kosong
+    // Set tema warna default menjadi 'light'
+    $theme_color = 'light'; 
 
-    // Tentukan gambar berdasarkan tema
-    $image =
-        $theme_color === 'dark'
-            ? asset('assets/frontend/images/white_sun.svg')
-            : asset('assets/frontend/images/white_moon.svg');
+    // Tentukan gambar berdasarkan tema (gunakan gambar untuk tema light)
+    $image = asset('assets/frontend/images/white_moon.svg');
 @endphp
 
 <body class="{{ $theme_color }}">
 
-    @php $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description'); @endphp
+    @php 
+        // Gunakan logo dengan tema 'light'
+        $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description'); 
+    @endphp
 
     <!-- header -->
     <header class="header header-default py-3">
@@ -164,6 +163,8 @@
             </div>
         </nav>
     </header>
+
+
 
 
 
