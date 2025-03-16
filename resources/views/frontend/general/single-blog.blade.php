@@ -234,9 +234,9 @@
                 <!-- Timeline Navigation End -->
 
                 <!-- Content Section Start -->
-                <div class="col-lg-6 col-sm-12 order-3 order-lg-2" tabindex="-1">
+                <div class="col-lg-6 col-sm-12 order-3 order-lg-2" >
                     <div class="single-wrap">
-                        <div class="sblog_feature bg-white radius-8">
+                        <div class="sblog_feature bg-white radius-8" tabindex="-1">
                             <div class="blog-feature "
                                 style="background-image: url('{{ get_blog_image($blog->thumbnail, 'coverphoto') }}')">
                                 <div class="blog-head">
@@ -575,7 +575,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let targetElement = document.querySelector(".col-lg-6.col-sm-12.order-3.order-lg-2");
+            let targetElement = document.querySelector(".sblog_feature bg-white radius-8");
             if (targetElement) {
                 targetElement.scrollIntoView({
                     behavior: "smooth",
