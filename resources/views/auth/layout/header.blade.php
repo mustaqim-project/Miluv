@@ -51,7 +51,7 @@
     @php $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description'); @endphp
 
     <!-- header -->
-    <header class="header header-default py-3">
+    <header class="header header-default py-3" style="background-color: #003488">
         <nav class="navigation">
             <div class="container">
                 <div class="row align-items-center">
