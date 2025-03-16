@@ -72,7 +72,7 @@
     </script>
     @elseif (isset($category) && $category)
         <!-- Jika halaman kategori blog -->
-        <title>{{ $category->meta_title ?? $category->name }} - {{ $system_name }}</title>
+        <title>{{ $category->name }} - {{ $system_name }}</title>
         <meta name="description"
             content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
         <meta name="keywords" content="{{ $category->meta_keyword ?? $category->name }}">
