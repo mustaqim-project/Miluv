@@ -1,4 +1,4 @@
-<div class="offcanvas offcanvas-start" tabindex="-1" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header res_logo d-lg-none py-4">
         <div class="logo">
             <img class="max-width-200" width="80%"
@@ -6,7 +6,7 @@
         </div>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">x</button>
     </div>
-    <div class="offcanvas-body s_offcanvas" id="offcanvasRight
+    <div class="offcanvas-body s_offcanvas" 
          style="padding: 16px; overflow-y: auto;">
         <div class="timeline-navigation">
             <nav class="menu-wrap">
