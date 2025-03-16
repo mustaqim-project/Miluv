@@ -12,16 +12,7 @@
 
         <script src="{{ asset('assets/authentication/moment.min.js') }}"></script>
         <script src="{{ asset('assets/authentication/moment-timezone-with-data.js') }}"></script>
-        <script>
-            document.getElementById("togglePassword").addEventListener("click", function () {
-                var passwordField = document.getElementById("password");
-                if (passwordField.type === "password") {
-                    passwordField.type = "text";
-                } else {
-                    passwordField.type = "password";
-                }
-            });
-        </script>
+       
         <script>
             'use strict';
 

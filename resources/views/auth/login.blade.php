@@ -27,32 +27,64 @@
                     
                         <div class="form-group form-email">
                             <label for="email">{{ get_phrase('Email') }}</label>
-                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="{{ get_phrase('Enter your email address') }}">
+                            <input type="email" name="email" id="email" 
+                                   class="form-control @error('email') is-invalid @enderror" 
+                                   value="{{ old('email') }}" 
+                                   placeholder="{{ get_phrase('Enter your email address') }}" 
+                                   required>
+                            @error('email')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
-                        <p class="text-danger">{{ $errors->first('email') }}</p>
                     
                         <div class="form-group form-pass" style="position: relative;">
                             <label for="password">{{ get_phrase('Password') }}</label>
-                            <input type="password" name="password" id="password" placeholder="{{ get_phrase('Your password') }}">
-                                <i id="togglePassword" class="fas fa-eye"></i>
+                            <div class="input-group">
+                                <input type="password" name="password" id="password" 
+                                       class="form-control @error('password') is-invalid @enderror"
+                                       placeholder="{{ get_phrase('Your password') }}" required>
+                                <button type="button" id="togglePassword" 
+                                        class="btn btn-outline-secondary" 
+                                        aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            @error('password')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                     
                         <!-- Remember Me -->
-                        <div class="mb-3 form-check">
+                        <div class="form-check mb-3">
                             <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
                             <label class="form-check-label" for="remember_me">{{ get_phrase('Remember me') }}</label>
                         </div>
                     
-                        <input class="btn btn-primary my-3" type="submit" name="submit" id="submit" value="Log In">
+                        <button type="submit" class="btn btn-primary my-3">{{ get_phrase('Log In') }}</button>
                     
-                        <div class="flex items-center justify-end mt-2">
+                        <div class="mt-2">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
+                                <a href="{{ route('password.request') }}" class="text-decoration-none">
                                     {{ get_phrase('Forgot your password?') }}
                                 </a>
                             @endif
                         </div>
                     </form>
+                    
+                    <script>
+                        document.getElementById('togglePassword').addEventListener('click', function () {
+                            let passwordField = document.getElementById('password');
+                            let icon = this.querySelector('i');
+                            if (passwordField.type === 'password') {
+                                passwordField.type = 'text';
+                                icon.classList.replace('fa-eye', 'fa-eye-slash');
+                            } else {
+                                passwordField.type = 'password';
+                                icon.classList.replace('fa-eye-slash', 'fa-eye');
+                            }
+                        });
+                    </script>
+                    
 
                 </div>
             </div>
