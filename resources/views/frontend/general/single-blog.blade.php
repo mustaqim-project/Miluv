@@ -387,6 +387,29 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <div class="widget tag-widget">
+                                <h3 class="widget-title mb-3">Most View</h3>
+                                <div class="tags">
+                                    @foreach ($most_views as $most_view)
+                                    <div class="post-entry d-flex mb-8">
+                                        <div class="post-thumb"><img class="img-fluid rounded"
+                                                src="{{ get_blog_image($post->thumbnail, 'thumbnail') }}"
+                                                alt="Recent Post">
+                                        </div>
+                                        <div class="post-txt ms-2">
+                                            <h3 class="mb-0"><a class="ellipsis-line-2"
+                                                    href="{{ route('single.blog', $post->slug) }}">{{ $post->title }}</a>
+                                            </h3>
+                                            <div class="post-meta border-none">
+                                                <span class="date-meta"><a
+                                                        href="#">{{ $post->created_at->format('d-M-Y') }}</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            
                         </aside>
                     </aside>
                 </div>
