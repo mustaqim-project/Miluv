@@ -194,7 +194,7 @@ class BlogController extends Controller
             ->whatsapp()
             ->getRawLinks();
     
-
+            $categories=Blogcategory::all();
             $recent_posts= Blog::orderBy('id', 'DESC')->limit(5)->get();
 
 
@@ -205,6 +205,7 @@ class BlogController extends Controller
                 'socailshare' => $socailshare,
                 'total_comments' => $total_comments,
                 'recent_posts' => $recent_posts,
+                'categories' => $categories,
             ]);
         }
     
