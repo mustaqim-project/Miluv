@@ -200,14 +200,26 @@ class BlogController extends Controller
             $blog->save();
         }
     
-        // Hapus logika pertemanan yang membutuhkan auth
+        // Data umum untuk semua pengguna
         $page_data['blog'] = $blog;
         $page_data['categories'] = Blogcategory::all();
         $page_data['recent_posts'] = Blog::orderBy('id', 'DESC')->limit(5)->get();
-        $page_data['view_path'] = 'frontend.blogs.single_blog';
     
-        return view('frontend.index', $page_data);
+        if (auth()->check()) {
+            // Jika pengguna login, tambahkan data tambahan
+            $page_data['user'] = auth()->user();
+            $page_data['friendships'] = Friendship::where('user_id', auth()->id())->get();
+            $page_data['view_path'] = 'frontend.blogs.single_blog_logged_in';
+    
+            return view('frontend.index', $page_data);
+        } else {
+            // Jika pengguna tidak login
+            $page_data['view_path'] = 'frontend.general.single-blog';
+    
+            return view('frontend.index', $page_data);
+        }
     }
+    
     
     // public function single_blog($slug) { 
     //     $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
