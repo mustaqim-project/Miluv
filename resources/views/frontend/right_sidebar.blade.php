@@ -444,7 +444,7 @@
                             </div>
                             <div class="post-txt ms-2">
                                 <h3 class="mb-0"><a class="ellipsis-line-2"
-                                        href="{{ route('single.blog', $post->id) }}">{{ $post->title }}</a></h3>
+                                        href="{{ route('single.blog', $post->slug) }}">{{ $post->title }}</a></h3>
                                 <div class="post-meta border-none">
                                     <span class="date-meta"><a
                                             href="#">{{ $post->created_at->format('d-M-Y') }}</a></span>
