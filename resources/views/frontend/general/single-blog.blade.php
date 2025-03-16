@@ -114,27 +114,18 @@
 
 
 
-@if (Session::get('theme_color'))
-    @php
-        $theme_color = Session::get('theme_color');
-        if ($theme_color === 'dark') {
-            $image = asset('assets/frontend/images/white_sun.svg');
-        } else {
-            $image = asset('assets/frontend/images/white_moon.svg');
-        }
-    @endphp
-@else
-    @php
-        $theme_color = 'default';
-        $image = asset('assets/frontend/images/white_moon.svg');
-    @endphp
-@endif
-
 @php
-    $themeColor = App\Models\Setting::where('type', 'theme_color')->value('description');
+    // Ambil theme dari session atau database
+    $theme_color = Session::get('theme_color', App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'default');
+
+    // Tentukan gambar berdasarkan tema
+    $image = ($theme_color === 'dark') 
+        ? asset('assets/frontend/images/white_sun.svg') 
+        : asset('assets/frontend/images/white_moon.svg');
 @endphp
 
-<body class="{{ $themeColor }} {{ $theme_color }}">
+<body class="{{ $theme_color }}">
+
    
     <!-- Main Start -->
     <main class="main my-4 mt-12">
