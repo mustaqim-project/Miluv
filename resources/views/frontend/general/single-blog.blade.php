@@ -197,7 +197,7 @@
                         </div>
                         <div class="offcanvas-body s_offcanvas">
                             <div class="timeline-navigation">
-                                <nav class="menu-wrap">
+                                <nav class="menu-wrap" style="opacity: 0.6;">
                                     <ul>
                                         @foreach ($categories as $category)
                                             <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
