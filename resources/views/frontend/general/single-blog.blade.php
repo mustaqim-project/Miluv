@@ -225,7 +225,7 @@
                                                 @endif
                                                 <ul class="comment-wrap pt-3 pb-0 list-unstyled"
                                                     id="comments{{ $blog->id }}">
-                                                    @include('frontend.main_content.comments', [
+                                                    {{-- @include('frontend.main_content.comments', [ --}}
                                                         'comments' => $comments,
                                                         'post_id' => $blog->id,
                                                         'type' => 'blog',
@@ -246,8 +246,8 @@
                                 </div> --}}
                             </div>
                         </div><!-- Single Page Wrap End -->
-                        @include('frontend.main_content.scripts')
-                        @include('frontend.initialize')
+                        {{-- @include('frontend.main_content.scripts') --}}
+                        {{-- @include('frontend.initialize') --}}
                     </div>
                     <div class="col-lg-3 order-2 order-lg-3">
                     </div>
@@ -325,11 +325,11 @@
 
 
 
-    @include('frontend.common_scripts')
+    {{-- @include('frontend.common_scripts') --}}
 
-    @include('frontend.toaster')
+    {{-- @include('frontend.toaster') --}}
 
-    @include('frontend.initialize')
+    {{-- @include('frontend.initialize') --}}
 
     <script>
         "use strict";
