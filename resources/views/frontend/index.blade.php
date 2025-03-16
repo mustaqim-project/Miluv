@@ -24,6 +24,7 @@
     @hasSection('meta')
         @stack('meta')
     @else
+        <title>{{ config('settings.site_name') }}</title>
         <meta name="keywords"
             content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
         <meta name="description"
@@ -39,6 +40,7 @@
         <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
     @endif
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
