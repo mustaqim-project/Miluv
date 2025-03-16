@@ -4,7 +4,7 @@
     "MAIL_PORT": "465",
     "MAIL_USERNAME": "support@miluv.app",
     "MAIL_PASSWORD": "Pantek2412!",
-    "MAIL_ENCRYPTION": "tls",
+    "MAIL_ENCRYPTION": "ssl",
     "MAIL_FROM_ADDRESS": "support@miluv.app",
     "MAIL_FROM_NAME": "Miluv"
 }
