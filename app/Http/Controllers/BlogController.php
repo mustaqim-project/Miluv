@@ -169,19 +169,9 @@ class BlogController extends Controller
     }
 
 
-    public function single_blog($slug) {  
-        $page_data['comments'] = Comments::where('is_type', 'blog')
-            ->where('id_of_type', $slug)
-            ->get();
+
     
-        $page_data['socailshare'] = Share::currentPage()
-            ->facebook()
-            ->twitter()
-            ->linkedin()
-            ->telegram()
-            ->whatsapp()
-            ->getRawLinks();
-    
+    public function single_blog($slug) { 
         // Cari blog berdasarkan slug
         $blog = Blog::where('slug', $slug)->first();
     
@@ -190,36 +180,53 @@ class BlogController extends Controller
             abort(404, 'Blog not found');
         }
     
-        // Hitung view tanpa memerlukan auth
-        $blog_view_data = json_decode($blog->view ?? '[]', true);
-        $client_ip = request()->ip(); // Gunakan IP pengguna sebagai identifikasi unik
+        // Data social share
+        $socailshare = Share::currentPage()
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->getRawLinks();
     
-        if (!in_array($client_ip, $blog_view_data)) {
-            $blog_view_data[] = $client_ip;
+        // Jika user belum login, arahkan ke frontend.general.single-blog dengan data blog & social share
+        if (!auth()->check()) {
+            return view('frontend.general.single-blog', [
+                'blog' => $blog,
+                'socailshare' => $socailshare
+            ]);
+        }
+    
+        $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
+        $page_data['socailshare'] = $socailshare;
+    
+        $blog_view_data = json_decode($blog->view ?? '[]', true);
+    
+        if (!in_array(auth()->user()->id, $blog_view_data)) {
+            $blog_view_data[] = auth()->user()->id;
             $blog->view = json_encode($blog_view_data);
             $blog->save();
         }
     
-        // Data umum untuk semua pengguna
+        // Ambil data pertemanan
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                  ->orWhere('requester', auth()->user()->id);
+        })
+        ->where('is_accepted', 1)
+        ->orderBy('friendships.importance', 'desc')
+        ->take(15)->get();
+    
+        $page_data['friendships'] = $friendships;
         $page_data['blog'] = $blog;
         $page_data['categories'] = Blogcategory::all();
         $page_data['recent_posts'] = Blog::orderBy('id', 'DESC')->limit(5)->get();
+        $page_data['view_path'] = 'frontend.blogs.single_blog';
     
-        if (auth()->check()) {
-            // Jika pengguna login, tambahkan data tambahan
-            $page_data['user'] = auth()->user();
-            $page_data['friendships'] = Friendship::where('user_id', auth()->id())->get();
-            $page_data['view_path'] = 'frontend.blogs.single_blog';
-    
-            return view('frontend.index', $page_data);
-        } else {
-            // Jika pengguna tidak login
-            $page_data['view_path'] = 'frontend.general.single-blog';
-    
-            return view('frontend.index', $page_data);
-        }
+        return view('frontend.index', $page_data);
     }
     
+
     
     // public function single_blog($slug) { 
     //     $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
