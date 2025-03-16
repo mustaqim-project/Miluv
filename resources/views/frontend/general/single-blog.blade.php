@@ -266,7 +266,7 @@
                             </div>
                         </div>
                     </div>
-                    <aside class="sidebar mt-0 sidebarToggle d-hidden" id="sidebarToggle">
+                    <aside class="sidebar mt-0 sidebarToggle" id="sidebarToggle">
                         <aside class="sidebar">
                             <div class="widget recent-posts blog_searchs">
                                 <div class=" search-widget mb-14">
