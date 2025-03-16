@@ -255,25 +255,13 @@
 
 
                 <div class="col-lg-3 order-2 order-lg-3">
-                    <div class="row rightSideBarToggler d-hidden">
-                        <div class="col-md-12">
-                            <div class="card mb-3">
-                                <div class="card-body text-end">
-                                    <button class="btn" onclick="toggleRightSideBar()">
-                                        <i class="fas fa-bars"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <aside class="sidebar mt-0 sidebarToggle" id="sidebarToggle">
                         <aside class="sidebar">
                             <div class="widget recent-posts blog_searchs">
                                 <div class=" search-widget mb-14">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h3 class="widget-title">{{ get_phrase('Search') }}</h3>
-                                        <a href="{{ route('blogs') }}" class="btn common_btn"> <i
-                                                class="fa-solid fa-left-long"></i> {{ get_phrase('Back') }}</a>
                                     </div>
                                     <form action="#" class="search-form">
                                         <input class="bg-secondary" type="search" id="searchblogfield"
