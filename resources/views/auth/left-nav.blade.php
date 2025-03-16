@@ -1,46 +1,40 @@
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" 
-     aria-labelledby="offcanvasRightLabel" 
-     style="display: none; position: fixed; top: 0; left: 0; width: 80%; max-width: 300px; height: 100%; background-color: white; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); z-index: 1050; transition: transform 0.3s ease-in-out; transform: translateX(-100%);">
-    
-    <div class="offcanvas-header res_logo" 
-         style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background-color: #f8f9fa; border-bottom: 1px solid #ddd;">
+<div class="offcanvas offcanvas-start" tabindex="-1" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header res_logo d-lg-none py-4">
         <div class="logo">
-            <img style="max-width: 80%;" 
-                 src="{{ asset('storage/logo/dark/' . get_settings('system_dark_logo')) }}" alt="">
+            <img class="max-width-200" width="80%"
+                src="{{ asset('storage/logo/dark/' . get_settings('system_dark_logo')) }}" alt="">
         </div>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" 
-                style="font-size: 24px; background: none; border: none; cursor: pointer;">✖</button>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">x</button>
     </div>
-
-    <div class="offcanvas-body s_offcanvas" 
+    <div class="offcanvas-body s_offcanvas" id="offcanvasRight
          style="padding: 16px; overflow-y: auto;">
         <div class="timeline-navigation">
             <nav class="menu-wrap">
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <li style="padding: 10px 0; border-bottom: 1px solid #ddd;">
-                        <a href="{{ route('about.view') }}" 
-                           style="text-decoration: none; color: #333; display: flex; align-items: center;">
+                        <a href="{{ route('about.view') }}"
+                            style="text-decoration: none; color: #333; display: flex; align-items: center;">
                             <i class="fas fa-info-circle" style="opacity: 0.6; margin-right: 1em;"></i>
                             {{ get_phrase('About') }}
                         </a>
                     </li>
                     <li style="padding: 10px 0; border-bottom: 1px solid #ddd;">
-                        <a href="{{ route('policy.view') }}" 
-                           style="text-decoration: none; color: #333; display: flex; align-items: center;">
+                        <a href="{{ route('policy.view') }}"
+                            style="text-decoration: none; color: #333; display: flex; align-items: center;">
                             <i class="fas fa-user-shield" style="opacity: 0.6; margin-right: 1em;"></i>
                             {{ get_phrase('Privacy Policy') }}
                         </a>
                     </li>
                     <li style="padding: 10px 0; border-bottom: 1px solid #ddd;">
-                        <a href="{{ route('term.view') }}" 
-                           style="text-decoration: none; color: #333; display: flex; align-items: center;">
+                        <a href="{{ route('term.view') }}"
+                            style="text-decoration: none; color: #333; display: flex; align-items: center;">
                             <i class="fas fa-file-contract" style="opacity: 0.6; margin-right: 1em;"></i>
                             {{ get_phrase('Terms and Conditions') }}
                         </a>
                     </li>
                     <li style="padding: 10px 0;">
-                        <a href="{{ route('contact.view') }}" 
-                           style="text-decoration: none; color: #333; display: flex; align-items: center;">
+                        <a href="{{ route('contact.view') }}"
+                            style="text-decoration: none; color: #333; display: flex; align-items: center;">
                             <i class="fas fa-envelope" style="opacity: 0.6; margin-right: 1em;"></i>
                             {{ get_phrase('Contact') }}
                         </a>
@@ -59,7 +53,6 @@
         </div>
     </div>
 </div>
-
 <script>
     // Menampilkan offcanvas hanya di mobile
     function checkScreenSize() {
