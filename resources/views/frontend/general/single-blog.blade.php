@@ -214,6 +214,14 @@
                                             <a
                                                 href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
                                         </li>
+                                        <li class="{{ Route::currentRouteName() == 'term.view' ? 'active' : '' }}">
+                                            <a
+                                                href="{{ route('term.view') }}">{{ get_phrase('Terms and Conditions') }}</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'contact.view' ? 'active' : '' }}">
+                                            <a
+                                                href="{{ route('contact.view') }}">{{ get_phrase('Contact') }}</a>
+                                        </li>
                                     </ul>
                                 </nav>
 
