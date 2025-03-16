@@ -115,7 +115,7 @@
 
 @php
     // Set tema warna default menjadi 'light'
-    $theme_color = 'light'; 
+    $theme_color = 'light';
 
     // Tentukan gambar berdasarkan tema (gunakan gambar untuk tema light)
     $image = asset('assets/frontend/images/white_moon.svg');
@@ -123,73 +123,70 @@
 
 <body class="{{ $theme_color }}">
 
-    @php 
+    @php
         // Gunakan logo dengan tema 'light'
-        $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description'); 
+        $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
     @endphp
 
-<!-- header -->
-<header class="header header-default py-3">
-    <nav class="navigation">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-auto col-lg-6 d-flex align-items-center">
-                    <!-- Logo -->
-                    <div class="logo-branding mt-1">
-                        <a class="navbar-brand d-none d-lg-block"
-                           href="@if (Auth::check()) {{ route('timeline') }} @endif">
-                            <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
-                                 style="width: 100%; max-width: 80px;" 
-                                 alt="logo" />
-                        </a>
-                        <a class="navbar-brand d-lg-none"
-                           href="@if (Auth::check()) {{ route('timeline') }} @endif">
-                            <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}" 
-                                 style="width: 100%; max-width: 40px;" 
-                                 alt="logo" />
-                        </a>
+    <!-- header -->
+    <header class="header header-default py-3">
+        <nav class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="logo-branding">
+                            <button class="d-lg-none" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                                    class="fw-bold fa-solid fa-sliders-h"></i></button>
+                            <!-- logo -->
+                            @php
+                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
+                            @endphp
+                            <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
+                                    src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
+                                    class="logo_height_width" alt="logo" /></a>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Menu Toggle Button -->
-                <div class="col-auto d-lg-none ms-auto">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                
-                <!-- Menu Items -->
-                <div class="col-lg-6 ms-auto">
-                    <div class="collapse navbar-collapse" id="navbarMenu">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-                            <li class="nav-item">
-                                <a href="{{ route('login') }}" class="nav-link @if (Route::currentRouteName() == 'login') active @endif">{{ __('Login') }}</a>
-                            </li>
+
+
+                    {{-- <div class="col-auto col-lg-6">
+                        <div class="logo-branding mt-1">
+                            <a class="navbar-brand d-xs-hidden"
+                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                                <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
+                                    style="width: 100%; max-width: 80px;" class="d-xs-hidden" alt="logo" />
+                            </a>
+
+
+                            <a class="navbar-brand d-block"
+                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                                <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}"
+                                    style="width: 100%; max-width: 40px;" class="d-hidden d-xs-show mt--5px"
+                                    alt="logo" />
+                            </a>
+                        </div>
+                    </div> --}}
+
+                    <div class="col-auto col-lg-6 ms-auto">
+                        <div class="login-btns ms-5">
+                            <a href="{{ route('login') }}"
+                                class="btn @if (Route::currentRouteName() == 'login') active @endif">{{ __('Login') }}</a>
                             @if (get_settings('public_signup') == 1)
-                                <li class="nav-item">
-                                    <a href="{{ route('register') }}" class="nav-link @if (Route::currentRouteName() == 'register') active @endif">{{ __('Sign up') }}</a>
-                                </li>
+                                <a href="{{ route('register') }}"
+                                    class="btn @if (Route::currentRouteName() == 'register') active @endif">{{ __('Sign up') }}</a>
                             @endif
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</header>
-
-<!-- Bootstrap CSS & JS (Required for Responsive Menu) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        </nav>
+    </header>
 
 
 
-    
+
+
+
     <main class="main my-4 mt-12">
         <div class="container">
             <div class="row">
@@ -199,121 +196,122 @@
                 <!-- Timeline Navigation End -->
 
                 <!-- Content Section Start -->
-                    <div class="col-lg-6 col-sm-12 order-3 order-lg-2">
-                        <div class="single-wrap">
-                            <div class="sblog_feature bg-white radius-8">
-                                <div class="blog-feature "
-                                    style="background-image: url('{{ get_blog_image($blog->thumbnail, 'coverphoto') }}')">
-                                    <div class="blog-head">
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{ get_user_image($blog->user_id, 'optimized') }}"
-                                                class="user-round user_image_show_on_modal" alt="">
-                                            <div class="ava-info ms-2">
-                                                <h6 class="mb-0"><a
-                                                        href="{{ route('user.profile.view', $blog->getUser->id) }}">{{ $blog->getUser->name }}</a>
-                                                </h6>
-                                                <small>{{ $blog->created_at->diffForHumans() }}</small>
+                <div class="col-lg-6 col-sm-12 order-3 order-lg-2">
+                    <div class="single-wrap">
+                        <div class="sblog_feature bg-white radius-8">
+                            <div class="blog-feature "
+                                style="background-image: url('{{ get_blog_image($blog->thumbnail, 'coverphoto') }}')">
+                                <div class="blog-head">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{ get_user_image($blog->user_id, 'optimized') }}"
+                                            class="user-round user_image_show_on_modal" alt="">
+                                        <div class="ava-info ms-2">
+                                            <h6 class="mb-0"><a
+                                                    href="{{ route('user.profile.view', $blog->getUser->id) }}">{{ $blog->getUser->name }}</a>
+                                            </h6>
+                                            <small>{{ $blog->created_at->diffForHumans() }}</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div><!--  Blog Cover End -->
+                            <div class="sm_bottom">
+                                <div>
+                                    <a href="#"> {{ $blog->created_at->format('d-M-Y') }} </a>
+                                    <h1>{{ $blog->title }}</h1>
+                                </div>
+                                <div class="bhead-meta">
+                                    <span>{{ $total_comments }} {{ get_phrase('Comments') }}</span>
+                                    <span>{{ count(json_decode($blog->view)) }} {{ get_phrase('Views') }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-12 ">
+                            <div class="col-lg-12">
+                                <div class="card border-none p-3 radius-8 nblog_details blog-details">
+                                    @php echo script_checker($blog->description, false); @endphp
+                                    <div class="blog-footer">
+                                        <div
+                                            class="post-share justify-content-between align-items-center border-bottom pb-3">
+                                            <div class="post-meta ">
+                                                <h4 class="h3">{{ get_phrase('tags:') }}</h4>
+                                                @php
+                                                    $tags = json_decode($blog->tag, true);
+                                                @endphp
+
+                                                @if (is_array($tags))
+                                                    @foreach ($tags as $tag)
+                                                        <a href="#"><span
+                                                                class="badge common_btn_3 mt-1">#{{ $tag }}</span></a>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                            <div class="p-share d-flex align-items-center mt-20">
+                                                <h3 class="h6">{{ get_phrase('Share') }}: </h3>
+                                                <div class="social-share ms-2">
+                                                    <ul>
+                                                        @foreach ($socailshare as $key => $value)
+                                                            <li><a href="{{ $value }}" target="_blank"><i
+                                                                        class="fa-brands fa-{{ $key }}"></i></a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
 
-                                    </div>
-                                </div><!--  Blog Cover End -->
-                                <div class="sm_bottom">
-                                    <div>
-                                        <a href="#"> {{ $blog->created_at->format('d-M-Y') }} </a>
-                                        <h1>{{ $blog->title }}</h1>
-                                    </div>
-                                    <div class="bhead-meta">
-                                        <span>{{ $total_comments }} {{ get_phrase('Comments') }}</span>
-                                        <span>{{ count(json_decode($blog->view)) }} {{ get_phrase('Views') }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-12 ">
-                                <div class="col-lg-12">
-                                    <div class="card border-none p-3 radius-8 nblog_details blog-details">
-                                        @php echo script_checker($blog->description, false); @endphp
-                                        <div class="blog-footer">
-                                            <div
-                                                class="post-share justify-content-between align-items-center border-bottom pb-3">
-                                                <div class="post-meta ">
-                                                    <h4 class="h3">{{ get_phrase('tags:') }}</h4>
-                                                    @php
-                                                        $tags = json_decode($blog->tag, true);
-                                                    @endphp
-
-                                                    @if (is_array($tags))
-                                                        @foreach ($tags as $tag)
-                                                            <a href="#"><span
-                                                                    class="badge common_btn_3 mt-1">#{{ $tag }}</span></a>
-                                                        @endforeach
-                                                    @endif
+                                        <!-- Comment Start -->
+                                        <div class="user-comments bg-white" id="user-comments-{{ $blog->id }}">
+                                            @if (Auth::check())
+                                                <!-- Check if the user is logged in -->
+                                                <div class="comment-form nBlog_user d-flex p-3 bg-secondary">
+                                                    <img src="{{ get_user_image(Auth()->user()->photo, 'optimized') }}"
+                                                        alt="" class="rounded-circle h-39 img-fluid "
+                                                        width="40px">
+                                                    <form action="javascript:void(0)" class="w-100 ms-2"
+                                                        method="post">
+                                                        <input class="form-control py-3"
+                                                            onkeypress="postComment(this, 0, {{ $blog->id }}, 0,'blog');"
+                                                            rows="1" placeholder="Write Comments">
+                                                    </form>
                                                 </div>
-                                                <div class="p-share d-flex align-items-center mt-20">
-                                                    <h3 class="h6">{{ get_phrase('Share') }}: </h3>
-                                                    <div class="social-share ms-2">
-                                                        <ul>
-                                                            @foreach ($socailshare as $key => $value)
-                                                                <li><a href="{{ $value }}" target="_blank"><i
-                                                                            class="fa-brands fa-{{ $key }}"></i></a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @else
+                                                <p class="text-center">You need to <a
+                                                        href="{{ route('login') }}"><strong>log in</strong></a> to
+                                                    comment.</p>
 
-                                            <!-- Comment Start -->
-                                            <div class="user-comments bg-white"
-                                                id="user-comments-{{ $blog->id }}">
-                                                @if (Auth::check())
-                                                    <!-- Check if the user is logged in -->
-                                                    <div class="comment-form nBlog_user d-flex p-3 bg-secondary">
-                                                        <img src="{{ get_user_image(Auth()->user()->photo, 'optimized') }}"
-                                                            alt="" class="rounded-circle h-39 img-fluid "
-                                                            width="40px">
-                                                        <form action="javascript:void(0)" class="w-100 ms-2"
-                                                            method="post">
-                                                            <input class="form-control py-3"
-                                                                onkeypress="postComment(this, 0, {{ $blog->id }}, 0,'blog');"
-                                                                rows="1" placeholder="Write Comments">
-                                                        </form>
-                                                    </div>
-                                                @else
-                                                <p class="text-center">You need to <a href="{{ route('login') }}"><strong>log in</strong></a> to comment.</p>
-
-                                                    <!-- Display login prompt -->
-                                                @endif
-                                                <ul class="comment-wrap pt-3 pb-0 list-unstyled"
-                                                    id="comments{{ $blog->id }}">
-                                                    {{-- @include('frontend.main_content.comments', [ 
+                                                <!-- Display login prompt -->
+                                            @endif
+                                            <ul class="comment-wrap pt-3 pb-0 list-unstyled"
+                                                id="comments{{ $blog->id }}">
+                                                {{-- @include('frontend.main_content.comments', [ 
                                                                 'comments' => $comments,
                                                                 'post_id' => $blog->id,
                                                                 'type' => 'blog',
                                                             ]) --}}
-                                                </ul>
-                                                {{-- @if ($comments->count() < $total_comments)
+                                            </ul>
+                                            {{-- @if ($comments->count() < $total_comments)
                                                             <a class="btn p-3 pt-0"
                                                                 onclick="loadMoreComments(this, {{ $blog->id }}, 0, {{ $total_comments }}, 'blog')">{{ get_phrase('View Comment') }}</a>
                                                         @endif --}}
-                                            </div>
+                                        </div>
 
 
-                                        </div><!--  Blog Details Footer End -->
-                                    </div>
+                                    </div><!--  Blog Details Footer End -->
                                 </div>
-                                {{-- <div class="col-lg-5">
+                            </div>
+                            {{-- <div class="col-lg-5">
                                            
                                         </div> --}}
-                            </div>
-                        </div><!-- Single Page Wrap End -->
-                        @include('frontend.main_content.scripts')
-                        @include('frontend.initialize')
-                    </div>
+                        </div>
+                    </div><!-- Single Page Wrap End -->
+                    @include('frontend.main_content.scripts')
+                    @include('frontend.initialize')
+                </div>
 
 
                 <div class="col-lg-3 order-2 order-lg-3">
-                    
+
                     <aside class="sidebar mt-0 sidebarToggle" id="sidebarToggle">
                         <aside class="sidebar">
                             <div class="widget recent-posts blog_searchs">
@@ -502,7 +500,7 @@
             });
         });
     </script>
-@include('auth.layout.footer')
+    @include('auth.layout.footer')
 
 
 </body>
