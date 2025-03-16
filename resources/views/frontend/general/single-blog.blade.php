@@ -140,32 +140,27 @@
                                     class="fw-bold fa-solid fa-sliders-h"></i></button>
                             <!-- logo -->
                             @php
-                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
+                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value(
+                                    'description',
+                                );
                             @endphp
+
+                            @foreach ($categories as $category)
+                                <div class="relative">
+                                    <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-5 top-2"></div>
+                                    <a href="{{ route('category.blog', $category->slug) }}"
+                                        class="text-lg font-semibold text-gray-700 hover:text-blue-500 transition duration-300">
+                                        {{ $category->name }}
+                                    </a>
+                                </div>
+                            @endforeach
+
                             <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
                                     src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
                                     class="logo_height_width" alt="logo" /></a>
                         </div>
                     </div>
 
-
-                    {{-- <div class="col-auto col-lg-6">
-                        <div class="logo-branding mt-1">
-                            <a class="navbar-brand d-xs-hidden"
-                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
-                                <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
-                                    style="width: 100%; max-width: 80px;" class="d-xs-hidden" alt="logo" />
-                            </a>
-
-
-                            <a class="navbar-brand d-block"
-                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
-                                <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}"
-                                    style="width: 100%; max-width: 40px;" class="d-hidden d-xs-show mt--5px"
-                                    alt="logo" />
-                            </a>
-                        </div>
-                    </div> --}}
 
                     <div class="col-auto col-lg-6 ms-auto">
                         <div class="login-btns ms-5">
@@ -191,7 +186,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    {{-- @include('frontend.left_navigation') --}}
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header res_logo d-lg-none py-4">
+                            <div class="logo">
+                                <img class="max-width-200" width="80%"
+                                    src="{{ asset('storage/logo/dark/' . get_settings('system_dark_logo')) }}"
+                                    alt="">
+                            </div>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                aria-label="Close">x</button>
+                        </div>
+                        <div class="offcanvas-body s_offcanvas">
+                            <div class="timeline-navigation">
+                                <nav class="menu-wrap">
+                                    <ul>
+                                        <li class="@if (Route::currentRouteName() == 'timeline' || Route::currentRouteName() == 'single.post') active @endif"><a
+                                                href="{{ route('timeline') }}"><img
+                                                    src="{{ asset('storage/images/timeline-2.svg') }}"
+                                                    alt="Timeline">{{ get_phrase('Timeline') }}</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="footer-nav">
+                                    <div class="footer-menu">
+                                        <ul>
+                                            <li><a href="{{ route('about.view') }}">{{ get_phrase('About') }}</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="copy-rights text-muted">
+                                        @php
+                                            $sitename = \App\Models\Setting::where('type', 'system_name')->value(
+                                                'description',
+                                            );
+                                        @endphp
+                                        <p>© {{ date('Y') }} {{ $sitename }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Timeline Navigation End -->
 
