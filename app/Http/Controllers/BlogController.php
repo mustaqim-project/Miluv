@@ -207,7 +207,7 @@ class BlogController extends Controller
                 'total_comments' => $total_comments,
                 'recent_posts' => $recent_posts,
                 'categories' => $categories,
-                'most_view' => $most_views,
+                'most_views' => $most_views,
             ]);
         }
     
