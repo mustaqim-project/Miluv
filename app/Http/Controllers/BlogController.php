@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Image, Session,Share;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -34,39 +35,57 @@ class BlogController extends Controller
         return view('frontend.index', $page_data);
     }
 
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
+        // Validasi input
         $request->validate([
             'title' => 'required|max:255',
-            'category' => 'required',
+            'category' => 'required|exists:blog_categories,id',
+            'slug' => 'nullable|unique:blogs,slug|max:255',
+            'meta_title' => 'nullable|max:255',
+            'meta_description' => 'nullable',
+            'meta_keyword' => 'nullable',
+            'scheduled_at' => 'nullable|date',
         ]);
-
-        if ($request->image && !empty($request->image)) {
-
+    
+        $file_name = null;
+        if ($request->hasFile('image')) {
             $file_name = FileUploader::upload($request->image, 'public/storage/blog/thumbnail', 370);
             FileUploader::upload($request->image, 'public/storage/blog/coverphoto/'.$file_name, 900);
         }
-
+    
         $blog = new Blog();
-        $blog->user_id = Auth::user()->id;
+        $blog->user_id = Auth::id();
         $blog->title = $request->title;
+        $blog->slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->title);
         $blog->category_id = $request->category;
-        $tags =  json_decode($request->tag,true);
-        $tag_array = array();
-        if(is_array($tags)){
-            foreach($tags as $key => $tag){
-                $tag_array[$key]=$tag['value'];
-            }
-        }
-        $blog->tag = json_encode($tag_array);
+        $blog->meta_title = $request->meta_title;
+        $blog->meta_description = $request->meta_description;
+        $blog->meta_keyword = $request->meta_keyword;
+        $blog->scheduled_at = $request->scheduled_at;
         $blog->description = $request->description;
-        if($request->image && !empty($request->image)){
+    
+        // Menyimpan tag sebagai JSON
+        $tags = json_decode($request->tag, true);
+        if (is_array($tags)) {
+            $tag_array = array_map(fn($tag) => $tag['value'], $tags);
+            $blog->tag = json_encode($tag_array);
+        }
+    
+        // Menyimpan thumbnail jika ada
+        if ($file_name) {
             $blog->thumbnail = $file_name;
         }
-        $blog->view = json_encode(array());
+    
+        $blog->view = json_encode([]); // Inisialisasi view sebagai array kosong
         $blog->save();
-        Session::flash('success_message', get_phrase('Blog Created Successfully'));
+    
+        // Flash message dan redirect
+        Session::flash('success_message', 'Blog Created Successfully');
         return redirect()->route('blogs');
     }
+    
 
 
     public function edit($id){
@@ -151,14 +170,14 @@ class BlogController extends Controller
 
 
 
-    public function single_blog($id){
-        $page_data['comments'] = Comments::where('is_type','blog')->where('id_of_type',$id)->get();
+    public function single_blog($slug){
+        $page_data['comments'] = Comments::where('is_type','blog')->where('id_of_type',$slug)->get();
         $page_data['socailshare'] = Share::currentPage()
                             ->facebook()
                             ->twitter()
                             ->linkedin()
                             ->telegram()->getRawLinks();
-        $blog = Blog::find($id);
+        $blog = Blog::find($slug);
         $blog_view_data = json_decode($blog->view);
         if (!in_array(auth()->user()->id, $blog_view_data)){
             // $blog_view_data == "" ? $blog_view_data = json_encode(array()) : json_encode($blog_view_data);

@@ -81,7 +81,7 @@ Route::controller(BlogController::class)->middleware('auth', 'check.local.dns', 
     Route::post('/update/blog/{id}', 'update')->name('blog.update');
     Route::get('blog/delete', 'delete')->name('blog.delete');
     Route::get('/load_blog_by_scrolling', 'load_blog_by_scrolling')->name('load_blog_by_scrolling');
-    Route::get('blog/view/{id}', 'single_blog')->name('single.blog');
+    Route::get('blog/view/{slug}', 'single_blog')->name('single.blog');
     Route::get('/blog/category/{category}', 'category_blog')->name('category.blog');
     Route::get('/blog/search/', 'search')->name('search.blog');
 

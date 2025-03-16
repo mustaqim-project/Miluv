@@ -1,17 +1,17 @@
 
 @foreach ($blogs as $blog )
-    <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-4 h-100 my-1 single-item-countable" id="blog-{{ $blog->id }}">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-4 h-100 my-1 single-item-countable" id="blog-{{ $blog->slug }}">
         <article class="single-entry sblog_entry h-100 p-0">
-            <a href="{{ route('single.blog',$blog->id) }}">
+            <a href="{{ route('single.blog',$blog->slug) }}">
                 <div class="entry-img thumbnail-210-200" style="background-image: url('{{ get_blog_image($blog->thumbnail,'thumbnail') }}')">
                     <span class="date-meta">{{ $blog->created_at->timezone(Auth::user()->timezone)->format("d-M-Y") }}</span>
                 </div>
             </a>
             <div class="entry-txt p-8">
                 <div class="blog-meta">
-                    <span><a href="{{ route('single.blog',$blog->id) }}">{{ $blog->cagtegory->name }}</a></span>
+                    <span><a href="{{ route('single.blog',$blog->slug) }}">{{ $blog->cagtegory->name }}</a></span>
                 </div>
-                <h3 class="h6 ellipsis-line-2"><a href="{{ route('single.blog',$blog->id) }}">{{$blog->title}}</a></h3>
+                <h3 class="h6 ellipsis-line-2"><a href="{{ route('single.blog',$blog->slug) }}">{{$blog->title}}</a></h3>
                 <div class="d-flex blog-ava">
                     <img src="{{ get_user_image($blog->user_id,'optimized') }}" class="user-round" alt="">
                     <div class="ava-info">

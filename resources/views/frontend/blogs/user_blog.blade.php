@@ -1,28 +1,22 @@
 <div class="page-wrap">
     <div class="d-flex nblog_header pagetab-head radius-8 align-items-center justify-content-between p-20 bg-white">
-        <h3 class="h5 mb-0"> {{ get_phrase('My Blog') }}</h3>
-        <div class="">
-            <div class="btn-inline ">
-                <a href="{{ route('create.blog') }}" class="btn common_btn btn-sm"> <i class="fa fa-circle-plus me-2"></i>{{ get_phrase('Create Blog') }}</a>
-                <a href="{{ route('myblog') }}" class="btn  btn-sm ms-2 @if(Route::currentRouteName() == 'myblog') common_btn_2 @else common_btn @endif ">{{ get_phrase('My Blog') }}</a>
-            </div>
-        </div>
+        
     </div>
     <div class="bg-white radius-8 p-20 Eblogs mt-12">
         @if(count($blogs)> 0)
         <div class="row g-3 blog-cards">
             @foreach ($blogs as $blog )
-                <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-4" id="blog-{{ $blog->id }}">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-4" id="blog-{{ $blog->slug }}">
                     <article class="single-entry sblog_entry p-0">
                         <div class="entry-img">
-                            <a href="{{ route('single.blog',$blog->id) }}"><img src="{{ get_blog_image($blog->thumbnail,'thumbnail') }}" alt="" class="img-fluid w-100 thumbnail-210-200"></a>
+                            <a href="{{ route('single.blog',$blog->slug) }}"><img src="{{ get_blog_image($blog->thumbnail,'thumbnail') }}" alt="" class="img-fluid w-100 thumbnail-210-200"></a>
                             <span class="date-meta">{{ $blog->created_at->format("d-M-Y") }}</span>
                         </div>
                         <div class="entry-txt p-8">
                             <div class="blog-meta">
                                 <span><a href="#">{{ $blog->cagtegory->name }}</a></span>
                             </div>
-                            <h3 class="h6"><a href="{{ route('single.blog',$blog->id) }}">{{$blog->title}}</a></h3>
+                            <h3 class="h6"><a href="{{ route('single.blog',$blog->slug) }}">{{$blog->title}}</a></h3>
                             <div class="d-flex justify-content-between blog-ava">
                                 <div class="d-flex">
                                     <img src="{{ get_user_image($blog->user_id,'optimized') }}" class="user-round" alt="">

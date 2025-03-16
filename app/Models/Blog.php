@@ -9,11 +9,32 @@ class Blog extends Model
 {
     use HasFactory;
 
-    public function getUser(){
-        return $this->belongsTo(User::class,'user_id');
+    protected $table = 'blogs';
+
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'title',
+        'description',
+        'thumbnail',
+        'slug',
+        'meta_title',
+        'meta_description',
+        'meta_keyword',
+        'scheduled_at',
+        'banner',
+        'status',
+        'tag',
+        'view',
+    ];
+
+    public function getUser()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function cagtegory(){
-        return $this->belongsTo(Blogcategory::class,'category_id');
+    public function category()
+    {
+        return $this->belongsTo(BlogCategory::class, 'category_id');
     }
 }
