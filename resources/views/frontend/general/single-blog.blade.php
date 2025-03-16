@@ -316,7 +316,6 @@
                         </aside>
                     </aside>
                 </div>
-                @endif
 
             </div> <!-- row end -->
 
