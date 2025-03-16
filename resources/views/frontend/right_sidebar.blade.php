@@ -458,7 +458,7 @@
                 <h3 class="widget-title mb-3">{{ get_phrase('Categories') }}</h3>
                 <div class="tags">
                     @foreach ($categories as $category)
-                        <a href="{{ route('category.blog', $category->id) }}"
+                        <a href="{{ route('category.blog', $category->slug) }}"
                             class=" @if ($post->category_id == $category->id) active @endif">{{ $category->name }}
                             ({{ DB::table('blogs')->where('category_id', $category->id)->get()->count() }})
                         </a>

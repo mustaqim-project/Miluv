@@ -7,7 +7,7 @@
     <div class="card border-none radius-8 blog-tags">
         <div class="tags">
             @foreach ($categories as $category )
-                <a href="{{ route('category.blog',$category->id) }}" class="">{{ $category->name }}</a>
+                <a href="{{ route('category.blog',$category->slug) }}" class="">{{ $category->name }}</a>
             @endforeach 
         </div>
     </div>

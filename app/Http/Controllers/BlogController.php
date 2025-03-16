@@ -224,7 +224,7 @@ class BlogController extends Controller
     public function category_blog($category){
         $page_data['categories'] = Blogcategory::all();
         $page_data['category_id'] = $category;
-        $page_data['blogs'] = Blog::where('category_id',$category)->get();
+        $page_data['blogs'] = Blog::where('category_slug',$category)->get();
         $page_data['view_path'] = 'frontend.blogs.category_blog';
         return view('frontend.index', $page_data);
     }

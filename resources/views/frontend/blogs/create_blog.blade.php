@@ -40,7 +40,7 @@
                     <select name="category" id="category" required class="form-select  bg-secondary">
                         <option value="" selected disabled>{{ get_phrase('Select Category') }}</option>
                         @foreach ( $blog_category as $category )
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->slug }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
