@@ -200,30 +200,35 @@
                                 <nav class="menu-wrap">
                                     <ul>
                                         @foreach ($categories as $category)
-                                            <li
-                                                class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
+                                            <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
                                                 <a href="{{ route('category.blog', $category->slug) }}">
-                                                    {{ $category->name }}
+                                                    <i class="fas fa-folder"></i> {{ $category->name }}
                                                 </a>
                                             </li>
                                         @endforeach
                                         <li class="{{ Route::currentRouteName() == 'about.view' ? 'active' : '' }}">
-                                            <a href="{{ route('about.view') }}">{{ get_phrase('About') }}</a>
+                                            <a href="{{ route('about.view') }}">
+                                                <i class="fas fa-info-circle"></i> {{ get_phrase('About') }}
+                                            </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'policy.view' ? 'active' : '' }}">
-                                            <a
-                                                href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
+                                            <a href="{{ route('policy.view') }}">
+                                                <i class="fas fa-user-shield"></i> {{ get_phrase('Privacy Policy') }}
+                                            </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'term.view' ? 'active' : '' }}">
-                                            <a
-                                                href="{{ route('term.view') }}">{{ get_phrase('Terms and Conditions') }}</a>
+                                            <a href="{{ route('term.view') }}">
+                                                <i class="fas fa-file-contract"></i> {{ get_phrase('Terms and Conditions') }}
+                                            </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'contact.view' ? 'active' : '' }}">
-                                            <a
-                                                href="{{ route('contact.view') }}">{{ get_phrase('Contact') }}</a>
+                                            <a href="{{ route('contact.view') }}">
+                                                <i class="fas fa-envelope"></i> {{ get_phrase('Contact') }}
+                                            </a>
                                         </li>
                                     </ul>
                                 </nav>
+                                
 
                                 <div class="footer-nav">
                                     <div class="copy-rights text-muted">
