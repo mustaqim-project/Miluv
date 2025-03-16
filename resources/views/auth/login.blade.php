@@ -1,16 +1,18 @@
 @include('auth.layout.header')
 
 <!-- Main Start -->
-<main class="main my-4 p-5">
+<main class="main my-4 p-3 p-md-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <!-- Image - Hidden on small screens -->
+            <div class="col-md-6 d-none d-md-block">
                 <div class="login-img">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }} " alt="">
+                    <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="login-txt ms-s ms-lg-5">
+            <!-- Form -->
+            <div class="col-md-6 col-12">
+                <div class="login-txt px-3 px-md-5">
 
                     @if ($message = Session::get('error_message'))
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -21,13 +23,13 @@
                         </div>
                     @endif
 
-                    <h3>{{ get_phrase('Login') }}</h3>
+                    <h3 class="text-center">{{ get_phrase('Login') }}</h3>
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                     
-                        <!-- Email Field with Icon -->
-                        <div class="form-group form-email">
+                        <!-- Email Field -->
+                        <div class="form-group">
                             <label for="email">{{ get_phrase('Email') }}</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -44,8 +46,8 @@
                             <p class="text-danger">{{ $errors->first('email') }}</p>
                         </div>
                     
-                        <!-- Password Field with Icon & Toggle Button -->
-                        <div class="form-group form-pass">
+                        <!-- Password Field -->
+                        <div class="form-group">
                             <label for="password">{{ get_phrase('Password') }}</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -59,8 +61,7 @@
                                 >
                                 <button 
                                     type="button" 
-                                    class="btn btn-outline-secondary toggle-password1" 
-                                    data-target="password"
+                                    class="btn btn-outline-secondary toggle-password" 
                                     aria-label="Toggle password visibility"
                                 >
                                     <i class="fas fa-eye"></i>
@@ -71,24 +72,19 @@
                     
                         <!-- Remember Me Checkbox -->
                         <div class="mb-3 form-check">
-                            <input 
-                                type="checkbox" 
-                                id="remember_me" 
-                                class="form-check-input" 
-                                name="remember"
-                            >
+                            <input type="checkbox" id="remember_me" class="form-check-input" name="remember">
                             <label class="form-check-label" for="remember_me">
                                 {{ get_phrase('Remember me') }}
                             </label>
                         </div>
                     
                         <!-- Login Button -->
-                        <button type="submit" class="btn btn-primary my-3">
+                        <button type="submit" class="btn btn-primary w-100 my-3">
                             {{ get_phrase('Log In') }}
                         </button>
                     
                         <!-- Forgot Password Link -->
-                        <div class="mt-2 text-end">
+                        <div class="mt-2 text-center">
                             @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}">
                                     {{ get_phrase('Forgot your password?') }}
@@ -96,29 +92,25 @@
                             @endif
                         </div>
                     </form>
-                    
-                    
-                    <script>
-                        document.querySelector('.toggle-password1').addEventListener('click', function () {
-                            let passwordField = document.getElementById('password');
-                            let icon = this.querySelector('i');
-                    
-                            // Toggle password visibility
-                            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-                    
-                            // Toggle eye icon
-                            icon.classList.toggle('fa-eye');
-                            icon.classList.toggle('fa-eye-slash');
-                        });
-                    </script>
-                    
-                    
                 </div>
             </div>
         </div>
-
-    </div> <!-- container end -->
+    </div>
 </main>
 <!-- Main End -->
+
+<script>
+    document.querySelector('.toggle-password').addEventListener('click', function () {
+        let passwordField = document.getElementById('password');
+        let icon = this.querySelector('i');
+
+        // Toggle password visibility
+        passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+
+        // Toggle eye icon
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+</script>
 
 @include('auth.layout.footer')
