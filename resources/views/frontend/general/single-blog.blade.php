@@ -116,28 +116,30 @@
 
 @php
     // Ambil theme dari session atau database
-    $theme_color = Session::get('theme_color', App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'default');
+    $theme_color = Session::get(
+        'theme_color',
+        App\Models\Setting::where('type', 'theme_color')->value('description') ?? 'default',
+    );
 
     // Tentukan gambar berdasarkan tema
-    $image = ($theme_color === 'dark') 
-        ? asset('assets/frontend/images/white_sun.svg') 
-        : asset('assets/frontend/images/white_moon.svg');
+    $image =
+        $theme_color === 'dark'
+            ? asset('assets/frontend/images/white_sun.svg')
+            : asset('assets/frontend/images/white_moon.svg');
 @endphp
 
 <body class="{{ $theme_color }}">
 
-   
-    <!-- Main Start -->
+
     <main class="main my-4 mt-12">
         <div class="container">
             <div class="row">
+                <div class="col-lg-3">
+                    {{-- @include('frontend.left_navigation') --}}
+                </div>
+                <!-- Timeline Navigation End -->
 
-                
-                    <div class="col-lg-3">
-                    </div>
-                    <!-- Timeline Navigation End -->
-
-                    <!-- Content Section Start -->
+                <!-- Content Section Start -->
                     <div class="col-lg-6 col-sm-12 order-3 order-lg-2">
                         <div class="single-wrap">
                             <div class="sblog_feature bg-white radius-8">
@@ -220,21 +222,22 @@
                                                     </div>
                                                 @else
                                                     <p class="text-center">You need to <a
-                                                            href="{{ route('login') }}">log in</a> to comment.</p>
+                                                            href="{{ route('login') }}">log
+                                                            in</a> to comment.</p>
                                                     <!-- Display login prompt -->
                                                 @endif
                                                 <ul class="comment-wrap pt-3 pb-0 list-unstyled"
                                                     id="comments{{ $blog->id }}">
-                                                     {{-- @include('frontend.main_content.comments', [ 
-                                                        'comments' => $comments,
-                                                        'post_id' => $blog->id,
-                                                        'type' => 'blog',
-                                                    ]) --}}
+                                                    {{-- @include('frontend.main_content.comments', [ 
+                                                                'comments' => $comments,
+                                                                'post_id' => $blog->id,
+                                                                'type' => 'blog',
+                                                            ]) --}}
                                                 </ul>
                                                 {{-- @if ($comments->count() < $total_comments)
-                                                    <a class="btn p-3 pt-0"
-                                                        onclick="loadMoreComments(this, {{ $blog->id }}, 0, {{ $total_comments }}, 'blog')">{{ get_phrase('View Comment') }}</a>
-                                                @endif --}}
+                                                            <a class="btn p-3 pt-0"
+                                                                onclick="loadMoreComments(this, {{ $blog->id }}, 0, {{ $total_comments }}, 'blog')">{{ get_phrase('View Comment') }}</a>
+                                                        @endif --}}
                                             </div>
 
 
@@ -242,22 +245,84 @@
                                     </div>
                                 </div>
                                 {{-- <div class="col-lg-5">
-                                   
-                                </div> --}}
+                                           
+                                        </div> --}}
                             </div>
                         </div><!-- Single Page Wrap End -->
                         {{-- @include('frontend.main_content.scripts') --}}
                         {{-- @include('frontend.initialize') --}}
                     </div>
-                    <div class="col-lg-3 order-2 order-lg-3">
+
+
+                <div class="col-lg-3 order-2 order-lg-3">
+                    <div class="row rightSideBarToggler d-hidden">
+                        <div class="col-md-12">
+                            <div class="card mb-3">
+                                <div class="card-body text-end">
+                                    <button class="btn" onclick="toggleRightSideBar()">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <aside class="sidebar mt-0 sidebarToggle d-hidden" id="sidebarToggle">
+                        <aside class="sidebar">
+                            <div class="widget recent-posts blog_searchs">
+                                <div class=" search-widget mb-14">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h3 class="widget-title">{{ get_phrase('Search') }}</h3>
+                                        <a href="{{ route('blogs') }}" class="btn common_btn"> <i
+                                                class="fa-solid fa-left-long"></i> {{ get_phrase('Back') }}</a>
+                                    </div>
+                                    <form action="#" class="search-form">
+                                        <input class="bg-secondary" type="search" id="searchblogfield"
+                                            placeholder="Search">
+                                        <span><i class="fa fa-search"></i></span>
+                                    </form>
+                                </div>
+                                <h3 class="widget-title mb-12">{{ get_phrase('Recent Post') }}</h3>
+                                <div class="posts-wrap" id="searchblogviewsection">
+                                    @foreach ($recent_posts as $post)
+                                        <div class="post-entry d-flex mb-8">
+                                            <div class="post-thumb"><img class="img-fluid rounded"
+                                                    src="{{ get_blog_image($post->thumbnail, 'thumbnail') }}"
+                                                    alt="Recent Post">
+                                            </div>
+                                            <div class="post-txt ms-2">
+                                                <h3 class="mb-0"><a class="ellipsis-line-2"
+                                                        href="{{ route('single.blog', $post->slug) }}">{{ $post->title }}</a>
+                                                </h3>
+                                                <div class="post-meta border-none">
+                                                    <span class="date-meta"><a
+                                                            href="#">{{ $post->created_at->format('d-M-Y') }}</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div> <!-- Recent Post Widget End -->
+                            <div class="widget tag-widget">
+                                <h3 class="widget-title mb-3">{{ get_phrase('Categories') }}</h3>
+                                <div class="tags">
+                                    @foreach ($categories as $category)
+                                        <a href="{{ route('category.blog', $category->slug) }}"
+                                            class=" @if ($post->category_id == $category->id) active @endif">{{ $category->name }}
+                                            ({{ DB::table('blogs')->where('category_id', $category->id)->get()->count() }})
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </aside>
+                    </aside>
+                </div>
+                @endif
 
             </div> <!-- row end -->
 
         </div> <!-- container end -->
     </main>
     <!-- Main End -->
-
 
 
 
