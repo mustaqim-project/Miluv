@@ -380,7 +380,7 @@
                                 </div>
                             </div> <!-- Recent Post Widget End -->
 
-                            <div class="widget tag-widget">
+                            <div class="widget recent-posts blog_searchs">
 
                                 <h3 class="widget-title mb-12">{{ get_phrase('Most View') }}</h3>
                                 <div class="posts-wrap" id="searchblogviewsection">
@@ -412,7 +412,7 @@
                                 </div>
 
                                 
-                                
+
                             <div class="widget tag-widget">
                                 <h3 class="widget-title mb-3">{{ get_phrase('Categories') }}</h3>
                                 <div class="tags">
