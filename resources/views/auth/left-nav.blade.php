@@ -14,13 +14,13 @@
             <div class="timeline-navigation">
                 <nav class="menu-wrap">
                     <ul>
-                        @foreach ($categories as $category)
+                        {{-- @foreach ($categories as $category)
                             <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
                                 <a href="{{ route('category.blog', $category->slug) }}">
                                     <i class="fas fa-folder" style="opacity: 0.6; margin-right:1em;"></i> {{ $category->name }}
                                 </a>
                             </li>
-                        @endforeach
+                        @endforeach --}}
                         <li class="{{ Route::currentRouteName() == 'about.view' ? 'active' : '' }}">
                             <a href="{{ route('about.view') }}">
                                 <i class="fas fa-info-circle" style="opacity: 0.6; margin-right:1em;"></i> {{ get_phrase('About') }}
