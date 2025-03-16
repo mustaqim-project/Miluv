@@ -99,14 +99,19 @@
                     
                     
                     <script>
-                        document.getElementById('toggle-password1').addEventListener('click', function () {
+                        document.querySelector('.toggle-password1').addEventListener('click', function () {
                             let passwordField = document.getElementById('password');
                             let icon = this.querySelector('i');
+                    
+                            // Toggle password visibility
                             passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+                    
+                            // Toggle eye icon
                             icon.classList.toggle('fa-eye');
                             icon.classList.toggle('fa-eye-slash');
                         });
                     </script>
+                    
                     
                 </div>
             </div>
