@@ -224,7 +224,7 @@
                                                 'description',
                                             );
                                         @endphp
-                                        <p>© {{ date('Y') }} {{ $sitename }}</p>
+                                        <p>© {{ date('Y') }} Miluv</p>
                                     </div>
                                 </div>
                             </div>
