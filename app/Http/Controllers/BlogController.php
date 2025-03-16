@@ -170,41 +170,49 @@ class BlogController extends Controller
 
 
 
-    public function single_blog($slug){
-        $page_data['comments'] = Comments::where('is_type','blog')->where('id_of_type',$slug)->get();
+    public function single_blog($slug) { 
+        $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
+        
         $page_data['socailshare'] = Share::currentPage()
                             ->facebook()
                             ->twitter()
                             ->linkedin()
                             ->telegram()->getRawLinks();
-        $blog = Blog::find($slug);
-        $blog_view_data = json_decode($blog->view);
-        if (!in_array(auth()->user()->id, $blog_view_data)){
-            // $blog_view_data == "" ? $blog_view_data = json_encode(array()) : json_encode($blog_view_data);
-            array_push($blog_view_data, auth()->user()->id);
-            $blog->view =  json_encode($blog_view_data);
+        
+        // Cari blog berdasarkan slug
+        $blog = Blog::where('slug', $slug)->first();
+    
+        // Jika blog tidak ditemukan, tampilkan error 404
+        if (!$blog) {
+            abort(404, 'Blog not found');
+        }
+    
+        $blog_view_data = json_decode($blog->view ?? '[]', true);
+    
+        if (!in_array(auth()->user()->id, $blog_view_data)) {
+            $blog_view_data[] = auth()->user()->id;
+            $blog->view = json_encode($blog_view_data);
             $blog->save();
         }
-
-
-         // New
-         $friendships = Friendships::where(function ($query) {
+    
+        // Ambil data pertemanan
+        $friendships = Friendships::where(function ($query) {
             $query->where('accepter', auth()->user()->id)
-                ->orWhere('requester', auth()->user()->id);
+                  ->orWhere('requester', auth()->user()->id);
         })
-            ->where('is_accepted', 1)
-            ->orderBy('friendships.importance', 'desc')
-            ->take(15)->get();
-
+        ->where('is_accepted', 1)
+        ->orderBy('friendships.importance', 'desc')
+        ->take(15)->get();
+    
         $page_data['friendships'] = $friendships;
-    //new
-
         $page_data['blog'] = $blog;
         $page_data['categories'] = Blogcategory::all();
-        $page_data['recent_posts'] = Blog::orderBy('id','DESC')->limit('5')->get();
+        $page_data['recent_posts'] = Blog::orderBy('id', 'DESC')->limit(5)->get();
         $page_data['view_path'] = 'frontend.blogs.single_blog';
+    
         return view('frontend.index', $page_data);
     }
+    
 
    
 
