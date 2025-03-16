@@ -84,7 +84,7 @@
                                     class="form-control" 
                                     required
                                 >
-                                <button type="button" class="btn btn-outline-secondary toggle-password1" data-target="password">
+                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="password">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -102,7 +102,7 @@
                                     class="form-control" 
                                     required
                                 >
-                                <button type="button" class="btn btn-outline-secondary toggle-password2" data-target="password_confirmation">
+                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="password_confirmation">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -166,20 +166,7 @@
                         });
                     </script>
 
-                    <script>
-                        document.querySelectorAll('.toggle-password2').forEach(button => {
-                            button.addEventListener('click', function() {
-                                let target = document.getElementById(this.getAttribute('data-target'));
-                                if (target.type === "password") {
-                                    target.type = "text";
-                                    this.innerHTML = '<i class="fas fa-eye-slash"></i>';
-                                } else {
-                                    target.type = "password";
-                                    this.innerHTML = '<i class="fas fa-eye"></i>';
-                                }
-                            });
-                        });
-                    </script>
+                 
 
                 </div>
             </div>
