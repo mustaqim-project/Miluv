@@ -1,8 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @php
+        $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
+        $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
+    @endphp
+
+    <!-- CSRF Token for AJAX submissions -->
+    <meta name="csrf_token" content="{{ csrf_token() }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
+
+    <!-- Dynamic Meta Tags -->
+    @hasSection('meta')
+        @stack('meta')
+    @else
+        <title>{{ $system_name }}</title>
+        <meta name="keywords" content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+        <meta name="description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="Miluv - Media Sosial & Dating App">
+        <meta property="og:description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
+        <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
+        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    @endif
+
+    <!-- Blog-Specific Meta Tags -->
+    <title>{{ $blog->meta_title ?? $blog->title }}</title>
+    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+
+    <!-- Open Graph Meta Tags for Blog -->
+    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags for Blog -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/plyr/plyr.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/leafletjs/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/plyr_cdn_dw.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/tagify.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/uploader/file-uploader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery-rbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/gallery/justifiedGallery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/toaster/toaster.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}">
+
+    <!-- Paid Content CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/addon_layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/new_scss/new_style.css') }}">
+
+    <!-- Fundraiser CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}">
+
+    <!-- Job Addon CSS -->
+    @if (addon_status('job') == 1)
+        <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}">
+    @endif
+
+    <!-- JavaScript Libraries -->
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+</head>
+
+
+{{-- <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     @php
@@ -122,11 +222,8 @@
     <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
     <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
 
-    @stack('meta')
+</head> --}}
 
-
-
-</head>
 {{-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
