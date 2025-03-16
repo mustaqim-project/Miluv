@@ -1,9 +1,7 @@
 <div class="page-wrap">
     <div class="d-flex pagetab-head nblog_header p-20 radius-8  align-items-center justify-content-between  bg-white">
         <h3 class="h5 mb-0"> {{ get_phrase('Blogs') }}</h3>
-        <div class="inline-btn w-50">
-            <a href="{{ route('create.blog') }}" class="btn common_btn"><i class="fa fa-plus-circle me-1"></i>{{ get_phrase('Create Blog') }}</a>
-        </div>
+        
     </div>
 
     <div class="card blog-tags border-none radius-8 mt-12">
