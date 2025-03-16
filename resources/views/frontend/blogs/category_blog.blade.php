@@ -26,7 +26,7 @@
                             <div class="blog-meta">
                                 <span><a href="#">{{ $blog->category->name }}</a></span>
                             </div>
-                            <h3 class="h6"><a href="{{ route('single.blog',$blog->id) }}">{{$blog->title}}</a></h3>
+                            <h3 class="h6"><a href="{{ route('single.blog',$blog->slug) }}">{{$blog->title}}</a></h3>
                             <div class="d-flex justify-content-between blog-ava">
                                 <div class="d-flex">
                                     <img src="{{ get_user_image($blog->user_id,'optimized') }}" class="user-round" alt="">
@@ -35,21 +35,6 @@
                                         <small>{{ $blog->created_at->diffForHumans()  }} </small>
                                     </div>
                                 </div>
-                                {{-- <div class="dropdown eg_drop">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa-solid fa-ellipsis"></i> 
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li>
-                                                <a href="{{ route('blog.edit',$blog->id) }}" class="dropdown-item btn btn-primary btn-sm"> <i class="fa fa-edit"></i> {{ get_phrase('Edit Article') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" onclick="confirmAction('<?php echo route('blog.delete', ['blog_id' => $blog->id]); ?>', true)" class="dropdown-item btn btn-primary btn-sm"><i class="fa fa-trash me-1"></i> {{get_phrase('Delete Article')}}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </article>
