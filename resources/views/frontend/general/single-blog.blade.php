@@ -146,18 +146,12 @@
                             @endphp
 
                             @foreach ($categories as $category)
-                                <div class="relative">
-                                    <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-5 top-2"></div>
-                                    <a href="{{ route('category.blog', $category->slug) }}"
-                                        class="text-lg font-semibold text-gray-700 hover:text-blue-500 transition duration-300">
-                                        {{ $category->name }}
-                                    </a>
-                                </div>
+                                
+                                <a class="navbar-brand mt-2" href="{{ route('category.blog', $category->slug) }}">{{ $category->name }}</a>
+
                             @endforeach
 
-                            <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
-                                    src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
-                                    class="logo_height_width" alt="logo" /></a>
+                            
                         </div>
                     </div>
 
