@@ -141,9 +141,7 @@
         <div class="container">
             <div class="row">
 
-                @if (isset($layout))
-                    @include($view_path)
-                @else
+                
                     <div class="col-lg-3">
                     </div>
                     <!-- Timeline Navigation End -->
@@ -262,7 +260,6 @@
                     </div>
                     <div class="col-lg-3 order-2 order-lg-3">
                     </div>
-                @endif
 
             </div> <!-- row end -->
 
