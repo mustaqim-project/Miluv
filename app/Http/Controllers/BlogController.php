@@ -180,6 +180,11 @@ class BlogController extends Controller
             abort(404, 'Blog not found');
         }
     
+        // Ambil total komentar untuk blog ini
+        $total_comments = Comments::where('is_type', 'blog')
+            ->where('id_of_type', $slug)
+            ->count();
+    
         // Data social share
         $socailshare = Share::currentPage()
             ->facebook()
@@ -189,16 +194,18 @@ class BlogController extends Controller
             ->whatsapp()
             ->getRawLinks();
     
-        // Jika user belum login, arahkan ke frontend.general.single-blog dengan data blog & social share
+        // Jika user belum login, arahkan ke frontend.general.single-blog dengan data yang diperlukan
         if (!auth()->check()) {
             return view('frontend.general.single-blog', [
                 'blog' => $blog,
-                'socailshare' => $socailshare
+                'socailshare' => $socailshare,
+                'total_comments' => $total_comments
             ]);
         }
     
         $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
         $page_data['socailshare'] = $socailshare;
+        $page_data['total_comments'] = $total_comments;
     
         $blog_view_data = json_decode($blog->view ?? '[]', true);
     
@@ -225,6 +232,7 @@ class BlogController extends Controller
     
         return view('frontend.index', $page_data);
     }
+    
     
 
     
