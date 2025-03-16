@@ -132,6 +132,7 @@ return array(
     'App\\Models\\Payment_gateway' => $baseDir . '/app/Models/Payment_gateway.php',
     'App\\Models\\Post_share' => $baseDir . '/app/Models/Post_share.php',
     'App\\Models\\Posts' => $baseDir . '/app/Models/Posts.php',
+    'App\\Models\\Question' => $baseDir . '/app/Models/Question.php',
     'App\\Models\\Report' => $baseDir . '/app/Models/Report.php',
     'App\\Models\\SavedProduct' => $baseDir . '/app/Models/SavedProduct.php',
     'App\\Models\\Saveforlater' => $baseDir . '/app/Models/Saveforlater.php',

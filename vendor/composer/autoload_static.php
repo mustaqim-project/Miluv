@@ -802,6 +802,7 @@ class ComposerStaticInit5a5670922a9f3e9ae8da02e1b1e61c74
         'App\\Models\\Payment_gateway' => __DIR__ . '/../..' . '/app/Models/Payment_gateway.php',
         'App\\Models\\Post_share' => __DIR__ . '/../..' . '/app/Models/Post_share.php',
         'App\\Models\\Posts' => __DIR__ . '/../..' . '/app/Models/Posts.php',
+        'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
         'App\\Models\\Report' => __DIR__ . '/../..' . '/app/Models/Report.php',
         'App\\Models\\SavedProduct' => __DIR__ . '/../..' . '/app/Models/SavedProduct.php',
         'App\\Models\\Saveforlater' => __DIR__ . '/../..' . '/app/Models/Saveforlater.php',

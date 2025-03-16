@@ -56,7 +56,7 @@ class RegisteredUserController extends Controller
             'followers' => json_encode(array()),
             'timezone' => $request->timezone,
             'password' => Hash::make($request->password),
-            'status' => 0,
+            'status' => 1,
             'lastActive' => Carbon::now(),
             'created_at' => time()
         ]);
