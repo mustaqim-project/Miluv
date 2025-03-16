@@ -143,11 +143,11 @@
 </a>
 
 
-                            <a class="navbar-brand d-block"
+                            {{-- <a class="navbar-brand d-block"
                                 href="@if (Auth::check()) {{ route('timeline') }} @endif">
                                 <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}" height="35px"
                                     class="max-width-250px d-hidden d-xs-show mt--5px" alt="logo" />
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
 
