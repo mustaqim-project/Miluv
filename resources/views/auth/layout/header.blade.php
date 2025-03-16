@@ -71,6 +71,7 @@
                     <!-- Menu dummy hanya untuk desktop -->
                     <div class="col-lg-6 d-none d-lg-flex justify-content-center">
                         <ul class="nav">
+                            <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Menu 1</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Menu 2</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Menu 3</a></li>
