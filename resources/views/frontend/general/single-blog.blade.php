@@ -130,6 +130,7 @@
 
 <body class="{{ $theme_color }}">
 
+    @include('frontend.header')
 
     <main class="main my-4 mt-12">
         <div class="container">
@@ -221,9 +222,8 @@
                                                         </form>
                                                     </div>
                                                 @else
-                                                    <p class="text-center">You need to <a
-                                                            href="{{ route('login') }}">log
-                                                            in</a> to comment.</p>
+                                                <p class="text-center">You need to <a href="{{ route('login') }}"><strong>log in</strong></a> to comment.</p>
+
                                                     <!-- Display login prompt -->
                                                 @endif
                                                 <ul class="comment-wrap pt-3 pb-0 list-unstyled"
