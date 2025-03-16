@@ -4,7 +4,7 @@
             <img class="max-width-200" width="80%"
                 src="{{ asset('storage/logo/dark/' . get_settings('system_dark_logo')) }}" alt="">
         </div>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">x</button>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body s_offcanvas" 
          style="padding: 16px; overflow-y: auto;">
