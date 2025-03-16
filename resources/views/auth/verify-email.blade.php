@@ -16,18 +16,17 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="login-txt ms-0 ms-lg-5 text-center fs-5 w-100 mb-20 fw-bold font-family-serif">
-                        {{ get_phrase('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+                        {{ get_phrase('Terima kasih telah mendaftar! Sebelum memulai, harap verifikasi alamat email Anda dengan mengklik tautan yang baru saja kami kirimkan. Jika Anda tidak menerima email tersebut, silakan periksa Kotak Masuk atau folder Spam, dan kami dengan senang hati akan mengirimkan ulang.') }}
                     </div>
                     
-                    
-
                     <div class="ms-0 ms-lg-5 my-5">
-
-                    @if (session('status') == 'verification-link-sent')
-                        <div class="alert alert-success text-center">
-                            {{ get_phrase('A new verification link has been sent to the email address you provided during registration.') }}
-                        </div>
-                    @endif
+                        @if (session('status') == 'verification-link-sent')
+                            <div class="alert alert-success text-center">
+                                {{ get_phrase('Tautan verifikasi baru telah dikirim ke alamat email yang Anda berikan saat pendaftaran.') }}
+                            </div>
+                        @endif
+                    </div>
+                    
 
                         <form method="POST" action="{{ route('verification.send') }}">
                             @csrf
