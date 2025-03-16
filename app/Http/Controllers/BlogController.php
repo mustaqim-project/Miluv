@@ -221,15 +221,30 @@ class BlogController extends Controller
 
 
     // category wise page view
+    // public function category_blog($category){
+    //     $page_data['categories'] = Blogcategory::all();
+    //     $page_data['category_id'] = $category;
+    //     $page_data['blogs'] = Blog::where('category_id',$category)->get();
+    //     $page_data['view_path'] = 'frontend.blogs.category_blog';
+    //     return view('frontend.index', $page_data);
+    // }
+
     public function category_blog($category){
+        // Ambil data kategori berdasarkan slug
+        $category = Blogcategory::where('slug', $category)->firstOrFail();
+    
+        // Ambil semua kategori untuk navigasi atau sidebar
         $page_data['categories'] = Blogcategory::all();
-        $page_data['category_id'] = $category;
-        $page_data['blogs'] = Blog::where('category_slug',$category)->get();
+    
+        // Ambil blog yang termasuk dalam kategori ini
+        $page_data['category'] = $category; // Simpan kategori yang ditemukan
+        $page_data['blogs'] = Blog::where('category_id', $category->id)->get();
+    
         $page_data['view_path'] = 'frontend.blogs.category_blog';
+    
         return view('frontend.index', $page_data);
     }
-
-
+    
 
 
     // blog search 
