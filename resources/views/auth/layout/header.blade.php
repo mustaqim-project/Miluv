@@ -37,7 +37,12 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
 
-
+    <style>
+        .nav-link:hover {
+            color: #ff4500 !important;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="bg-white login">
@@ -70,14 +75,39 @@
     
                     <!-- Menu dummy hanya untuk desktop -->
                     <div class="col-lg-6 d-none d-lg-flex justify-content-center">
-                        <ul class="nav">
-                            <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Menu 1</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Menu 2</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Menu 3</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Menu 4</a></li>
+                        <ul class="nav" style="list-style: none; padding: 0; margin: 0;">
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Blog
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="{{ route('about.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="{{ route('policy.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="{{ route('term.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Term & Condition
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="{{ route('contact.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Contact
+                                </a>
+                            </li>
                         </ul>
                     </div>
+
+
+                    
+
+                    
     
                     <div class="col-auto col-lg-4 ms-auto text-end">
                         <div class="login-btns" style="margin-right: 20px;">
