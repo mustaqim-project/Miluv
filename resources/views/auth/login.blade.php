@@ -23,59 +23,80 @@
 
                     <h3>{{ get_phrase('Login') }}</h3>
 
-
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-
+                    
                         <div class="form-group form-email">
-                            <label for="#">{{ get_phrase('Email') }}</label>
-                            <input type="email" name="email" value="{{ old('email') }}"
-                                placeholder="{{ get_phrase('Enter your email address') }}">
+                            <label for="email">{{ get_phrase('Email') }}</label>
+                            <input 
+                                type="email" 
+                                id="email"
+                                name="email" 
+                                value="{{ old('email') }}" 
+                                placeholder="{{ get_phrase('Enter your email address') }}" 
+                                class="form-control"
+                                required
+                            >
+                            <p class="text-danger">{{ $errors->first('email') }}</p>
                         </div>
-                        <p class="text-danger">{{ $errors->first('email') }}</p>
+                    
                         <div class="form-group form-pass">
-                            <label for="#">{{ get_phrase('Password') }}</label>
-                            <input type="password" name="password" placeholder="{{ get_phrase('Your password') }}">
-                            <button type="button" id="togglePassword" class="btn btn-outline-secondary"
-                                aria-label="Toggle password visibility">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                            <label for="password">{{ get_phrase('Password') }}</label>
+                            <div class="input-group">
+                                <input 
+                                    type="password" 
+                                    id="password"
+                                    name="password" 
+                                    placeholder="{{ get_phrase('Your password') }}" 
+                                    class="form-control"
+                                    required
+                                >
+                                <button 
+                                    type="button" 
+                                    id="togglePassword" 
+                                    class="btn btn-outline-secondary" 
+                                    aria-label="Toggle password visibility"
+                                >
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
-
-                        <!-- Remember Me -->
+                    
                         <div class="mb-3 form-check">
-                            <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
-                            <label class="form-check-label" for="remember_me">{{ get_phrase('Remember me') }}</label>
+                            <input 
+                                type="checkbox" 
+                                id="remember_me" 
+                                class="form-check-input" 
+                                name="remember"
+                            >
+                            <label class="form-check-label" for="remember_me">
+                                {{ get_phrase('Remember me') }}
+                            </label>
                         </div>
-
-                        <input class="btn btn-primary my-3" type="submit" name="submit" id="submit" value="Log In">
-
-
-                        <div class="flex items-center justify-end mt-2">
+                    
+                        <button type="submit" class="btn btn-primary my-3">
+                            {{ get_phrase('Log In') }}
+                        </button>
+                    
+                        <div class="mt-2 text-end">
                             @if (Route::has('password.request'))
-                                <a class="" href="{{ route('password.request') }}">
+                                <a href="{{ route('password.request') }}">
                                     {{ get_phrase('Forgot your password?') }}
                                 </a>
                             @endif
                         </div>
-
-
-
                     </form>
+                    
                     <script>
                         document.getElementById('togglePassword').addEventListener('click', function () {
                             let passwordField = document.getElementById('password');
                             let icon = this.querySelector('i');
-                            if (passwordField.type === 'password') {
-                                passwordField.type = 'text';
-                                icon.classList.replace('fa-eye', 'fa-eye-slash');
-                            } else {
-                                passwordField.type = 'password';
-                                icon.classList.replace('fa-eye-slash', 'fa-eye');
-                            }
+                            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+                            icon.classList.toggle('fa-eye');
+                            icon.classList.toggle('fa-eye-slash');
                         });
                     </script>
+                    
                 </div>
             </div>
         </div>
