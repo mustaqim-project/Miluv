@@ -150,7 +150,7 @@
                             </a>
                         </div>
                     </div>
-    
+
                     <div class="col-auto col-lg-6 ms-auto text-end">
                         <div class="login-btns" style="margin-right: 20px;">
                             <a href="{{ route('login') }}"
@@ -158,7 +158,7 @@
                                 style="font-size: 14px; padding: 6px 12px; margin-left: 5px;">
                                 {{ __('Login') }}
                             </a>
-    
+
                             @if (get_settings('public_signup') == 1)
                                 <a href="{{ route('register') }}"
                                     class="btn @if (Route::currentRouteName() == 'register') active @endif"
@@ -172,7 +172,7 @@
             </div>
         </nav>
     </header>
-    
+
 
 
 
@@ -234,7 +234,7 @@
                 <!-- Timeline Navigation End -->
 
                 <!-- Content Section Start -->
-                <div class="col-lg-6 col-sm-12 order-3 order-lg-2">
+                <div class="col-lg-6 col-sm-12 order-3 order-lg-2" tabindex="-1">
                     <div class="single-wrap">
                         <div class="sblog_feature bg-white radius-8">
                             <div class="blog-feature "
@@ -570,6 +570,18 @@
                     }
                 });
                 return false;
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let targetElement = document.querySelector(".col-lg-6.col-sm-12.order-3.order-lg-2");
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                targetElement.focus();
             }
         });
     </script>
