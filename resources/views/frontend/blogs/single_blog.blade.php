@@ -2,6 +2,13 @@
     $comments = DB::table('comments')->join('users', 'comments.user_id', '=', 'users.id')->where('comments.is_type', 'blog')->where('comments.id_of_type', $blog->id)->where('comments.parent_id', 0)->select('comments.*', 'users.name', 'users.photo')->orderBy('comment_id', 'DESC')->take(1)->get();                                                                
     $total_comments = DB::table('comments')->where('comments.is_type', 'blog')->where('comments.id_of_type', $blog->id)->where('comments.parent_id', 0)->get()->count();
 @endphp
+@push('meta')
+    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
+@endpush
 
 <div class="single-wrap">
     <div class="sblog_feature bg-white radius-8">
