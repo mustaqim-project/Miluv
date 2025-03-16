@@ -375,6 +375,13 @@
                                         </div>
                                     @endforeach
                                 </div>
+                               
+
+                                </div>
+                            </div> <!-- Recent Post Widget End -->
+
+                            <div class="widget tag-widget">
+
                                 <h3 class="widget-title mb-12">{{ get_phrase('Most View') }}</h3>
                                 <div class="posts-wrap" id="searchblogviewsection">
                                     @foreach ($most_views as $most_view)
@@ -402,9 +409,10 @@
                                             </div>
                                         </div>
                                     @endforeach
-
                                 </div>
-                            </div> <!-- Recent Post Widget End -->
+
+                                
+                                
                             <div class="widget tag-widget">
                                 <h3 class="widget-title mb-3">{{ get_phrase('Categories') }}</h3>
                                 <div class="tags">
@@ -417,6 +425,9 @@
                                 </div>
                             </div>
                             
+
+                            
+
                         </aside>
                     </aside>
                 </div>
