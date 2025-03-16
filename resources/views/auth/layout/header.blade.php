@@ -49,7 +49,7 @@
     <header class="header header-default py-3">
         <nav class="navigation">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-2 col-sm-4">
                         <div class="logo-branding">
                             <button class="d-lg-none" type="button" data-bs-toggle="offcanvas"
@@ -67,15 +67,25 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-auto col-lg-6 ms-auto text-end">
+    
+                    <!-- Menu dummy hanya untuk desktop -->
+                    <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+                        <ul class="nav">
+                            <li class="nav-item"><a href="#" class="nav-link">Menu 1</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Menu 2</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Menu 3</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Menu 4</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="col-auto col-lg-4 ms-auto text-end">
                         <div class="login-btns" style="margin-right: 20px;">
                             <a href="{{ route('login') }}"
                                 class="btn @if (Route::currentRouteName() == 'login') active @endif"
                                 style="font-size: 14px; padding: 6px 12px; margin-left: 5px;">
                                 {{ __('Login') }}
                             </a>
-
+    
                             @if (get_settings('public_signup') == 1)
                                 <a href="{{ route('register') }}"
                                     class="btn @if (Route::currentRouteName() == 'register') active @endif"
@@ -89,4 +99,7 @@
             </div>
         </nav>
     </header>
+    
     <!-- Header End -->
+
+    @include('auth.left-nav')
