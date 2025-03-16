@@ -169,19 +169,19 @@ class BlogController extends Controller
     }
 
 
-
-    public function single_blog($slug) { 
-        $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
-        
-        $page_data['socailshare'] = Share::currentPage()
-        ->facebook()
-        ->twitter()
-        ->linkedin()
-        ->telegram()
-        ->whatsapp() // Tambahkan WhatsApp
-        ->getRawLinks();
+    public function single_blog($slug) {  
+        $page_data['comments'] = Comments::where('is_type', 'blog')
+            ->where('id_of_type', $slug)
+            ->get();
     
-        
+        $page_data['socailshare'] = Share::currentPage()
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->getRawLinks();
+    
         // Cari blog berdasarkan slug
         $blog = Blog::where('slug', $slug)->first();
     
@@ -190,24 +190,17 @@ class BlogController extends Controller
             abort(404, 'Blog not found');
         }
     
+        // Hitung view tanpa memerlukan auth
         $blog_view_data = json_decode($blog->view ?? '[]', true);
+        $client_ip = request()->ip(); // Gunakan IP pengguna sebagai identifikasi unik
     
-        if (!in_array(auth()->user()->id, $blog_view_data)) {
-            $blog_view_data[] = auth()->user()->id;
+        if (!in_array($client_ip, $blog_view_data)) {
+            $blog_view_data[] = $client_ip;
             $blog->view = json_encode($blog_view_data);
             $blog->save();
         }
     
-        // Ambil data pertemanan
-        $friendships = Friendships::where(function ($query) {
-            $query->where('accepter', auth()->user()->id)
-                  ->orWhere('requester', auth()->user()->id);
-        })
-        ->where('is_accepted', 1)
-        ->orderBy('friendships.importance', 'desc')
-        ->take(15)->get();
-    
-        $page_data['friendships'] = $friendships;
+        // Hapus logika pertemanan yang membutuhkan auth
         $page_data['blog'] = $blog;
         $page_data['categories'] = Blogcategory::all();
         $page_data['recent_posts'] = Blog::orderBy('id', 'DESC')->limit(5)->get();
@@ -215,6 +208,52 @@ class BlogController extends Controller
     
         return view('frontend.index', $page_data);
     }
+    
+    // public function single_blog($slug) { 
+    //     $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
+        
+    //     $page_data['socailshare'] = Share::currentPage()
+    //     ->facebook()
+    //     ->twitter()
+    //     ->linkedin()
+    //     ->telegram()
+    //     ->whatsapp() // Tambahkan WhatsApp
+    //     ->getRawLinks();
+    
+        
+    //     // Cari blog berdasarkan slug
+    //     $blog = Blog::where('slug', $slug)->first();
+    
+    //     // Jika blog tidak ditemukan, tampilkan error 404
+    //     if (!$blog) {
+    //         abort(404, 'Blog not found');
+    //     }
+    
+    //     $blog_view_data = json_decode($blog->view ?? '[]', true);
+    
+    //     if (!in_array(auth()->user()->id, $blog_view_data)) {
+    //         $blog_view_data[] = auth()->user()->id;
+    //         $blog->view = json_encode($blog_view_data);
+    //         $blog->save();
+    //     }
+    
+    //     // Ambil data pertemanan
+    //     $friendships = Friendships::where(function ($query) {
+    //         $query->where('accepter', auth()->user()->id)
+    //               ->orWhere('requester', auth()->user()->id);
+    //     })
+    //     ->where('is_accepted', 1)
+    //     ->orderBy('friendships.importance', 'desc')
+    //     ->take(15)->get();
+    
+    //     $page_data['friendships'] = $friendships;
+    //     $page_data['blog'] = $blog;
+    //     $page_data['categories'] = Blogcategory::all();
+    //     $page_data['recent_posts'] = Blog::orderBy('id', 'DESC')->limit(5)->get();
+    //     $page_data['view_path'] = 'frontend.blogs.single_blog';
+    
+    //     return view('frontend.index', $page_data);
+    // }
     
 
    
