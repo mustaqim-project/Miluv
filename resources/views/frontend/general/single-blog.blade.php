@@ -379,21 +379,29 @@
                                 <div class="posts-wrap" id="searchblogviewsection">
                                     @foreach ($most_views as $most_view)
                                         <div class="post-entry d-flex mb-8">
-                                            <div class="post-thumb"><img class="img-fluid rounded"
-                                                    src="{{ get_blog_image($post->thumbnail, 'thumbnail') }}"
+                                            <div class="post-thumb">
+                                                <img class="img-fluid rounded"
+                                                    src="{{ get_blog_image($most_view->thumbnail, 'thumbnail') }}"
                                                     alt="Recent Post">
                                             </div>
                                             <div class="post-txt ms-2">
-                                                <h3 class="mb-0"><a class="ellipsis-line-2"
-                                                        href="{{ route('single.blog', $post->slug) }}">{{ $post->title }}</a>
+                                                <h3 class="mb-0">
+                                                    <a class="ellipsis-line-2" href="{{ route('single.blog', $most_view->slug) }}">
+                                                        {{ $most_view->title }}
+                                                    </a>
                                                 </h3>
                                                 <div class="post-meta border-none">
-                                                    <span class="date-meta"><a
-                                                            href="#">{{ $post->created_at->format('d-M-Y') }}</a></span>
+                                                    <span class="date-meta">
+                                                        <a href="#">{{ $most_view->created_at->format('d-M-Y') }}</a>
+                                                    </span>
+                                                    <span class="views-meta ms-2">
+                                                        {{ $most_view->views }} views
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     @endforeach
+
                                 </div>
                             </div> <!-- Recent Post Widget End -->
                             <div class="widget tag-widget">
