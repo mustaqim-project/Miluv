@@ -83,8 +83,14 @@ Route::controller(BlogController::class)->middleware('auth', 'check.local.dns', 
     Route::get('/load_blog_by_scrolling', 'load_blog_by_scrolling')->name('load_blog_by_scrolling');
     Route::get('blog/view/{slug}', 'single_blog')->name('single.blog');
     Route::get('/blog/category/{category}', 'category_blog')->name('category.blog');
+});
+Route::controller(BlogController::class)->middleware('check.local.dns')->group(function () {
+    Route::get('/blogs', 'blogs')->name('blogs');
+    Route::get('blog/view/{slug}', 'single_blog')->name('single.blog');
+    Route::get('/blog/category/{category}', 'category_blog')->name('category.blog');
     Route::get('/blog/search/', 'search')->name('search.blog');
 });
+
 
 
 
