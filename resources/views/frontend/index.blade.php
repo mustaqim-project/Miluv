@@ -9,7 +9,6 @@
         $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
         $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
     @endphp
-    <title>{{ $system_name }}</title>
 
     <!-- CSRF Token for ajax for submission -->
     <meta name="csrf_token" content="{{ csrf_token() }}" />
@@ -24,7 +23,7 @@
     @hasSection('meta')
         @stack('meta')
     @else
-        <title>{{ config('settings.site_name') }}</title>
+    <title>{{ $system_name }}</title>
         <meta name="keywords"
             content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
         <meta name="description"
