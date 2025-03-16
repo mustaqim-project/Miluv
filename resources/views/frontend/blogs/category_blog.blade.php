@@ -7,8 +7,11 @@
     <div class="card blog-tags border-none radius-8 mt-12">
         <div class="tags">
             @foreach ($categories as $category )
-                <a href="{{ route('category.blog',$category->slug) }}" class="@if($category['id'] == $category_slug) active @endif">{{ $category->name }}</a>
-            @endforeach 
+            <a href="{{ route('category.blog', $category->slug) }}" 
+                class="@if($category->slug == $category_slug) active @endif">
+                 {{ $category->name }}
+             </a>
+                         @endforeach 
         </div>
     </div>
    
