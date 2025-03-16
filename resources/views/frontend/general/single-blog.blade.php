@@ -249,8 +249,8 @@
                                         </div> --}}
                             </div>
                         </div><!-- Single Page Wrap End -->
-                        {{-- @include('frontend.main_content.scripts') --}}
-                        {{-- @include('frontend.initialize') --}}
+                        @include('frontend.main_content.scripts')
+                        @include('frontend.initialize')
                     </div>
 
 
