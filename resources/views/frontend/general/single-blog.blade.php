@@ -102,6 +102,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/venobox.min.css') }}">
 
     <!-- Job Addon CSS -->
     @if (addon_status('job') == 1)
