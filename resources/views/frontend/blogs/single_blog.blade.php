@@ -66,20 +66,25 @@
                     </div>
                     
                     <!-- Comment Start -->
-                        <div class="user-comments  bg-white" id="user-comments-{{$blog->id}}">
+                    <div class="user-comments bg-white" id="user-comments-{{$blog->id}}">
+                        @if(Auth::check()) <!-- Check if the user is logged in -->
                             <div class="comment-form nBlog_user d-flex p-3 bg-secondary">
                                 <img src="{{get_user_image(Auth()->user()->photo, 'optimized')}}" alt="" class="rounded-circle h-39 img-fluid " width="40px">
                                 <form action="javascript:void(0)" class="w-100 ms-2" method="post">
                                     <input class="form-control py-3" onkeypress="postComment(this, 0, {{$blog->id}}, 0,'blog');" rows="1" placeholder="Write Comments">
                                 </form>
                             </div>
-                            <ul class="comment-wrap pt-3 pb-0 list-unstyled" id="comments{{$blog->id}}">
-                                @include('frontend.main_content.comments',['comments'=>$comments,'post_id'=>$blog->id,'type'=>"blog"])
-                            </ul>
-                            @if($comments->count() < $total_comments) 
-                                <a class="btn p-3 pt-0" onclick="loadMoreComments(this, {{$blog->id}}, 0, {{$total_comments}},'blog')">{{get_phrase('View Comment')}}</a>
-                            @endif
-                        </div>
+                        @else
+                            <p class="text-center">You need to <a href="{{ route('login') }}">log in</a> to comment.</p> <!-- Display login prompt -->
+                        @endif
+                        <ul class="comment-wrap pt-3 pb-0 list-unstyled" id="comments{{$blog->id}}">
+                            @include('frontend.main_content.comments', ['comments' => $comments, 'post_id' => $blog->id, 'type' => "blog"])
+                        </ul>
+                        @if($comments->count() < $total_comments) 
+                            <a class="btn p-3 pt-0" onclick="loadMoreComments(this, {{$blog->id}}, 0, {{$total_comments}}, 'blog')">{{get_phrase('View Comment')}}</a>
+                        @endif
+                    </div>
+                    
                     
                 </div><!--  Blog Details Footer End -->
             </div>

@@ -84,10 +84,9 @@ Route::controller(BlogController::class)->middleware('auth', 'check.local.dns', 
     Route::get('blog/view/{slug}', 'single_blog')->name('single.blog');
     Route::get('/blog/category/{category}', 'category_blog')->name('category.blog');
     Route::get('/blog/search/', 'search')->name('search.blog');
-
-    
-
 });
+
+
 
 //  FrontEnd Jobs Route
 Route::controller(JobController::class)->middleware('auth', 'check.local.dns', 'user', 'verified', 'activity')->group(function () {
