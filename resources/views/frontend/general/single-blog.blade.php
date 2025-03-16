@@ -138,6 +138,22 @@
         <nav class="navigation">
             <div class="container">
                 <div class="row">
+                    <div class="col-auto col-lg-6">
+                        <div class="logo-branding mt-1">
+                            <a class="navbar-brand d-xs-hidden"
+                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                                <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}" height="35px"
+                                    class="max-width-250px d-xs-hidden" alt="logo" />
+                            </a>
+
+                            <a class="navbar-brand d-block"
+                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                                <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}" height="35px"
+                                    class="max-width-250px d-hidden d-xs-show mt--5px" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="col-auto col-lg-6 ms-auto">
                         <div class="login-btns ms-5">
                             <a href="{{ route('login') }}"
