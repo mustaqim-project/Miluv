@@ -21,32 +21,31 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
     <!-- Dynamic Meta Tags -->
-   
-        <!-- Jika halaman detail blog -->
-        <title>{{ $blog->meta_title ?? $blog->title }}</title>
-        <meta name="description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
-        <link rel="canonical" href="{{ url()->current() }}">
-        <meta name="robots" content="index, follow">
 
-        <!-- Open Graph Meta Tags for Blog -->
-        <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
-        <meta property="og:description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:type" content="article">
+    <!-- Jika halaman detail blog -->
+    <title>{{ $blog->meta_title ?? $blog->title }}</title>
+    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta name="robots" content="index, follow">
 
-        <!-- Twitter Card Meta Tags for Blog -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
-        <meta name="twitter:description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <!-- Open Graph Meta Tags for Blog -->
+    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta property="og:description"
+        content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
 
-        <!-- Structured Data (JSON-LD) for Blog -->
-        <script type="application/ld+json">
+    <!-- Twitter Card Meta Tags for Blog -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta name="twitter:description"
+        content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+
+    <!-- Structured Data (JSON-LD) for Blog -->
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -70,7 +69,7 @@
         }
     }
     </script>
-    
+
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
@@ -136,9 +135,7 @@
 @endphp
 
 <body class="{{ $themeColor }} {{ $theme_color }}">
-    @php $user_info = Auth()->user() @endphp
-
-
+   
     <!-- Main Start -->
     <main class="main my-4 mt-12">
         <div class="container">
@@ -153,7 +150,115 @@
 
                     <!-- Content Section Start -->
                     <div class="col-lg-6 col-sm-12 order-3 order-lg-2">
-                        @include($view_path)
+                        <div class="single-wrap">
+                            <div class="sblog_feature bg-white radius-8">
+                                <div class="blog-feature "
+                                    style="background-image: url('{{ get_blog_image($blog->thumbnail, 'coverphoto') }}')">
+                                    <div class="blog-head">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ get_user_image($blog->user_id, 'optimized') }}"
+                                                class="user-round user_image_show_on_modal" alt="">
+                                            <div class="ava-info ms-2">
+                                                <h6 class="mb-0"><a
+                                                        href="{{ route('user.profile.view', $blog->getUser->id) }}">{{ $blog->getUser->name }}</a>
+                                                </h6>
+                                                <small>{{ $blog->created_at->diffForHumans() }}</small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div><!--  Blog Cover End -->
+                                <div class="sm_bottom">
+                                    <div>
+                                        <a href="#"> {{ $blog->created_at->format('d-M-Y') }} </a>
+                                        <h1>{{ $blog->title }}</h1>
+                                    </div>
+                                    <div class="bhead-meta">
+                                        <span>{{ $total_comments }} {{ get_phrase('Comments') }}</span>
+                                        <span>{{ count(json_decode($blog->view)) }} {{ get_phrase('Views') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-12 ">
+                                <div class="col-lg-12">
+                                    <div class="card border-none p-3 radius-8 nblog_details blog-details">
+                                        @php echo script_checker($blog->description, false); @endphp
+                                        <div class="blog-footer">
+                                            <div
+                                                class="post-share justify-content-between align-items-center border-bottom pb-3">
+                                                <div class="post-meta ">
+                                                    <h4 class="h3">{{ get_phrase('tags:') }}</h4>
+                                                    @php
+                                                        $tags = json_decode($blog->tag, true);
+                                                    @endphp
+
+                                                    @if (is_array($tags))
+                                                        @foreach ($tags as $tag)
+                                                            <a href="#"><span
+                                                                    class="badge common_btn_3 mt-1">#{{ $tag }}</span></a>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                                <div class="p-share d-flex align-items-center mt-20">
+                                                    <h3 class="h6">{{ get_phrase('Share') }}: </h3>
+                                                    <div class="social-share ms-2">
+                                                        <ul>
+                                                            @foreach ($socailshare as $key => $value)
+                                                                <li><a href="{{ $value }}" target="_blank"><i
+                                                                            class="fa-brands fa-{{ $key }}"></i></a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Comment Start -->
+                                            <div class="user-comments bg-white"
+                                                id="user-comments-{{ $blog->id }}">
+                                                @if (Auth::check())
+                                                    <!-- Check if the user is logged in -->
+                                                    <div class="comment-form nBlog_user d-flex p-3 bg-secondary">
+                                                        <img src="{{ get_user_image(Auth()->user()->photo, 'optimized') }}"
+                                                            alt="" class="rounded-circle h-39 img-fluid "
+                                                            width="40px">
+                                                        <form action="javascript:void(0)" class="w-100 ms-2"
+                                                            method="post">
+                                                            <input class="form-control py-3"
+                                                                onkeypress="postComment(this, 0, {{ $blog->id }}, 0,'blog');"
+                                                                rows="1" placeholder="Write Comments">
+                                                        </form>
+                                                    </div>
+                                                @else
+                                                    <p class="text-center">You need to <a
+                                                            href="{{ route('login') }}">log in</a> to comment.</p>
+                                                    <!-- Display login prompt -->
+                                                @endif
+                                                <ul class="comment-wrap pt-3 pb-0 list-unstyled"
+                                                    id="comments{{ $blog->id }}">
+                                                    @include('frontend.main_content.comments', [
+                                                        'comments' => $comments,
+                                                        'post_id' => $blog->id,
+                                                        'type' => 'blog',
+                                                    ])
+                                                </ul>
+                                                @if ($comments->count() < $total_comments)
+                                                    <a class="btn p-3 pt-0"
+                                                        onclick="loadMoreComments(this, {{ $blog->id }}, 0, {{ $total_comments }}, 'blog')">{{ get_phrase('View Comment') }}</a>
+                                                @endif
+                                            </div>
+
+
+                                        </div><!--  Blog Details Footer End -->
+                                    </div>
+                                </div>
+                                {{-- <div class="col-lg-5">
+                                   
+                                </div> --}}
+                            </div>
+                        </div><!-- Single Page Wrap End -->
+                        @include('frontend.main_content.scripts')
+                        @include('frontend.initialize')
                     </div>
                     <div class="col-lg-3 order-2 order-lg-3">
                     </div>
@@ -166,92 +271,7 @@
     <!-- Main End -->
 
 
-<div class="single-wrap">
-    <div class="sblog_feature bg-white radius-8">
-        <div class="blog-feature " style="background-image: url('{{ get_blog_image($blog->thumbnail,'coverphoto') }}')">
-            <div class="blog-head">
-                <div class="d-flex align-items-center">
-                    <img src="{{ get_user_image($blog->user_id,'optimized') }}" class="user-round user_image_show_on_modal" alt="">
-                    <div class="ava-info ms-2">
-                        <h6 class="mb-0"><a href="{{ route('user.profile.view',$blog->getUser->id) }}">{{ $blog->getUser->name }}</a></h6>
-                        <small>{{ $blog->created_at->diffForHumans()  }}</small>
-                    </div>
-                </div>
-               
-            </div>
-        </div><!--  Blog Cover End -->
-        <div class="sm_bottom">
-             <div>
-                <a href="#"> {{ $blog->created_at->format("d-M-Y") }} </a>
-               <h1>{{ $blog->title }}</h1>
-             </div>
-            <div class="bhead-meta">
-                <span>{{ $total_comments }} {{ get_phrase('Comments') }}</span>
-                <span>{{ count(json_decode($blog->view)) }} {{ get_phrase('Views') }}</span>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-12 ">
-        <div class="col-lg-12">
-            <div class="card border-none p-3 radius-8 nblog_details blog-details">
-                @php echo script_checker($blog->description, false); @endphp
-                <div class="blog-footer">
-                    <div class="post-share justify-content-between align-items-center border-bottom pb-3">
-                        <div class="post-meta ">
-                            <h4 class="h3">{{get_phrase('tags:')}}</h4>
-                            @php
-                                $tags = json_decode($blog->tag, true);
-                            @endphp
-                            
-                            @if(is_array($tags))
-                                @foreach ($tags as $tag )
-                                    <a href="#"><span class="badge common_btn_3 mt-1">#{{ $tag }}</span></a>
-                                @endforeach
-                            @endif
-                        </div>
-                        <div class="p-share d-flex align-items-center mt-20">
-                            <h3 class="h6">{{ get_phrase('Share') }}: </h3>
-                            <div class="social-share ms-2">
-                                <ul>
-                                    @foreach ($socailshare as $key => $value )
-                                        <li><a href="{{ $value }}" target="_blank"><i class="fa-brands fa-{{ $key }}"></i></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Comment Start -->
-                    <div class="user-comments bg-white" id="user-comments-{{$blog->id}}">
-                        @if(Auth::check()) <!-- Check if the user is logged in -->
-                            <div class="comment-form nBlog_user d-flex p-3 bg-secondary">
-                                <img src="{{get_user_image(Auth()->user()->photo, 'optimized')}}" alt="" class="rounded-circle h-39 img-fluid " width="40px">
-                                <form action="javascript:void(0)" class="w-100 ms-2" method="post">
-                                    <input class="form-control py-3" onkeypress="postComment(this, 0, {{$blog->id}}, 0,'blog');" rows="1" placeholder="Write Comments">
-                                </form>
-                            </div>
-                        @else
-                            <p class="text-center">You need to <a href="{{ route('login') }}">log in</a> to comment.</p> <!-- Display login prompt -->
-                        @endif
-                        <ul class="comment-wrap pt-3 pb-0 list-unstyled" id="comments{{$blog->id}}">
-                            @include('frontend.main_content.comments', ['comments' => $comments, 'post_id' => $blog->id, 'type' => "blog"])
-                        </ul>
-                        @if($comments->count() < $total_comments) 
-                            <a class="btn p-3 pt-0" onclick="loadMoreComments(this, {{$blog->id}}, 0, {{$total_comments}}, 'blog')">{{get_phrase('View Comment')}}</a>
-                        @endif
-                    </div>
-                    
-                    
-                </div><!--  Blog Details Footer End -->
-            </div>
-        </div>
-        {{-- <div class="col-lg-5">
-           
-        </div> --}}
-    </div>
-</div><!-- Single Page Wrap End -->
-@include('frontend.main_content.scripts')
-@include('frontend.initialize')
+
 
 
 
