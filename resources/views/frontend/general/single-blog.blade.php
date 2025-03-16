@@ -128,45 +128,64 @@
         $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description'); 
     @endphp
 
-    <!-- header -->
-    <header class="header header-default py-3">
-        <nav class="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-auto col-lg-6">
-                        <div class="logo-branding mt-1">
-                            <a class="navbar-brand d-xs-hidden"
-   href="@if (Auth::check()) {{ route('timeline') }} @endif">
-    <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
-         style="width: 100%; max-width: 80px;" 
-         class="d-xs-hidden" alt="logo" />
-</a>
-
-
-                            <a class="navbar-brand d-block"
-                                href="@if (Auth::check()) {{ route('timeline') }} @endif">
-                                <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}"  style="width: 100%; max-width: 40px;" 
-                                    class="d-hidden d-xs-show mt--5px" alt="logo" />
-                            </a>
-                        </div>
+<!-- header -->
+<header class="header header-default py-3">
+    <nav class="navigation">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-auto col-lg-6 d-flex align-items-center">
+                    <!-- Logo -->
+                    <div class="logo-branding mt-1">
+                        <a class="navbar-brand d-none d-lg-block"
+                           href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                            <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
+                                 style="width: 100%; max-width: 80px;" 
+                                 alt="logo" />
+                        </a>
+                        <a class="navbar-brand d-lg-none"
+                           href="@if (Auth::check()) {{ route('timeline') }} @endif">
+                            <img src="{{ get_system_logo_favicon($system_light_logo, 'favicon') }}" 
+                                 style="width: 100%; max-width: 40px;" 
+                                 alt="logo" />
+                        </a>
                     </div>
-
-                    <div class="col-auto col-lg-6 ms-auto">
-                        <div class="login-btns ms-5">
-                            <a href="{{ route('login') }}"
-                                class="btn @if (Route::currentRouteName() == 'login') active @endif">{{ __('Login') }}</a>
+                </div>
+                
+                <!-- Menu Toggle Button -->
+                <div class="col-auto d-lg-none ms-auto">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                
+                <!-- Menu Items -->
+                <div class="col-lg-6 ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarMenu">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="nav-link @if (Route::currentRouteName() == 'login') active @endif">{{ __('Login') }}</a>
+                            </li>
                             @if (get_settings('public_signup') == 1)
-                                <a href="{{ route('register') }}"
-                                    class="btn @if (Route::currentRouteName() == 'register') active @endif">{{ __('Sign up') }}</a>
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="nav-link @if (Route::currentRouteName() == 'register') active @endif">{{ __('Sign up') }}</a>
+                                </li>
                             @endif
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
-
+<!-- Bootstrap CSS & JS (Required for Responsive Menu) -->
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
 
 
 
