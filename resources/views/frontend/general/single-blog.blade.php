@@ -197,33 +197,33 @@
                         </div>
                         <div class="offcanvas-body s_offcanvas">
                             <div class="timeline-navigation">
-                                <nav class="menu-wrap" style="opacity: 0.6;">
+                                <nav class="menu-wrap">
                                     <ul>
                                         @foreach ($categories as $category)
                                             <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
                                                 <a href="{{ route('category.blog', $category->slug) }}">
-                                                    <i class="fas fa-folder" style="opacity: 0.6;"></i> {{ $category->name }}
+                                                    <i class="fas fa-folder" style="opacity: 0.6; margin-right:1em;"></i> {{ $category->name }}
                                                 </a>
                                             </li>
                                         @endforeach
                                         <li class="{{ Route::currentRouteName() == 'about.view' ? 'active' : '' }}">
                                             <a href="{{ route('about.view') }}">
-                                                <i class="fas fa-info-circle" style="opacity: 0.6;"></i> {{ get_phrase('About') }}
+                                                <i class="fas fa-info-circle" style="opacity: 0.6; margin-right:1em;"></i> {{ get_phrase('About') }}
                                             </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'policy.view' ? 'active' : '' }}">
                                             <a href="{{ route('policy.view') }}">
-                                                <i class="fas fa-user-shield" style="opacity: 0.6;"></i> {{ get_phrase('Privacy Policy') }}
+                                                <i class="fas fa-user-shield" style="opacity: 0.6; margin-right:1em;"></i> {{ get_phrase('Privacy Policy') }}
                                             </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'term.view' ? 'active' : '' }}">
                                             <a href="{{ route('term.view') }}">
-                                                <i class="fas fa-file-contract" style="opacity: 0.6;"></i> {{ get_phrase('Terms and Conditions') }}
+                                                <i class="fas fa-file-contract" style="opacity: 0.6; margin-right:1em;"></i> {{ get_phrase('Terms and Conditions') }}
                                             </a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'contact.view' ? 'active' : '' }}">
                                             <a href="{{ route('contact.view') }}">
-                                                <i class="fas fa-envelope" style="opacity: 0.6;"></i> {{ get_phrase('Contact') }}
+                                                <i class="fas fa-envelope" style="opacity: 0.6; margin-right:1em;"></i> {{ get_phrase('Contact') }}
                                             </a>
                                         </li>
                                     </ul>
