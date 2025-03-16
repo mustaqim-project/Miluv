@@ -444,6 +444,7 @@
             });
         });
     </script>
+@include('auth.layout.footer')
 
 
 </body>
