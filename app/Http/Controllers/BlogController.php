@@ -228,13 +228,15 @@ class BlogController extends Controller
     //     $page_data['view_path'] = 'frontend.blogs.category_blog';
     //     return view('frontend.index', $page_data);
     // }
-
     public function category_blog($category){
         // Ambil data kategori berdasarkan slug
         $category = Blogcategory::where('slug', $category)->firstOrFail();
     
         // Ambil semua kategori untuk navigasi atau sidebar
         $page_data['categories'] = Blogcategory::all();
+    
+        // Simpan slug kategori aktif
+        $page_data['category_slug'] = $category->slug;
     
         // Ambil blog yang termasuk dalam kategori ini
         $page_data['category'] = $category; // Simpan kategori yang ditemukan
