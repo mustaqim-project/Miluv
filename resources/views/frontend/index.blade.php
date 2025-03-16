@@ -58,7 +58,7 @@
         "dateModified": "{{ $blog->updated_at }}",
         "author": {
             "@type": "Person",
-            "name": "{{ $blog->author ?? 'Admin' }}"
+            "name": "{{ $blog->author->name ?? 'Admin' }}"
         },
         "publisher": {
             "@type": "Organization",
@@ -142,7 +142,7 @@
             "name": "{{ $system_name }}",
             "logo": {
                 "@type": "ImageObject",
-                "url": "{{ asset('images/logo.png') }}"
+                "url": "https://miluv.app/public/storage/logo/light/light.png"
             }
         }
     }
