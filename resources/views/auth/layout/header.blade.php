@@ -81,53 +81,36 @@
                                     Blog
                                 </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('about.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    About
+                            
+                            <!-- Dropdown About Us -->
+                            <li class="nav-item dropdown" style="margin: 0 10px;">
+                                <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
+                                    About Us
                                 </a>
+                                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                    <li><a class="dropdown-item" href="{{ route('about.view') }}">About</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('policy.view') }}">Privacy Policy</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('term.view') }}">Term & Condition</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('contact.view') }}">Contact</a></li>
+                                </ul>
                             </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('policy.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Privacy Policy
+                            
+                            <!-- Dropdown Support -->
+                            <li class="nav-item dropdown" style="margin: 0 10px;">
+                                <a href="#" class="nav-link dropdown-toggle" id="supportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
+                                    Support
                                 </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('term.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Term & Condition
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('contact.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Contact
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    FAQ
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Help Center
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Safety Tips
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Report a User
-                                </a>
-                            </li>
-                            <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
-                                    Community Guidelines
-                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                                    <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                    <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                    <li><a class="dropdown-item" href="#">Safety Tips</a></li>
+                                    <li><a class="dropdown-item" href="#">Report a User</a></li>
+                                    <li><a class="dropdown-item" href="#">Community Guidelines</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
+                    
 
 
                     
