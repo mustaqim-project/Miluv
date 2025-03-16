@@ -9,7 +9,7 @@
     			<!-- panel body -->
     			<div class="panel-body ins-four">
             <p class="ins-four">
-              {{ __('Welcome to Sociopro social platform Installation. You will need to know the following items before proceeding.') }}
+              {{ __('Welcome to Miluv social platform Installation. You will need to know the following items before proceeding.') }}
             </p>
             <ol>
               <li>{{ __('Codecanyon purchase code') }}</li>
