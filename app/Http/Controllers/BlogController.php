@@ -196,7 +196,7 @@ class BlogController extends Controller
     
             $categories=Blogcategory::all();
             $recent_posts= Blog::orderBy('id', 'DESC')->limit(5)->get();
-            $most_views = Blog::orderBy('views', 'DESC')->limit(5)->get();
+            $most_views = Blog::orderBy('view', 'DESC')->limit(5)->get();
 
 
         // Jika user belum login, arahkan ke frontend.general.single-blog dengan data yang diperlukan
