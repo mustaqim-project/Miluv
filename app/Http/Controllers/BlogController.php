@@ -194,12 +194,17 @@ class BlogController extends Controller
             ->whatsapp()
             ->getRawLinks();
     
+
+            $recent_posts= Blog::orderBy('id', 'DESC')->limit(5)->get();
+
+
         // Jika user belum login, arahkan ke frontend.general.single-blog dengan data yang diperlukan
         if (!auth()->check()) {
             return view('frontend.general.single-blog', [
                 'blog' => $blog,
                 'socailshare' => $socailshare,
-                'total_comments' => $total_comments
+                'total_comments' => $total_comments,
+                'recent_posts' => $recent_posts,
             ]);
         }
     
