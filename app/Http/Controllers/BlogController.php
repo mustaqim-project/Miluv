@@ -209,7 +209,7 @@ class BlogController extends Controller
             // Jika pengguna login, tambahkan data tambahan
             $page_data['user'] = auth()->user();
             $page_data['friendships'] = Friendship::where('user_id', auth()->id())->get();
-            $page_data['view_path'] = 'frontend.blogs.single_blog_logged_in';
+            $page_data['view_path'] = 'frontend.blogs.single_blog';
     
             return view('frontend.index', $page_data);
         } else {

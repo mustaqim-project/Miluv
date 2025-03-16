@@ -138,7 +138,6 @@
 <body class="{{ $themeColor }} {{ $theme_color }}">
     @php $user_info = Auth()->user() @endphp
 
-    @include('frontend.header')
 
     <!-- Main Start -->
     <main class="main my-4 mt-12">
