@@ -58,7 +58,7 @@
         "dateModified": "{{ $blog->updated_at }}",
         "author": {
             "@type": "Person",
-            "name": "{{ $blog->author->name ?? 'Admin' }}"
+            "name": "{{ $blog->getUser->name ?? 'Admin' }}"
         },
         "publisher": {
             "@type": "Organization",
