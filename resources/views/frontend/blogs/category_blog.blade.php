@@ -18,15 +18,15 @@
         @if(count($blogs)> 0)
         <div class="row g-3 blog-cards">
             @foreach ($blogs as $blog )
-                <div class="col-lg-4" id="blog-{{ $blog->id }}">
+                <div class="col-lg-4" id="blog-{{ $blog->slug }}">
                     <article class="single-entry sblog_entry p-0">
                         <div class="entry-img">
-                            <a href="{{ route('single.blog',$blog->id) }}"><img src="{{ get_blog_image($blog->thumbnail,'thumbnail') }}" alt="" class="img-fluid thumbnail-210-200"></a>
+                            <a href="{{ route('single.blog',$blog->slug) }}"><img src="{{ get_blog_image($blog->thumbnail,'thumbnail') }}" alt="" class="img-fluid thumbnail-210-200"></a>
                             <span class="date-meta">{{ $blog->created_at->format("d-M-Y") }}</span>
                         </div>
                         <div class="entry-txt p-8">
                             <div class="blog-meta">
-                                <span><a href="#">{{ $blog->cagtegory->name }}</a></span>
+                                <span><a href="#">{{ $blog->category->name }}</a></span>
                             </div>
                             <h3 class="h6"><a href="{{ route('single.blog',$blog->id) }}">{{$blog->title}}</a></h3>
                             <div class="d-flex justify-content-between blog-ava">
