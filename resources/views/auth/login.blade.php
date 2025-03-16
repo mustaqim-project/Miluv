@@ -5,9 +5,9 @@
     <div class="container">
         <div class="row align-items-center">
             <!-- Image - Hidden on small screens -->
-            <div class="col-md-6 d-none d-md-block">
+            <div class="col-lg-6">
                 <div class="login-img">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }} " alt="">
                 </div>
             </div>
             <!-- Form -->
