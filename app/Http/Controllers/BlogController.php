@@ -174,10 +174,13 @@ class BlogController extends Controller
         $page_data['comments'] = Comments::where('is_type', 'blog')->where('id_of_type', $slug)->get();
         
         $page_data['socailshare'] = Share::currentPage()
-                            ->facebook()
-                            ->twitter()
-                            ->linkedin()
-                            ->telegram()->getRawLinks();
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp() // Tambahkan WhatsApp
+        ->getRawLinks();
+    
         
         // Cari blog berdasarkan slug
         $blog = Blog::where('slug', $slug)->first();
