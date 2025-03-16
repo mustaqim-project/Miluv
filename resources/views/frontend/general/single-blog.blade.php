@@ -140,23 +140,25 @@
                                     class="fw-bold fa-solid fa-sliders-h"></i></button>
                             <!-- logo -->
                             @php
-                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
+                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value(
+                                    'description',
+                                );
                             @endphp
                             <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
                                     src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
                                     class="logo_height_width" alt="logo" /></a>
                         </div>
                     </div>
-                   
+
                     <div class="col-auto col-lg-6 ms-auto">
                         <div class="login-btns ms-5">
-                            <a href="{{ route('login') }}" 
+                            <a href="{{ route('login') }}"
                                 class="btn @if (Route::currentRouteName() == 'login') active @endif">
                                 {{ __('Login') }}
                             </a>
-    
+
                             @if (get_settings('public_signup') == 1)
-                                <a href="{{ route('register') }}" 
+                                <a href="{{ route('register') }}"
                                     class="btn @if (Route::currentRouteName() == 'register') active @endif">
                                     {{ __('Sign up') }}
                                 </a>
@@ -167,7 +169,7 @@
             </div>
         </nav>
     </header>
-    
+
 
 
 
@@ -194,7 +196,8 @@
                                 <nav class="menu-wrap">
                                     <ul>
                                         @foreach ($categories as $category)
-                                            <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
+                                            <li
+                                                class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
                                                 <a href="{{ route('category.blog', $category->slug) }}">
                                                     {{ $category->name }}
                                                 </a>
@@ -204,11 +207,12 @@
                                             <a href="{{ route('about.view') }}">{{ get_phrase('About') }}</a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'policy.view' ? 'active' : '' }}">
-                                            <a href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
+                                            <a
+                                                href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
                                         </li>
                                     </ul>
                                 </nav>
-                                
+
                                 <div class="footer-nav">
                                     <div class="copy-rights text-muted">
                                         @php
@@ -345,6 +349,8 @@
                     <aside class="sidebar mt-0 sidebarToggle" id="sidebarToggle">
                         <aside class="sidebar">
                             <div class="widget recent-posts blog_searchs">
+
+
                                 <div class=" search-widget mb-14">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h3 class="widget-title">{{ get_phrase('Search') }}</h3>
@@ -355,6 +361,8 @@
                                         <span><i class="fa fa-search"></i></span>
                                     </form>
                                 </div>
+
+
                                 <h3 class="widget-title mb-12">{{ get_phrase('Recent Post') }}</h3>
                                 <div class="posts-wrap" id="searchblogviewsection">
                                     @foreach ($recent_posts as $post)
@@ -375,12 +383,10 @@
                                         </div>
                                     @endforeach
                                 </div>
-                               
 
-                                </div>
-                            </div> <!-- Recent Post Widget End -->
 
-                            <div class="widget recent-posts blog_searchs">
+
+
 
                                 <h3 class="widget-title mb-12">{{ get_phrase('Most View') }}</h3>
                                 <div class="posts-wrap" id="searchblogviewsection">
@@ -393,25 +399,28 @@
                                             </div>
                                             <div class="post-txt ms-2">
                                                 <h3 class="mb-0">
-                                                    <a class="ellipsis-line-2" href="{{ route('single.blog', $most_view->slug) }}">
+                                                    <a class="ellipsis-line-2"
+                                                        href="{{ route('single.blog', $most_view->slug) }}">
                                                         {{ $most_view->title }}
                                                     </a>
                                                 </h3>
                                                 <div class="post-meta border-none">
                                                     <span class="date-meta">
-                                                        <a href="#">{{ $most_view->created_at->format('d-M-Y') }}</a>
+                                                        <a
+                                                            href="#">{{ $most_view->created_at->format('d-M-Y') }}</a>
                                                     </span>
                                                     <span class="views-meta ms-2">
-                                                         {{ count(json_decode($most_view->view, true)) }} views
+                                                        {{ count(json_decode($most_view->view, true)) }} views
                                                     </span>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
                                     @endforeach
                                 </div>
+                            </div>
 
-                                
+
 
                             <div class="widget tag-widget">
                                 <h3 class="widget-title mb-3">{{ get_phrase('Categories') }}</h3>
@@ -424,9 +433,9 @@
                                     @endforeach
                                 </div>
                             </div>
-                            
 
-                            
+
+
 
                         </aside>
                     </aside>
