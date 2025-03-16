@@ -77,27 +77,27 @@
                     <div class="col-lg-6 d-none d-lg-flex justify-content-center">
                         <ul class="nav" style="list-style: none; padding: 0; margin: 0;">
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     Blog
                                 </a>
                             </li>
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('about.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="{{ route('about.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     About
                                 </a>
                             </li>
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('policy.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="{{ route('policy.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     Privacy Policy
                                 </a>
                             </li>
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('term.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="{{ route('term.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     Term & Condition
                                 </a>
                             </li>
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="{{ route('contact.view') }}" class="nav-link" style="color: #00bfff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="{{ route('contact.view') }}" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     Contact
                                 </a>
                             </li>
