@@ -395,8 +395,9 @@
                                                         <a href="#">{{ $most_view->created_at->format('d-M-Y') }}</a>
                                                     </span>
                                                     <span class="views-meta ms-2">
-                                                        {{ $most_view->view }} views
+                                                         {{ count(json_decode($most_view->view, true)) }} views
                                                     </span>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
