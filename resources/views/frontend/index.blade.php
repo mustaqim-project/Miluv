@@ -2,8 +2,122 @@
 <html lang="en">
 
 
-
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    @php
+        $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
+        $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
+    @endphp
+    <title>{{ $system_name }}</title>
+
+    <!-- CSRF Token for ajax for submission -->
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
+
+    <meta name="keywords"
+        content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+    <meta name="description"
+        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Miluv - Media Sosial & Dating App">
+    <meta property="og:description"
+        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
+    <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
+    <!-- CSS Library -->
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/plyr/plyr.css') }}">
+    <link href="{{ asset('assets/frontend/leafletjs/leaflet.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/css/plyr_cdn_dw.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/tagify.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/uploader/file-uploader.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/jquery-rbox.css') }}" rel="stylesheet">
+
+    <!-- paid content start -->
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/addon_layout.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/new_scss/new_style.css') }}" />
+    <!-- paid content end -->
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/gallery/justifiedGallery.min.css') }}">
+    <link href="{{ asset('assets/frontend/toaster/toaster.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}" />
+
+    {{-- fundraiser --}}
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}" />
+
+
+    <!-- New -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}" />
+
+    <link rel="apple-touch-icon" href="{{ asset('assets/frontend/css/fundraiser/images/favicon.png') }}" />
+
+    {{-- end fundraiser --}}
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/daterangepicker.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}" />
+
+    {{-- Job Addon Css --}}
+    @if (addon_status('job') == 1)
+        <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}" />
+    @endif
+    {{-- Job Addon Css --}}
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}" />
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+
+    <title>{{ $blog->meta_title ?? $blog->title }}</title>
+    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+
+    @stack('meta')
+
+
+
+</head>
+{{-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +158,7 @@
 
     <!-- Scripts -->
     @stack('scripts')
-</head>
+</head> --}}
 
 @if (Session::get('theme_color'))
     @php
