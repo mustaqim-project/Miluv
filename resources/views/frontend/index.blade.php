@@ -14,7 +14,28 @@
     <!-- CSRF Token for ajax for submission -->
     <meta name="csrf_token" content="{{ csrf_token() }}" />
 
-    <meta name="keywords"
+
+    <meta property="og:title" content="@yield('meta_og_title', config('settings.site_name'))" />
+    <meta property="og:description" content="@yield('meta_og_description', config('settings.site_seo_description'))" />
+    <meta property="og:image" content="@yield('meta_og_image', asset(config('settings.site_logo')))" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="{{ config('settings.site_name') }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('meta_tw_title', config('settings.site_name'))" />
+    <meta name="twitter:description" content="@yield('meta_tw_description', config('settings.site_seo_description'))" />
+    <meta name="twitter:image" content="@yield('meta_tw_image', asset(config('settings.site_logo')))" />
+    <meta name="twitter:site" content="@yield('meta_tw_site', '@yourtwitterhandle')" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" /> 
+
+    {{-- <meta name="keywords"
         content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
     <meta name="description"
         content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
@@ -29,7 +50,7 @@
     <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" />
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}" /> --}}
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
