@@ -253,8 +253,8 @@ Route::controller(CustomUserController::class)->middleware('auth', 'check.local.
 
 //  setting frontend
 Route::controller(SettingController::class)->group(function () {
-    Route::get('about/page/view/', 'about_view')->name('about.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'prevent-back-history');
-    Route::get('policy/page/view/', 'policy_view')->name('policy.view')->middleware('auth', 'check.local.dns', 'user', 'verified', 'prevent-back-history');
+    Route::get('about/page/view/', 'about_view')->name('about.view');
+    Route::get('policy/page/view/', 'policy_view')->name('policy.view');
     Route::get('contact/us/view/', 'contact_view')->name('contact.view');
     Route::POST('contact/us/send/', 'contact_send')->name('contact.send');
 
