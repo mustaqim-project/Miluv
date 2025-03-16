@@ -47,16 +47,19 @@
                             </div>
                         
                             <div class="form-group form-phone">
-                                <label for="phone">{{ get_phrase('Phone Number') }}</label>
+                                <label for="phone">{{ get_phrase('Nomor Telepon') }}</label>
                                 <input 
                                     type="tel" 
                                     id="phone"
                                     name="phone" 
                                     value="{{ old('phone') }}" 
-                                    placeholder="{{ get_phrase('Enter your phone number') }}" 
+                                    placeholder="Contoh: 6281234567890" 
                                     class="form-control" 
                                     required
                                 >
+                                <small class="form-text text-muted">
+                                    Masukkan nomor telepon tanpa **0** atau **+62**. Hanya gunakan format **628xxxxxxxxx**.
+                                </small>
                                 <p class="text-danger" id="phoneError">{{ $errors->first('phone') }}</p>
                             </div>
                         
