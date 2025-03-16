@@ -17,6 +17,8 @@
                     <li class="@if (Route::currentRouteName() == 'badge') active @endif"><a href="{{ route('badge') }}"><img
                                 src="{{ asset('storage/images/badge.svg') }}"
                                 alt="Badge">{{ get_phrase('Badge') }}</a></li>
+
+                                
                     <li class="@if (Route::currentRouteName() == 'profile' ||
                             Route::currentRouteName() == 'profile.friends' ||
                             Route::currentRouteName() == 'profile.photos' ||

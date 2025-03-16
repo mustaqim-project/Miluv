@@ -140,29 +140,26 @@
                                     class="fw-bold fa-solid fa-sliders-h"></i></button>
                             <!-- logo -->
                             @php
-                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value(
-                                    'description',
-                                );
+                                $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
                             @endphp
-
-                            @foreach ($categories as $category)
-                                
-                                <a class="navbar-brand mt-2" href="{{ route('category.blog', $category->slug) }}">{{ $category->name }}</a>
-
-                            @endforeach
-
-                            
+                            <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
+                                    src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
+                                    class="logo_height_width" alt="logo" /></a>
                         </div>
                     </div>
-
-
+                   
                     <div class="col-auto col-lg-6 ms-auto">
                         <div class="login-btns ms-5">
-                            <a href="{{ route('login') }}"
-                                class="btn @if (Route::currentRouteName() == 'login') active @endif">{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}" 
+                                class="btn @if (Route::currentRouteName() == 'login') active @endif">
+                                {{ __('Login') }}
+                            </a>
+    
                             @if (get_settings('public_signup') == 1)
-                                <a href="{{ route('register') }}"
-                                    class="btn @if (Route::currentRouteName() == 'register') active @endif">{{ __('Sign up') }}</a>
+                                <a href="{{ route('register') }}" 
+                                    class="btn @if (Route::currentRouteName() == 'register') active @endif">
+                                    {{ __('Sign up') }}
+                                </a>
                             @endif
                         </div>
                     </div>
@@ -170,6 +167,7 @@
             </div>
         </nav>
     </header>
+    
 
 
 
@@ -195,10 +193,13 @@
                             <div class="timeline-navigation">
                                 <nav class="menu-wrap">
                                     <ul>
-                                        <li class="@if (Route::currentRouteName() == 'timeline' || Route::currentRouteName() == 'single.post') active @endif"><a
-                                                href="{{ route('timeline') }}"><img
-                                                    src="{{ asset('storage/images/timeline-2.svg') }}"
-                                                    alt="Timeline">{{ get_phrase('Timeline') }}</a></li>
+                                        @foreach ($categories as $category)
+                                            <li>
+                                                <a href="{{ route('category.blog', $category->slug) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </nav>
                                 <div class="footer-nav">
