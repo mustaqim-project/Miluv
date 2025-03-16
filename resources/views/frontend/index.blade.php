@@ -22,48 +22,62 @@
 
     <!-- Dynamic Meta Tags -->
     @if (isset($blog) && $blog)
-        <!-- Jika halaman blog -->
-        <title>{{ $blog->meta_title ?? $blog->title }}</title>
-        <meta name="description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+    <!-- Jika halaman detail blog -->
+    <title>{{ $blog->meta_title ?? $blog->title }}</title>
+    <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
 
-        <!-- Open Graph Meta Tags for Blog -->
-        <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
-        <meta property="og:description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:type" content="article">
+    <!-- Open Graph Meta Tags for Blog -->
+    <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta property="og:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="article">
 
-        <!-- Twitter Card Meta Tags for Blog -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
-        <meta name="twitter:description"
-            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
-        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-    @else
-        <!-- Jika halaman umum -->
-        <title>{{ $system_name }}</title>
-        <meta name="keywords"
-            content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
-        <meta name="description"
-            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+    <!-- Twitter Card Meta Tags for Blog -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+    <meta name="twitter:description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+    <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
 
-        <!-- Open Graph Meta Tags for Social Media -->
-        <meta property="og:title" content="Miluv - Media Sosial & Dating App">
-        <meta property="og:description"
-            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+@elseif (isset($category) && $category)
+    <!-- Jika halaman kategori blog -->
+    <title>{{ $category->meta_title ?? $category->name }} - {{ $system_name }}</title>
+    <meta name="description" content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+    <meta name="keywords" content="{{ $category->meta_keyword ?? $category->name }}">
 
-        <!-- Twitter Card Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
-        <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
-        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
-    @endif
+    <!-- Open Graph Meta Tags for Category -->
+    <meta property="og:title" content="{{ $category->meta_title ?? $category->name }} - {{ $system_name }}">
+    <meta property="og:description" content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+    <meta property="og:image" content="{{ asset('storage/category/thumbnail/' . $category->thumbnail) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags for Category -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $category->meta_title ?? $category->name }} - {{ $system_name }}">
+    <meta name="twitter:description" content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+    <meta name="twitter:image" content="{{ asset('storage/category/thumbnail/' . $category->thumbnail) }}">
+
+@else
+    <!-- Jika halaman umum -->
+    <title>{{ $system_name }}</title>
+    <meta name="keywords" content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+    <meta name="description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Miluv - Media Sosial & Dating App">
+    <meta property="og:description" content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/default-og-image.jpg') }}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
+    <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
+    <meta name="twitter:image" content="{{ asset('images/default-twitter-image.jpg') }}">
+@endif
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
