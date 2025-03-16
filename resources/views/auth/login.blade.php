@@ -59,7 +59,7 @@
                                 >
                                 <button 
                                     type="button" 
-                                    class="btn btn-outline-secondary toggle-password" 
+                                    class="btn btn-outline-secondary toggle-password1" 
                                     data-target="password"
                                     aria-label="Toggle password visibility"
                                 >
@@ -99,7 +99,7 @@
                     
                     
                     <script>
-                        document.getElementById('togglePassword').addEventListener('click', function () {
+                        document.getElementById('toggle-password1').addEventListener('click', function () {
                             let passwordField = document.getElementById('password');
                             let icon = this.querySelector('i');
                             passwordField.type = passwordField.type === 'password' ? 'text' : 'password';

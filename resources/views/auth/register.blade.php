@@ -84,7 +84,7 @@
                                     class="form-control" 
                                     required
                                 >
-                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="password">
+                                <button type="button" class="btn btn-outline-secondary toggle-password2" data-target="password">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -102,7 +102,7 @@
                                     class="form-control" 
                                     required
                                 >
-                                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="password_confirmation">
+                                <button type="button" class="btn btn-outline-secondary toggle-password2" data-target="password_confirmation">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -127,7 +127,7 @@
 
                     
                     <script>
-                        document.querySelectorAll('.toggle-password1').forEach(button => {
+                        document.querySelectorAll('.toggle-password2').forEach(button => {
                             button.addEventListener('click', function() {
                                 let targetId = this.getAttribute('data-target');
                                 let passwordField = document.getElementById(targetId);
