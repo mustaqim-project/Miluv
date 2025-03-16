@@ -26,23 +26,29 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                     
+                        <!-- Email Field with Icon -->
                         <div class="form-group form-email">
                             <label for="email">{{ get_phrase('Email') }}</label>
-                            <input 
-                                type="email" 
-                                id="email"
-                                name="email" 
-                                value="{{ old('email') }}" 
-                                placeholder="{{ get_phrase('Enter your email address') }}" 
-                                class="form-control"
-                                required
-                            >
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input 
+                                    type="email" 
+                                    id="email"
+                                    name="email" 
+                                    value="{{ old('email') }}" 
+                                    placeholder="{{ get_phrase('Enter your email address') }}" 
+                                    class="form-control"
+                                    required
+                                >
+                            </div>
                             <p class="text-danger">{{ $errors->first('email') }}</p>
                         </div>
                     
+                        <!-- Password Field with Icon & Toggle Button -->
                         <div class="form-group form-pass">
                             <label for="password">{{ get_phrase('Password') }}</label>
                             <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
                                 <input 
                                     type="password" 
                                     id="password"
@@ -53,15 +59,17 @@
                                 >
                                 <button 
                                     type="button" 
-                                    id="togglePassword" 
-                                    class="btn btn-outline-secondary" 
+                                    class="btn btn-outline-secondary toggle-password" 
+                                    data-target="password"
                                     aria-label="Toggle password visibility"
                                 >
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
+                            <p class="text-danger">{{ $errors->first('password') }}</p>
                         </div>
                     
+                        <!-- Remember Me Checkbox -->
                         <div class="mb-3 form-check">
                             <input 
                                 type="checkbox" 
@@ -74,10 +82,12 @@
                             </label>
                         </div>
                     
+                        <!-- Login Button -->
                         <button type="submit" class="btn btn-primary my-3">
                             {{ get_phrase('Log In') }}
                         </button>
                     
+                        <!-- Forgot Password Link -->
                         <div class="mt-2 text-end">
                             @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}">
@@ -86,6 +96,7 @@
                             @endif
                         </div>
                     </form>
+                    
                     
                     <script>
                         document.getElementById('togglePassword').addEventListener('click', function () {
