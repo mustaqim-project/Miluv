@@ -225,16 +225,16 @@
                                                 @endif
                                                 <ul class="comment-wrap pt-3 pb-0 list-unstyled"
                                                     id="comments{{ $blog->id }}">
-                                                    {{-- @include('frontend.main_content.comments', [ --}}
+                                                     {{-- @include('frontend.main_content.comments', [ 
                                                         'comments' => $comments,
                                                         'post_id' => $blog->id,
                                                         'type' => 'blog',
-                                                    ])
+                                                    ]) --}}
                                                 </ul>
-                                                @if ($comments->count() < $total_comments)
+                                                {{-- @if ($comments->count() < $total_comments)
                                                     <a class="btn p-3 pt-0"
                                                         onclick="loadMoreComments(this, {{ $blog->id }}, 0, {{ $total_comments }}, 'blog')">{{ get_phrase('View Comment') }}</a>
-                                                @endif
+                                                @endif --}}
                                             </div>
 
 
