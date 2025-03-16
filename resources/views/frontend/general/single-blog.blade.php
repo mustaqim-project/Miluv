@@ -194,24 +194,22 @@
                                 <nav class="menu-wrap">
                                     <ul>
                                         @foreach ($categories as $category)
-                                            <li>
+                                            <li class="{{ request()->segment(2) == $category->slug ? 'active' : '' }}">
                                                 <a href="{{ route('category.blog', $category->slug) }}">
                                                     {{ $category->name }}
                                                 </a>
                                             </li>
                                         @endforeach
+                                        <li class="{{ Route::currentRouteName() == 'about.view' ? 'active' : '' }}">
+                                            <a href="{{ route('about.view') }}">{{ get_phrase('About') }}</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'policy.view' ? 'active' : '' }}">
+                                            <a href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
+                                        </li>
                                     </ul>
                                 </nav>
+                                
                                 <div class="footer-nav">
-                                    <div class="footer-menu">
-                                        <ul>
-                                            <li><a href="{{ route('about.view') }}">{{ get_phrase('About') }}</a>
-                                            </li>
-                                            <li><a
-                                                    href="{{ route('policy.view') }}">{{ get_phrase('Privacy Policy') }}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                     <div class="copy-rights text-muted">
                                         @php
                                             $sitename = \App\Models\Setting::where('type', 'system_name')->value(
