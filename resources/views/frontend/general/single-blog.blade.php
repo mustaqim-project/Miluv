@@ -130,7 +130,7 @@
 
 <body class="{{ $theme_color }}">
 
-    @include('frontend.header')
+    @include('auth.layout.header')
 
     <main class="main my-4 mt-12">
         <div class="container">
