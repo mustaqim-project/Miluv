@@ -101,6 +101,31 @@
                                     Contact
                                 </a>
                             </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Help Center
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Safety Tips
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Report a User
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 10px;">
+                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                    Community Guidelines
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
