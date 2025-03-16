@@ -138,7 +138,7 @@
                             <a class="navbar-brand d-xs-hidden"
                                 href="@if (Auth::check()) {{ route('timeline') }} @endif">
                                 <img src="{{ get_system_logo_favicon($system_light_logo, 'light') }}" height="35px"
-                                    class="max-width-80px d-xs-hidden" alt="logo" />
+                                    class="max-width-250px d-xs-hidden" alt="logo" />
                             </a>
 
                             <a class="navbar-brand d-block"
