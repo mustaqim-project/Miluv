@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'user_role',
         'user_name',
         'nickname',
+        'married_score_test',
         'username',
         'gender',
         'friends',
