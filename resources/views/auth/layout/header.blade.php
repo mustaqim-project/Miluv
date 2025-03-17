@@ -43,7 +43,15 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/venobox.min.css') }}">
 
+    <!-- Job Addon CSS -->
+    @if (addon_status('job') == 1)
+        <link rel="stylesheet" href="{{ asset('assets/frontend/css/job/style.css') }}">
+    @endif
 
+    <!-- JavaScript Libraries -->
+    <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+
+    
     @if (isset($blog) && $blog)
         <!-- Jika halaman detail blog -->
         <title>{{ $blog->meta_title ?? $blog->title }}</title>
