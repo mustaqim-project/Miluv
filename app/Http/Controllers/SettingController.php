@@ -44,7 +44,7 @@ class SettingController extends Controller
         $subject = $request->subject;
         $details = $request->details;
 
-        Mail::to($user->email)->send(new ContactMail($name, $email, $subject, $details));
+        Mail::to('miluvdatingapps@gmail.com')->send(new ContactMail($name, $email, $subject, $details));
         return redirect()->back();
     }
 
