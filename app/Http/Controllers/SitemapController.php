@@ -23,7 +23,7 @@ class SitemapController extends Controller
     // Sitemap untuk Blogs
     public function blogs()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->where('status', 'published')->get();
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
         return response()->view('sitemap.blogs', compact('blogs'))->header('Content-Type', 'text/xml');
     }
 }
