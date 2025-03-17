@@ -66,7 +66,7 @@
                 "publisher": {
                     "@type": "Organization",
                     "name": "{{ $system_name }}",
-                    "logo": {
+                    "image": {
                         "@type": "ImageObject",
                         "url": "https://miluv.app/public/storage/logo/light/light.png"
                     }
@@ -143,7 +143,7 @@
                         "name": "Miluv - Media Sosial & Dating App",
                         "alternateName": ["Miluv", "Miluv Dating", "Miluv Sosial"],
                         "url": "https://miluv.app/",
-                        "logo": "https://miluv.app/public/storage/logo/light/light.png",
+                        "image": "https://miluv.app/public/storage/logo/light/light.png",
                         "sameAs": [
                             "https://www.instagram.com/miluv.app/",
                             "https://x.com/MiluvDating",
@@ -166,7 +166,7 @@
                         "name": "Miluv - Media Sosial & Dating App",
                         "alternateName": "Miluv App",
                         "url": "https://miluv.app/",
-                        "logo": "https://miluv.app/public/storage/logo/light/light.png",
+                        "image": "https://miluv.app/public/storage/logo/light/light.png",
                         "potentialAction": {
                             "@type": "SearchAction",
                             "target": "https://miluv.app/search?q={search_term_string}",
