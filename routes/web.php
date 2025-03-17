@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\Account_active_request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -264,3 +265,9 @@ Route::controller(Updater::class)->middleware('auth', 'verified', 'activity', 'c
 //     Route::get('install/success', 'success')->name('success');
 // });
 //Installation routes
+
+
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/sitemap/categories.xml', [SitemapController::class, 'categories']);
+Route::get('/sitemap/blogs.xml', [SitemapController::class, 'blogs']);

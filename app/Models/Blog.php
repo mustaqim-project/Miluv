@@ -11,6 +11,7 @@ class Blog extends Model
 
     protected $table = 'blogs';
 
+
     protected $fillable = [
         'user_id',
         'category_id',
@@ -26,14 +27,19 @@ class Blog extends Model
         'status',
         'tag',
         'view',
+       
     ];
 
-    public function getUser()
+    protected $casts = [
+        'scheduled_at' => 'datetime',
+    ];
+
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function category()
+    public function blogCategory()
     {
         return $this->belongsTo(BlogCategory::class, 'category_id');
     }
