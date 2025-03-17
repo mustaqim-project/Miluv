@@ -51,29 +51,33 @@
 
         <!-- Structured Data (JSON-LD) for Blog -->
         <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "{{ $blog->meta_title ?? $blog->title }}",
-    "description": "{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}",
-    "image": "{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}",
-    "url": "{{ url()->current() }}",
-    "datePublished": "{{ $blog->created_at }}",
-    "dateModified": "{{ $blog->updated_at }}",
-    "author": {
-        "@type": "Person",
-        "name": "{{ $blog->getUser->name ?? 'Admin' }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "{{ $system_name }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ asset('images/logo.png') }}"
-        }
-    }
-}
-</script>
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "{{ $blog->meta_title ?? $blog->title }}",
+                "description": "{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}",
+                "image": "{{ $blog->thumbnail ? asset('storage/blog/thumbnail/' . $blog->thumbnail) : asset('images/default-og-image.jpg') }}",
+                "url": "{{ url()->current() }}",
+                "datePublished": "{{ $blog->created_at->format('Y-m-d\TH:i:sP') }}",
+                "dateModified": "{{ $blog->updated_at->format('Y-m-d\TH:i:sP') }}",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "{{ url()->current() }}"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "{{ $blog->getUser->name ?? 'Admin' }}"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "{{ $system_name }}",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://miluv.app/public/storage/logo/light/light.png"
+                    }
+                }
+            }
+            </script>
     @elseif (isset($category) && $category)
         <!-- Jika halaman kategori blog -->
         <title>{{ $category->name }} - {{ $system_name }}</title>
@@ -134,23 +138,72 @@
         <meta name="twitter:image" content="{{ asset('images/default-twitter-image.jpg') }}">
 
         <!-- Structured Data (JSON-LD) for Home -->
+
         <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Miluv - Media Sosial & Dating App",
-    "url": "{{ url()->current() }}",
-    "description": "Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!",
-    "publisher": {
-        "@type": "Organization",
-        "name": "{{ $system_name }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://miluv.app/public/storage/logo/light/light.png"
-        }
-    }
-}
-</script>
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "name": "Miluv - Media Sosial & Dating App",
+                        "alternateName": ["Miluv", "Miluv Dating", "Miluv Sosial"],
+                        "url": "https://miluv.app/",
+                        "logo": "https://miluv.app/public/storage/logo/light/light.png",
+                        "sameAs": [
+                            "https://www.instagram.com/miluv.app/",
+                            "https://x.com/MiluvDating",
+                            "https://www.youtube.com/@MiluvDatingApp",
+                            "https://www.linkedin.com/company/miluv-dating"
+                        ],
+                        "contactPoint": [
+                            {
+                                "@type": "ContactPoint",
+                                "telephone": "+62-823-3749-9577",
+                                "contactType": "Customer Support",
+                                "contactOption": "TollFree",
+                                "areaServed": "ID",
+                                "availableLanguage": ["Indonesian", "English"]
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "name": "Miluv - Media Sosial & Dating App",
+                        "alternateName": "Miluv App",
+                        "url": "https://miluv.app/",
+                        "logo": "https://miluv.app/public/storage/logo/light/light.png",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://miluv.app/search?q={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    },
+                    {
+                        "@type": "LocalBusiness",
+                        "name": "Miluv Indonesia",
+                        "description": "Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup dengan bantuan AI.",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "Jl. Sudirman No. 123",
+                            "addressLocality": "Jakarta Selatan",
+                            "addressRegion": "DKI Jakarta",
+                            "postalCode": "12940",
+                            "addressCountry": "ID"
+                        },
+                        "telephone": "+62-823-3749-9577",
+                        "image": "https://miluv.app/public/storage/logo/light/light.png",
+                        "priceRange": "Gratis - Premium",
+                        "openingHours": "Monday to Sunday, 24 hours",
+                        "sameAs": [
+                            "https://www.instagram.com/miluv.app/",
+                            "https://x.com/MiluvDating",
+                            "https://www.youtube.com/@MiluvDatingApp",
+                            "https://www.linkedin.com/company/miluv-dating"
+                        ]
+                    }
+                ]
+            }
+            </script>
     @endif
 
 
