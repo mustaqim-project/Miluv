@@ -3,7 +3,7 @@
 <!-- Main Start -->
 <main class="main my-4 p-3">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="login-img">
                     <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }}" alt="Register Image">

@@ -3,7 +3,7 @@
 <!-- Main Start -->
 <main class="main my-4 p-3 p-md-5">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
             <!-- Image - Hidden on small screens -->
             <div class="col-lg-6">
                 <div class="login-img">
