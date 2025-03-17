@@ -8,20 +8,6 @@
         $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
         $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
     @endphp
-    <title>{{ $system_name }}</title>
-    <meta name="keywords"
-        content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
-    <meta name="description"
-        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
-
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Miluv - Media Sosial & Dating App">
-    <meta property="og:description"
-        content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
-    <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
@@ -36,6 +22,142 @@
     <!-- Style css -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+
+
+
+    @if (isset($blog) && $blog)
+        <!-- Jika halaman detail blog -->
+        <title>{{ $blog->meta_title ?? $blog->title }}</title>
+        <meta name="description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta name="keywords" content="{{ $blog->meta_keyword ?? '' }}">
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta name="robots" content="index, follow">
+
+        <!-- Open Graph Meta Tags for Blog -->
+        <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
+        <meta property="og:description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta property="og:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="article">
+
+        <!-- Twitter Card Meta Tags for Blog -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $blog->meta_title ?? $blog->title }}">
+        <meta name="twitter:description"
+            content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}">
+        <meta name="twitter:image" content="{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}">
+
+        <!-- Structured Data (JSON-LD) for Blog -->
+        <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ $blog->meta_title ?? $blog->title }}",
+    "description": "{{ $blog->meta_description ?? Str::limit(strip_tags($blog->description), 150) }}",
+    "image": "{{ asset('storage/blog/thumbnail/' . $blog->thumbnail) }}",
+    "url": "{{ url()->current() }}",
+    "datePublished": "{{ $blog->created_at }}",
+    "dateModified": "{{ $blog->updated_at }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ $blog->getUser->name ?? 'Admin' }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $system_name }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('images/logo.png') }}"
+        }
+    }
+}
+</script>
+    @elseif (isset($category) && $category)
+        <!-- Jika halaman kategori blog -->
+        <title>{{ $category->name }} - {{ $system_name }}</title>
+        <meta name="description"
+            content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+        <meta name="keywords" content="{{ $category->meta_keyword ?? $category->name }}">
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta name="robots" content="index, follow">
+
+        <!-- Open Graph Meta Tags for Category -->
+        <meta property="og:title" content="{{ $category->meta_title ?? $category->name }} - {{ $system_name }}">
+        <meta property="og:description"
+            content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+        <meta property="og:image" content="{{ asset('storage/category/thumbnail/' . $category->thumbnail) }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="website">
+
+        <!-- Twitter Card Meta Tags for Category -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $category->meta_title ?? $category->name }} - {{ $system_name }}">
+        <meta name="twitter:description"
+            content="{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}">
+        <meta name="twitter:image" content="{{ asset('storage/category/thumbnail/' . $category->thumbnail) }}">
+
+        <!-- Structured Data (JSON-LD) for Category -->
+        <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ $category->meta_title ?? $category->name }} - {{ $system_name }}",
+    "description": "{{ $category->meta_description ?? 'Jelajahi artikel-artikel menarik seputar ' . $category->name . ' di ' . $system_name }}",
+    "url": "{{ url()->current() }}",
+    "image": "{{ asset('storage/category/thumbnail/' . $category->thumbnail) }}"
+}
+</script>
+    @else
+        <!-- Jika halaman umum -->
+        <title>{{ $system_name }}</title>
+        <meta name="keywords"
+            content="cari jodoh online, aplikasi cari jodoh terpopuler, cari jodoh serius, miluv dating app, aplikasi jodoh miluv">
+        <meta name="description"
+            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Temukan jodoh serius dengan bantuan AI!">
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta name="robots" content="index, follow">
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="Miluv - Media Sosial & Dating App">
+        <meta property="og:description"
+            content="Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:image" content="{{ asset('images/default-og-image.jpg') }}">
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Miluv - Temukan Jodoh Serius">
+        <meta name="twitter:description" content="Gabung dengan jutaan pengguna Miluv dan temukan pasangan hidupmu!">
+        <meta name="twitter:image" content="{{ asset('images/default-twitter-image.jpg') }}">
+
+        <!-- Structured Data (JSON-LD) for Home -->
+        <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Miluv - Media Sosial & Dating App",
+    "url": "{{ url()->current() }}",
+    "description": "Miluv adalah aplikasi media sosial & kencan online terbaik untuk menemukan pasangan hidup. Dibantu AI untuk temukan pasangan yang cocok!",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $system_name }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://miluv.app/public/storage/logo/light/light.png"
+        }
+    }
+}
+</script>
+    @endif
+
+
+
+
+
+
 
     <style>
         .nav-link:hover {
@@ -72,32 +194,39 @@
                             </a>
                         </div>
                     </div>
-    
+
                     <!-- Menu dummy hanya untuk desktop -->
                     <div class="col-lg-6 d-none d-lg-flex justify-content-center">
                         <ul class="nav" style="list-style: none; padding: 0; margin: 0;">
                             <li class="nav-item" style="margin: 0 10px;">
-                                <a href="#" class="nav-link" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
+                                <a href="#" class="nav-link"
+                                    style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 0.3s;">
                                     Blog
                                 </a>
                             </li>
-                            
+
                             <!-- Dropdown About Us -->
                             <li class="nav-item dropdown" style="margin: 0 10px;">
-                                <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
+                                <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
                                     About Us
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                                     <li><a class="dropdown-item" href="{{ route('about.view') }}">About</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('policy.view') }}">Privacy Policy</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('term.view') }}">Term & Condition</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('policy.view') }}">Privacy Policy</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('term.view') }}">Term & Condition</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('contact.view') }}">Contact</a></li>
                                 </ul>
                             </li>
-                            
+
                             <!-- Dropdown Support -->
                             <li class="nav-item dropdown" style="margin: 0 10px;">
-                                <a href="#" class="nav-link dropdown-toggle" id="supportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
+                                <a href="#" class="nav-link dropdown-toggle" id="supportDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="color: #ffffff; font-weight: 500; font-size: 16px; text-decoration: none;">
                                     Support
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="supportDropdown">
@@ -110,13 +239,13 @@
                             </li>
                         </ul>
                     </div>
-                    
 
 
-                    
 
-                    
-    
+
+
+
+
                     <div class="col-auto col-lg-4 ms-auto text-end">
                         <div class="login-btns" style="margin-right: 20px;">
                             <a href="{{ route('login') }}"
@@ -124,7 +253,7 @@
                                 style="font-size: 14px; padding: 6px 12px; margin-left: 5px;">
                                 {{ __('Login') }}
                             </a>
-    
+
                             @if (get_settings('public_signup') == 1)
                                 <a href="{{ route('register') }}"
                                     class="btn @if (Route::currentRouteName() == 'register') active @endif"
@@ -138,7 +267,7 @@
             </div>
         </nav>
     </header>
-    
+
     <!-- Header End -->
 
     @include('auth.left-nav')
