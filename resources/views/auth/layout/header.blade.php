@@ -11,18 +11,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
-    <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/fontawesome/all.min.css') }}">
-    <!-- CSS Library -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/venobox.min.css') }}">
-
-    <!-- Style css -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/plyr/plyr.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/leafletjs/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/plyr_cdn_dw.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/tagify.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/uploader/file-uploader.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/jquery-rbox.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/gallery/justifiedGallery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/toaster/toaster.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/summernote-0.8.18-dist/summernote-lite.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/own.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/pc.style.css') }}">
 
+    <!-- Paid Content CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/addon_layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/paid-content/css/new_scss/new_style.css') }}">
+
+    <!-- Fundraiser CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/style_make.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/new_scss/new_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_new.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/fundraiser/css/custom_responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/venobox.min.css') }}">
 
 
     @if (isset($blog) && $blog)
