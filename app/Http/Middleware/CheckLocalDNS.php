@@ -11,6 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 class CheckLocalDNS
 {
     /**
+     * Daftar domain yang diizinkan (Googlebot).
+     */
+    protected $allowedDomains = [
+        'googlebot.com',
+        'google.com',
+    ];
+
+    /**
      * Handle an incoming request.
      *
      * @param  \Closure(Request): (Response)  $next
@@ -26,6 +34,16 @@ class CheckLocalDNS
         }
         RateLimiter::hit($key, 60);
 
+        // 🔹 Lakukan reverse DNS lookup untuk cek apakah IP berasal dari Googlebot
+        $host = gethostbyaddr($ip);
+
+        foreach ($this->allowedDomains as $domain) {
+            if (stripos($host, $domain) !== false) {
+                // ✅ Jika IP berasal dari Googlebot, izinkan akses
+                return $next($request);
+            }
+        }
+
         // 🔹 Cek lokasi IP dengan API eksternal (pakai cURL)
         $response = Http::timeout(10)->get("http://ip-api.com/json/{$ip}");
 
@@ -38,12 +56,12 @@ class CheckLocalDNS
         // 🔹 Pastikan IP berasal dari Indonesia
         if (!isset($geoInfo['countryCode']) || strtolower($geoInfo['countryCode']) !== 'id') {
             $country = $geoInfo['country'] ?? 'Tidak Diketahui';
-            
+
             return response()->json([
                 'message' => "Akses ditolak! Anda terdeteksi dari negara {$country}. Anda harus berada di Indonesia untuk mengakses halaman ini."
             ], 403);
         }
-        
+
         return $next($request);
     }
 }
