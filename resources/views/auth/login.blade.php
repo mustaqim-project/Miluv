@@ -3,7 +3,7 @@
 <!-- Main Start -->
 <main class="main my-4 p-3 p-md-5">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <!-- Image - Hidden on small screens -->
             <div class="col-lg-6">
                 <div class="login-img">
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <!-- Form -->
-            <div class="col-md-6 col-12">
+            <div class="login-txt text-center px-3 px-md-5">
                 <div class="login-txt px-3 px-md-5">
 
                     @if ($message = Session::get('error_message'))
