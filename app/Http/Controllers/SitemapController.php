@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogCategory;
+use App\Models\Blogcategory;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
