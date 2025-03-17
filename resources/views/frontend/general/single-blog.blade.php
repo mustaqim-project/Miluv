@@ -351,11 +351,11 @@
 
 
 
-    {{-- @include('frontend.common_scripts') --}}
+    @include('frontend.common_scripts')
 
-    {{-- @include('frontend.toaster') --}}
+    @include('frontend.toaster')
 
-    {{-- @include('frontend.initialize') --}}
+    @include('frontend.initialize')
 
     <script>
         "use strict";
