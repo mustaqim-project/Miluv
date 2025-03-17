@@ -34,12 +34,12 @@ class Blog extends Model
         'scheduled_at' => 'datetime',
     ];
 
-    public function user()
+    public function getUser()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function blogCategory()
+    public function category()
     {
         return $this->belongsTo(BlogCategory::class, 'category_id');
     }
