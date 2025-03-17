@@ -3,15 +3,14 @@
 <!-- Main Start -->
 <main class="main my-4 p-3">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="login-img">
                     <img class="img-fluid" src="{{ asset('assets/frontend/images/login.png') }}" alt="Register Image">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="login-txt ms-0 ms-md-4">
-                    <h3 class="text-center text-md-start">{{ get_phrase('Sign Up') }}</h3>
+            <div class="col-lg-6 col-md-8 col-10">
+                <h3 class="text-center text-md-start">{{ get_phrase('Sign Up') }}</h3>
 
                     <form action="{{ route('register') }}" method="POST" class="needs-validation" novalidate>
                         @csrf
@@ -109,7 +108,6 @@
                         });
                     </script>
 
-                </div>
             </div>
         </div>
     </div>
