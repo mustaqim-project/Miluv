@@ -12,7 +12,6 @@
             </div>
             <!-- Form -->
             <div class="col-lg-6 col-md-8 col-10">
-                <div class="login-txt px-3 px-md-5">
 
                     @if ($message = Session::get('error_message'))
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -92,7 +91,6 @@
                             @endif
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>
