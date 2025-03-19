@@ -1,4 +1,4 @@
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     "use strict";
 
     function createStoryForm(data) {
@@ -421,4 +421,4 @@
     function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
     }
-</script>
+</script> --}}
