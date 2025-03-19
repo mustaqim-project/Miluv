@@ -1,4 +1,4 @@
-{{-- <script type="text/javascript">
+ <script type="text/javascript">
     "use strict";
 
     function createStoryForm(data) {
@@ -198,76 +198,76 @@
     }
 
     //Scroll and load data start
-    $(window).scroll(function() {
-        if ($('#timeline-posts').height()) {
-            loadContentByScrolling("#timeline-posts", "{{ route('load_post_by_scrolling') }}");
-        }
-        if ($('#profile-timeline-posts').height()) {
-            loadContentByScrolling("#profile-timeline-posts", "{{ route('profile.load_post_by_scrolling') }}");
-        }
-        if ($('#user-timeline-posts').height()) {
-            loadContentByScrolling("#user-timeline-posts", "{{ route('user.load_post_by_scrolling') }}");
-        }
-        if ($('#paid_content_post').height()) {
-            loadContentByScrolling("#paid_content_post", "{{ route('load.paid.content.post') }}");
-        }
-        if ($('#memories_content').height()) {
-            loadContentByScrolling("#memories_content", "{{ route('load.memories') }}");
-        }
-        if ($('#pc-timeline-posts').height()) {
-            loadContentByScrolling("#pc-timeline-posts", "{{ route('load.timeline.post') }}");
-        }
-        if ($('#show_more_items').height()) {
-            loadContentByScrolling("#show_more_items", "{{ route('search.type', 'show_more') }}");
-        }
-        if ($('#my-friends-list').height()) {
-            loadContentByScrolling("#my-friends-list", "{{ route('profile.load_my_friends') }}");
-        }
-        if ($('#my-friend-request-list').height()) {
-            loadContentByScrolling("#my-friend-request-list", "{{ route('profile.load_my_friend_requests') }}");
-        }
-        if ($('#allPhotos').height()) {
-            loadContentByScrolling("#allPhotos", "{{ route('profile.load_photos') }}");
-        }
-        if ($('#allVideos').height()) {
-            loadContentByScrolling("#allVideos", "{{ route('profile.load_videos') }}");
-        }
-        if ($('#profile-album-row').height()) {
-            loadContentByScrolling("#profile-album-row", "{{ route('profile.load_albums') }}");
-        }
-        if ($('#eventdata').height()) {
-            loadContentByScrolling("#eventdata", "{{ route('load_event_by_scrolling') }}");
-        }
-        if ($('#productdata').height()) {
-            loadContentByScrolling("#productdata", "{{ route('load_product_by_scrolling') }}");
-        }
-        if ($('#blogdatashow').height()) {
-            loadContentByScrolling("#blogdatashow", "{{ route('load_blog_by_scrolling') }}");
-        }
+    // $(window).scroll(function() {
+    //     if ($('#timeline-posts').height()) {
+    //         loadContentByScrolling("#timeline-posts", "{{ route('load_post_by_scrolling') }}");
+    //     }
+    //     if ($('#profile-timeline-posts').height()) {
+    //         loadContentByScrolling("#profile-timeline-posts", "{{ route('profile.load_post_by_scrolling') }}");
+    //     }
+    //     if ($('#user-timeline-posts').height()) {
+    //         loadContentByScrolling("#user-timeline-posts", "{{ route('user.load_post_by_scrolling') }}");
+    //     }
+    //     if ($('#paid_content_post').height()) {
+    //         loadContentByScrolling("#paid_content_post", "{{ route('load.paid.content.post') }}");
+    //     }
+    //     if ($('#memories_content').height()) {
+    //         loadContentByScrolling("#memories_content", "{{ route('load.memories') }}");
+    //     }
+    //     if ($('#pc-timeline-posts').height()) {
+    //         loadContentByScrolling("#pc-timeline-posts", "{{ route('load.timeline.post') }}");
+    //     }
+    //     if ($('#show_more_items').height()) {
+    //         loadContentByScrolling("#show_more_items", "{{ route('search.type', 'show_more') }}");
+    //     }
+    //     if ($('#my-friends-list').height()) {
+    //         loadContentByScrolling("#my-friends-list", "{{ route('profile.load_my_friends') }}");
+    //     }
+    //     if ($('#my-friend-request-list').height()) {
+    //         loadContentByScrolling("#my-friend-request-list", "{{ route('profile.load_my_friend_requests') }}");
+    //     }
+    //     if ($('#allPhotos').height()) {
+    //         loadContentByScrolling("#allPhotos", "{{ route('profile.load_photos') }}");
+    //     }
+    //     if ($('#allVideos').height()) {
+    //         loadContentByScrolling("#allVideos", "{{ route('profile.load_videos') }}");
+    //     }
+    //     if ($('#profile-album-row').height()) {
+    //         loadContentByScrolling("#profile-album-row", "{{ route('profile.load_albums') }}");
+    //     }
+    //     if ($('#eventdata').height()) {
+    //         loadContentByScrolling("#eventdata", "{{ route('load_event_by_scrolling') }}");
+    //     }
+    //     if ($('#productdata').height()) {
+    //         loadContentByScrolling("#productdata", "{{ route('load_product_by_scrolling') }}");
+    //     }
+    //     if ($('#blogdatashow').height()) {
+    //         loadContentByScrolling("#blogdatashow", "{{ route('load_blog_by_scrolling') }}");
+    //     }
 
-        if ($('#pagedata').height()) {
-            loadContentByScrolling("#pagedata", "{{ route('load_page_by_scrolling') }}");
-        }
+    //     if ($('#pagedata').height()) {
+    //         loadContentByScrolling("#pagedata", "{{ route('load_page_by_scrolling') }}");
+    //     }
 
-        if ($('#groupLodingView').height()) {
-            loadContentByScrolling("#groupLodingView", "{{ route('load_groups_by_scrolling') }}");
-        }
-
-
-
-        if ($('#videoShowData').height()) {
-            loadContentByScrolling("#videoShowData", "{{ route('load_videos_by_scrolling') }}");
-        }
-
-        if ($('#shortsShowed').height()) {
-
-            loadContentByScrolling("#shortsShowed", "{{ route('load_shorts_by_scrolling') }}");
-
-        }
+    //     if ($('#groupLodingView').height()) {
+    //         loadContentByScrolling("#groupLodingView", "{{ route('load_groups_by_scrolling') }}");
+    //     }
 
 
 
-    });
+    //     if ($('#videoShowData').height()) {
+    //         loadContentByScrolling("#videoShowData", "{{ route('load_videos_by_scrolling') }}");
+    //     }
+
+    //     if ($('#shortsShowed').height()) {
+
+    //         loadContentByScrolling("#shortsShowed", "{{ route('load_shorts_by_scrolling') }}");
+
+    //     }
+
+
+
+    // });
 
     function loadContentByScrolling(elem, url) {
         var bottom_of_element = Math.floor($(elem).offset().top + $(elem).outerHeight());
@@ -421,4 +421,4 @@
     function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
     }
-</script> --}}
+</script> =
