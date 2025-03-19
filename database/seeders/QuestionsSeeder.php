@@ -13,181 +13,181 @@ class QuestionsSeeder extends Seeder
             [
                 "question" => "Apa alasan utama Anda ingin menikah?",
                 "options" => [
-                    ["text" => "Membangun keluarga harmonis", "score" => 3],
-                    ["text" => "Merasa sudah cukup umur", "score" => 2],
-                    ["text" => "Tekanan dari keluarga", "score" => 1],
-                    ["text" => "Takut hidup sendiri", "score" => 0],
+                    ["text" => "Ingin membangun keluarga yang harmonis dan bahagia", "score" => 3],
+                    ["text" => "Merasa sudah saatnya untuk menikah", "score" => 2],
+                    ["text" => "Tekanan dari keluarga dan lingkungan", "score" => 1],
+                    ["text" => "Karena merasa kesepian", "score" => 0],
                 ]
             ],
             [
-                "question" => "Seberapa baik Anda mengenal pasangan Anda?",
+                "question" => "Seberapa siap Anda secara finansial untuk menikah?",
                 "options" => [
-                    ["text" => "Sangat mengenal", "score" => 3],
-                    ["text" => "Cukup mengenal", "score" => 2],
-                    ["text" => "Kurang mengenal", "score" => 1],
-                    ["text" => "Tidak yakin", "score" => 0],
+                    ["text" => "Sudah memiliki tabungan dan perencanaan keuangan", "score" => 3],
+                    ["text" => "Cukup stabil, tapi masih ada beberapa yang perlu disiapkan", "score" => 2],
+                    ["text" => "Masih dalam tahap menabung", "score" => 1],
+                    ["text" => "Tidak ada tabungan dan belum berpikir soal keuangan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda menghadapi konflik dengan pasangan?",
+                "question" => "Bagaimana kondisi emosional Anda saat ini?",
                 "options" => [
-                    ["text" => "Berdiskusi terbuka dan mencari solusi bersama", "score" => 3],
-                    ["text" => "Kadang berdiskusi, tapi sering menghindari konflik", "score" => 2],
-                    ["text" => "Sering bertengkar dan sulit menemukan solusi", "score" => 1],
-                    ["text" => "Menghindari konflik dengan diam atau mengalah terus", "score" => 0],
+                    ["text" => "Stabil dan siap untuk membangun hubungan jangka panjang", "score" => 3],
+                    ["text" => "Cukup stabil, tetapi masih dalam tahap belajar mengenal diri", "score" => 2],
+                    ["text" => "Sering merasa ragu dan emosional", "score" => 1],
+                    ["text" => "Belum bisa mengendalikan emosi dan masih sering labil", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana kondisi finansial Anda saat ini?",
+                "question" => "Apakah Anda siap untuk berbagi kehidupan dengan orang lain?",
                 "options" => [
-                    ["text" => "Stabil dan memiliki perencanaan keuangan bersama pasangan", "score" => 3],
-                    ["text" => "Cukup baik, tetapi masih ada beberapa aspek yang perlu diperbaiki", "score" => 2],
-                    ["text" => "Tidak stabil, tetapi yakin bisa membaik setelah menikah", "score" => 1],
-                    ["text" => "Tidak memiliki perencanaan keuangan sama sekali", "score" => 0],
+                    ["text" => "Sangat siap dan ingin berbagi kehidupan dengan pasangan", "score" => 3],
+                    ["text" => "Siap, tetapi masih butuh waktu untuk menyesuaikan diri", "score" => 2],
+                    ["text" => "Masih suka hidup sendiri, tapi ingin mencoba", "score" => 1],
+                    ["text" => "Belum siap berbagi hidup dengan orang lain", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda siap berbagi tanggung jawab dalam pernikahan?",
+                "question" => "Seberapa penting komunikasi dalam hubungan menurut Anda?",
                 "options" => [
-                    ["text" => "Sangat siap, sudah membicarakannya dengan pasangan", "score" => 3],
-                    ["text" => "Cukup siap, tetapi masih perlu belajar lebih banyak", "score" => 2],
-                    ["text" => "Kurang siap, masih terbiasa hidup sendiri", "score" => 1],
-                    ["text" => "Tidak siap, lebih suka pasangan yang mengurus semuanya", "score" => 0],
+                    ["text" => "Sangat penting, komunikasi adalah kunci keberhasilan hubungan", "score" => 3],
+                    ["text" => "Penting, tetapi bisa dipelajari seiring waktu", "score" => 2],
+                    ["text" => "Kadang penting, kadang tidak", "score" => 1],
+                    ["text" => "Saya tidak terlalu suka membicarakan perasaan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana hubungan Anda dengan keluarga pasangan?",
+                "question" => "Bagaimana Anda menghadapi konflik dalam hubungan?",
                 "options" => [
-                    ["text" => "Sangat baik dan sudah merasa diterima", "score" => 3],
-                    ["text" => "Cukup baik, meski masih ada beberapa perbedaan", "score" => 2],
-                    ["text" => "Kurang baik, ada beberapa ketegangan", "score" => 1],
-                    ["text" => "Tidak baik dan sering terjadi konflik", "score" => 0],
+                    ["text" => "Mencari solusi dengan komunikasi yang baik", "score" => 3],
+                    ["text" => "Coba menyelesaikan tetapi masih emosional", "score" => 2],
+                    ["text" => "Menghindari konflik sebisa mungkin", "score" => 1],
+                    ["text" => "Mudah marah dan sering menghindar", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda dan pasangan memiliki nilai atau keyakinan yang sejalan?",
+                "question" => "Apa yang Anda pikirkan tentang komitmen jangka panjang?",
                 "options" => [
-                    ["text" => "Ya, sangat sejalan dan sudah mendiskusikannya", "score" => 3],
-                    ["text" => "Cukup sejalan, meskipun ada beberapa perbedaan kecil", "score" => 2],
-                    ["text" => "Banyak perbedaan, tetapi belum pernah dibahas secara mendalam", "score" => 1],
-                    ["text" => "Sangat berbeda dan sering menjadi sumber perdebatan", "score" => 0],
+                    ["text" => "Saya siap untuk komitmen dalam jangka panjang", "score" => 3],
+                    ["text" => "Saya ingin menikah tetapi masih ada keraguan", "score" => 2],
+                    ["text" => "Saya ragu apakah bisa menjalani hubungan seumur hidup", "score" => 1],
+                    ["text" => "Saya tidak suka terikat dalam hubungan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda dan pasangan mengelola emosi dalam hubungan?",
+                "question" => "Seberapa siap Anda untuk bertanggung jawab dalam pernikahan?",
                 "options" => [
-                    ["text" => "Bisa mengontrol emosi dengan baik dan saling mendukung", "score" => 3],
-                    ["text" => "Kadang masih emosional, tetapi bisa diperbaiki", "score" => 2],
-                    ["text" => "Sering emosional dan sulit dikendalikan", "score" => 1],
-                    ["text" => "Tidak bisa mengontrol emosi sama sekali", "score" => 0],
+                    ["text" => "Sangat siap dan memahami konsekuensinya", "score" => 3],
+                    ["text" => "Cukup siap, tapi masih belajar", "score" => 2],
+                    ["text" => "Masih banyak yang perlu saya pelajari", "score" => 1],
+                    ["text" => "Belum siap bertanggung jawab dalam hubungan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda sudah membahas rencana masa depan bersama pasangan?",
+                "question" => "Apa yang Anda harapkan dari pasangan hidup?",
                 "options" => [
-                    ["text" => "Ya, sudah memiliki rencana jangka panjang yang jelas", "score" => 3],
-                    ["text" => "Cukup, meski belum terlalu detail", "score" => 2],
-                    ["text" => "Belum banyak membahasnya", "score" => 1],
-                    ["text" => "Tidak pernah membahas sama sekali", "score" => 0],
+                    ["text" => "Seseorang yang bisa bekerja sama membangun masa depan", "score" => 3],
+                    ["text" => "Seseorang yang bisa melengkapi kekurangan saya", "score" => 2],
+                    ["text" => "Seseorang yang bisa membuat saya bahagia", "score" => 1],
+                    ["text" => "Saya belum tahu apa yang saya inginkan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Seberapa siap Anda dengan perubahan yang terjadi setelah menikah?",
+                "question" => "Seberapa baik Anda mengenal diri sendiri?",
                 "options" => [
-                    ["text" => "Sangat siap dan sudah memahami konsekuensinya", "score" => 3],
-                    ["text" => "Cukup siap, tetapi masih perlu banyak belajar", "score" => 2],
-                    ["text" => "Tidak yakin siap atau tidak", "score" => 1],
-                    ["text" => "Tidak siap sama sekali", "score" => 0],
+                    ["text" => "Saya sangat mengenal diri sendiri dan tahu apa yang saya inginkan", "score" => 3],
+                    ["text" => "Saya cukup mengenal diri sendiri tetapi masih dalam proses belajar", "score" => 2],
+                    ["text" => "Kadang saya bingung dengan diri saya sendiri", "score" => 1],
+                    ["text" => "Saya masih belum mengenal diri sendiri", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda dan pasangan mengelola keuangan bersama?",
+                "question" => "Bagaimana pandangan Anda tentang berbagi tanggung jawab dalam pernikahan?",
                 "options" => [
-                    ["text" => "Sudah memiliki perencanaan keuangan yang matang", "score" => 3],
-                    ["text" => "Pernah membicarakan tetapi belum ada rencana konkret", "score" => 2],
-                    ["text" => "Belum membahasnya sama sekali", "score" => 1],
-                    ["text" => "Tidak ingin berbagi keuangan dengan pasangan", "score" => 0],
+                    ["text" => "Harus berbagi secara adil dan saling mendukung", "score" => 3],
+                    ["text" => "Saya ingin membantu tetapi masih belajar", "score" => 2],
+                    ["text" => "Saya berharap pasangan lebih banyak mengambil tanggung jawab", "score" => 1],
+                    ["text" => "Saya ingin pasangan mengurus semuanya", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda siap berkompromi dalam pernikahan?",
+                "question" => "Apakah Anda bisa mengelola stres dengan baik?",
                 "options" => [
-                    ["text" => "Ya, sangat siap dan menganggap kompromi adalah hal penting", "score" => 3],
-                    ["text" => "Cukup siap, tetapi masih sulit dalam beberapa hal", "score" => 2],
-                    ["text" => "Sering merasa sulit untuk berkompromi", "score" => 1],
-                    ["text" => "Tidak suka berkompromi dan ingin segalanya berjalan sesuai keinginan", "score" => 0],
+                    ["text" => "Ya, saya bisa mengelola stres dengan baik", "score" => 3],
+                    ["text" => "Saya bisa mengelola stres tetapi masih butuh latihan", "score" => 2],
+                    ["text" => "Saya mudah stres dalam situasi sulit", "score" => 1],
+                    ["text" => "Saya sering kewalahan dengan stres", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda menilai komunikasi dalam hubungan Anda?",
+                "question" => "Bagaimana cara Anda mengelola keuangan pribadi saat ini?",
                 "options" => [
-                    ["text" => "Sangat baik, bisa berbicara terbuka tentang apa saja", "score" => 3],
-                    ["text" => "Cukup baik, meskipun ada beberapa kendala kecil", "score" => 2],
-                    ["text" => "Kurang baik, sering terjadi kesalahpahaman", "score" => 1],
-                    ["text" => "Buruk, komunikasi sering berakhir dengan konflik", "score" => 0],
+                    ["text" => "Saya punya perencanaan keuangan yang baik", "score" => 3],
+                    ["text" => "Saya cukup bisa mengelola, tetapi masih ada kekurangan", "score" => 2],
+                    ["text" => "Saya sering boros dan sulit menabung", "score" => 1],
+                    ["text" => "Saya tidak pernah memikirkan keuangan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Seberapa siap Anda menghadapi tantangan dalam rumah tangga?",
+                "question" => "Bagaimana sikap Anda terhadap perbedaan pendapat dalam hubungan?",
                 "options" => [
-                    ["text" => "Sangat siap, sudah menyadari bahwa pernikahan tidak selalu mudah", "score" => 3],
-                    ["text" => "Cukup siap, tetapi masih takut menghadapi masalah besar", "score" => 2],
-                    ["text" => "Tidak yakin bisa menghadapinya", "score" => 1],
-                    ["text" => "Tidak siap dan ingin semuanya berjalan sempurna", "score" => 0],
+                    ["text" => "Saya terbuka dan siap berdiskusi untuk mencari solusi", "score" => 3],
+                    ["text" => "Saya mencoba memahami tetapi kadang sulit menerima perbedaan", "score" => 2],
+                    ["text" => "Saya sering menghindari diskusi yang sulit", "score" => 1],
+                    ["text" => "Saya tidak suka berdebat, lebih baik mengabaikannya", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda dan pasangan memiliki tujuan hidup yang sama?",
+                "question" => "Seberapa mandiri Anda dalam kehidupan sehari-hari?",
                 "options" => [
-                    ["text" => "Ya, sangat sejalan dan sudah dibicarakan dengan jelas", "score" => 3],
-                    ["text" => "Cukup sejalan, meskipun ada beberapa perbedaan", "score" => 2],
-                    ["text" => "Banyak perbedaan yang belum diselesaikan", "score" => 1],
-                    ["text" => "Tidak memiliki kesamaan dalam tujuan hidup", "score" => 0],
+                    ["text" => "Sangat mandiri dan bisa mengurus diri sendiri", "score" => 3],
+                    ["text" => "Cukup mandiri tetapi masih butuh dukungan", "score" => 2],
+                    ["text" => "Saya sering bergantung pada orang lain", "score" => 1],
+                    ["text" => "Saya lebih suka orang lain mengurus semuanya", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana cara Anda mengatasi stres dalam hubungan?",
+                "question" => "Seberapa besar pengaruh keluarga terhadap keputusan pernikahan Anda?",
                 "options" => [
-                    ["text" => "Berkomunikasi dengan pasangan dan mencari solusi bersama", "score" => 3],
-                    ["text" => "Berusaha mengatasi sendiri tetapi masih berbagi dengan pasangan", "score" => 2],
-                    ["text" => "Cenderung menghindar dan menunggu masalah reda sendiri", "score" => 1],
-                    ["text" => "Melampiaskan stres dengan marah atau menyalahkan pasangan", "score" => 0],
+                    ["text" => "Saya yang menentukan, keluarga hanya memberi saran", "score" => 3],
+                    ["text" => "Saya mempertimbangkan saran keluarga", "score" => 2],
+                    ["text" => "Keluarga sangat berpengaruh terhadap keputusan saya", "score" => 1],
+                    ["text" => "Saya mengikuti apa yang keluarga tentukan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda memiliki ekspektasi realistis tentang pernikahan?",
+                "question" => "Bagaimana pandangan Anda tentang memiliki anak dalam pernikahan?",
                 "options" => [
-                    ["text" => "Ya, sudah memahami bahwa pernikahan membutuhkan usaha dan kompromi", "score" => 3],
-                    ["text" => "Cukup realistis, tetapi masih memiliki beberapa harapan idealis", "score" => 2],
-                    ["text" => "Kurang realistis dan sering membandingkan dengan hubungan lain", "score" => 1],
-                    ["text" => "Tidak realistis, menganggap pernikahan seperti kisah dongeng", "score" => 0],
+                    ["text" => "Saya ingin memiliki anak dan sudah mempersiapkannya", "score" => 3],
+                    ["text" => "Saya ingin memiliki anak tetapi masih banyak yang harus saya pelajari", "score" => 2],
+                    ["text" => "Saya belum yakin ingin memiliki anak", "score" => 1],
+                    ["text" => "Saya tidak ingin memiliki anak", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda menilai kepercayaan dalam hubungan Anda?",
+                "question" => "Apa yang Anda lakukan saat menghadapi kegagalan dalam hubungan?",
                 "options" => [
-                    ["text" => "Sangat kuat dan tidak ada rasa curiga", "score" => 3],
-                    ["text" => "Cukup kuat, meskipun ada beberapa tantangan kecil", "score" => 2],
-                    ["text" => "Kurang kuat, masih ada rasa ragu", "score" => 1],
-                    ["text" => "Tidak ada kepercayaan sama sekali", "score" => 0],
+                    ["text" => "Saya belajar dari kegagalan dan berusaha lebih baik", "score" => 3],
+                    ["text" => "Saya mencoba bangkit tetapi masih butuh waktu", "score" => 2],
+                    ["text" => "Saya sering menyalahkan keadaan atau pasangan", "score" => 1],
+                    ["text" => "Saya menghindari hubungan setelah mengalami kegagalan", "score" => 0],
                 ]
             ],
             [
-                "question" => "Bagaimana Anda menangani perbedaan pendapat dengan pasangan?",
+                "question" => "Bagaimana cara Anda mengekspresikan cinta?",
                 "options" => [
-                    ["text" => "Berdiskusi dengan kepala dingin dan mencari solusi bersama", "score" => 3],
-                    ["text" => "Sering berdiskusi, tetapi kadang emosi masih sulit dikendalikan", "score" => 2],
-                    ["text" => "Lebih sering menghindari diskusi untuk menghindari konflik", "score" => 1],
-                    ["text" => "Tidak pernah berdiskusi dan lebih suka mempertahankan pendapat sendiri", "score" => 0],
+                    ["text" => "Dengan perhatian, komunikasi, dan tindakan nyata", "score" => 3],
+                    ["text" => "Dengan kata-kata dan pujian", "score" => 2],
+                    ["text" => "Dengan hadiah atau kejutan kecil", "score" => 1],
+                    ["text" => "Saya jarang mengekspresikan cinta", "score" => 0],
                 ]
             ],
             [
-                "question" => "Apakah Anda siap menerima pasangan apa adanya?",
+                "question" => "Apa yang Anda cari dalam hubungan pernikahan?",
                 "options" => [
-                    ["text" => "Ya, sudah menerima kelebihan dan kekurangannya dengan tulus", "score" => 3],
-                    ["text" => "Cukup menerima, tetapi masih ada beberapa hal yang ingin diubah", "score" => 2],
-                    ["text" => "Sulit menerima beberapa kekurangannya", "score" => 1],
-                    ["text" => "Tidak siap menerima kekurangan pasangan", "score" => 0],
+                    ["text" => "Keharmonisan, kebahagiaan, dan saling mendukung", "score" => 3],
+                    ["text" => "Kesetiaan dan kenyamanan", "score" => 2],
+                    ["text" => "Keamanan finansial dan status sosial", "score" => 1],
+                    ["text" => "Saya belum tahu pasti", "score" => 0],
                 ]
             ],
         ];

@@ -11,7 +11,6 @@ use App\Http\Controllers\Updater;
 use Illuminate\Http\Request;
 use App\Models\Account_active_request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SitemapController;
 
 /*
@@ -156,9 +155,7 @@ Route::controller(MainController::class)->middleware('auth', 'user', 'user', 've
 
     Route::get('/ai/image-generator', 'imageGenerator')->name('ai_image.image_generator');
 
-    Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
-    Route::post('/quiz-submit', [QuizController::class, 'submit'])->name('quiz.submit');
-    Route::get('/quiz-result', [QuizController::class, 'result'])->name('quiz.result');
+
 
 });
 

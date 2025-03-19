@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
 
 Route::middleware('guest', 'check.local.dns')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -46,6 +47,11 @@ Route::middleware('auth')->group(function () {
                 ->middleware('throttle:6,1')
                 ->name('verification.send');
 
+                Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
+                Route::post('/quiz-submit', [QuizController::class, 'submit'])->name('quiz.submit');
+                Route::get('/quiz-result', [QuizController::class, 'result'])->name('quiz.result');
+
+
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
                 ->name('password.confirm');
 
@@ -53,4 +59,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+                
+                
+               
+
+
+
 });
