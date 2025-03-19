@@ -208,7 +208,9 @@
         if ($('#user-timeline-posts').height()) {
             loadContentByScrolling("#user-timeline-posts", "{{ route('user.load_post_by_scrolling') }}");
         }
-       
+        if ($('#paid_content_post').height()) {
+            loadContentByScrolling("#paid_content_post", "{{ route('load.paid.content.post') }}");
+        }
         if ($('#memories_content').height()) {
             loadContentByScrolling("#memories_content", "{{ route('load.memories') }}");
         }
@@ -267,11 +269,6 @@
 
     });
 
-     // if ($('#paid_content_post').height()) {
-        //     loadContentByScrolling("#paid_content_post", "{{ route('load.paid.content.post') }}");
-        // }
-
-        
     function loadContentByScrolling(elem, url) {
         var bottom_of_element = Math.floor($(elem).offset().top + $(elem).outerHeight());
         var bottom_of_screen = Math.floor($(window).scrollTop() + window.innerHeight +

@@ -492,55 +492,55 @@ Route::controller(PaymentHistory::class)->middleware('auth', 'check.local.dns', 
 
 
 //  paid content
-// Route::controller(PaidContent::class)->middleware('auth', 'check.local.dns', 'verified', 'activity', 'prevent-back-history')->group(function () {
-//     Route::get('/paid/content', 'paid_content')->name('paid.content');
-//     Route::get('/paid/content/general/timeline', 'general_timeline')->name('general.timeline');
+Route::controller(PaidContent::class)->middleware('auth', 'check.local.dns', 'verified', 'activity', 'prevent-back-history')->group(function () {
+    Route::get('/paid/content', 'paid_content')->name('paid.content');
+    Route::get('/paid/content/general/timeline', 'general_timeline')->name('general.timeline');
 
-//     // payout and subscriber
-//     Route::get('/creator/payout', 'creator_payout')->name('creator.payout');
-//     Route::post('/creator/payout/request', 'creator_payout_request')->name('creator.payout.request');
-//     Route::get('/creator/payout/cancel/{id}', 'creator_payout_cancel')->name('creator.payout.cancel');
-//     Route::get('/paid/content/subscriber/', 'subscriber_list')->name('subscriber.list');
+    // payout and subscriber
+    Route::get('/creator/payout', 'creator_payout')->name('creator.payout');
+    Route::post('/creator/payout/request', 'creator_payout_request')->name('creator.payout.request');
+    Route::get('/creator/payout/cancel/{id}', 'creator_payout_cancel')->name('creator.payout.cancel');
+    Route::get('/paid/content/subscriber/', 'subscriber_list')->name('subscriber.list');
 
-//     Route::get('/user/subscription', 'user_subscription')->name('user.subscription');
-//     Route::get('/subscription/payment', 'subscription_payment')->name('subscription.payment');
+    Route::get('/user/subscription', 'user_subscription')->name('user.subscription');
+    Route::get('/subscription/payment', 'subscription_payment')->name('subscription.payment');
 
-//     // creator profile view
-//     Route::get('/paid/content/view/{page}/{id}', 'creator_page_view')->name('page.view');
-//     Route::post('/paid/content/request/author/{id}', 'request_author')->name('request.author');
+    // creator profile view
+    Route::get('/paid/content/view/{page}/{id}', 'creator_page_view')->name('page.view');
+    Route::post('/paid/content/request/author/{id}', 'request_author')->name('request.author');
 
-//     // subscription
-//     Route::post('/paid/content/subscription/payment/{id}', 'subscription')->name('subscription.payment_configuration');
+    // subscription
+    Route::post('/paid/content/subscription/payment/{id}', 'subscription')->name('subscription.payment_configuration');
 
-//     // search type
-//     Route::post('/paid/content/search/{type}', 'search_type')->name('search.type');
-//     Route::get('/paid/content/search/{type}', 'search_type')->name('search.type');
-//     Route::get('/load/searched/list/item', 'load_search_list_item')->name('load.search.list.item');
+    // search type
+    Route::post('/paid/content/search/{type}', 'search_type')->name('search.type');
+    Route::get('/paid/content/search/{type}', 'search_type')->name('search.type');
+    Route::get('/load/searched/list/item', 'load_search_list_item')->name('load.search.list.item');
 
-//     Route::get('/paid/content/creator/{type}', 'creator_timeline')->name('creator.timeline');
-//     Route::get('/creator/post/type/{type}', 'creator_timeline')->name('post.type');
-//     Route::get('/creator/subscribers/', 'subscribers')->name('creator.subscribers');
-//     Route::get('/creator/packages/', 'packages')->name('creator.package');
-//     Route::post('/paid/content/create/package', 'create_package')->name('create.package');
-//     Route::get('/paid/content/package/edit/{id}', 'edit_package')->name('edit.package');
-//     Route::post('/paid/content/package/update/{id}', 'update_package')->name('update.package');
-//     Route::get('/paid/content/package/delete/{id}', 'delete_package')->name('delete.package');
+    Route::get('/paid/content/creator/{type}', 'creator_timeline')->name('creator.timeline');
+    Route::get('/creator/post/type/{type}', 'creator_timeline')->name('post.type');
+    Route::get('/creator/subscribers/', 'subscribers')->name('creator.subscribers');
+    Route::get('/creator/packages/', 'packages')->name('creator.package');
+    Route::post('/paid/content/create/package', 'create_package')->name('create.package');
+    Route::get('/paid/content/package/edit/{id}', 'edit_package')->name('edit.package');
+    Route::post('/paid/content/package/update/{id}', 'update_package')->name('update.package');
+    Route::get('/paid/content/package/delete/{id}', 'delete_package')->name('delete.package');
 
-//     Route::get('/paid/content/settings/', 'settings')->name('settings');
-//     Route::post('/paid/content/settings/update/{id}', 'update_settings')->name('update.settings');
-//     Route::get('/paid/content/settings/remove/{type}', 'remove_photo')->name('remove.photo');
+    Route::get('/paid/content/settings/', 'settings')->name('settings');
+    Route::post('/paid/content/settings/update/{id}', 'update_settings')->name('update.settings');
+    Route::get('/paid/content/settings/remove/{type}', 'remove_photo')->name('remove.photo');
 
-//     Route::post('/paid/content/my_page/post', 'post')->name('paid.content.post');
-//     Route::get('/load/paid/content/post/', 'load_paid_content_post')->name('load.paid.content.post');
-//     Route::get('/load/timeline/post/', 'load_timeline_post')->name('load.timeline.post');
+    Route::post('/paid/content/my_page/post', 'post')->name('paid.content.post');
+    Route::get('/load/paid/content/post/', 'load_paid_content_post')->name('load.paid.content.post');
+    Route::get('/load/timeline/post/', 'load_timeline_post')->name('load.timeline.post');
 
-//     // admin
-//     Route::get('/admin/author/list', 'author_list')->name('author.list');
-//     Route::get('/admin/author/status/{id}', 'author_status')->name('author.status');
-//     Route::get('/admin/author/delete/{id}', 'author_delete')->name('author.delete');
-//     Route::get('/admin/author/review/request/{id}', 'review_request')->name('author.review.request');
-//     Route::get('/admin/author/payout/', 'payout_report')->name('payout.report');
-//     Route::get('/admin/author/pending/report', 'pending_report')->name('pending.report');
-//     Route::get('/admin/make/payment/{id}', 'author_payout')->name('author.payout');
-//     Route::get('/admin/payout/delete/{id}', 'delete_payout')->name('admin.delete.payout');
-// });
+    // admin
+    Route::get('/admin/author/list', 'author_list')->name('author.list');
+    Route::get('/admin/author/status/{id}', 'author_status')->name('author.status');
+    Route::get('/admin/author/delete/{id}', 'author_delete')->name('author.delete');
+    Route::get('/admin/author/review/request/{id}', 'review_request')->name('author.review.request');
+    Route::get('/admin/author/payout/', 'payout_report')->name('payout.report');
+    Route::get('/admin/author/pending/report', 'pending_report')->name('pending.report');
+    Route::get('/admin/make/payment/{id}', 'author_payout')->name('author.payout');
+    Route::get('/admin/payout/delete/{id}', 'delete_payout')->name('admin.delete.payout');
+});
