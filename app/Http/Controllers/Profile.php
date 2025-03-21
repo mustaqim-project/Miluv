@@ -302,7 +302,7 @@ class Profile extends Controller
 
 
         if ($is_updated == 1) {
-            //update My Matches id to my friend list
+            //update my friends id to my friend list
             $my_friends = User::where('id', $this->user->id)->value('friends');
             $my_friends = json_decode($my_friends);
             if(is_array($my_friends)){

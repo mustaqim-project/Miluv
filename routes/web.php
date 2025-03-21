@@ -96,7 +96,7 @@ Route::controller(ModalController::class)->middleware('auth', 'user', 'verified'
 //Home controllers group routing
 Route::controller(MainController::class)->middleware('auth', 'user', 'user', 'verified', 'activity', 'prevent-back-history', 'check.local.dns')->group(function () {
     Route::get('/matches', 'matches')->name('matches');
-    Route::get('/timeline', 'timeline')->name('timeline');
+    Route::get('/', 'timeline')->name('timeline');
     Route::post('/create_post', 'create_post')->name('create_post');
     Route::get('/edit_post_form/{id}', 'edit_post_form')->name('edit_post_form');
     Route::post('/edit_post/{id}', 'edit_post')->name('edit_post');
