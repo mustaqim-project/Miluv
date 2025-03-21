@@ -289,10 +289,13 @@ class ChatController extends Controller
 
 
     public function endChat($id) {
-        return redirect()->route('chat','all')->with('success', 'Chat berhasil diakhiri.');
+        // Hapus semua chat yang terkait dengan pengguna ini
+        Chat::where('sender_id', $id)
+            ->orWhere('reciver_id', $id)
+            ->delete();
+    
+        return redirect()->route('chat', 'all')->with('success', 'Chat berhasil diakhiri.');
     }
-
-
 
 
 
