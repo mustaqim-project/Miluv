@@ -1297,26 +1297,31 @@ class MainController extends Controller
     public function matches()
     {
         $userId = auth()->id();
-
+    
         // Ambil daftar user yang sudah berteman
         $friendIds = Friendships::where('is_accepted', 1)
             ->where(function ($query) use ($userId) {
                 $query->where('accepter', $userId)
-                    ->orWhere('requester', $userId);
+                      ->orWhere('requester', $userId);
             })
             ->pluck('accepter')
             ->merge(Friendships::where('is_accepted', 1)
-                ->where(function ($query) use ($userId) {
-                    $query->where('accepter', $userId)
-                        ->orWhere('requester', $userId);
-                })
-                ->pluck('requester'))
+                      ->where(function ($query) use ($userId) {
+                          $query->where('accepter', $userId)
+                                ->orWhere('requester', $userId);
+                      })
+                      ->pluck('requester'))
             ->unique()
             ->toArray();
-
+    
         // Ambil daftar user yang bukan teman
         $add_friend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
-
-        return view('frontend.main_content.matches', compact('add_friend'));
+    
+        // Gunakan format array seperti contoh
+        $page_data['add_friend'] = $add_friend;
+        $page_data['type'] = 'matches';
+    
+        return view('frontend.main_content.matches', $page_data);
     }
+    
 }
