@@ -36,11 +36,11 @@
 
     <!-- Meta Tags -->
     @if (isset($blog) && $blog)
-        @include('frontend.matches.partials.blog', ['blog' => $blog, 'system_name' => $system_name])
+        @include('frontend.master.partials.blog', ['blog' => $blog, 'system_name' => $system_name])
     @elseif (isset($category) && $category)
-        @include('frontend.matches.partials.category', ['category' => $category, 'system_name' => $system_name])
+        @include('frontend.master.partials.category', ['category' => $category, 'system_name' => $system_name])
     @else
-        @include('frontend.matches.partials.utama', ['system_name' => $system_name])
+        @include('frontend.master.partials.utama', ['system_name' => $system_name])
     @endif
 
     <!-- Global CSS -->
