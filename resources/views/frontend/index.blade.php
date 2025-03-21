@@ -253,7 +253,67 @@
 </script>
 
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<style>
+    .custom-swiper-container {
+        width: 90%;
+        max-width: 400px;
+        height: 550px;
+        margin: 0 auto;
+    }
+    .custom-swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        color: white;
+        padding: 20px;
+        position: relative;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .custom-profile-info {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+    }
+    .custom-profile-info h4 {
+        margin: 0;
+        font-size: 22px;
+    }
+    .custom-tags {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 5px;
+    }
+    .custom-tag {
+        background: rgba(255, 255, 255, 0.7);
+        color: black;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+    }
+    .custom-btn-connect {
+        background-color: #ff4081;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .custom-swiper-pagination {
+        position: absolute;
+        bottom: 15px;
+    }
+</style>
 </head>
 
 
