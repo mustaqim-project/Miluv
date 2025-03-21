@@ -1295,32 +1295,41 @@ class MainController extends Controller
 
 
     public function matches()
-    {
-        $userId = auth()->id();
+{
+    $userId = auth()->id();
 
-        // Ambil daftar user yang sudah berteman
-        $friendIds = Friendships::where('is_accepted', 1)
-            ->where(function ($query) use ($userId) {
-                $query->where('accepter', $userId)
-                    ->orWhere('requester', $userId);
-            })
-            ->pluck('accepter')
-            ->merge(
-                Friendships::where('is_accepted', 1)
-                    ->where(function ($query) use ($userId) {
-                        $query->where('accepter', $userId)
-                            ->orWhere('requester', $userId);
-                    })
-                    ->pluck('requester')
-            )
-            ->unique()
-            ->toArray();
+    // Ambil daftar user yang sudah berteman
+    $friendIds = Friendships::where('is_accepted', 1)
+        ->where(function ($query) use ($userId) {
+            $query->where('accepter', $userId)
+                ->orWhere('requester', $userId);
+        })
+        ->pluck('accepter')
+        ->merge(
+            Friendships::where('is_accepted', 1)
+                ->where(function ($query) use ($userId) {
+                    $query->where('accepter', $userId)
+                        ->orWhere('requester', $userId);
+                })
+                ->pluck('requester')
+        )
+        ->unique()
+        ->toArray();
 
-        // Ambil daftar user yang bukan teman
-        $addFriend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
+    // Ambil daftar user yang bukan teman
+    $addFriends = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
 
-        return view('frontend.matches.index', [
-            'add_friend' => $addFriend,
-        ]);
+    // Proses tambahan untuk mendapatkan umur dan hobi
+    foreach ($addFriends as $friend) {
+        $friend->age = Carbon::parse($friend->date_of_birth)->age;
+        $friend->hobbies = Hobby::whereIn(
+            'id',
+            json_decode($friend->hobbies_interests_id, true)
+        )->pluck('name');
     }
+
+    return view('frontend.matches.index', [
+        'add_friends' => $addFriends
+    ]);
+}
 }

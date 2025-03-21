@@ -88,10 +88,8 @@
         <div class="page-content space-top p-b65">
             <div class="container">
                 <div class="demo__card-cont dz-gallery-slider">
-                    @foreach ($add_friend as $friend)
+                    @foreach ($add_friends as $friend)
                         @php
-                            use Carbon\Carbon;
-
                             $userId = auth()->id();
                             $friendshipExists = App\Models\Friendships::where(function ($query) use ($userId, $friend) {
                                 $query->where('requester', $userId)->where('accepter', $friend->id);
@@ -100,12 +98,6 @@
                                     $query->where('requester', $friend->id)->where('accepter', $userId);
                                 })
                                 ->exists();
-
-                            $age = Carbon::parse($friend->date_of_birth)->age;
-                            $hobbies = App\Models\Hobby::whereIn(
-                                'id',
-                                json_decode($friend->hobbies_interests_id, true),
-                            )->pluck('name');
                         @endphp
 
                         @if (!$friendshipExists)
@@ -117,11 +109,11 @@
                                     <div class="left-content">
                                         <h4 class="title">
                                             <a href="{{ route('user.profile.view', $friend->id) }}">{{ $friend->name }},
-                                                {{ $age }}</a>
+                                                {{ $friend->age }}</a>
                                         </h4>
 
                                         <ul class="intrest">
-                                            @foreach ($hobbies as $hobby)
+                                            @foreach ($friend->hobbies as $hobby)
                                                 <li><span class="badge">{{ $hobby }}</span></li>
                                             @endforeach
                                         </ul>
@@ -143,6 +135,7 @@
                             </div>
                         @endif
                     @endforeach
+
 
 
                 </div>
