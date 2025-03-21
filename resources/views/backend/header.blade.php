@@ -47,7 +47,7 @@
                   aria-expanded="false"
                 >
                 <div class="">
-                  <img src="{{ get_user_image(auth()->user()->photo,'optimized') }}" height="42px" style="border-radius: 50%;" />
+                  <img src="{{ get_user_image(auth()->user()->photo,'optimized') }}" height="42px" class="rounded-full" />
                 </div>
                 
                   {{-- <div class="px-2 text-start">
