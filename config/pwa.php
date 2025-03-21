@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'Miluv - Social Media & Dating App With AI',
+    'name' => 'Miluv - Smart Dating With AI',
     'short_name' => 'Miluv',
     'start_url' => '/',
     'theme_color' => '#FFFFFF',
