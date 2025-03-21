@@ -1319,7 +1319,7 @@ class MainController extends Controller
 
         // Gunakan format array seperti contoh
         $page_data['add_friend'] = $add_friend;
-        $page_data['type'] = 'frontend.matches.index';
+        $page_data['view_path'] = 'frontend.matches.index';
 
         return view('frontend.index', $page_data);
     }
