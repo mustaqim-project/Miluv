@@ -1317,6 +1317,10 @@ class MainController extends Controller
         // Ambil daftar user yang bukan teman
         $add_friend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
 
-        return view('frontend.matches.index', compact('add_friend'));
+        // Gunakan format array seperti contoh
+        $page_data['add_friend'] = $add_friend;
+        $page_data['type'] = 'matches';
+
+        return view('frontend.matches', $page_data);
     }
 }
