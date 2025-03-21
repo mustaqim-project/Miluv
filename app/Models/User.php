@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+use App\Models\Hobby;
 use Cache;
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -17,35 +20,36 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'user_role',
-        'user_name',
-        'nickname',
-        'married_score_test',
-        'username',
-        'gender',
-        'friends',
-        'followers',
-        'studied_at',
-        'profession',
-        'job',
-        'marital_status',
-        'date_of_birth',
-        'photo',
-        'about',
-        'phone',
-        'address',
-        'cover_photo',
-        'status',
-        'timezone',
-        'lastActive',
-        'email_verified_at',
-        'created_at',
-        'updated_at',
+
+     protected $fillable = [
+        'user_role', 'username', 'email', 'password', 'name',
+        'nickname', 'married_score_test', 'marriage_motivation',
+        'marriage_target_year', 'emotional_readiness', 'mbti_type',
+        'relationship_personality', 'love_language', 'attachment_style',
+        'drinking_habits', 'smoking_habits', 'friends', 'followers',
+        'gender', 'education_level_id', 'provinces_id', 'cities_id',
+        'profession', 'job', 'phone', 'date_of_birth', 'about',
+        'save_post', 'photo', 'cover_photo', 'status', 'lastActive',
+        'timezone', 'email_verified_at', 'remember_token',
+        'payment_settings', 'profile_status'
     ];
+
+    protected $casts = [
+        'married_score_test' => 'integer',
+        'marriage_target_year' => 'integer',
+        'emotional_readiness' => 'integer',
+        'religions_id' => 'integer',
+        'education_level_id' => 'integer',
+        'provinces_id' => 'integer',
+        'cities_id' => 'integer',
+        'email_verified_at' => 'datetime',
+        'lastActive' => 'datetime',
+        'friends' => 'array',
+        'followers' => 'array',
+        'save_post' => 'array',
+        'payment_settings' => 'array',
+    ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -66,6 +70,11 @@ class User extends Authenticatable implements MustVerifyEmail
     //     'email_verified_at' => 'datetime',
     // ];
 
+
+    public function hobbies(): BelongsToMany
+    {
+        return $this->belongsToMany(Hobby::class, 'hobby_user', 'user_id', 'hobby_id');
+    }
 
 
     public function isOnline(){
