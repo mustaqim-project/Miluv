@@ -2,50 +2,31 @@
     <div class="friends-request my-3 g-2">
         <div id="my-friend-request-list" class="row">
 
-            @foreach ($friend_requests as $friend_request)
-                @php $requester_user_data = DB::table('users')->where('id', $friend_request->requester)->first(); @endphp
-
+            @foreach ($add_friend as $friend)
                 @php
-                    $number_of_friend_friends = json_decode($requester_user_data->friends);
-                    $number_of_my_friends = json_decode($user_info->friends);
-
-                    if (!is_array($number_of_friend_friends)) {
-                        $number_of_friend_friends = [];
-                    }
-                    if (!is_array($number_of_my_friends)) {
-                        $number_of_my_friends = [];
-                    }
-
-                    $number_of_mutual_friends = count(
-                        array_intersect($number_of_friend_friends, $number_of_my_friends),
-                    );
+                    $friendsData = json_decode($friend->friends, true);
+                    $isFriend = in_array($info, $friendsData);
+                    $hasRequestSent = App\Models\Friendships::where('requester', auth()->user()->id)
+                        ->where('accepter', $friend->id)
+                        ->exists();
+                    $hasRequestReceived = App\Models\Friendships::where('requester', $friend->id)
+                        ->where('accepter', auth()->user()->id)
+                        ->exists();
                 @endphp
-                <div class="single-item-countable w-100 " id="friendRequest{{ $requester_user_data->id }}">
-                    <div class="card request_f bg-white">
-                        <div class="f_images"><img src="{{ get_user_image($requester_user_data->photo, 'optimized') }}"
-                                class="rounded img-fluid" alt=""></div>
-                        <div class="card-details">
-                            <h6><a
-                                    href="{{ route('user.profile.view', $requester_user_data->id) }}">{{ $requester_user_data->name }}</a>
-                            </h6>
-                            <span class="mute">{{ $number_of_mutual_friends }}
-                                {{ get_phrase('Mutual Friends') }}</span>
-                            <div class="card-control d-flex">
-                                <form class="ajaxForm" action="{{ route('profile.accept_friend_request') }}"
-                                    method="post">
-                                    @CSRF
-                                    <input type="hidden" name="user_id" value="{{ $requester_user_data->id }}">
-                                    <button type="submit" id="friendRequestConfirmBtn{{ $requester_user_data->id }}"
-                                        class="btn common_btn_2 w-100">{{ get_phrase('Confirm') }}</button>
-                                    <button type="button" id="friendRequestAcceptedBtn{{ $requester_user_data->id }}"
-                                        class="btn common_btn_2  w-100 d-hidden">{{ get_phrase('Accepted') }}</button>
-                                </form>
-                                <a href="javascript:void(0)" onclick="confirmAction('<?php echo route('profile.delete_friend_request', ['user_id' => $requester_user_data->id]); ?>', true)"
-                                    class="btn del_btn d-block">{{ get_phrase('Delete') }}</a>
+
+                @if (!$isFriend && !$hasRequestSent && !$hasRequestReceived)
+                    <div class="col-lg-4 col-md-4 col-6">
+                        <div class="card sugg-card p-0 box_shadow border-none  suggest_p radius-8">
+                            <a href="{{ route('user.profile.view', $friend->id) }}" class="thumbnail-110-106"
+                                style="background-image: url('{{ get_user_image($friend->photo, 'optimized') }}')"></a>
+                            <div class="p-8 d-flex flex-column">
+                                <h4><a href="{{ route('user.profile.view', $friend->id) }}">{{ $friend->name }}</a></h4>
+                                <a href="javascript:;" onclick="ajaxAction('<?php echo route('user.friend', $friend->id); ?>')"
+                                    class="btn common_btn">{{ get_phrase('Connect') }}</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
 
 
