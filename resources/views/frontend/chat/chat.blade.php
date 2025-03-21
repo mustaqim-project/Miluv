@@ -69,7 +69,8 @@
 
                         <button class="btn btn-primary send no-processing no-uploading" id="ChatsentButton"><i
                                 class="fa-solid fa-paper-plane"></i></button>
-                        <button type="submit" class="btn btn-primary  send  no_loading no-processing no-uploading"  id="ChatthumbsUp"><i class="fa-solid fa-thumbs-up"></i> </button>
+                        {{-- <button type="submit" class="btn btn-primary  send  no_loading no-processing no-uploading"
+                            id="ChatthumbsUp"><i class="fa-solid fa-thumbs-up"></i> </button> --}}
                     </div>
 
                 </div>
@@ -128,11 +129,11 @@
         $('.emojionearea').keyup(function() {
             let value = $('emojionearea').val();
             let stringlength = value.length;
-            if(stringlength > 0){
+            if (stringlength > 0) {
                 $('#ChatsentButton').removeClass('d-none');
                 $('#ChatthumbsUp').addClass('d-none');
                 $('#ChatthumbsUpInput').val('0');
-            }else{
+            } else {
                 $('#ChatsentButton').addClass('d-none');
                 $('#ChatthumbsUp').removeClass('d-none');
                 $('#ChatthumbsUpInput').val('1');
@@ -242,7 +243,8 @@
 
                         // Append the new message to the message body
                         $('#message_body').append(response
-                        .message); // Assuming `response.message` contains the new message HTML
+                            .message
+                            ); // Assuming `response.message` contains the new message HTML
 
                         setTimeout(() => {
                             var elem = document.getElementById('messageShowDiv');
