@@ -29,13 +29,13 @@
       <div class="col-auto">
         <div class="header-menu">
           <ul>
-            <li class="user-profile pe-2">
+            {{-- <li class="user-profile pe-2">
               <select class="form-control text-capitalize text-13px py-1 me-2" onchange="$(location).attr('href','<?php echo route('language.switch', ''); ?>/'+$(this).val());" style="margin-top: 7px;">
                 @foreach(get_all_language() as $language)
                   <option value="{{$language->name}}" @if($language->name == Session('active_language')) selected @endif>{{$language->name}}</option>
                 @endforeach
               </select>
-            </li>
+            </li> --}}
               <li class="user-profile">
               <div class="btn-group">
                 <button
@@ -49,10 +49,10 @@
                   <div class="">
                     <img src="{{ get_user_image(auth()->user()->photo,'optimized') }}" height="42px" />
                   </div>
-                  <div class="px-2 text-start">
+                  {{-- <div class="px-2 text-start">
                     <span class="user-name">{{ auth()->user()->name }}</span>
                     <span class="user-title">{{ auth()->user()->user_role }}</span>
-                  </div>
+                  </div> --}}
                 </button>
                 <ul
                   class="dropdown-menu dropdown-menu-end eDropdown-menu"
