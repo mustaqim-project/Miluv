@@ -14,7 +14,7 @@
             <li>
                 <a class="nav-link active" href="home.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-home"></i>
+                        <i class="feather icon-home"></i>
                     </span>
                     <span>Home</span>
                 </a>
@@ -22,7 +22,7 @@
             <li>
                 <a class="nav-link" href="index.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-wind"></i>
+                        <i class="feather icon-wind"></i>
                     </span>
                     <span>Welcome</span>
                 </a>
@@ -30,7 +30,7 @@
             <li>
                 <a class="nav-link" href="components.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-grid"></i>
+                        <i class="feather icon-grid"></i>
                     </span>
                     <span>Components</span>
                 </a>
@@ -38,7 +38,7 @@
             <li>
                 <a class="nav-link" href="wishlist.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-heart"></i>
+                        <i class="feather icon-heart"></i>
                     </span>
                     <span>Wishlist</span>
                 </a>
@@ -46,7 +46,7 @@
             <li>
                 <a class="nav-link" href="setting.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-settings"></i>
+                        <i class="feather icon-settings"></i>
                     </span>
                     <span>Settings</span>
                 </a>
@@ -54,7 +54,7 @@
             <li>
                 <a class="nav-link" href="profile.html">
                     <span class="dz-icon">
-                        <i class="icon feather icon-user"></i>
+                        <i class="feather icon-user"></i>
                     </span>
                     <span>Profile</span>
                 </a>
@@ -70,12 +70,9 @@
                         <span>Logout</span>
                     </a>
                 </form>
-                
-                
-
-
             </li>
         </ul>
+        
         <div class="sidebar-bottom">
             <ul class="app-setting">
                 <li>
