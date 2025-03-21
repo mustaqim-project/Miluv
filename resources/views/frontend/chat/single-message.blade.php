@@ -54,18 +54,18 @@
                             @if ($file->file_type == 'image')
                                 <div class="quote-box">
                                     <img src="{{ asset('storage/chat/images/' . $file->file_name) }}" alt=""
-                                        class="quote_image_box_image">
+                                        style="max-width: 150px; max-height: 150px; object-fit: cover; border-radius: 8px;">
                                 </div>
                             @else
                                 <div class="quote-box">
-                                    <video class="w-100 shorts_custom_height" controls>
-                                        <source src="{{ asset('storage/chat/videos/' . $file->file_name) }}"
-                                            type="">
+                                    <video style="max-width: 200px; max-height: 150px; object-fit: cover; border-radius: 8px;" controls>
+                                        <source src="{{ asset('storage/chat/videos/' . $file->file_name) }}" type="">
                                     </video>
                                 </div>
                             @endif
                         @endforeach
                     </div>
+                    
                 @endif
             @endif
             @if ($message->sender_id == auth()->user()->id)
