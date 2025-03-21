@@ -251,6 +251,51 @@
 
   gtag('config', 'G-FCSFS9Q27Y');
 </script>
+
+
+
+<style>
+
+    .swipe-container {
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .sugg-card {
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .sugg-card h4 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .btn-connect {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
+
 </head>
 
 

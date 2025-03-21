@@ -1,74 +1,46 @@
-<style>
+<div class="page-wrap">
+    <div class="blog-header nblog_header p-20 radius-8 mb-3">
+        <h1 class="h3">{{ get_phrase('Matches') }}</h1>
+    </div>
+    <div class="row g-3 blog-cards mt-3"> <!-- Tambahkan row di sini -->
+        @foreach ($add_friend as $friend)
+            @php
+                $userId = auth()->id();
+                $hasRequestSent = App\Models\Friendships::where('requester', $userId)
+                    ->where('accepter', $friend->id)
+                    ->exists();
+                $hasRequestReceived = App\Models\Friendships::where('requester', $friend->id)
+                    ->where('accepter', $userId)
+                    ->exists();
+            @endphp
+            @if (!$hasRequestSent && !$hasRequestReceived)
+                <div class="sugg-card"
+                    style="background-image: url('{{ get_user_image($friend->photo, 'optimized') }}');">
+                    <h4>{{ $friend->name }}</h4>
+                    <button class="btn-connect" onclick="ajaxAction('{{ route('user.friend', $friend->id) }}')">
+                        {{ get_phrase('Connect') }}
+                    </button>
+                </div>
+            @endif
+        @endforeach
+    </div>
+</div> <!-- Page Wrap End -->
 
-        .sugg-card {
-            width: 100%;
-            height: 500px;
-            position: absolute;
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .sugg-card h4 {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .btn-connect {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-</style>
-
-<div class="swipe-container">
-    @foreach ($add_friend as $friend)
-        @php
-            $userId = auth()->id();
-            $hasRequestSent = App\Models\Friendships::where('requester', $userId)
-                ->where('accepter', $friend->id)
-                ->exists();
-            $hasRequestReceived = App\Models\Friendships::where('requester', $friend->id)
-                ->where('accepter', $userId)
-                ->exists();
-        @endphp
-        @if (!$hasRequestSent && !$hasRequestReceived)
-            <div class="sugg-card" style="background-image: url('{{ get_user_image($friend->photo, 'optimized') }}');">
-                <h4>{{ $friend->name }}</h4>
-                <button class="btn-connect" onclick="ajaxAction('{{ route('user.friend', $friend->id) }}')">
-                    {{ get_phrase('Connect') }}
-                </button>
-            </div>
-        @endif
-    @endforeach
-</div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         let touchStartX = 0;
         let touchEndX = 0;
         const cards = document.querySelectorAll(".sugg-card");
 
         cards.forEach(card => {
             card.classList.add("transition-all", "duration-300", "ease-in-out");
-            
-            card.addEventListener("touchstart", function (event) {
+
+            card.addEventListener("touchstart", function(event) {
                 touchStartX = event.changedTouches[0].screenX;
             });
 
-            card.addEventListener("touchend", function (event) {
+            card.addEventListener("touchend", function(event) {
                 touchEndX = event.changedTouches[0].screenX;
                 handleSwipe(card);
             });
