@@ -1292,4 +1292,35 @@ class MainController extends Controller
     }
 
 
+    public function matches(){
+
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', $this->user->id)
+                ->orWhere('requester', $this->user->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')
+            ->take(15)->get();
+
+        $friend_requests = Friendships::where('accepter', $this->user->id)
+            ->where('is_accepted', '!=', 1)
+            ->take(15)->get();
+
+            $userId = auth()->user()->id;
+            $add_friend = User::whereNotIn('id', [$userId])->get();
+            
+            $page_data['add_friend'] = $add_friend;
+            $page_data['info'] = auth()->user()->id;
+            
+
+        $page_data['friendships'] = $friendships;
+        $page_data['friend_requests'] = $friend_requests;
+        
+
+        $page_data['user_info'] = $this->user;
+        $page_data['view_path'] = 'frontend.main-content.matches';
+        return view('frontend.index', $page_data);
+    
+    }
+
 }
