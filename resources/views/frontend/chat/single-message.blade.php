@@ -45,7 +45,7 @@
                                 alt=""></div>
                     </div>
                 @endif
-                {{-- @if (!empty($message->file))
+                @if (!empty($message->file))
                     @php
                         $files = \App\Models\Media_files::where('chat_id', $message->id)->get();
                     @endphp
@@ -66,7 +66,7 @@
                         @endforeach
                     </div>
                     
-                @endif --}}
+                @endif
             @endif
             @if ($message->sender_id == auth()->user()->id)
                 @if (empty($message->thumbsup) && !empty($message->message))
