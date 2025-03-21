@@ -310,10 +310,10 @@
         margin-top: 10px;
     }
     .custom-swiper-pagination {
-        position: absolute;
-        bottom: 15px;
+        display: none; /* Menghilangkan dot pagination */
     }
 </style>
+
 </head>
 
 
