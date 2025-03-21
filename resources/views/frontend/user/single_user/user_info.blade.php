@@ -62,24 +62,54 @@ if(isset($page_identifire)) {
                     </ul>
                     <a href="{{ route('chat',$user_data->id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
                 @else
-                    <form class="ajaxForm" action="{{route('profile.accept_friend_request')}}" method="post">
-                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_data->id); ?>')" class="btn common_btn px-3" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
-	            		@CSRF
-	            		<input type="hidden" name="user_id" value="{{$user_data->id}}">
-
-	                	
-                            @if($friendAccepted->value('requester') == auth()->user()->id)
-                                <button type="button" class="btn common_btn_2 px-4 no-processing no-uploading" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Connect Request') }}">
-                                    {{get_phrase('Requested')}}
-                                </button>
-                            @else
-                                <button type="submit" id="friendRequestConfirmBtn{{$user_data->id}}" class="btn common_btn px-4 no-processing no-uploading" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Accept Friend Request') }}">
-                                    {{get_phrase('Accept')}}
-                                </button>
-                            @endif
-
-	                	<button type="button" id="friendRequestAcceptedBtn{{$user_data->id}}" class="btn common_btn d-hidden ac_btn  px-4" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Accepted') }}">{{get_phrase('Accepted')}}</button>
-                    </form>
+                <form class="ajaxForm" action="{{ route('profile.accept_friend_request') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $user_data->id }}">
+                
+                    @if($friendAccepted->value('requester') == auth()->user()->id)
+                        <!-- Jika pengguna sudah mengirim permintaan -->
+                        <button type="button" class="btn common_btn_2 px-4 no-processing no-uploading" 
+                            data-bs-toggle="tooltip" data-bs-placement="top" 
+                            title="{{ get_phrase('Connect Request Sent') }}">
+                            {{ get_phrase('Requested') }}
+                        </button>
+                
+                        <!-- Tombol batal (Cancel) -->
+                        <a href="javascript:void(0)" 
+                            onclick="ajaxAction('{{ route('user.unfriend', $user_data->id) }}')" 
+                            class="btn common_btn px-3" 
+                            data-bs-toggle="tooltip" data-bs-placement="top" 
+                            title="{{ get_phrase('Cancel Request') }}">
+                            <i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}
+                        </a>
+                    
+                    @elseif($friendAccepted->value('receiver') == auth()->user()->id)
+                        <!-- Jika pengguna menerima permintaan koneksi -->
+                        <button type="submit" id="friendRequestConfirmBtn{{ $user_data->id }}" 
+                            class="btn common_btn px-4 no-processing no-uploading" 
+                            data-bs-toggle="tooltip" data-bs-placement="top" 
+                            title="{{ get_phrase('Accept Connect Request') }}">
+                            {{ get_phrase('Accept') }}
+                        </button>
+                    
+                    @else
+                        <!-- Jika belum ada permintaan, tampilkan tombol "Connect" -->
+                        <button type="submit" class="btn common_btn px-4 no-processing no-uploading" 
+                            data-bs-toggle="tooltip" data-bs-placement="top" 
+                            title="{{ get_phrase('Send Connect Request') }}">
+                            {{ get_phrase('Connect') }}
+                        </button>
+                    @endif
+                
+                    <!-- Jika sudah terhubung -->
+                    <button type="button" id="friendRequestAcceptedBtn{{ $user_data->id }}" 
+                        class="btn common_btn d-hidden ac_btn px-4" 
+                        data-bs-toggle="tooltip" data-bs-placement="top" 
+                        title="{{ get_phrase('Connected') }}">
+                        {{ get_phrase('Connected') }}
+                    </button>
+                </form>
+                
                 @endif
             @else   
                 <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$user_data->id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a>
