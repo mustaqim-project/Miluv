@@ -46,9 +46,10 @@
                   data-bs-auto-close="true"
                   aria-expanded="false"
                 >
-                  <div class="">
-                    <img src="{{ get_user_image(auth()->user()->photo,'optimized') }}" height="42px" />
-                  </div>
+                <div class="">
+                  <img src="{{ get_user_image(auth()->user()->photo,'optimized') }}" height="42px" style="border-radius: 50%;" />
+                </div>
+                
                   {{-- <div class="px-2 text-start">
                     <span class="user-name">{{ auth()->user()->name }}</span>
                     <span class="user-title">{{ auth()->user()->user_role }}</span>
