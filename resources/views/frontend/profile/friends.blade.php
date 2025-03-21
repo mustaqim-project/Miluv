@@ -71,7 +71,7 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="following-tab" data-bs-toggle="tab"
                 data-bs-target="#following" type="button" role="tab"
-                aria-controls="following" aria-selected="false">{{get_phrase('Favorites')}}</button>
+                aria-controls="following" aria-selected="false">{{get_phrase('Following')}}</button>
         </li>
     </ul>
     
