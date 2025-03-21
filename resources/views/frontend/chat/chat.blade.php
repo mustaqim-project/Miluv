@@ -76,9 +76,6 @@
                 <div class="mt-footer">
                     <div class="input-images d-hidden  image-uploader_custom_css" id="messageFileUploder">
                     </div>
-                    <a href="javascript:void(0)" id="messgeImageUploader"><img
-                            src="{{ asset('assets/frontend/images/image-a.png') }}" alt=""></a>
-        
                 </div>
             </form>
             <!-- Button -->
