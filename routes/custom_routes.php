@@ -60,7 +60,7 @@ Route::controller(MarketplaceController::class)->middleware('auth', 'check.local
     Route::get('product/delete', 'product_delete')->name('product.delete');
     Route::get('/load_product_by_scrolling', 'load_product_by_scrolling')->name('load_product_by_scrolling');
     Route::get('product/view/{id}', 'single_product')->name('single.product');
-    
+
     //Route::get('/product/filter/{category?}/{max?}/{min?}/{brand?}/{location?}', 'filter')->name('filter.product');
     Route::get('/product/filter/{max?}/{min?}/{location?}', 'filter')->name('filter.product');
 
@@ -126,7 +126,7 @@ Route::controller(BlogController::class)->middleware('check.local.dns')->group(f
 
 //     Route::post('job/payment_configuration/{id}', 'payment_configuration')->name('job.payment_configuration');
 //     Route::get('job/payment/history', 'job_payment_history')->name('job.payment.history');
-    
+
 
 // });
 
@@ -146,9 +146,6 @@ Route::controller(PageController::class)->middleware('auth', 'check.local.dns', 
 
     Route::get('page/like/{id}', 'like')->name('page.like');
     Route::get('page/dislike/{id}', 'dislike')->name('page.dislike');
-
-    
-
 });
 
 //  group
@@ -177,11 +174,6 @@ Route::controller(GroupController::class)->middleware('auth', 'check.local.dns',
     Route::get('album/details/list/{identifire}/{album_id}', 'album_details_list')->name('album.details.list');
 
     Route::get('album/details/page/list/{album_id}/{id}', 'album_details_page_list')->name('album.details.page.list');
-
-    
-    
-
-
 });
 
 //  video
@@ -212,7 +204,6 @@ Route::controller(ChatController::class)->middleware('auth', 'check.local.dns', 
 
     Route::get('/chat/inbox/load/data/ajax/', 'chat_load')->name('chat.load');
     Route::get('/chat/inbox/read/message/ajax/', 'chat_read_option')->name('chat.read');
-    
 });
 
 //  follow
@@ -291,9 +282,8 @@ Route::controller(SettingController::class)->group(function () {
     Route::get('admin/system/settings/color/save/{themeColor}', 'system_settings_color_save')->name('admin.system.settings.color.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
     //Zitsi  Settings
-     Route::get('admin/zitsi-video/setting/view', 'zitsi_video_edit_form')->name('admin.zitsi-video.view')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-     Route::post('admin/jitsi/live/settings/update', 'zitsi_live_video_update')->name('admin.zitsi.live.settings.update');
-
+    Route::get('admin/zitsi-video/setting/view', 'zitsi_video_edit_form')->name('admin.zitsi-video.view')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/jitsi/live/settings/update', 'zitsi_live_video_update')->name('admin.zitsi.live.settings.update');
 });
 
 //  admin all crud
@@ -345,13 +335,13 @@ Route::controller(AdminCrudController::class)->group(function () {
     Route::post('admin/blog/updated/{id}', 'blog_updated')->name('admin.blog.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
-   //  Admin Manage Group Route 
-   Route::get('admin/group', 'groups')->name('admin.group')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/create', 'group_create')->name('admin.group.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-   Route::post('admin/group/created', 'group_created')->name('admin.group.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/delete/{id}', 'deleteGroup')->name('admin.group.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-   Route::get('admin/group/edit/{id}', 'group_edit')->name('admin.group.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-   Route::post('admin/group/updated/{id}', 'group_updated')->name('admin.group.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    //  Admin Manage Group Route 
+    Route::get('admin/group', 'groups')->name('admin.group')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/group/create', 'group_create')->name('admin.group.create')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/group/created', 'group_created')->name('admin.group.created')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/group/delete/{id}', 'deleteGroup')->name('admin.group.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/group/edit/{id}', 'group_edit')->name('admin.group.edit')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::post('admin/group/updated/{id}', 'group_updated')->name('admin.group.updated')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
 
 
@@ -359,19 +349,19 @@ Route::controller(AdminCrudController::class)->group(function () {
 
 
 
-   // Badge Raoute Here
-   Route::get('admin/badge', 'badge')->name('admin.badge')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');  
-   Route::get('admin/badge/delete/{id}', 'delete_badge_history')->name('admin.badge.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');  
+    // Badge Raoute Here
+    Route::get('admin/badge', 'badge')->name('admin.badge')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::get('admin/badge/delete/{id}', 'delete_badge_history')->name('admin.badge.delete')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-   Route::POST('admin/badge/price/save/', 'badge_settings_save')->name('admin.badge.price.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    Route::POST('admin/badge/price/save/', 'badge_settings_save')->name('admin.badge.price.save')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
 
-   // Badge Raoute Here
+    // Badge Raoute Here
 
-   //Job Route Start Here
+    //Job Route Start Here
 
-   // Admin Control Route for job   
- 
-   Route::get('admin/job/category/view/', 'view_job_category')->name('admin.view.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
+    // Admin Control Route for job   
+
+    Route::get('admin/job/category/view/', 'view_job_category')->name('admin.view.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     Route::get('admin/job/category/create/', 'create_job_category')->name('admin.create.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     Route::POST('admin/job/category/save/', 'save_job_category')->name('admin.save.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     Route::get('admin/job/category/edit/{id}', 'edit_job_category')->name('admin.edit.job.category')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
@@ -401,7 +391,7 @@ Route::controller(AdminCrudController::class)->group(function () {
 
 
 
-   //Job Route End Here
+    //Job Route End Here
 
 
 
@@ -457,7 +447,6 @@ Route::controller(SponsorController::class)->group(function () {
     Route::get('admin/sponsor/edit/{id}', 'edit_sponsor')->name('admin.edit.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     Route::POST('admin/sponsor/update/{id}', 'update_sponsor')->name('admin.update.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
     Route::get('admin/sponsor/delete/{id}', 'delete_sponsor')->name('admin.delete.sponsor')->middleware('auth', 'check.local.dns', 'verified', 'admin', 'prevent-back-history');
-
 });
 
 
