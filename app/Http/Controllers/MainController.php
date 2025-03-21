@@ -1296,6 +1296,96 @@ class MainController extends Controller
 
     public function matches()
     {
+
+        $stories = Stories::where(function ($query) {
+            $query->whereJsonContains('users.friends', [$this->user->id])
+                ->where('stories.privacy', '!=', 'private')
+                ->orWhere('stories.user_id', $this->user->id);
+        })
+            ->where('stories.status', 'active')
+            ->where('stories.created_at', '>=', (time() - 86400))
+            ->join('users', 'stories.user_id', '=', 'users.id')
+            ->select('stories.*', 'users.name', 'users.photo', 'users.friends', 'stories.created_at as created_at')
+            ->take(5)->orderBy('stories.story_id', 'DESC')->get();
+
+        //First 10 posts
+        $posts = Posts::where(function ($query) {
+            $query->whereJsonContains('users.friends', [$this->user->id])
+                ->where('posts.privacy', '!=', 'private')
+                ->orWhere('posts.user_id', $this->user->id)
+
+
+
+                //if folowing any users, pages, groups and others if not friend listed
+                ->orWhere(function ($query3) {
+                    $query3->where('posts.privacy', 'public')
+                        ->where(function ($query4) {
+                            $query4->where('posts.publisher', 'post')
+                                ->join('followers', function (JoinClause $join) {
+                                    $join->on('posts.publisher_id', '=', 'followers.follow_id')
+                                        ->where('followers.user_id', auth()->user()->id);
+                                });
+                        })
+                        ->orWhere(function ($query5) {
+                            $query5->where('posts.publisher', 'profile_picture')
+                                ->join('followers', function (JoinClause $join1) {
+                                    $join1->on('posts.publisher_id', '=', 'followers.follow_id')
+                                        ->where('followers.user_id', auth()->user()->id);
+                                });
+                        })
+                        ->orWhere(function ($query6) {
+                            $query6->where('posts.publisher', 'page')
+                                ->join('followers', function (JoinClause $join2) {
+                                    $join2->on('posts.publisher_id', '=', 'followers.page_id')
+                                        ->where('followers.user_id', auth()->user()->id);
+                                });
+                        })
+                        ->orWhere(function ($query7) {
+                            $query7->where('posts.publisher', 'group')
+                                ->join('followers', function (JoinClause $join3) {
+                                    $join3->on('posts.publisher_id', '=', 'followers.group_id')
+                                        ->where('followers.user_id', auth()->user()->id);
+                                });
+                        });
+                });
+        })
+            ->where('posts.status', 'active')
+            ->where('posts.report_status', '0')
+            ->where('publisher', '!=', 'paid_content') // post type can not be paid content
+            ->join('users', 'posts.user_id', '=', 'users.id')
+
+            ->where(function ($query) {
+                $query->where('posts.publisher', '!=', 'video_and_shorts')
+                    ->orWhere(function ($query2) {
+                        $query2->join('group_members', function (JoinClause $join) {
+                            $join->on('posts.publisher_id', '=', 'group_members.group_id')
+                                ->where('posts.publisher', '=', 'group')
+                                ->where('group_members.user_id', '=', auth()->user()->id);
+                        });
+                    });
+            })
+
+            ->select('posts.*', 'users.name', 'users.photo', 'users.friends', 'posts.created_at as created_at')
+            ->take(15)->orderBy('posts.post_id', 'DESC')->get();
+
+
+        // New
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                ->orWhere('requester', auth()->user()->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')
+            ->get();
+
+        $page_data['friendships'] = $friendships;
+        //new
+
+        $page_data['stories'] = $stories;
+        $page_data['posts'] = $posts;
+
+
+        
         $userId = auth()->id();
     
         // Ambil daftar user yang sudah berteman
