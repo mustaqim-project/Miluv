@@ -62,13 +62,16 @@
             <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a class="nav-link" href="route('logout')"onclick="event.preventDefault(); this.closest('form').submit();">
-                         <span class="dz-icon">
-                            <i class="icon feather icon-log-out"></i>
-                        </span>
-                        <span>Logout</span>
-                    </a>
-                </form>
+                <a class="nav-link" href="route('logout')"onclick="event.preventDefault(); this.closest('form').submit();">
+                    <span class="dz-icon">
+                        <i class="icon feather icon-log-out"></i>
+                    </span>
+                    <span>Logout</span>
+                </a>
+            </form>
+                
+
+
             </li>
         </ul>
         <div class="sidebar-bottom">
