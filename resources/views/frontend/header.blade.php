@@ -150,12 +150,12 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                                                 href="{{ route('admin.dashboard') }}">{{ get_phrase('Go to admin panel') }}</a>
                                         </li>
                                     @endif
-
+{{-- 
                                     @if (auth()->user()->user_role == 'general')
                                         <li><a class="dropdown-item"
                                                 href="{{ route('user.dashboard') }}">{{ get_phrase('Dashboard') }}</a>
                                         </li>
-                                    @endif
+                                    @endif --}}
 
                                     {{-- <li>
                                         <a class="dropdown-item"
@@ -168,15 +168,9 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                                         </a>
                                     </li> --}}
 
-                                    {{-- @if (auth()->user()->status == 1)
+                                    @if (auth()->user()->status == 1)
                                         <li>
                                             <a href="{{ route('all_settings.view') }}"
-                                                class="dropdown-item">{{ get_phrase('Settings') }}</a>
-                                        </li>
-                                    @endif --}}
-
-                                    @if (auth()->user()->user_role == 'admin')
-                                        <li><a href="{{ route('all_settings.view') }}"
                                                 class="dropdown-item">{{ get_phrase('Settings') }}</a>
                                         </li>
                                     @endif
