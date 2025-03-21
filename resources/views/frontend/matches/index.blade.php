@@ -77,7 +77,7 @@
        
 
         <!-- Page Content Start -->
-        {{-- <div class="page-content space-top p-b65">
+        <div class="page-content space-top p-b65">
             <div class="container">
                 <div class="demo__card-cont dz-gallery-slider">
                     @foreach ($add_friends as $friend)
@@ -132,7 +132,7 @@
 
                 </div>
             </div>
-        </div> --}}
+        </div>
         <!-- Page Content End -->
 
         <!-- Menubar -->
