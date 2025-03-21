@@ -168,9 +168,15 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                                         </a>
                                     </li> --}}
 
-                                    @if (auth()->user()->status == 1)
+                                    {{-- @if (auth()->user()->status == 1)
                                         <li>
                                             <a href="{{ route('all_settings.view') }}"
+                                                class="dropdown-item">{{ get_phrase('Settings') }}</a>
+                                        </li>
+                                    @endif --}}
+
+                                    @if (auth()->user()->user_role == 'admin')
+                                        <li><a href="{{ route('all_settings.view') }}"
                                                 class="dropdown-item">{{ get_phrase('Settings') }}</a>
                                         </li>
                                     @endif
