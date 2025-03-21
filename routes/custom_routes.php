@@ -204,6 +204,8 @@ Route::controller(ChatController::class)->middleware('auth', 'check.local.dns', 
 
     Route::get('/chat/inbox/load/data/ajax/', 'chat_load')->name('chat.load');
     Route::get('/chat/inbox/read/message/ajax/', 'chat_read_option')->name('chat.read');
+    Route::get('/chat/end/{id}', [ChatController::class, 'endChat'])->name('chat.end');
+
 });
 
 //  follow
