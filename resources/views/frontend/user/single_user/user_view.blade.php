@@ -39,7 +39,7 @@
             <nav class="profile-nav">
                 <ul class="nav align-items-center justify-content-start">
                     <li class="nav-item @if(Route::currentRouteName() == 'user.profile.view') active @endif"><a href="{{route('user.profile.view',$user_data->id)}}" class="nav-link">{{get_phrase('Timeline')}}</a></li>
-                    <li class="nav-item @if(Route::currentRouteName() == 'user.friends') active @endif"><a href="{{route('user.friends',$user_data->id)}}" class="nav-link">{{get_phrase('Friends')}}</a></li>
+                    {{-- <li class="nav-item @if(Route::currentRouteName() == 'user.friends') active @endif"><a href="{{route('user.friends',$user_data->id)}}" class="nav-link">{{get_phrase('Friends')}}</a></li> --}}
                     <li class="nav-item @if(Route::currentRouteName() == 'user.photos' && isset($identifires)) active @endif">
                         <a href="{{ route('user.photos', [$user_data->id , 'identifire' => $identifires]) }}" class="nav-link">{{ get_phrase('Photo') }}</a>
                     </li>
