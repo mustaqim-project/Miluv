@@ -1,11 +1,5 @@
 <style>
-    .swipe-container {
-            width: 90%;
-            max-width: 400px;
-            position: relative;
-            margin: auto;
-            margin-top: 50px;
-        }
+
         .sugg-card {
             width: 100%;
             height: 500px;
