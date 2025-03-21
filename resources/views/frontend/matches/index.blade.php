@@ -19,12 +19,12 @@
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}"
+    <link rel="preload" href="{{ asset('dating/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}"
         as="style">
-    <link rel="preload" href="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}"
+    <link rel="preload" href="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}"
         as="style">
-    <link rel="preload" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" as="style">
-    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style">
+    <link rel="preload" href="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('dating/assets/css/style.css') }}" as="style">
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
         as="style">
@@ -44,11 +44,11 @@
     @endif
 
     <!-- Global CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dating/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet"
-        href="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        href="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dating/assets/css/style.css') }}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,15 +148,15 @@
         <!-- Menubar -->
     </div>
 
-    <script src="{{ asset('assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- Swiper -->
-    <script src="{{ asset('assets/vendor/countdown/jquery.countdown.js') }}"></script><!-- COUNTDOWN FUCTIONS  -->
-    <script src="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script><!-- Swiper -->
-    <script src="{{ asset('assets/js/tinderSwiper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- Swiper -->
-    <script src="{{ asset('assets/js/settings.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('dating/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('dating/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('dating/assets/vendor/countdown/jquery.countdown.js') }}"></script><!-- COUNTDOWN FUCTIONS  -->
+    <script src="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('dating/assets/js/tinderSwiper.min.js') }}"></script>
+    <script src="{{ asset('dating/assets/js/dz.carousel.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('dating/assets/js/settings.js') }}"></script>
+    <script src="{{ asset('dating/assets/js/custom.js') }}"></script>
 </body>
 
 </html>
