@@ -37,8 +37,8 @@
                     <a href="#" class="btn common_btn ac_btn" id="btnGroupDrop1" data-bs-toggle="dropdown"
                         aria-expanded="false"><i class="fa-solid fa-user-group"></i> {{ get_phrase('Connected') }} </a>
                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <li><a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unconnect', $user_data->id); ?>')"
-                                class="dropdown-item custom_unconnect_button"> <i class="fa-solid fa-user-xmark"></i>
+                        <li><a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend', $user_data->id); ?>')"
+                                class="dropdown-item custom_unfrind_button"> <i class="fa-solid fa-user-xmark"></i>
                                 {{ get_phrase('Disconnect') }}</a></li>
 
                         @if ($user_data->id != auth()->user()->id)
@@ -50,16 +50,19 @@
 
                             <li>
                                 @if ($follow > 0)
-                                    <a href="javascript:void(0)" class="dropdown-item custom_unconnect_button"
+                                    <a href="javascript:void(0)" class="dropdown-item custom_unfrind_button"
                                         onclick="ajaxAction('{{ route('user.unfollow', ['id' => $user_data->id]) }}')"><i
                                             class="fa-solid fa-square-xmark"></i> {{ get_phrase('Unfollow') }}</a>
                                 @else
-                                    <a href="javascript:void(0)" class="dropdown-item custom_unconnect_button"
+                                    <a href="javascript:void(0)" class="dropdown-item custom_unfrind_button"
                                         onclick="ajaxAction('{{ route('user.follow', ['id' => $user_data->id]) }}')"><i
                                             class="fa-regular fa-calendar-plus"></i> {{ get_phrase('Follow') }}</a>
                                 @endif
                             </li>
                         @endif
+
+
+
                     </ul>
                     <a href="{{ route('chat', $user_data->id) }}" class="btn common_btn ac_btn"><i
                             class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
