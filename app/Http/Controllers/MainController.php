@@ -132,18 +132,18 @@ class MainController extends Controller
             ->take(15)->orderBy('posts.post_id', 'DESC')->get();
 
 
-            // New
-            $friendships = Friendships::where(function ($query) {
-                $query->where('accepter', auth()->user()->id)
-                    ->orWhere('requester', auth()->user()->id);
-            })
-                ->where('is_accepted', 1)
-                ->orderBy('friendships.importance', 'desc')
-                ->get();
+        // New
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                ->orWhere('requester', auth()->user()->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')
+            ->get();
 
-            $page_data['friendships'] = $friendships;
-          //new
-        
+        $page_data['friendships'] = $friendships;
+        //new
+
         $page_data['stories'] = $stories;
         $page_data['posts'] = $posts;
         $page_data['view_path'] = 'frontend.main_content.index';
@@ -152,7 +152,7 @@ class MainController extends Controller
 
     public function load_post_by_scrolling(Request $request)
     {
-     
+
         $posts = Posts::where(function ($query) {
             $query->whereJsonContains('users.friends', [$this->user->id])
                 ->where('posts.privacy', '!=', 'private')
@@ -197,18 +197,18 @@ class MainController extends Controller
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->select('posts.*', 'users.name', 'users.photo', 'users.friends', 'posts.created_at as created_at')
             ->skip($request->offset)->take(3)->orderBy('posts.post_id', 'DESC')->get();
-           // New
-            $friendships = Friendships::where(function ($query) {
-                $query->where('accepter', auth()->user()->id)
-                    ->orWhere('requester', auth()->user()->id);
-            })
-                ->where('is_accepted', 1)
-                ->orderBy('friendships.importance', 'desc')
-                ->get();
+        // New
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                ->orWhere('requester', auth()->user()->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')
+            ->get();
 
-            $page_data['friendships'] = $friendships;
-          //new    
-          
+        $page_data['friendships'] = $friendships;
+        //new    
+
         $page_data['user_info'] = $this->user;
         $page_data['posts'] = $posts;
         $page_data['type'] = 'user_post';
@@ -294,11 +294,11 @@ class MainController extends Controller
         if (isset($request->description) && !empty($request->description)) {
             preg_match_all('/#(\w+)/', $request->description, $matchesHashtags); // Extract hashtags
             preg_match_all('/\b(?:https?|ftp):\/\/\S+/', $request->description, $matchesUrls); // Extract URLs
-        
+
             $data['description'] = nl2br($request->description);
-        
-            
-        
+
+
+
             if (!empty($matchesUrls[0])) {
                 foreach ($matchesUrls[0] as $url) {
                     $urlLink = '<a href="' . $url . '" class="url-link hashtag-link" target="_blank">' . $url . '</a>';
@@ -309,7 +309,7 @@ class MainController extends Controller
             if (!empty($matchesHashtags[1])) {
                 $hashtags = '#' . implode(', #', $matchesHashtags[1]);
                 $data['hashtag'] = $hashtags;
-        
+
                 foreach ($matchesHashtags[1] as $tag) {
                     $tagLink = '<a href="' . route('search', ['search' => $tag]) . '" class="hashtag-link">#' . $tag . '</a>';
                     $data['description'] = str_replace("#$tag", $tagLink, $data['description']);
@@ -322,7 +322,7 @@ class MainController extends Controller
             $data['hashtag'] = '';
         }
         // Mobile App View Image
-        $mobile_app_image = FileUploader::upload($request->mobile_app_image,'public/storage/post/images/');
+        $mobile_app_image = FileUploader::upload($request->mobile_app_image, 'public/storage/post/images/');
         $data['mobile_app_image'] = $mobile_app_image;
 
 
@@ -334,30 +334,30 @@ class MainController extends Controller
 
         $post_id = Posts::insertGetId($data);
 
-        
+
         if ($request->ai_image) {
             $ai_image = $request->ai_image;
-        
-            
+
+
             $imageData = base64_decode($ai_image);
             $tempImagePath = sys_get_temp_dir() . '/' . uniqid() . '.png';
             file_put_contents($tempImagePath, $imageData);
-        
+
             $fileName = uniqid('ai_image_') . '.png';
             $folderPath = 'public/storage/post/images/';
             if (!is_dir(public_path($folderPath))) {
                 mkdir(public_path($folderPath), 0755, true);
             }
-        
-            $image = Image::make($tempImagePath); 
-            $image->orientate() 
+
+            $image = Image::make($tempImagePath);
+            $image->orientate()
                 ->resize(1000, null, function ($constraint) {
-                    $constraint->upsize(); 
-                    $constraint->aspectRatio(); 
+                    $constraint->upsize();
+                    $constraint->aspectRatio();
                 });
 
             $image->save('public/storage/post/images/' . $fileName);
-            
+
             $ai_media_file_data = array('user_id' => auth()->user()->id, 'post_id' => $post_id, 'file_name' => $fileName, 'file_type' => 'image', 'privacy' => $request->privacy);
             $ai_media_file_data['created_at'] = time();
             $ai_media_file_data['updated_at'] = time();
@@ -419,7 +419,7 @@ class MainController extends Controller
             $live['details'] = json_encode(['link' => url('/streaming/live/' . $post_id), 'status' => TRUE]);
             $live['created_at'] = date('Y-m-d H:i:s', time());
             $live['updated_at'] = $live['created_at'];
-  
+
             Live_streamings::insert($live);
             $response = array('open_new_tab' => url('/streaming/live/' . $post_id), 'reload' => 0, 'status' => 1, 'function' => 0, 'messageShowOn' => '[name=about]', 'message' => get_phrase('Post has been added to your timeline'));
         } else {
@@ -440,7 +440,7 @@ class MainController extends Controller
 
         Live_streamings::where('publisher_id', $user_id)->update(['details->join_pass' => $join_pass]);
 
-       // $room = get_settings('system_name') . $user->name . $user->email;
+        // $room = get_settings('system_name') . $user->name . $user->email;
         $room = get_settings('system_name');
         return view('frontend.main_content.jitsi_streaming', compact('user', 'join_pass', 'room'));
     }
@@ -493,15 +493,15 @@ class MainController extends Controller
         }
 
 
-        
+
         if (isset($request->description) && !empty($request->description)) {
             preg_match_all('/#(\w+)/', $request->description, $matchesHashtags); // Extract hashtags
             preg_match_all('/\b(?:https?|ftp):\/\/\S+/', $request->description, $matchesUrls); // Extract URLs
-        
+
             $data['description'] = nl2br($request->description);
-        
-            
-        
+
+
+
             if (!empty($matchesUrls[0])) {
                 foreach ($matchesUrls[0] as $url) {
                     $urlLink = '<a href="' . $url . '" class="url-link hashtag-link" target="_blank">' . $url . '</a>';
@@ -512,7 +512,7 @@ class MainController extends Controller
             if (!empty($matchesHashtags[1])) {
                 $hashtags = '#' . implode(', #', $matchesHashtags[1]);
                 $data['hashtag'] = $hashtags;
-        
+
                 foreach ($matchesHashtags[1] as $tag) {
                     $tagLink = '<a href="' . route('search', ['search' => $tag]) . '" class="hashtag-link">#' . $tag . '</a>';
                     $data['description'] = str_replace("#$tag", $tagLink, $data['description']);
@@ -528,7 +528,7 @@ class MainController extends Controller
 
 
         // Mobile Preview Upload Image
-        $mobile_app_image = FileUploader::upload($request->mobile_app_image,'public/storage/post/images/');
+        $mobile_app_image = FileUploader::upload($request->mobile_app_image, 'public/storage/post/images/');
         $data['mobile_app_image'] = $mobile_app_image;
 
         $data['updated_at'] = time();
@@ -878,18 +878,18 @@ class MainController extends Controller
             ->select('posts.*', 'users.name', 'users.photo', 'users.friends', 'posts.created_at as created_at')
             ->take(1)->orderBy('posts.post_id', 'DESC')->get();
 
-             // New
-             $friendships = Friendships::where(function ($query) {
-                $query->where('accepter', auth()->user()->id)
-                    ->orWhere('requester', auth()->user()->id);
-            })
-                ->where('is_accepted', 1)
-                ->orderBy('friendships.importance', 'desc')
-                ->take(15)->get();
+        // New
+        $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                ->orWhere('requester', auth()->user()->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')
+            ->take(15)->get();
 
-            $page_data['friendships'] = $friendships;
+        $page_data['friendships'] = $friendships;
         //new   
-        
+
         $page_data['posts'] = $posts;
         $page_data['file_name'] = $request->file_name;
         $page_data['user_info'] = $this->user;
@@ -912,7 +912,7 @@ class MainController extends Controller
             $page_data['type'] = 'user_post';
             $page_data['image_id'] = $type;
             $page_data['view_path'] = 'frontend.main_content.single-post';
-     
+
             if (isset($_GET['shared'])) {
                 return view('frontend.main_content.custom_shared_view', $page_data);
             } else {
@@ -1019,7 +1019,7 @@ class MainController extends Controller
         if (isset($request->is_memory)) {
             $post->publisher = "memory";
         }
-        
+
         $done = $post->save();
 
         Session::flash('success_message', get_phrase('Posted On My Timeline Successfully'));
@@ -1127,7 +1127,7 @@ class MainController extends Controller
         ];
         return view('frontend.index', $page_data);
     }
- 
+
 
     public function save_user_settings(Request $request)
     {
@@ -1147,7 +1147,7 @@ class MainController extends Controller
 
 
 
-   // Theme Color
+    // Theme Color
     public function updateThemeColor(Request $request)
     {
         $themeColor = $request->input('themeColor');
@@ -1156,14 +1156,15 @@ class MainController extends Controller
     }
 
 
-      //New Album Page  Details
-      public function details_album($id){
+    //New Album Page  Details
+    public function details_album($id)
+    {
         $posts = Posts::where('post_id', $id)->get();
         $post_album = Posts::where('post_id', $id)->first();
-        $user_info = $this->user;  
+        $user_info = $this->user;
 
-          // New
-          $friendships = Friendships::where(function ($query) {
+        // New
+        $friendships = Friendships::where(function ($query) {
             $query->where('accepter', auth()->user()->id)
                 ->orWhere('requester', auth()->user()->id);
         })
@@ -1172,7 +1173,7 @@ class MainController extends Controller
             ->take(15)->get();
 
         // $page_data['friendships'] = $friendships;
-    //new  
+        //new  
 
         $page_data = [
             'post_id' => $id,
@@ -1183,19 +1184,19 @@ class MainController extends Controller
             'layout' => 'album_details',
             'view_path' => 'frontend.album_details.album_details'
         ];
-         return view('frontend.index', $page_data);
-     }
-     
-    
-   
-     public function block_user($id)
-     {
-         $page_data['post'] = Posts::where('post_id', $id)->first();
-         return view('frontend.main_content.block_modal', $page_data);
-     }
+        return view('frontend.index', $page_data);
+    }
 
-     public function block_user_post($id)
-     {
+
+
+    public function block_user($id)
+    {
+        $page_data['post'] = Posts::where('post_id', $id)->first();
+        return view('frontend.main_content.block_modal', $page_data);
+    }
+
+    public function block_user_post($id)
+    {
         $block_post = Posts::find($id);
         $user_block = User::where('id', $block_post->user_id)->first();
         $user_block = new BlockUser();
@@ -1203,20 +1204,21 @@ class MainController extends Controller
         $user_block->block_user = $block_post->user_id;
         $user_block->save();
         Session::flash('success_message', get_phrase('Block Successfully'));
-       return redirect()->route('timeline');
-     }
-     
+        return redirect()->route('timeline');
+    }
+
     //  UnBlock User
-    public function unblock_user($id){
+    public function unblock_user($id)
+    {
         $unblock = BlockUser::find($id)->delete();
         Session::flash('success_message', get_phrase('Unblock Successfully'));
         return redirect()->back();
     }
-    
+
     public function save_post($id)
     {
         $user = Auth()->user();
-    
+
         $savedPosts = $user->save_post ? json_decode($user->save_post, true) : [];
 
         if (!in_array($id, $savedPosts)) {
@@ -1245,7 +1247,7 @@ class MainController extends Controller
         Session::flash('success_message', get_phrase('Post Unsave Successfully'));
         return redirect()->back();
     }
-    
+
     public function imageGenerator()
     {
         $page_data['hugging_face_auth_key'] = Setting::where('type', 'hugging_face_auth_key')->value('description');
@@ -1262,7 +1264,7 @@ class MainController extends Controller
 
         $prompt = $request->input('prompt');
 
-        
+
 
         try {
             // Hugging Face API Call
@@ -1292,35 +1294,29 @@ class MainController extends Controller
     }
 
 
-    public function matches(){
+    public function matches()
+    {
+        $userId = auth()->id();
 
-        $friendships = Friendships::where(function ($query) {
-            $query->where('accepter', $this->user->id)
-                ->orWhere('requester', $this->user->id);
-        })
-            ->where('is_accepted', 1)
-            ->orderBy('friendships.importance', 'desc')
-            ->take(15)->get();
+        // Ambil daftar user yang sudah berteman
+        $friendIds = Friendships::where('is_accepted', 1)
+            ->where(function ($query) use ($userId) {
+                $query->where('accepter', $userId)
+                    ->orWhere('requester', $userId);
+            })
+            ->pluck('accepter')
+            ->merge(Friendships::where('is_accepted', 1)
+                ->where(function ($query) use ($userId) {
+                    $query->where('accepter', $userId)
+                        ->orWhere('requester', $userId);
+                })
+                ->pluck('requester'))
+            ->unique()
+            ->toArray();
 
-        $friend_requests = Friendships::where('accepter', $this->user->id)
-            ->where('is_accepted', '!=', 1)
-            ->take(15)->get();
+        // Ambil daftar user yang bukan teman
+        $add_friend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
 
-            $userId = auth()->user()->id;
-            $add_friend = User::whereNotIn('id', [$userId])->get();
-            
-            $page_data['add_friend'] = $add_friend;
-            $page_data['info'] = auth()->user()->id;
-            
-
-        $page_data['friendships'] = $friendships;
-        $page_data['friend_requests'] = $friend_requests;
-        
-
-        $page_data['user_info'] = $this->user;
-        $page_data['view_path'] = 'frontend.main_content.matches';
-        return view('frontend.index', $page_data);
-    
+        return view('frontend.main_content.matches', compact('add_friend'));
     }
-
 }
