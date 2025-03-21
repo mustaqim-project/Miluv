@@ -84,8 +84,144 @@
         @include('frontend.master.layouts.sidebar')
         <!-- Sidebar End -->
 
+
         <!-- Page Content Start -->
-        <div class="page-content space-top p-b65">
+	<div class="page-content space-top p-b65">
+		<div class="container">
+			<div class="demo__card-cont dz-gallery-slider">
+				<div class="demo__card">
+					<div class="dz-media">
+						<img src="assets/images/slider/pic1.png" alt="">
+					</div>
+					<div class="dz-content">
+						<div class="left-content">
+							<span class="badge badge-primary d-inline-flex gap-1 mb-2"><i class="icon feather icon-map-pin"></i>Nearby</span>
+							<h4 class="title"><a href="profile-detail.html">Harleen , 24</a></h4>
+							<p class="mb-0"><i class="icon feather icon-map-pin"></i> 3 miles away</p>
+						</div>
+						<a href="javascript:void(0);" class="dz-icon dz-sp-like"><i class="flaticon flaticon-star-1"></i></a>
+					</div>
+					<div class="demo__card__choice m--reject">
+						<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="demo__card__choice m--like">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="demo__card__choice m--superlike">
+						<h5 class="title mb-0">Super Like</h5>
+					</div>
+					<div class="demo__card__drag"></div>
+				</div>
+				
+				<div class="demo__card">
+					<div class="dz-media">
+						<img src="assets/images/slider/pic3.png" alt="">
+					</div>
+					<div class="dz-content">
+						<div class="left-content">
+							<span class="badge badge-primary d-inline-flex gap-1 mb-2"><i class="icon feather icon-map-pin"></i>Nearby</span>
+							<h4 class="title"><a href="profile-detail.html">Richard , 21</a></h4>
+							<p class="mb-0"><i class="icon feather icon-map-pin"></i> 5 miles away</p>
+						</div>
+						<a href="javascript:void(0);" class="dz-icon dz-sp-like"><i class="flaticon flaticon-star-1"></i></a>
+					</div>
+					<div class="demo__card__choice m--reject">
+						<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="demo__card__choice m--like">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="demo__card__choice m--superlike">
+						<h5 class="title mb-0">Super Like</h5>
+					</div>
+					<div class="demo__card__drag"></div>
+				</div>
+				
+				<div class="demo__card">
+					<div class="dz-media">
+						<img src="assets/images/slider/pic4.png" alt="">
+					</div>
+					<div class="dz-content">
+						<div class="left-content">
+							<h4 class="title"><a href="profile-detail.html">Natasha , 22</a></h4>
+							<p class="mb-0"><i class="icon feather icon-map-pin"></i> 2 miles away</p>
+						</div>
+						<a href="javascript:void(0);" class="dz-icon dz-sp-like"><i class="flaticon flaticon-star-1"></i></a>
+					</div>
+					<div class="demo__card__choice m--reject">
+						<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="demo__card__choice m--like">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="demo__card__choice m--superlike">
+						<h5 class="title mb-0">Super Like</h5>
+					</div>
+					<div class="demo__card__drag"></div>
+				</div>
+				
+				<div class="demo__card">
+					<div class="dz-media">
+						<img src="assets/images/slider/pic3.png" alt="">
+					</div>
+					<div class="dz-content">
+						<div class="left-content">
+							<h4 class="title"><a href="profile-detail.html">Lisa Ray , 25</a></h4>
+							<ul class="intrest">
+								<li><span class="badge">Photography</span></li>
+								<li><span class="badge">Street Food</span></li>
+								<li><span class="badge">Foodie Tour</span></li>
+							</ul>
+						</div>
+						<a href="javascript:void(0);" class="dz-icon dz-sp-like"><i class="flaticon flaticon-star-1"></i></a>
+					</div>
+					<div class="demo__card__choice m--reject">
+						<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="demo__card__choice m--like">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="demo__card__choice m--superlike">
+						<h5 class="title mb-0">Super Like</h5>
+					</div>
+					<div class="demo__card__drag"></div>
+				</div>
+				
+				<div class="demo__card">
+					<div class="dz-media">
+						<img src="assets/images/slider/pic2.png" alt="">
+					</div>
+					<div class="dz-content">
+						<div class="left-content">
+							<span class="badge badge-primary mb-2">New here</span>
+							<h4 class="title"><a href="profile-detail.html">Richard , 22</a></h4>
+							<ul class="intrest">
+								<li><span class="badge intrest">Climbing</span></li>
+								<li><span class="badge intrest">Skincare</span></li>
+								<li><span class="badge intrest">Dancing</span></li>
+								<li><span class="badge intrest">Gymnastics</span></li>
+							</ul>							
+						</div>
+						<a href="javascript:void(0);" class="dz-icon dz-sp-like"><i class="flaticon flaticon-star-1"></i></a>
+					</div>
+					<div class="demo__card__choice m--reject">
+						<i class="fa-solid fa-xmark"></i>
+					</div>
+					<div class="demo__card__choice m--like">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="demo__card__choice m--superlike">
+						<h5 class="title mb-0">Super Like</h5>
+					</div>
+					<div class="demo__card__drag"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Content End -->
+    
+        <!-- Page Content Start -->
+        {{-- <div class="page-content space-top p-b65">
             <div class="container">
                 <div class="demo__card-cont dz-gallery-slider">
                     @foreach ($add_friends as $friend)
@@ -140,7 +276,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Page Content End -->
 
         <!-- Menubar -->
