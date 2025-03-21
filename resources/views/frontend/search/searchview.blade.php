@@ -97,7 +97,7 @@
                             <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$people->id); ?>')" data-bs-toggle="tooltip" data-bs-placement="top" title="Cancle Friend Request" class="btn common_btn align-self-start"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
                         @endif
                     @else   
-                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$people->id); ?>')" class="btn common_btn align-self-start mt-2"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a>
+                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$people->id); ?>')" class="btn common_btn align-self-start mt-2"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a>
                     @endif
 
                     

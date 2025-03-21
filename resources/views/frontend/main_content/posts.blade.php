@@ -219,7 +219,7 @@ $user = Auth()->user();
                                            @endif
                                    @else   
                                        <ul class="d-flex eHfooter">
-                                           <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a></li>
+                                           <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a></li>
                                            <li>  <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a></li>
                                        </ul>
                                    @endif
@@ -334,7 +334,7 @@ $user = Auth()->user();
                                             @endif
                                     @else   
                                         <ul class="d-flex eHfooter">
-                                            <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a></li>
+                                            <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a></li>
                                             <li>  <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a></li>
                                         </ul>
                                     @endif
@@ -411,7 +411,7 @@ $user = Auth()->user();
                                             @endif
                                     @else   
                                         <ul class="d-flex eHfooter">
-                                            <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a></li>
+                                            <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a></li>
                                             <li>  <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a></li>
                                         </ul>
                                     @endif
@@ -535,7 +535,7 @@ $user = Auth()->user();
                                         @endif
                                 @else   
                                     <ul class="d-flex eHfooter">
-                                        <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a></li>
+                                        <li> <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$post->user_id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a></li>
                                         <li>  <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a></li>
                                     </ul>
                                 @endif

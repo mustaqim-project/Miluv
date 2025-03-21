@@ -16,7 +16,7 @@
                 <a href="{{ route('user.profile.view', $friend->id) }}" class="thumbnail-110-106" style="background-image: url('{{ get_user_image($friend->photo, 'optimized') }}')"></a>
                 <div class="p-8 d-flex flex-column">
                     <h4><a href="{{ route('user.profile.view', $friend->id) }}">{{ $friend->name }}</a></h4>
-                    <a href="javascript:;" onclick="ajaxAction('<?php echo route('user.friend',$friend->id); ?>')" class="btn common_btn">{{ get_phrase('Add Friend') }}</a>
+                    <a href="javascript:;" onclick="ajaxAction('<?php echo route('user.friend',$friend->id); ?>')" class="btn common_btn">{{ get_phrase('Connect') }}</a>
                 </div>
             </div>
         </div>

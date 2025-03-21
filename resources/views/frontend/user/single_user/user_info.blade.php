@@ -82,7 +82,7 @@ if(isset($page_identifire)) {
                     </form>
                 @endif
             @else   
-                <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$user_data->id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Add Friend') }} </a>
+                <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.friend',$user_data->id); ?>')" class="btn common_btn ac_btn"><i class="fa-solid fa-plus"></i> {{ get_phrase('Connect') }} </a>
             @endif
         
     </div>
