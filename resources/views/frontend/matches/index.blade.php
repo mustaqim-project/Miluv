@@ -80,7 +80,7 @@
 			<div class="demo__card-cont dz-gallery-slider">
 				<div class="demo__card">
 					<div class="dz-media">
-						<img src="dating/assets/images/slider/pic1.png" alt="">
+						<img src="/dating/assets/images/slider/pic1.png" alt="">
 					</div>
 					<div class="dz-content">
 						<div class="left-content">
@@ -104,7 +104,7 @@
 				
 				<div class="demo__card">
 					<div class="dz-media">
-						<img src="dating/assets/images/slider/pic3.png" alt="">
+						<img src="/dating/assets/images/slider/pic3.png" alt="">
 					</div>
 					<div class="dz-content">
 						<div class="left-content">
@@ -128,7 +128,7 @@
 				
 				<div class="demo__card">
 					<div class="dz-media">
-						<img src="dating/assets/images/slider/pic4.png" alt="">
+						<img src="/dating/assets/images/slider/pic4.png" alt="">
 					</div>
 					<div class="dz-content">
 						<div class="left-content">
@@ -151,7 +151,7 @@
 				
 				<div class="demo__card">
 					<div class="dz-media">
-						<img src="dating/assets/images/slider/pic3.png" alt="">
+						<img src="/dating/assets/images/slider/pic3.png" alt="">
 					</div>
 					<div class="dz-content">
 						<div class="left-content">
@@ -178,7 +178,7 @@
 				
 				<div class="demo__card">
 					<div class="dz-media">
-						<img src="dating/assets/images/slider/pic2.png" alt="">
+						<img src="/dating/assets/images/slider/pic2.png" alt="">
 					</div>
 					<div class="dz-content">
 						<div class="left-content">
