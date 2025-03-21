@@ -41,11 +41,11 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="header-search">
-                        <a href="{{ route('timeline') }}">
+                        {{-- <a href="{{ route('timeline') }}">
                             <div class="sc-home rounded">
                                 <i class="fa-solid fa-house"></i>
                             </div>
-                        </a>
+                        </a> --}}
                         {{-- <div class="sc-search">
                             <form action="{{ route('search') }}" method="GET" id="form_id">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,6 +73,9 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                                 <a href="javascript:;" class="notification-button"><img id="dark"
                                         src="{{ $image }}" alt=""></a>
                             </div> --}}
+                            <div class="group-control">
+                                <a href="{{ route('timeline') }}" class="notification-button"><i class="fa-solid fa-house"></a>
+                            </div>
                             <div class="group-control">
                                 <a href="{{ route('profile.friends') }}" class="notification-button"><i
                                         class="fa-solid fa-user-group"></i></a>
