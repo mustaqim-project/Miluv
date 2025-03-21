@@ -43,11 +43,16 @@
         </div>
     @endif
 
+
     <div class="mt-action">
         @if (!empty($reciver_data))
-            <form class="ajaxForm" id="chatMessageFieldForm" action="{{ route('chat.save') }}" method="POST" enctype="multipart/form-data">
+            <!-- Chat textarea -->
+            <form class="ajaxForm" id="chatMessageFieldForm" action="{{ route('chat.save') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
-                <div class="nm_footer d-flex align-items-center p-2 border-top">
+                
+                
+                <div class="nm_footer d-flex">
                     <input type="hidden" name="reciver_id" value="{{ $reciver_data->id }}">
                     @if ($product != null)
                         <input type="hidden" name="product_id" value="{{ $product }}">
@@ -64,13 +69,29 @@
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
+                
+                
+                <button type="reset" id="messageResetBox"
+                    class="visibility-hidden">{{ get_phrase('Reset') }}</button>
+                <div class="mt-footer">
+                    <div class="input-images d-hidden  image-uploader_custom_css" id="messageFileUploder">
+                    </div>
+                    <a href="javascript:void(0)" id="messgeImageUploader"><img
+                            src="{{ asset('assets/frontend/images/image-a.png') }}" alt=""></a>
+        
+                </div>
             </form>
+            <!-- Button -->
+            @php
+                Session::forget('product_ref_id');
+            @endphp
         @else
-            <div class="d-flex justify-content-center align-items-center" style="height: 500px; font-size: 20px;">
+            <div
+                style="width: 100%; height: 500px; display:flex; justify-content:center; align-items:center; font-size:20px;">
                 <p>{{ get_phrase('No Conversion Start!') }}</p>
             </div>
         @endif
-    </div>
+        </div>
 </div>
 
 
