@@ -113,7 +113,7 @@ class NotificationController extends Controller
         $notify = Notification::where('sender_user_id', $id)->where('reciver_user_id', auth()->user()->id)->update(['status' => '1', 'view' => '1']);
 
         if ($is_updated == '1') {
-            //update my friends id to my friend list
+            //update My Matches id to my friend list
             $going_users_id = Event::where('id', $event_id)->value('going_users_id');
             $going_users_id = json_decode($going_users_id);
             array_push($going_users_id, (int) $id);

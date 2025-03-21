@@ -23,7 +23,7 @@
         <div class="single-dash-box">
            <div class="card colors-1">
               <div class="card-head d-flex justify-content-between align-items-center">
-                  <p>{{get_phrase('My friends')}}</p>
+                  <p>{{get_phrase('My Matches')}}</p>
                   <span><i class="bi bi-arrow-right"></i></span>
               </div>
               <div class="card-body d-flex justify-content-between">

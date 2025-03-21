@@ -182,7 +182,7 @@ class CustomUserController extends Controller
         $unfriended_user_friends = json_encode($unfriended_user_friends);
         User::where('id', $id)->update(['friends' => $unfriended_user_friends]);
     
-        // Update my friends list
+        // Update My Matches list
         $my_friends = User::where('id', auth()->user()->id)->value('friends');
         $my_friends = json_decode($my_friends, true);
     

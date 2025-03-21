@@ -44,7 +44,7 @@
                         <li class="nav-item @if (Route::currentRouteName() == 'profile') active @endif"><a
                                 href="{{ route('profile') }}" class="nav-link">{{ get_phrase('Timeline') }}</a></li>
                         <li class="nav-item @if (Route::currentRouteName() == 'profile.friends') active @endif"><a
-                                href="{{ route('profile.friends') }}" class="nav-link">{{ get_phrase('Friends') }}</a>
+                                href="{{ route('profile.friends') }}" class="nav-link">{{ get_phrase('Matches') }}</a>
                         </li>
                         <li class="nav-item @if (Route::currentRouteName() == 'profile.photos' || Route::currentRouteName() == 'album.details.list') active @endif"><a
                                 href="{{ route('profile.photos') }}" class="nav-link">{{ get_phrase('Photo') }}</a>

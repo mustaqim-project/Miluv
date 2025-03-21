@@ -9,21 +9,21 @@
            </form> --}}
         </div>
       
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                 data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                aria-selected="true">{{get_phrase('My Friends')}}</button>
+                aria-selected="true">{{get_phrase('My Matches')}}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                 data-bs-target="#profile" type="button" role="tab"
-                aria-controls="profile" aria-selected="false">{{get_phrase('Friend Requests')}}</button>
+                aria-controls="profile" aria-selected="false">{{get_phrase('Requests')}}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="add_friend-tab" data-bs-toggle="tab"
                 data-bs-target="#add_friend" type="button" role="tab"
-                aria-controls="add_friend" aria-selected="false">{{get_phrase('Find Friends')}}</button>
+                aria-controls="add_friend" aria-selected="false">{{get_phrase('Discover People')}}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="block_friend-tab" data-bs-toggle="tab"
@@ -41,7 +41,40 @@
                 aria-controls="following" aria-selected="false">{{get_phrase('Following')}}</button>
         </li>
         
+    </ul> --}}
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                aria-selected="true">{{get_phrase('My Matches')}}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                data-bs-target="#profile" type="button" role="tab"
+                aria-controls="profile" aria-selected="false">{{get_phrase('Requests')}}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="add_friend-tab" data-bs-toggle="tab"
+                data-bs-target="#add_friend" type="button" role="tab"
+                aria-controls="add_friend" aria-selected="false">{{get_phrase('Discover People')}}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="block_friend-tab" data-bs-toggle="tab"
+                data-bs-target="#block_friend" type="button" role="tab"
+                aria-controls="block_friend" aria-selected="false">{{get_phrase('Block List')}}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="followers-tab" data-bs-toggle="tab"
+                data-bs-target="#followers" type="button" role="tab"
+                aria-controls="followers" aria-selected="false">{{get_phrase('Followers')}}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="following-tab" data-bs-toggle="tab"
+                data-bs-target="#following" type="button" role="tab"
+                aria-controls="following" aria-selected="false">{{get_phrase('Favorites')}}</button>
+        </li>
     </ul>
+    
  </div>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel"
