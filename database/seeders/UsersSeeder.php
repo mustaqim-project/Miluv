@@ -20,7 +20,6 @@ class UsersSeeder extends Seeder
         
         for ($i = 1; $i <= 100; $i++) {
             $users[] = [
-                'id' => $i,
                 'user_role' => 'general',
                 'username' => Str::random(6),
                 'email' => 'user' . $i . '@example.com',
