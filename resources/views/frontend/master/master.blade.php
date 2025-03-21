@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
@@ -64,6 +61,8 @@
         gtag('config', 'G-FCSFS9Q27Y');
     </script>
 </head>
+
+
 <body class="overflow-hidden header-large">
     <div class="page-wrapper">
         <!-- Preloader -->
