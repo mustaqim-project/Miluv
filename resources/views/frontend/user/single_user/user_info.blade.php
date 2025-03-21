@@ -63,13 +63,13 @@ if(isset($page_identifire)) {
                     <a href="{{ route('chat',$user_data->id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
                 @else
                     <form class="ajaxForm" action="{{route('profile.accept_friend_request')}}" method="post">
-                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_data->id); ?>')" class="btn common_btn px-3" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancle Friend Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
+                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_data->id); ?>')" class="btn common_btn px-3" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
 	            		@CSRF
 	            		<input type="hidden" name="user_id" value="{{$user_data->id}}">
 
 	                	
                             @if($friendAccepted->value('requester') == auth()->user()->id)
-                                <button type="button" class="btn common_btn_2 px-4 no-processing no-uploading" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Friend request') }}">
+                                <button type="button" class="btn common_btn_2 px-4 no-processing no-uploading" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Connect Request') }}">
                                     {{get_phrase('Requested')}}
                                 </button>
                             @else

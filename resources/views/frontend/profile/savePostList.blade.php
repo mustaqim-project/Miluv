@@ -202,7 +202,7 @@ $user = Auth()->user();
                                            @else
                                                <ul  class="d-flex eHfooter">
                                                    <li>
-                                                       <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancle Friend Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
+                                                       <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
                                                    </li>
                                                    <li>
                                                        <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
@@ -317,7 +317,7 @@ $user = Auth()->user();
                                             @else
                                                 <ul  class="d-flex eHfooter">
                                                     <li>
-                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancle Friend Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
+                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
@@ -394,7 +394,7 @@ $user = Auth()->user();
                                             @else
                                                 <ul  class="d-flex eHfooter">
                                                     <li>
-                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancle Friend Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
+                                                        <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
@@ -520,7 +520,7 @@ $user = Auth()->user();
                                         @else
                                             <ul  class="d-flex eHfooter">
                                                 <li>
-                                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancle Friend Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
+                                                    <a href="javascript:void(0)" onclick="ajaxAction('<?php echo route('user.unfriend',$user_id); ?>')" class="btn common_btn ac_btn" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ get_phrase('Cancel Request') }}"><i class="fa-solid fa-xmark"></i> {{ get_phrase('Cancel') }}</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('chat',$post->user_id) }}" class="btn common_btn ac_btn"><i class="fa-solid fa-message"></i> {{ get_phrase('Message') }}</a>
