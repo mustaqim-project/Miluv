@@ -66,9 +66,11 @@
                         <input type="text" class="form-control mb-sm-0 mb-3 ms-1 " name="message"
                             id="ChatmessageField" value="@if (isset($product_url) && $product_url != null) {{ $product_url }} @endif"
                             placeholder="Type a message">
-
+                            <a href="javascript:void(0)" id="messgeImageUploader"><img
+                                src="{{ asset('assets/frontend/images/image-a.png') }}" alt=""></a>
                         <button class="btn btn-primary send no-processing no-uploading" id="ChatsentButton"><i
                                 class="fa-solid fa-paper-plane"></i></button>
+                                
                         {{-- <button type="submit" class="btn btn-primary  send  no_loading no-processing no-uploading"
                             id="ChatthumbsUp"><i class="fa-solid fa-thumbs-up"></i> </button> --}}
                     </div>
@@ -79,8 +81,7 @@
                 <div class="mt-footer">
                     <div class="input-images d-hidden  image-uploader_custom_css" id="messageFileUploder">
                     </div>
-                    <a href="javascript:void(0)" id="messgeImageUploader"><img
-                            src="{{ asset('assets/frontend/images/image-a.png') }}" alt=""></a>
+                    
 
                 </div>
             </form>
