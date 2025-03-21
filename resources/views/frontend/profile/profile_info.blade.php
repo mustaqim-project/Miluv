@@ -61,8 +61,8 @@
         @endphp
         <div class="n_pro_con d-flex align-items-start">
             <div class="widget-header">
-                <h4 class="widget-title">{{ get_phrase('Friends') }}</h4>
-                <span class='f-text'>{{ $friends->get()->count() }} {{ get_phrase('Friends') }}</span>
+                <h4 class="widget-title">{{ get_phrase('Matches') }}</h4>
+                <span class='f-text'>{{ $friends->get()->count() }} {{ get_phrase('Matches') }}</span>
             </div>
             <a href="{{ route('profile.friends') }}" >{{ get_phrase('See All') }}</a
             href="{{ route('profile.friends') }}">
