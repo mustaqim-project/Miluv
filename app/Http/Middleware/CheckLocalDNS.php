@@ -31,6 +31,9 @@ class CheckLocalDNS
         if (RateLimiter::tooManyAttempts($key, 10)) {
             return response()->view('errors.429', [], 429);
         }
+
+
+        
         RateLimiter::hit($key, 60);
 
         // 🔹 Lakukan reverse DNS lookup untuk cek apakah IP berasal dari Googlebot
