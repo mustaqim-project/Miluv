@@ -3,10 +3,15 @@ use App\Models\Notification;
 use App\Models\User;
 use Carbon\Carbon;
 
-        $date = Carbon::today();
-        $new_notification = Notification::where('reciver_user_id', auth()->user()->id)->where('status', '0')
-            ->orderBy('id', 'DESC')->get();
-        $older_notification = Notification::where('reciver_user_id', auth()->user()->id)->where('created_at', '<', $date)->orderBy('id', 'DESC')->get();
+$date = Carbon::today();
+$new_notification = Notification::where('reciver_user_id', auth()->user()->id)
+    ->where('status', '0')
+    ->orderBy('id', 'DESC')
+    ->get();
+$older_notification = Notification::where('reciver_user_id', auth()->user()->id)
+    ->where('created_at', '<', $date)
+    ->orderBy('id', 'DESC')
+    ->get();
 
 ?>
 
@@ -25,7 +30,9 @@ use Carbon\Carbon;
                                 class="fw-bold fa-solid fa-sliders-h"></i></button>
                         <!-- logo -->
                         @php
-                            $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value('description');
+                            $system_light_logo = \App\Models\Setting::where('type', 'system_light_logo')->value(
+                                'description',
+                            );
                         @endphp
                         <a class="navbar-brand mt-2" href="{{ route('timeline') }}"><img
                                 src="{{ get_system_logo_favicon($system_light_logo, 'light') }}"
@@ -39,7 +46,7 @@ use Carbon\Carbon;
                                 <i class="fa-solid fa-house"></i>
                             </div>
                         </a>
-                        <div class="sc-search">
+                        {{-- <div class="sc-search">
                             <form action="{{ route('search') }}" method="GET" id="form_id">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <mask id="mask0_16_3776" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="14">
@@ -54,7 +61,7 @@ use Carbon\Carbon;
                                     value="@isset($_GET['search']){{ $_GET['search'] }}@endisset"
                                     placeholder="Search">
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-8">
@@ -62,9 +69,10 @@ use Carbon\Carbon;
                         <div class="align-items-center d-flex justify-content-end g-12">
 
 
-                            <div class="group-control">
-                                <a href="javascript:;" class="notification-button"><img id="dark" src="{{$image}}" alt=""></a>
-                            </div>
+                            {{-- <div class="group-control">
+                                <a href="javascript:;" class="notification-button"><img id="dark"
+                                        src="{{ $image }}" alt=""></a>
+                            </div> --}}
                             <div class="group-control">
                                 <a href="{{ route('profile.friends') }}" class="notification-button"><i
                                         class="fa-solid fa-user-group"></i></a>
@@ -82,13 +90,13 @@ use Carbon\Carbon;
                                         $msg_to = $last_msg->sender_id;
                                     }
                                 }
-                                
+
                                 $unread_msg = \App\Models\Chat::where('reciver_id', auth()->user()->id)
                                     ->where('read_status', '0')
                                     ->count();
                             @endphp
                             <div class="inbox-control">
-                                <a href="@if(isset($msg_to)) {{ route('chat', $msg_to) }} @else {{route('chat','all')}} @endif"
+                                <a href="@if (isset($msg_to)) {{ route('chat', $msg_to) }} @else {{ route('chat', 'all') }} @endif"
                                     class="message_custom_button position-relative">
                                     <i class="fa-brands fa-rocketchat"></i>
                                     @if ($unread_msg > 0)
@@ -100,13 +108,17 @@ use Carbon\Carbon;
                                 </a>
                             </div>
                             @php
-                                $unread_notification = \App\Models\Notification::where('reciver_user_id', auth()->user()->id)
+                                $unread_notification = \App\Models\Notification::where(
+                                    'reciver_user_id',
+                                    auth()->user()->id,
+                                )
                                     ->where('status', '0')
                                     ->count();
                             @endphp
 
                             <div class="notify-control ">
-                                <a class="notification-button position-relative" id="notification-button" href="javascript:;">
+                                <a class="notification-button position-relative" id="notification-button"
+                                    href="javascript:;">
                                     <i class="fa-solid fa-bell"></i>
                                     @if ($unread_notification > 0)
                                         <span
@@ -119,7 +131,7 @@ use Carbon\Carbon;
                                     @include('frontend.notification.notification')
                                 </div>
                             </div>
-                            
+
                             <div class="profile-control dropdown">
                                 <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -151,11 +163,11 @@ use Carbon\Carbon;
                                             href="{{ route('user.settings') }}">{{ get_phrase('Payment Settings') }}
                                         </a>
                                     </li> --}}
-                                    
+
                                     @if (auth()->user()->status == 1)
                                         <li>
-                                            <a href="{{route('all_settings.view')}}" 
-                                            class="dropdown-item">{{ get_phrase('Settings') }}</a>
+                                            <a href="{{ route('all_settings.view') }}"
+                                                class="dropdown-item">{{ get_phrase('Settings') }}</a>
                                         </li>
                                     @endif
 
@@ -185,34 +197,28 @@ use Carbon\Carbon;
 
 
 <script>
-jQuery(document).ready(function($) {
-    $('body').on('click', 'a.hashtag-link', function(e) {
-        e.preventDefault();
-        var hashtag = $(this).text();
-        $('input[name="search"]').val(hashtag);
-        $('#form_id').submit();
+    jQuery(document).ready(function($) {
+        $('body').on('click', 'a.hashtag-link', function(e) {
+            e.preventDefault();
+            var hashtag = $(this).text();
+            $('input[name="search"]').val(hashtag);
+            $('#form_id').submit();
+        });
     });
-});
-
-
-
-
 </script>
 
 <script>
-    $(document).ready(function(){
-        $('#dark').click(function(){
+    $(document).ready(function() {
+        $('#dark').click(function() {
             console.log("Dark button clicked"); // Debugging statement
             $('.webgl body').toggleClass('test');
             console.log("Class 'test' toggled on .webgl elements"); // Debugging statement
         });
     });
 
-    $(document).ready(function(){
-        $("#notification-button").click(function(){
+    $(document).ready(function() {
+        $("#notification-button").click(function() {
             $("#notification_panel").slideToggle();
         });
     })
-    
-    
-    </script>
+</script>
