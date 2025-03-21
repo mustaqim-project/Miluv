@@ -54,11 +54,11 @@
                             @if ($file->file_type == 'image')
                                 <div class="quote-box">
                                     <img src="{{ asset('storage/chat/images/' . $file->file_name) }}" alt=""
-                                        style="max-width: 150px; max-height: 150px; object-fit: cover; border-radius: 8px;">
+                                        style="max-width: 4em; max-height: 4em; object-fit: cover; border-radius: 8px;">
                                 </div>
                             @else
                                 <div class="quote-box">
-                                    <video style="max-width: 200px; max-height: 150px; object-fit: cover; border-radius: 8px;" controls>
+                                    <video style="max-width: 5em; max-height: 4em; object-fit: cover; border-radius: 8px;" controls>
                                         <source src="{{ asset('storage/chat/videos/' . $file->file_name) }}" type="">
                                     </video>
                                 </div>
