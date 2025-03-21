@@ -36,11 +36,11 @@
 
     <!-- Meta Tags -->
     @if (isset($blog) && $blog)
-        @include('partials.blog', ['blog' => $blog, 'system_name' => $system_name])
+        @include('master.partials.blog', ['blog' => $blog, 'system_name' => $system_name])
     @elseif (isset($category) && $category)
-        @include('partials.category', ['category' => $category, 'system_name' => $system_name])
+        @include('master.partials.category', ['category' => $category, 'system_name' => $system_name])
     @else
-        @include('partials.default', ['system_name' => $system_name])
+        @include('master.partials.default', ['system_name' => $system_name])
     @endif
 
     <!-- Global CSS -->
