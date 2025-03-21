@@ -1,55 +1,169 @@
-<div class="custom-swiper-container swiper">
-    <div class="swiper-wrapper">
-        @foreach ($add_friend as $friend)
-            @php
-                $userId = auth()->id();
-                $hasRequestSent = App\Models\Friendships::where('requester', $userId)
-                    ->where('accepter', $friend->id)
-                    ->exists();
-                $hasRequestReceived = App\Models\Friendships::where('requester', $friend->id)
-                    ->where('accepter', $userId)
-                    ->exists();
-            @endphp
-            @if (!$hasRequestSent && !$hasRequestReceived)
-                <div class="custom-swiper-slide swiper-slide" style="background-image: url('{{ get_user_image($friend->photo, 'optimized') }}');">
-                    <div class="custom-profile-info">
-                        <h4>{{ $friend->name }}, {{ $friend->age }}</h4>
-                        <div class="custom-tags">
-                            <span class="custom-tag">Climbing</span>
-                            <span class="custom-tag">Skincare</span>
-                            <span class="custom-tag">Dancing</span>
-                            <span class="custom-tag">Gymnastics</span>
-                        </div>
-                        <button class="custom-btn-connect" onclick="sendFriendRequest('{{ route('user.friend', $friend->id) }}')">
-                            {{ get_phrase('Connect') }}
-                        </button>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Title & Favicon -->
+    @php
+        $system_name = \App\Models\Setting::where('type', 'system_name')->value('description');
+        $system_favicon = \App\Models\Setting::where('type', 'system_fav_icon')->value('description');
+    @endphp
+    <title>{{ $title ?? $system_name }}</title>
+    <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}"
+        as="style">
+    <link rel="preload" href="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}"
+        as="style">
+    <link rel="preload" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        as="style">
+
+    <!-- DNS-Prefetch for External Domains -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Meta Tags -->
+    @if (isset($blog) && $blog)
+        @include('partials.blog', ['blog' => $blog, 'system_name' => $system_name])
+    @elseif (isset($category) && $category)
+        @include('partials.category', ['category' => $category, 'system_name' => $system_name])
+    @else
+        @include('partials.default', ['system_name' => $system_name])
+    @endif
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        media="print" onload="this.media='all'">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCSFS9Q27Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FCSFS9Q27Y');
+    </script>
+</head>
+
+<body class="overflow-hidden header-large">
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        @include('frontend.master.layouts.pre')
+        <!-- Preloader end-->
+
+        <!-- Header -->
+        @include('frontend.master.layouts.header')
+        <!-- Header -->
+
+        <!-- Sidebar -->
+        @include('frontend.master.layouts.sidebar')
+        <!-- Sidebar End -->
+
+        <!-- Page Content Start -->
+        <div class="page-content space-top p-b65">
+            <div class="container">
+                <div class="demo__card-cont dz-gallery-slider">
+                    @foreach ($add_friend as $friend)
+                        @php
+                            use Carbon\Carbon;
+
+                            $userId = auth()->id();
+                            $friendshipExists = App\Models\Friendships::where(function ($query) use ($userId, $friend) {
+                                $query->where('requester', $userId)->where('accepter', $friend->id);
+                            })
+                                ->orWhere(function ($query) use ($userId, $friend) {
+                                    $query->where('requester', $friend->id)->where('accepter', $userId);
+                                })
+                                ->exists();
+
+                            $age = Carbon::parse($friend->date_of_birth)->age;
+                            $hobbies = App\Models\Hobby::whereIn(
+                                'id',
+                                json_decode($friend->hobbies_interests_id, true),
+                            )->pluck('name');
+                        @endphp
+
+                        @if (!$friendshipExists)
+                            <div class="demo__card">
+                                <div class="dz-media">
+                                    <img src="{{ get_user_image($friend->photo, 'optimized') }}" alt="">
+                                </div>
+                                <div class="dz-content">
+                                    <div class="left-content">
+                                        <h4 class="title">
+                                            <a href="{{ route('user.profile.view', $friend->id) }}">{{ $friend->name }},
+                                                {{ $age }}</a>
+                                        </h4>
+
+                                        <ul class="intrest">
+                                            @foreach ($hobbies as $hobby)
+                                                <li><span class="badge">{{ $hobby }}</span></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <a href="javascript:void(0);" class="dz-icon dz-sp-like"><i
+                                            class="flaticon flaticon-star-1"></i></a>
+                                </div>
+                                <div class="demo__card__choice m--reject">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                                <div class="demo__card__choice m--like">
+                                    <a href="javascript:;"
+                                        onclick="ajaxAction('{{ route('user.friend', $friend->id) }}')">
+                                        <i class="fa-solid fa-check"></i>
+                                    </a>
+                                </div>
+
+                                <div class="demo__card__drag"></div>
+                            </div>
+                        @endif
+                    @endforeach
+
+
                 </div>
-            @endif
-        @endforeach
+            </div>
+        </div>
+        <!-- Page Content End -->
+
+        <!-- Menubar -->
+        @include('frontend.master.layouts.menu')
+        <!-- Menubar -->
     </div>
-    <div class="custom-swiper-pagination swiper-pagination"></div>
-</div>
 
-<script>
-    var swiper = new Swiper('.custom-swiper-container', {
-        effect: 'cards',
-        grabCursor: true,
-        loop: true,
-        pagination: {
-            el: ".custom-swiper-pagination",
-            clickable: true,
-        },
-    });
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('assets/vendor/countdown/jquery.countdown.js') }}"></script><!-- COUNTDOWN FUCTIONS  -->
+    <script src="{{ asset('assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('assets/js/tinderSwiper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dz.carousel.js') }}"></script><!-- Swiper -->
+    <script src="{{ asset('assets/js/settings.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+</body>
 
-    function sendFriendRequest(url) {
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Content-Type': 'application/json'
-            }
-        }).then(response => response.json())
-          .then(data => console.log(data));
-    }
-</script>
+</html>

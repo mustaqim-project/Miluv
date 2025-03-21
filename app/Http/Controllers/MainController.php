@@ -1305,22 +1305,22 @@ class MainController extends Controller
                     ->orWhere('requester', $userId);
             })
             ->pluck('accepter')
-            ->merge(Friendships::where('is_accepted', 1)
-                ->where(function ($query) use ($userId) {
-                    $query->where('accepter', $userId)
-                        ->orWhere('requester', $userId);
-                })
-                ->pluck('requester'))
+            ->merge(
+                Friendships::where('is_accepted', 1)
+                    ->where(function ($query) use ($userId) {
+                        $query->where('accepter', $userId)
+                            ->orWhere('requester', $userId);
+                    })
+                    ->pluck('requester')
+            )
             ->unique()
             ->toArray();
 
         // Ambil daftar user yang bukan teman
-        $add_friend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
+        $addFriend = User::whereNotIn('id', array_merge([$userId], $friendIds))->get();
 
-        // Gunakan format array seperti contoh
-        $page_data['add_friend'] = $add_friend;
-        $page_data['view_path'] = 'frontend.matches.index';
-
-        return view('frontend.index', $page_data);
+        return view('frontend.matches.index', [
+            'add_friend' => $addFriend,
+        ]);
     }
 }

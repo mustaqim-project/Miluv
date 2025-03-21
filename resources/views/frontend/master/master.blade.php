@@ -61,8 +61,6 @@
         gtag('config', 'G-FCSFS9Q27Y');
     </script>
 </head>
-
-
 <body class="overflow-hidden header-large">
     <div class="page-wrapper">
         <!-- Preloader -->
