@@ -40,7 +40,7 @@
     @elseif (isset($category) && $category)
         @include('partials.category', ['category' => $category, 'system_name' => $system_name])
     @else
-        @include('partials.default', ['system_name' => $system_name])
+        @include('partials.utama', ['system_name' => $system_name])
     @endif
 
     <!-- Global CSS -->
