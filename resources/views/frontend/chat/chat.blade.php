@@ -34,13 +34,13 @@
                 </ul>
             </div>
         </div>
-        <div class="modal-body">
+        {{-- <div class="modal-body">
             <div class="modal-inner" id="messageShowDiv">
                 <div class="message-body" id="message_body">
                     @include('frontend.chat.single-message')
                 </div>
             </div>
-        </div>
+        </div> --}}
     @endif
 
 
