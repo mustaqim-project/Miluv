@@ -10,6 +10,11 @@
         <div class="timeline-navigation">
             <nav class="menu-wrap">
                 <ul>
+     
+                    <li class="@if (Route::currentRouteName() == 'matches') active @endif"><a href="{{ route('matches') }}"><img
+                                    src="{{ asset('storage/images/love.svg') }}"
+                                    alt="Matches">{{ get_phrase('Matches') }}</a></li>
+
                     <li class="@if (Route::currentRouteName() == 'timeline' || Route::currentRouteName() == 'single.post') active @endif"><a href="{{ route('timeline') }}"><img
                                 src="{{ asset('storage/images/timeline-2.svg') }}"
                                 alt="Timeline">{{ get_phrase('Timeline') }}</a></li>
