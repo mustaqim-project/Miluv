@@ -1318,7 +1318,7 @@ class MainController extends Controller
         
 
         $page_data['user_info'] = $this->user;
-        $page_data['view_path'] = 'frontend.main-content.matches';
+        $page_data['view_path'] = 'frontend.main_content.matches';
         return view('frontend.index', $page_data);
     
     }
