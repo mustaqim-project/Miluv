@@ -4,11 +4,10 @@
     <div class="inner-sidebar">
         <a href="profile.html" class="author-box">
             <div class="dz-media">
-                <img src="assets/images/user/pic1.jpg" alt="author-image">
+                <img src="{{ get_user_image(auth()->user()->photo, 'optimized') }}" alt="author-image">
             </div>
             <div class="dz-info">
-                <h5 class="name">John Doe</h5>
-                <span>example@gmail.com</span>
+                <h5 class="name">{{ auth()->user()->name }}</h5>
             </div>
         </a>
         <ul class="nav navbar-nav">	
@@ -61,12 +60,15 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="onboarding.html">
-                    <span class="dz-icon">
-                        <i class="icon feather icon-log-out"></i>
-                    </span>
-                    <span>Logout</span>
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="nav-link" href="route('logout')"onclick="event.preventDefault(); this.closest('form').submit();">
+                         <span class="dz-icon">
+                            <i class="icon feather icon-log-out"></i>
+                        </span>
+                        <span>Logout</span>
+                    </a>
+                </form>
             </li>
         </ul>
         <div class="sidebar-bottom">
