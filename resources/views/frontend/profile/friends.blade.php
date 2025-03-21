@@ -2,7 +2,7 @@
 <div class="friends-tab ct-tab bg-white radius-8 p-3">
     <div class="n_friend_search">
         <div class="search_left">
-           <h3>{{get_phrase('Friends')}}</h3>
+           <h3>{{get_phrase('Matches')}}</h3>
            {{-- <form action="#" class="f_search">
                <input type="text" class="form-control" placeholder="Search">
                <i class="fa-solid fa-magnifying-glass"></i>
