@@ -289,7 +289,7 @@ class ChatController extends Controller
 
 
     public function endChat($id) {
-        return redirect()->route('chat.list')->with('success', 'Chat berhasil diakhiri.');
+        return redirect()->route('chat','all')->with('success', 'Chat berhasil diakhiri.');
     }
 
 
