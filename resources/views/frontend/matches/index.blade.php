@@ -18,22 +18,6 @@
     <title>{{ $title ?? $system_name }}</title>
     <link rel="shortcut icon" href="{{ get_system_logo_favicon($system_favicon, 'favicon') }}">
 
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="{{ asset('dating/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}"
-        as="style">
-    <link rel="preload" href="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}"
-        as="style">
-    <link rel="preload" href="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.css') }}" as="style">
-    <link rel="preload" href="{{ asset('dating/assets/css/style.css') }}" as="style">
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-        as="style">
-
-    <!-- DNS-Prefetch for External Domains -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
     <!-- Meta Tags -->
     @if (isset($blog) && $blog)
         @include('frontend.master.partials.blog', ['blog' => $blog, 'system_name' => $system_name])
@@ -42,20 +26,6 @@
     @else
         @include('frontend.master.partials.utama', ['system_name' => $system_name])
     @endif
-
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="{{ asset('dating/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dating/assets/css/style.css') }}">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-        media="print" onload="this.media='all'">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCSFS9Q27Y"></script>
@@ -68,6 +38,25 @@
         gtag('js', new Date());
         gtag('config', 'G-FCSFS9Q27Y');
     </script>
+
+ 
+<!-- Global CSS -->
+<link rel="stylesheet" href="{{ asset('dating/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+<link rel="stylesheet" href="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
+<link rel="stylesheet" href="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.css') }}">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" class="main-css" href="{{ asset('dating/assets/css/style.css') }}">
+
+    <!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+
+
+
+
 </head>
 
 <body class="overflow-hidden header-large">
@@ -219,7 +208,7 @@
 		</div>
 	</div>
 	<!-- Page Content End -->
-    
+
         <!-- Page Content Start -->
         {{-- <div class="page-content space-top p-b65">
             <div class="container">
