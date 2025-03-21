@@ -75,7 +75,7 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                             </div> --}}
                             <div class="group-control">
                                 <a href="{{ route('timeline') }}" class="notification-button"><i
-                                    class="fa-solid fa-home"></i></a>
+                                        class="fa-solid fa-home"></i></a>
                             </div>
                             <div class="group-control">
                                 <a href="{{ route('profile.friends') }}" class="notification-button"><i

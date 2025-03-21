@@ -201,7 +201,7 @@
                                         src="{{ asset('storage/images/image.svg') }}"
                                         alt="photo"></button>
                                     <button type="button" data-tab="tab-ai" class="btn btn-secondary m_btn"><i class="fa-solid fa-robot" style="color:#0950a9e6"></i></button>
-                                <button type="button" data-tab="tab-tag" class="btn btn-secondary m_btn"><img
+                                {{-- <button type="button" data-tab="tab-tag" class="btn btn-secondary m_btn"><img
                                         src="{{ asset('storage/images/peoples.png') }}"
                                         alt="photo"></button>
                                 <button type="button" data-tab="tab-feeling" class="btn btn-secondary m_btn"><img
@@ -209,7 +209,7 @@
                                         alt="photo"></button>
                                 <button type="button" onclick="loadMaps('map')" data-tab="tab-location"
                                     class="btn btn-secondary m_btn"><img src="{{ asset('storage/images/location.png') }}"
-                                        alt="photo"></button>
+                                        alt="photo"></button> --}}
                                 <button type="button" class="btn btn-secondary m_btn" onclick="confirmLiveStreaming()"><img
                                         src="{{ asset('storage/images/camera.svg') }}"
                                         alt="photo"></button>
