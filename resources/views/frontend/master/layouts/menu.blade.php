@@ -1,6 +1,6 @@
 <div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
-        <a href="/" class="nav-link">
+        <a href="/" class="nav-link active">
             <i class="icon feather icon-heart-on"></i>
             <span>Matches</span>
         </a>
@@ -8,7 +8,7 @@
             <i class="fa-solid fa-image"></i>
             <span>Timeline</span>
         </a>
-        <a href="index.html" class="nav-link active">
+        <a href="index.html" class="nav-link">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </a>
@@ -25,17 +25,19 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Ambil semua elemen dengan class "nav-link"
         let navLinks = document.querySelectorAll(".nav-link");
-        // Ambil URL path saat ini
-        let currentPath = window.location.pathname.split("/").pop();
+        let currentPath = window.location.pathname;
+
+        // Handle jika berada di halaman utama "/"
+        if (currentPath === "/" || currentPath === "/index.html") {
+            currentPath = "/index.html"; // Pastikan homepage cocok dengan "index.html"
+        }
 
         navLinks.forEach(link => {
-            // Ambil href dari tiap link
             let linkPath = link.getAttribute("href");
 
-            // Jika URL saat ini cocok dengan href, tambahkan class "active"
-            if (linkPath === currentPath) {
+            // Cocokkan path dengan href (baik yang pas maupun yang mengandung URL)
+            if (currentPath.endsWith(linkPath) || currentPath.includes(linkPath)) {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");
@@ -43,4 +45,5 @@
         });
     });
 </script>
+
 
