@@ -105,7 +105,7 @@
                 </li>
             </ul>
             <div class="app-info">
-                <h6 class="name">W3Dating - Dating App</h6>
+                <h6 class="name">Miluv - Smart Dating With Ai</h6>
                 <span class="ver-info">App Version 1.0</span>
             </div>
         </div>
