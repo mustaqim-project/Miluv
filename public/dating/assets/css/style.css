@@ -135,8 +135,8 @@
   --bg-gradient: linear-gradient(0deg, #4425AE 0%, #7A5AFF 100%); /* Gradient using primary colors */
   --primary-hover: #361D8C; /* Darker shade for hover states */
   --primary-dark: #b60055; /* Darker blue-purple */
-  --secondary: #DF2584; /* Vibrant pink */
-  --secondary-light: #FF6ABD; /* Lighter pink */
+  --secondary: #FF6ABD; /* Vibrant pink */
+  --secondary-light: #FF8ACD; /* Lighter pink */
   --rgba-primary-1: rgba(68, 37, 174, 0.1); /* Transparent primary shades */
   --rgba-primary-2: rgba(68, 37, 174, 0.2);
   --rgba-primary-3: rgba(68, 37, 174, 0.3);
@@ -490,8 +490,8 @@
   --bs-form-valid-border-color: #b5dfbe;
   --bs-form-invalid-color: #ff9ba8;
   --bs-form-invalid-border-color: #ff9ba8; 
-}
- */
+} */
+
 
 *,
 *::before,
@@ -11852,14 +11852,6 @@ section {
     line-height: 1;
     font-size: 20px;
     color: var(--primary); }
-
-  /* Jika mode gelap aktif */
-  @media (prefers-color-scheme: dark) {
-      .sidebar .dz-icon i {
-          color: var(--secondary);
-      }
-  }
-
   .sidebar .dz-icon svg {
     fill: var(--primary); }
   .sidebar .navbar-nav {
