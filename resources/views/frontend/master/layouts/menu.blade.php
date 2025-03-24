@@ -1,6 +1,6 @@
 <div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
-        <a href="matches.html" class="nav-link">
+        <a href="/" class="nav-link">
             <i class="icon feather icon-heart-on"></i>
             <span>Matches</span>
         </a>
