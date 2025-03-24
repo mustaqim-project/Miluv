@@ -12,7 +12,7 @@
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </div>
-                <div class="right-content dz-meta">
+                <div class="right-content dz-meta" style="margin-right:2em ">
                     <a href="#" class="notification-icon">
                         <i class="flaticon flaticon-notifications"></i>
                     </a>
