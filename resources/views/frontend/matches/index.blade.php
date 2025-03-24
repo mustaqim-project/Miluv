@@ -125,6 +125,73 @@
 
                                 <div class="demo__card__drag"></div>
                             </div>
+                            <div class="detail-bottom-area">
+                                <div class="about">
+                                    <h6 class="title">Basic information</h6>
+                                    <p class="para-text">Just moved back to jakarata after living at India for 10+ years. Di luar terlifiat cenger - center di dalam.</p>					
+                                </div>
+                                <div class="intrests mb-3">
+                                    <h6 class="title">Intrests</h6>
+                                    <ul class="dz-tag-list">
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon feather icon-camera"></i>
+                                                <span>Photography</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon feather icon-music"></i>
+                                                <span>Music</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon feather icon-book"></i>
+                                                <span>Study</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon feather icon-film"></i>
+                                                <span>Movies</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon feather icon-instagram"></i>
+                                                <span>Instagram</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <i class="icon fa-solid fa-location-dot"></i>
+                                                <span>Travelling</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="languages mb-3">
+                                    <h6 class="title">Languages</h6>
+                                    <ul class="dz-tag-list">
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <span>English</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <span>Spanish</span>
+                                            </div>
+                                        </li>
+                                        <li> 
+                                            <div class="dz-tag">
+                                                <span>German</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         @endif
                     @endforeach
 
