@@ -7,53 +7,60 @@
                 <h5 class="name">{{ auth()->user()->name }}</h5>
             </div>
         </a>
-        <ul class="sidebar-menu">
-            <li class="section-title">Fitur Tanpa Login</li>
-            <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">🔗</span>
-                    <span>Instant Access</span>
-                </a>
-            </li>
-            <li class="section-title">Akun</li>
-            <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">📛</span>
-                    <span>Nama Panggilan</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">📧</span>
-                    <span>Email</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">🌐</span>
-                    <span>Bahasa</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">📂</span>
-                    <span>Data Anda</span>
-                </a>
-            </li>
+        <ul class="sidebar-menu"> 
             <li class="section-title">Fitur</li>
             <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">🔑</span>
-                    <span>Token Online <span class="badge-new">NEW</span></span>
+                <a href="matches.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-link"></i></span>
+                    <span>Matches</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item">
-                    <span class="icon">📩</span>
-                    <span>Proxy untuk BI Fast</span>
+                <a href="timeline.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                    <span>Timeline</span>
+                </a>
+            </li>
+            <li>
+                <a href="badge.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-medal"></i></span>
+                    <span>Badge</span>
+                </a>
+            </li>
+            <li>
+                <a href="blog.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-pen"></i></span>
+                    <span>Blog</span>
+                </a>
+            </li>
+        
+            <li class="section-title">Akun</li>
+            <li>
+                <a href="my-profile.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span>My Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-cog"></i></span>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="change-password.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-key"></i></span>
+                    <span>Change Password</span>
+                </a>
+            </li>
+            <li>
+                <a href="logout.html" class="menu-item">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span>Log Out</span>
                 </a>
             </li>
         </ul>
+        
         
         <div class="sidebar-bottom">
             <ul class="app-setting">
