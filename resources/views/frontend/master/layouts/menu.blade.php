@@ -8,7 +8,7 @@
             <i class="fa-solid fa-image"></i>
             <span>Timeline</span>
         </a>
-        <a href="index.html" class="nav-link active">
+        <a href="index.html" class="nav-link">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </a>
@@ -22,3 +22,25 @@
         </a>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ambil semua elemen dengan class "nav-link"
+        let navLinks = document.querySelectorAll(".nav-link");
+        // Ambil URL path saat ini
+        let currentPath = window.location.pathname.split("/").pop();
+
+        navLinks.forEach(link => {
+            // Ambil href dari tiap link
+            let linkPath = link.getAttribute("href");
+
+            // Jika URL saat ini cocok dengan href, tambahkan class "active"
+            if (linkPath === currentPath) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+
