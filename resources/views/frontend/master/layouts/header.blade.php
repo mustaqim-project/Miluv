@@ -13,8 +13,8 @@
                     </a>
                 </div>
                 <div class="right-content dz-meta">
-                    <a href="#" class="filter-icon">
-                        <i class="flaticon flaticon-settings-sliders"></i>
+                    <a href="#" class="notification-icon">
+                        <i class="flaticon flaticon-notifications"></i>
                     </a>
                 </div>
                 <div class="right-content dz-meta">
