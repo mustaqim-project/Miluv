@@ -3,9 +3,6 @@
 <div class="sidebar">
     <div class="inner-sidebar">
         <a href="profile.html" class="author-box">
-            <div class="dz-media">
-                <img src="{{ get_user_image(auth()->user()->photo, 'optimized') }}" alt="author-image">
-            </div>
             <div class="dz-info">
                 <h5 class="name">{{ auth()->user()->name }}</h5>
             </div>
@@ -130,11 +127,6 @@
 
     .menu-item:hover {
         background: #f4f4f4;
-    }
-
-    .icon {
-        margin-right: 10px;
-        font-size: 18px;
     }
 
     .badge-new {
