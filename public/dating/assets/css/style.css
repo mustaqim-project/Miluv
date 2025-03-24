@@ -384,7 +384,7 @@
   --bs-form-invalid-border-color: #ff4a5c; 
 }
 
-
+/* 
 [data-bs-theme="dark"] {
   color-scheme: dark;
   --bs-body-color: #adb5bd;
@@ -437,7 +437,7 @@
   --bs-form-valid-border-color: #b5dfbe;
   --bs-form-invalid-color: #ff9ba8;
   --bs-form-invalid-border-color: #ff9ba8; 
-} 
+}  */
 /* 
 [data-bs-theme="dark"] {
   --bs-body-color: #adb5bd;
