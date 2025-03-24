@@ -1,58 +1,87 @@
 <!-- Sidebar -->
+<div class="dark-overlay"></div>
 <div class="sidebar">
-    <div class="sidebar-header">
-        <h2>Pengaturan</h2>
-        <input type="text" class="search-bar" placeholder="Cari pengaturan yang ingin diubah...">
+    <div class="inner-sidebar">
+        <a href="profile.html" class="author-box">
+            <div class="dz-media">
+                <img src="{{ get_user_image(auth()->user()->photo, 'optimized') }}" alt="author-image">
+            </div>
+            <div class="dz-info">
+                <h5 class="name">{{ auth()->user()->name }}</h5>
+            </div>
+        </a>
+        <ul class="sidebar-menu">
+            <li class="section-title">Fitur Tanpa Login</li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">🔗</span>
+                    <span>Instant Access</span>
+                </a>
+            </li>
+            <li class="section-title">Akun</li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">📛</span>
+                    <span>Nama Panggilan</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">📧</span>
+                    <span>Email</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">🌐</span>
+                    <span>Bahasa</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">📂</span>
+                    <span>Data Anda</span>
+                </a>
+            </li>
+            <li class="section-title">Fitur</li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">🔑</span>
+                    <span>Token Online <span class="badge-new">NEW</span></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <span class="icon">📩</span>
+                    <span>Proxy untuk BI Fast</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-bottom">
+            <ul class="app-setting">
+                <li>
+                    <div class="mode">
+                        <span class="dz-icon">                        
+                            <i class="icon feather icon-moon"></i>
+                        </span>					
+                        <span>Dark Mode</span>
+                        <div class="custom-switch">
+                            <input type="checkbox" class="switch-input theme-btn" id="toggle-dark-menu">
+                            <label class="custom-switch-label" for="toggle-dark-menu"></label>
+                        </div>					
+                    </div>
+                </li>
+            </ul>
+            <div class="app-info">
+                <h6 class="name">W3Dating - Dating App</h6>
+                <span class="ver-info">App Version 1.0</span>
+            </div>
+        </div>
     </div>
-    <ul class="sidebar-menu">
-        <li class="section-title">Fitur Tanpa Login</li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">🔗</span>
-                <span>Instant Access</span>
-            </a>
-        </li>
-        <li class="section-title">Akun</li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">📛</span>
-                <span>Nama Panggilan</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">📧</span>
-                <span>Email</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">🌐</span>
-                <span>Bahasa</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">📂</span>
-                <span>Data Anda</span>
-            </a>
-        </li>
-        <li class="section-title">Fitur</li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">🔑</span>
-                <span>Token Online <span class="badge-new">NEW</span></span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="menu-item">
-                <span class="icon">📩</span>
-                <span>Proxy untuk BI Fast</span>
-            </a>
-        </li>
-    </ul>
 </div>
 <!-- Sidebar End -->
+
 
 <style>
     .sidebar {
