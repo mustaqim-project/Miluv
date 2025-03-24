@@ -1,6 +1,6 @@
 <div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
-        <a href="/" class="nav-link active">
+        <a href="/" class="nav-link">
             <i class="icon feather icon-heart-on"></i>
             <span>Matches</span>
         </a>
@@ -29,8 +29,8 @@
         let currentPath = window.location.pathname;
 
         // Handle jika berada di halaman utama "/"
-        if (currentPath === "/" || currentPath === "/index.html") {
-            currentPath = "/index.html"; // Pastikan homepage cocok dengan "index.html"
+        if (currentPath === "/") {
+            currentPath = "/"; // Pastikan homepage cocok dengan "index.html"
         }
 
         navLinks.forEach(link => {
