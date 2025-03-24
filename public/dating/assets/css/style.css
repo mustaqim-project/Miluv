@@ -138,7 +138,7 @@
     #7a5aff 100%
   ); /* Gradient using primary colors */
   --primary-hover: #361d8c; /* Darker shade for hover states */
-  --primary-dark: #280251; /* Darker blue-purple */
+  --primary-dark: #df2584; /* Darker blue-purple */
   --secondary: #df2584; /* Vibrant pink */
   --secondary-light: #ff6abd; /* Lighter pink */
   --rgba-primary-1: rgba(68, 37, 174, 0.1); /* Transparent primary shades */
