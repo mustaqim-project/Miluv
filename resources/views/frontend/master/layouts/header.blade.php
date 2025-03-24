@@ -17,6 +17,11 @@
                         <i class="flaticon flaticon-settings-sliders"></i>
                     </a>
                 </div>
+                <div class="right-content dz-meta">
+                    <a href="#" class="filter-icon">
+                        <i class="flaticon flaticon-settings-sliders"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
