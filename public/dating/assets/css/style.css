@@ -11852,6 +11852,14 @@ section {
     line-height: 1;
     font-size: 20px;
     color: var(--primary); }
+
+  /* Jika mode gelap aktif */
+  @media (prefers-color-scheme: dark) {
+      .sidebar .dz-icon i {
+          color: var(--secondary);
+      }
+  }
+
   .sidebar .dz-icon svg {
     fill: var(--primary); }
   .sidebar .navbar-nav {
