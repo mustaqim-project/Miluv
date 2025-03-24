@@ -1,19 +1,26 @@
-<div class="menubar-area footer-fixed">
+<!-- Menubar -->
+<div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
-        <a href="#" class="nav-link active">
-        <i class="flaticon flaticon-dog-house"></i>
+        <a href="components.html" class="nav-link">
+            <i class="icon feather icon-heart-on"></i>
+            <span>Features</span>
         </a>
-        <a href="#" class="nav-link">
-        <i class="flaticon flaticon-search"></i>
+        <a href="media.html" class="nav-link">
+            <i class="fa-solid fa-image"></i>
+            <span>Media</span>
         </a>
-        <a href="#" class="nav-link">
-        <i class="flaticon flaticon-heart"></i>
+        <a href="index.html" class="nav-link active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
         </a>
-        <a href="#" class="nav-link">
-        <i class="flaticon flaticon-chat-1"></i>
+        <a href="pages.html" class="nav-link">
+            <i class="icon feather icon-grid"></i>
+            <span>Pages</span>
         </a>
-        <a href="#" class="nav-link">
-        <i class="flaticon flaticon-user"></i>
+        <a href="home-setting.html" class="nav-link">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
         </a>
     </div>
 </div>
+<!-- Menubar -->
