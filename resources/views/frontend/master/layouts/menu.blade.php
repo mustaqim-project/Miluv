@@ -1,6 +1,6 @@
 <div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
-        <a href="/" class="nav-link active">
+        <a href="/" class="nav-link">
             <i class="icon feather icon-heart-on"></i>
             <span>Matches</span>
         </a>
@@ -8,7 +8,7 @@
             <i class="fa-solid fa-image"></i>
             <span>Timeline</span>
         </a>
-        <a href="index.html" class="nav-link">
+        <a href="index.html" class="nav-link active">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </a>
@@ -43,3 +43,4 @@
         });
     });
 </script>
+
