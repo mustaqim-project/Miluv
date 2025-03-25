@@ -27,7 +27,7 @@
             <li>
                 <a href="blog.html" class="menu-item">
                     <span class="dz-icon"><i class="fas fa-pen"></i></span>
-                    <span>Blog</span>
+                    <span>Article</span>
                 </a>
             </li>
             

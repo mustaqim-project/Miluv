@@ -39,8 +39,8 @@
             <i class="fa-solid fa-plus"></i>
         </a>
         <a href="blog.html" class="nav-link">
-            <i class="fa-solid fa-th"></i>
-            <span>Blog</span>
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Article</span>
         </a>
         <a href="settings.html" class="nav-link">
             <i class="fa-solid fa-user"></i>
