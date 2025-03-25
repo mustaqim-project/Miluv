@@ -1,6 +1,5 @@
 <style>
     .floating-button {
-        margin: 2em;
         position: absolute;
         bottom: 20px; /* Atur posisi vertikal */
         left: 50%;
@@ -32,14 +31,14 @@
             <i class="fa-solid fa-user-friends"></i>
             <span>Matches</span>
         </a>
-        <a href="timeline.html" class="nav-link">
+        <a href="timeline.html" class="nav-link" style="margin-right: 2px">
             <i class="fa-solid fa-globe"></i>
             <span>Explore</span>
         </a>
         <a href="index.html" class="floating-button">
             <i class="fa-solid fa-plus"></i>
         </a>
-        <a href="blog.html" class="nav-link">
+        <a href="blog.html" class="nav-link" style="margin-left: 2px">
             <i class="fa-solid fa-pen-to-square"></i>
             <span>Article</span>
         </a>
