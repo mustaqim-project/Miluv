@@ -1,24 +1,50 @@
+<style>
+    .floating-button {
+        position: absolute;
+        bottom: 20px; /* Atur posisi vertikal */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ff5722; /* Warna tombol */
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .floating-button:hover {
+        background-color: #e64a19;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+</style>
+
 <div class="menubar-area style-2 footer-fixed">
     <div class="toolbar-inner menubar-nav">
         <a href="/" class="nav-link">
-            <i class="icon feather icon-heart-on"></i>
+            <i class="fa-solid fa-user-friends"></i>
             <span>Matches</span>
         </a>
         <a href="timeline.html" class="nav-link">
-            <i class="fa-solid fa-image"></i>
-            <span>Timeline</span>
+            <i class="fa-solid fa-globe"></i>
+            <span>Explore</span>
         </a>
-        <a href="index.html" class="nav-link">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
+        <a href="index.html" class="floating-button">
+            <i class="fa-solid fa-plus"></i>
         </a>
         <a href="blog.html" class="nav-link">
-            <i class="icon feather icon-grid"></i>
+            <i class="fa-solid fa-th"></i>
             <span>Blog</span>
         </a>
         <a href="settings.html" class="nav-link">
-            <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
         </a>
     </div>
 </div>
