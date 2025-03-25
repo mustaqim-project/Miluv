@@ -31,14 +31,14 @@
             <i class="fa-solid fa-user-friends"></i>
             <span>Matches</span>
         </a>
-        <a href="timeline.html" class="nav-link" style="margin-right: 2px">
+        <a href="timeline.html" class="nav-link" style="margin-right: 1.5em">
             <i class="fa-solid fa-globe"></i>
             <span>Explore</span>
         </a>
         <a href="index.html" class="floating-button">
             <i class="fa-solid fa-plus"></i>
         </a>
-        <a href="blog.html" class="nav-link" style="margin-left: 2px">
+        <a href="blog.html" class="nav-link" style="margin-left: 1.5em">
             <i class="fa-solid fa-pen-to-square"></i>
             <span>Article</span>
         </a>
