@@ -129,12 +129,12 @@
   --btn-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
   --btn-shadow: 0px 24px 30px 0px rgba(255, 63, 152, 0.20); 
   */
-  --primary: #03396c;
+  --primary: #4cb1ff;
   --primary-light: #79c1f8;
   --primary-hover: #3696e0;
   --primary-dark: #1f6bb3;
   --bg-gradient: linear-gradient(0deg, #4cb1ff 0%, #79c1f8 100%);
-  --secondary: #1c87c0;
+  --secondary: #03396c;
   --secondary-light: #4093c1;
   --rgba-primary-1:#9fd5e8;
   --rgba-primary-2:#acf0fb;
