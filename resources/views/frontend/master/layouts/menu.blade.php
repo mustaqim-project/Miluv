@@ -29,22 +29,22 @@
     <div class="toolbar-inner menubar-nav">
         <a href="/" class="nav-link">
             <i class="fa-solid fa-user-friends"></i>
-            <span style="color:#000000">Matches</span>
+            <span>Matches</span>
         </a>
         <a href="timeline.html" class="nav-link" style="margin-right: 1.5em">
             <i class="fa-solid fa-globe"></i>
-            <span style="color:#000000">Explore</span>
+            <span>Explore</span>
         </a>
         <a href="index.html" class="floating-button">
             <i class="fa-solid fa-plus"></i>
         </a>
         <a href="blog.html" class="nav-link" style="margin-left: 1.5em">
             <i class="fa-solid fa-pen-to-square"></i>
-            <span style="color:#000000">Article</span>
+            <span>Article</span>
         </a>
         <a href="settings.html" class="nav-link">
             <i class="fa-solid fa-user"></i>
-            <span style="color:#000000">Profile</span>
+            <span>Profile</span>
         </a>
     </div>
 </div>

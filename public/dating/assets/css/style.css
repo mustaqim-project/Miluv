@@ -12050,7 +12050,7 @@ section {
       .menubar-area.style-2 .menubar-nav .nav-link span {
         font-size: 12px;
         display: block;
-        color: var(--secondary);
+        color: #000;
         font-family: var(--font-family-title); }
       .menubar-area.style-2 .menubar-nav .nav-link svg path {
         fill: unset; }
