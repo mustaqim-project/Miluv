@@ -4,6 +4,7 @@
         bottom: 20px; /* Atur posisi vertikal */
         left: 50%;
         transform: translateX(-50%);
+        background-color:  #fff; /* Warna tombol */
         color: #000000;
         padding: 15px 20px;
         border-radius: 50%;
@@ -19,6 +20,7 @@
     }
 
     .floating-button:hover {
+        background-color:  #fff;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     }
 </style>
