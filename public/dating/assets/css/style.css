@@ -129,16 +129,16 @@
   --btn-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
   --btn-shadow: 0px 24px 30px 0px rgba(255, 63, 152, 0.20); 
   */
-  --primary: #4cb1ff;
+  --primary: #03396c;
   --primary-light: #79c1f8;
   --primary-hover: #3696e0;
   --primary-dark: #1f6bb3;
   --bg-gradient: linear-gradient(0deg, #4cb1ff 0%, #79c1f8 100%);
-  --secondary: #441D3E;
-  --secondary-light: rgba(47, 47, 47, 0.50);
-  --rgba-primary-1: rgba(76, 177, 255, 0.1);
-  --rgba-primary-2: rgba(76, 177, 255, 0.2);
-  --rgba-primary-3: rgba(76, 177, 255, 0.3);
+  --secondary: #1c87c0;
+  --secondary-light: #4093c1;
+  --rgba-primary-1:#9fd5e8;
+  --rgba-primary-2:#acf0fb;
+  --rgba-primary-3: #cfecf3;
   --rgba-primary-4: rgba(76, 177, 255, 0.4);
   --rgba-primary-5: rgba(76, 177, 255, 0.5);
   --rgba-primary-6: rgba(76, 177, 255, 0.6);
@@ -11970,8 +11970,9 @@ section {
       border-radius: 50%;
       transform: translate(-50%, -50%);
       display: none;
+      background: linear-gradient(0deg, #4cb1ff 0%, #79c1f8 100%);
       /* background: linear-gradient(180deg, #FE77B6 0%, #FF3D97 100%); */
-      background:#1f6bb3;
+      /* background:var(--primary-dark); */
       box-shadow: 0px 15px 30px 0px rgba(255, 104, 175, 0.3); }
     .menubar-area .menubar-nav .nav-link span {
       font-size: 12px;
@@ -12043,7 +12044,7 @@ section {
         width: 65px;
         height: 75px;
         display: none;
-        background-color: var(--primary-dark);
+        background-color: var(--secondary);
         z-index: -1;
         border-radius: 14px 14px 0 0; }
       .menubar-area.style-2 .menubar-nav .nav-link span {
