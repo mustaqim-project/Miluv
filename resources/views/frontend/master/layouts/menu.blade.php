@@ -1,5 +1,6 @@
 <style>
     .floating-button {
+        margin: 2em;
         position: absolute;
         bottom: 20px; /* Atur posisi vertikal */
         left: 50%;

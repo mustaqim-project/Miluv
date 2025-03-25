@@ -12043,7 +12043,7 @@ section {
         width: 65px;
         height: 75px;
         display: none;
-        background-color: var(--secondary);
+        background-color: var(--primary-dark);
         z-index: -1;
         border-radius: 14px 14px 0 0; }
       .menubar-area.style-2 .menubar-nav .nav-link span {
