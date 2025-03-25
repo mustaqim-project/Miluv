@@ -88,8 +88,10 @@
 @import url("../icons/flaticon/font/flaticon.css");
 @import url("../icons/themify-icons/css/themify-icons.css");
 :root {
-  --primary: #FF50A2;
-  --primary-light: #ffacd3;
+  --primary: #4cb1ff;
+  /* --primary: #FF50A2; */
+  /* --primary-light: #ffacd3; */
+  --primary-light: #79c1f8;
   --bg-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
   --primary-hover: #ff1d87;
   --primary-dark: #b60055;
