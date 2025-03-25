@@ -12,31 +12,16 @@
         </a>
         <ul class="nav navbar-nav">	
             <li class="section-title">Fitur</li>
-
-            <li>
-                <a class="nav-link active" href="home.html">
-                    <span class="dz-icon">
-                        <i class="feather icon-home"></i>
-                    </span>
-                    <span>Home</span>
-                </a>
-            </li>
             <li>
                 <a href="matches.html" class="menu-item">
-                    <span class="dz-icon"><i class="fas fa-link"></i></span>
+                    <span class="dz-icon"><i class="fas fa-user-friends"></i></span>
                     <span>Matches</span>
                 </a>
             </li>
             <li>
                 <a href="timeline.html" class="menu-item">
-                    <span class="dz-icon"><i class="fas fa-calendar-alt"></i></span>
-                    <span>Timeline</span>
-                </a>
-            </li>
-            <li>
-                <a href="badge.html" class="menu-item">
-                    <span class="dz-icon"><i class="fas fa-medal"></i></span>
-                    <span>Badge</span>
+                    <span class="dz-icon"><i class="fas fa-globe"></i></span>
+                    <span>Explore</span>
                 </a>
             </li>
             <li>
@@ -45,34 +30,34 @@
                     <span>Blog</span>
                 </a>
             </li>
-
+            
             <li class="section-title">Akun</li>
-
             
             <li>
                 <a class="nav-link" href="profile.html">
                     <span class="dz-icon">
-                        <i class="feather icon-user"></i>
+                        <i class="fas fa-user"></i>
                     </span>
                     <span>My Profile</span>
                 </a>
             </li>
-
+            
             <li>
                 <a class="nav-link" href="setting.html">
                     <span class="dz-icon">
-                        <i class="feather icon-settings"></i>
+                        <i class="fas fa-cog"></i>
                     </span>
                     <span>Settings</span>
                 </a>
             </li>
-
+            
             <li>
                 <a href="change-password.html" class="menu-item">
                     <span class="dz-icon"><i class="fas fa-key"></i></span>
                     <span>Change Password</span>
                 </a>
             </li>
+            
 
 
             <li>
