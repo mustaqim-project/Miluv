@@ -88,11 +88,9 @@
 @import url("../icons/flaticon/font/flaticon.css");
 @import url("../icons/themify-icons/css/themify-icons.css");
 :root {
-  --primary: #4cb1ff;
   /* --primary: #FF50A2; */
   /* --primary-light: #ffacd3; */
-  --primary-light: #79c1f8;
-  --bg-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
+  /* --bg-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
   --primary-hover: #ff1d87;
   --primary-dark: #b60055;
   --secondary: #441D3E;
@@ -129,7 +127,49 @@
   --text-accent: #69708A;
   --text-light: #A19FA8;
   --btn-gradient: linear-gradient(0deg, #FE3D96 0%, #FFA4CF 100%);
-  --btn-shadow: 0px 24px 30px 0px rgba(255, 63, 152, 0.20); }
+  --btn-shadow: 0px 24px 30px 0px rgba(255, 63, 152, 0.20); 
+  */
+  --primary: #4cb1ff;
+  --primary-light: #79c1f8;
+  --primary-hover: #3696e0;
+  --primary-dark: #1f6bb3;
+  --bg-gradient: linear-gradient(0deg, #4cb1ff 0%, #79c1f8 100%);
+  --secondary: #441D3E;
+  --secondary-light: rgba(47, 47, 47, 0.50);
+  --rgba-primary-1: rgba(76, 177, 255, 0.1);
+  --rgba-primary-2: rgba(76, 177, 255, 0.2);
+  --rgba-primary-3: rgba(76, 177, 255, 0.3);
+  --rgba-primary-4: rgba(76, 177, 255, 0.4);
+  --rgba-primary-5: rgba(76, 177, 255, 0.5);
+  --rgba-primary-6: rgba(76, 177, 255, 0.6);
+  --rgba-primary-7: rgba(76, 177, 255, 0.7);
+  --rgba-primary-8: rgba(76, 177, 255, 0.8);
+  --rgba-primary-9: rgba(76, 177, 255, 0.9);
+  --font-family-title: Poppins, sans-serif;
+  --font-family-base: Nunito Sans, sans-serif;
+  --box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+  --box-shadow2: 0px 3px 12px rgba(0, 0, 0, 0.1);
+  --gradient1: linear-gradient(94deg, #E93E84 14.36%, #F46D8F 42.6%, #FE854E 80.39%);
+  --gradient2: linear-gradient(94deg, #E79E45 22.95%, #EBAF51 42.6%, #DCB554 80.39%);
+  --gradient3: linear-gradient(94deg, #0A0B0E 14.36%, #1F242A 42.6%, #37444E 80.39%);
+  --border-radius-md: 18px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-color: #E6E6E6;
+  --body-bg: #f5f5f5;
+  --body-color: #697089;
+  --dark: #2f2f2f;
+  --bg-white: #FFF;
+  --bg-light: #F0F0F0;
+  --title: #232954;
+  --card-bg: #fff;
+  --theme-text-color: #fff;
+  --light: #E6E6E6;
+  --text-accent: #69708A;
+  --text-light: #A19FA8;
+  --btn-gradient: linear-gradient(0deg, #4cb1ff 0%, #79c1f8 100%);
+  --btn-shadow: 0px 24px 30px 0px rgba(76, 177, 255, 0.2);
+  } 
 
 /*
 	0 - 600: Phone
