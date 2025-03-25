@@ -28,7 +28,7 @@ class CheckLocalDNS
         $key = 'rate_limit_' . $ip;
 
         // 🔹 Batasi 10 request per 1 menit per IP
-        if (RateLimiter::tooManyAttempts($key, 10)) {
+        if (RateLimiter::tooManyAttempts($key, 50)) {
             return response()->view('errors.429', [], 429);
         }
 
