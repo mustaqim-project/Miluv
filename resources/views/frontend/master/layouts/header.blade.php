@@ -76,8 +76,19 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
 
 <script>
     $(document).ready(function () {
+        // Pastikan tersembunyi saat halaman dimuat
+        $("#notification_panel").hide();
+
+        // Toggle saat tombol notifikasi diklik
         $("#notification-button").click(function () {
             $("#notification_panel").slideToggle();
+        });
+
+        // Klik di luar panel akan menutup notifikasi
+        $(document).click(function(event) {
+            if (!$(event.target).closest('#notification-button, #notification_panel').length) {
+                $("#notification_panel").slideUp();
+            }
         });
     });
 </script>
