@@ -43,7 +43,7 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                     ->where('status', '0')
                     ->count();
             @endphp
-                <div class="notify-control ">
+                <div class="right-content dz-meta" style="margin-right:2em ">
                     <a class="notification-button position-relative" id="notification-button"
                         href="javascript:;">
                         <i class="flaticon flaticon-notifications"></i>
@@ -55,7 +55,7 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
                         @endif
                     </a>
                     <div class="notification_panel" id="notification_panel">
-                        @include('frontend.notification.notification')
+                        {{-- @include('frontend.notification.notification') --}}
                     </div>
                 </div>
                 
