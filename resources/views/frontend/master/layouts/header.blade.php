@@ -73,21 +73,19 @@ $older_notification = Notification::where('reciver_user_id', auth()->user()->id)
 </header>
 
 <!-- Header -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- Lalu script yang pakai jQuery -->
 <script>
     $(document).ready(function () {
-        // Pastikan tersembunyi saat halaman dimuat
-        $("#notification_panel").hide();
-
-        // Toggle saat tombol notifikasi diklik
-        $("#notification-button").click(function () {
-            $("#notification_panel").slideToggle();
+        $("#notification-button").click(function (e) {
+            e.stopPropagation();
+            $("#notification_panel").slideToggle(200);
         });
 
-        // Klik di luar panel akan menutup notifikasi
-        $(document).click(function(event) {
-            if (!$(event.target).closest('#notification-button, #notification_panel').length) {
-                $("#notification_panel").slideUp();
+        $(document).click(function (e) {
+            if (!$(e.target).closest("#notification_panel").length) {
+                $("#notification_panel").slideUp(200);
             }
         });
     });
