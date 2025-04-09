@@ -12,9 +12,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="login-txt ms-5 text-center w-100">
-                        <h3>{{ get_phrase('Congratulations') }}</h3>
+                        {{-- <h3>{{ get_phrase('Congratulations') }}</h3>
                         <h4>{{ get_phrase('Your Verification is Done') }}</h4>
-                        <h5>{{ get_phrase('Now Explore') }}</h5>
+                        <h5>{{ get_phrase('Now Explore') }}</h5> --}}
                     </div>
                 </div>
             </div>
