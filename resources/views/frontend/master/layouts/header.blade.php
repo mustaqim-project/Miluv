@@ -18,7 +18,14 @@
                     </a>
                 </div> --}}
 
-
+                @php
+                $unread_notification = \App\Models\Notification::where(
+                    'reciver_user_id',
+                    auth()->user()->id,
+                )
+                    ->where('status', '0')
+                    ->count();
+            @endphp
                 <div class="notify-control ">
                     <a class="notification-button position-relative" id="notification-button"
                         href="javascript:;">
