@@ -95,7 +95,7 @@
                         @if (!$friendshipExists)
                             <div class="demo__card">
                                 <div class="dz-media">
-                                    <img src="{{ get_user_image($friend->photo, 'optimized') }}" alt="">
+                                    <img src="{{ get_user_image($friend->photo) }}" alt="">
                                 </div>
                                 <div class="dz-content">
                                     <div class="left-content">
