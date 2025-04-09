@@ -1,4 +1,15 @@
 <!-- Header -->
+<style>
+.notification_panel{
+	position: absolute;
+	display: none;
+	z-index: 999;
+	min-width: 400px;
+    right: -72px;
+    top: 52px;
+}
+
+</style>
 
 <?php
 use App\Models\Notification;
