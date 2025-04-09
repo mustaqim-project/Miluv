@@ -223,7 +223,7 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
     <script src="assets/vendor/countdown/jquery.countdown.js"></script><!-- COUNTDOWN FUCTIONS  -->
     <script src="assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script><!-- Swiper -->
-    <script src="assets/js/tinderSwiper.min.js"></script>
+    <script src="assets/js/MiluvSwiper.min.js"></script>
     <script src="assets/js/dz.carousel.js"></script><!-- Swiper -->
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/custom.js"></script>

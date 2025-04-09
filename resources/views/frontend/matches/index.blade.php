@@ -145,7 +145,7 @@
     <script src="{{ asset('dating/assets/vendor/swiper/swiper-bundle.min.js') }}"></script><!-- Swiper -->
     <script src="{{ asset('dating/assets/vendor/countdown/jquery.countdown.js') }}"></script><!-- COUNTDOWN FUCTIONS  -->
     <script src="{{ asset('dating/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script><!-- Swiper -->
-    <script src="{{ asset('dating/assets/js/tinderSwiper.min.js') }}"></script>
+    <script src="{{ asset('dating/assets/js/MiluvSwiper.min.js') }}"></script>
     <script src="{{ asset('dating/assets/js/dz.carousel.js') }}"></script><!-- Swiper -->
     <script src="{{ asset('dating/assets/js/settings.js') }}"></script>
     <script src="{{ asset('dating/assets/js/custom.js') }}"></script>
