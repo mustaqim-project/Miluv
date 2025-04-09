@@ -18505,3 +18505,12 @@ body.theme-dark.body-bg2 {
   text-align: center;
   padding: 9px 10.5px;
 }
+
+.notification_panel{
+	position: absolute;
+	display: none;
+	z-index: 999;
+	min-width: 400px;
+    right: -72px;
+    top: 52px;
+}
