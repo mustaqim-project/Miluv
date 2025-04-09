@@ -67,9 +67,9 @@ Route::get('/users/{user_id}', function ($user_id) {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', 'check.local.dns'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified', 'check.local.dns'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 
