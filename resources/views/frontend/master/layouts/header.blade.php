@@ -1,4 +1,21 @@
 	<!-- Header -->
+
+    <?php
+use App\Models\Notification;
+use App\Models\User;
+use Carbon\Carbon;
+
+$date = Carbon::today();
+$new_notification = Notification::where('reciver_user_id', auth()->user()->id)
+    ->where('status', '0')
+    ->orderBy('id', 'DESC')
+    ->get();
+$older_notification = Notification::where('reciver_user_id', auth()->user()->id)
+    ->where('created_at', '<', $date)
+    ->orderBy('id', 'DESC')
+    ->get();
+
+?>
     <header class="header header-fixed border-0">
         <div class="container">
             <div class="header-content">
