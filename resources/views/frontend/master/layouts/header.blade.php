@@ -12,11 +12,29 @@
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </div>
-                <div class="right-content dz-meta" style="margin-right:2em ">
+                {{-- <div class="right-content dz-meta" style="margin-right:2em ">
                     <a href="#" class="notification-icon">
                         <i class="flaticon flaticon-notifications"></i>
                     </a>
+                </div> --}}
+
+
+                <div class="notify-control ">
+                    <a class="notification-button position-relative" id="notification-button"
+                        href="javascript:;">
+                        <i class="flaticon flaticon-notifications"></i>
+                        @if ($unread_notification > 0)
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill notificatio_counter_bg">
+                                {{ get_phrase($unread_notification) }}
+                            </span>
+                        @endif
+                    </a>
+                    <div class="notification_panel" id="notification_panel">
+                        @include('frontend.notification.notification')
+                    </div>
                 </div>
+                
                 <div class="right-content dz-meta">
                     <a href="#" class="filter-icon">
                         <i class="flaticon flaticon-settings-sliders"></i>
@@ -26,3 +44,13 @@
         </div>
     </header>
 <!-- Header -->
+
+
+
+<script>
+    $(document).ready(function() {
+        $("#notification-button").click(function() {
+            $("#notification_panel").slideToggle();
+        });
+    })
+</script>
