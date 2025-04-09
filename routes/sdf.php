@@ -13,10 +13,36 @@ use App\Models\Account_active_request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitemapController;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+ */
 
+// Route::group(['domain' => '{subdomain}.localhost'], function(){
+//     Route::any('/sssss', function($subdomain) {
+//         return 'Subdomain ' . $subdomain;
+//     });
+// });
 
+Route::get('/cek-ip', function (Request $request) {
+    $ip = $request->ip();
+    $geoInfo = @json_decode(file_get_contents("https://ipapi.co/{$ip}/json/"), true);
 
-require __DIR__ . '/auth.php';
+    return response()->json([
+        'ip' => $ip,
+        'geo_info' => $geoInfo,
+    ]);
+});
+
+Route::get('/', function () {
+    return view('dashboard');
+});
 
 
 Route::get('/clear-cache', function () {
@@ -28,11 +54,24 @@ Route::get('/clear-cache', function () {
     return 'Application cache cleared';
 });
 
-Route::get('/', function () {
-    return view('dashboard');
+Route::get('/auth-checker', function () {
+    if (auth::check()) {
+        return true;
+    } else {
+        return false;
+    }
+})->name('auth-checker');
+
+//Passing param
+Route::get('/users/{user_id}', function ($user_id) {
+    return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified', 'check.local.dns'])->name('dashboard');
 
+require __DIR__ . '/auth.php';
 
 Route::get('language/switch/{language}', function (Request $request, $language) {
     $request->session()->put('active_language', $language);
@@ -64,6 +103,74 @@ Route::controller(MainController::class)->middleware('auth', 'user', 'user', 've
     Route::get('/explore', 'timeline')->name('timeline');
     Route::get('/article', 'blogs')->name('blogs');
     Route::get('/profile', 'profile')->name('profile');
+
+
+
+
+
+
+
+
+
+
+    Route::post('/create_post', 'create_post')->name('create_post');
+    Route::get('/edit_post_form/{id}', 'edit_post_form')->name('edit_post_form');
+    Route::post('/edit_post/{id}', 'edit_post')->name('edit_post');
+    Route::get('/load_post_by_scrolling', 'load_post_by_scrolling')->name('load_post_by_scrolling');
+    Route::post('/my_react', 'my_react')->name('my_react');
+    Route::get('/my_comment_react', 'my_comment_react')->name('my_comment_react');
+    Route::get('/post_comment', 'post_comment')->name('post_comment');
+    Route::get('/load_post_comments', 'load_post_comments')->name('load_post_comments');
+    Route::get('/search_friends_for_tagging', 'search_friends_for_tagging')->name('search_friends_for_tagging');
+    Route::get('/save-post/{id}', 'save_post')->name('save_post');
+    Route::get('/unsave-post/{id}', 'unsave_post')->name('unsave_post');
+
+    Route::get('/live/{post_id}', 'live')->name('live');
+    Route::get('/live-ended/{post_id}', 'live_ended')->name('zoom-meeting-leave-url');
+
+    Route::get('/view/single/post/{id?}', 'single_post')->name('single.post');
+
+    Route::get('/preview_post', 'preview_post')->name('preview_post');
+
+    Route::get('/post_comment_count', 'post_comment_count')->name('post_comment_count');
+
+    Route::post('/post/report/save/', 'save_post_report')->name('save.post.report');
+
+    Route::get('/delete/my/post', 'post_delete')->name('post.delete');
+
+    Route::get('comment/delete', 'comment_delete')->name('comment.delete');
+
+    Route::post('share/on/group', 'share_group')->name('share.group.post');
+    Route::post('share/on/my/timeline', 'share_my_timeline')->name('share.my.timeline');
+
+    // share page view
+    Route::get('custom/shared/post/view/{id}', 'custom_shared_post_view')->name('custom.shared.post.view');
+
+    //remove media files
+    Route::get('media/file/delete/{id}', 'delete_media_file')->name('media.file.delete');
+
+    // main addon layout
+    Route::get('addons/manager', 'addons_manager')->name('addons.manager');
+    Route::get('/user/settings', 'user_settings')->name('user.settings');
+    Route::post('/save/user/settings', 'save_user_settings')->name('save.payment.settings');
+
+    // live streaming
+    Route::get('/streaming/live/{id}', 'live_streaming')->name('go.live');
+
+
+
+    // Theme Controller
+    Route::post('/update-theme-color', 'updateThemeColor')->name('update-theme-color');
+
+
+    Route::get('album/details/page_show/{id}', 'details_album')->name('album.details.page_show');
+
+    // Block User from frontend
+    Route::get('/block_user/{id}', 'block_user')->name('block_user');
+    Route::post('/block_user_post/{id}', 'block_user_post')->name('block_user_post');
+    Route::get('/unblock_user/{id}', 'unblock_user')->name('unblock_user');
+
+    Route::get('/ai/image-generator', 'imageGenerator')->name('ai_image.image_generator');
 });
 
 
@@ -144,6 +251,26 @@ Route::controller(Updater::class)->middleware('auth', 'verified', 'activity', 'c
     Route::get('admin/addon/form', 'addon_form')->name('addon.form');
 });
 //End Updater routes
+
+
+
+//Installation routes
+// Route::controller(InstallController::class)->group(function () {
+
+//     Route::get('/', 'index');
+//     Route::get('install/step0', 'step0')->name('step0');
+//     Route::get('install/step1', 'step1')->name('step1');
+//     Route::get('install/step2', 'step2')->name('step2');
+//     Route::any('install/step3', 'step3')->name('step3');
+//     Route::get('install/step4', 'step4')->name('step4');
+//     Route::get('install/step4/{confirm_import}', 'confirmImport')->name('step4.confirm_import');
+//     Route::get('install/install', 'confirmInstall')->name('confirm_install');
+//     Route::post('install/validate', 'validatePurchaseCode')->name('install.validate');
+//     Route::any('install/finalizing_setup', 'finalizingSetup')->name('finalizing_setup');
+//     Route::get('install/success', 'success')->name('success');
+// });
+//Installation routes
+
 
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);

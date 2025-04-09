@@ -24,6 +24,10 @@ use Illuminate\Database\Query\JoinClause;
 use Str;
 use Intervention\Image\Facades\Image;
 
+use App\Models\Blog;
+use App\Models\Blogcategory;
+
+
 use Carbon\Carbon;
 
 //For used ZOOM
@@ -1337,4 +1341,46 @@ class MainController extends Controller
             'add_friends' => $addFriends
         ]);
     }
+
+
+    public function blogs()
+    {
+        $page_data['categories'] = Blogcategory::all();
+        $page_data['blogs'] = Blog::orderBy('id', 'DESC')->limit('10')->get();
+        $page_data['view_path'] = 'frontend.blogs.blogs';
+        return view('frontend.index', $page_data);
+    }
+
+
+    function profile()
+    {
+
+        $posts =  Posts::where(function ($query) {
+            $query->whereJsonContains('posts.tagged_user_ids', [$this->user->id])
+                ->where('posts.privacy', '!=', 'private')
+                ->orWhere('posts.user_id', $this->user->id);
+        })
+            ->where('posts.publisher', 'post')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select('posts.*', 'users.name', 'users.photo', 'users.friends', 'posts.created_at as created_at')
+            ->take(5)->orderBy('posts.post_id', 'DESC')->get();
+
+         // New
+         $friendships = Friendships::where(function ($query) {
+            $query->where('accepter', auth()->user()->id)
+                ->orWhere('requester', auth()->user()->id);
+        })
+            ->where('is_accepted', 1)
+            ->orderBy('friendships.importance', 'desc')->get();
+        $page_data['friendships'] = $friendships;
+      //new
+
+
+        $page_data['posts'] = $posts;
+        $page_data['user'] = $this->user;
+        $page_data['view_path'] = 'frontend.profile.index';
+        return view('frontend.index', $page_data);
+    }
+
+
 }
